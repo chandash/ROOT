@@ -1,0 +1,27 @@
+#!/ap/local/5.8/bin/zsh
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.2.0.1 -toversion MOD_CRAFT_AH_V4.2.0.43 *>~/Yogesh_LOC/craft420_1to43
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.2.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.3.0.0 -toversion MOD_CRAFT_AH_V4.3.0.37 *>~/Yogesh_LOC/craft430_0to37
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.3.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.3.5.1 -toversion MOD_CRAFT_AH_V4.3.5.16 *>~/Yogesh_LOC/craft435_AH_1to16
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.3.5 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_TEMP_V4.3.5.1 -toversion MOD_CRAFT_TEMP_V4.3.5.4 *>~/Yogesh_LOC/craft435_TEMP_1to4
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.3.5_temp completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion WIPRO_TL1_CRAFT_V4.0.0.1 -toversion WIPRO_TL1_CRAFT_V4.0.0.53 *>~/Yogesh_LOC/craft400_1to53
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.0.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion WIPRO_TL1_CRAFT_V4.1.0.1 -toversion WIPRO_TL1_CRAFT_V4.1.0.18 *>~/Yogesh_LOC/craft410_1to18
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.1.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.4.0.1 -toversion MOD_CRAFT_AH_V4.4.0.42 *>~/Yogesh_LOC/craft440_AH_1to42
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.4.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_WP_V4.4.0.1 -toversion MOD_CRAFT_WP_V4.4.0.17 *>~/Yogesh_LOC/craft440_WP_1to17
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.4.0_WP completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_WP_SYSLOG_TEMP_V4.4.0.1 -toversion MOD_CRAFT_WP_SYSLOG_TEMP_V4.4.0.2 *>~/Yogesh_LOC/craft440_TEMP_1to2
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.4.0_temp completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.4.10.0.1 -toversion MOD_CRAFT_AH_V4.4.10.0.25 *>~/Yogesh_LOC/craft4410_1to25
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.4.10 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion WIPRO_GPON_V4.4.13.1 -toversion WIPRO_GPON_CRAFT_V4.4.13.6 *>~/Yogesh_LOC/craft4413_1to6
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.4.13 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.5.0.1 -toversion MOD_CRAFT_AH_V4.5.0.34 *>~/Yogesh_LOC/craft450_1to34
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.5.0 completed!!!' jeevanandhan.murugesan@wipro.com"
+~jeevanm/SCLC/sclc -recurse -fromversion MOD_CRAFT_AH_V4.5.5.0.1 -toversion MOD_CRAFT_AH_V4.5.5.0.33 *>~/Yogesh_LOC/craft455_1to33
+/bin/remsh fttu "echo 'Done.' | mailx -s 'LOC 4.5.5 completed!!!' jeevanandhan.murugesan@wipro.com"

@@ -1,0 +1,21 @@
+<html>
+<STYLE>
+<!--
+A:active { color:#0000FF; text-decoration; }
+A:hover { color:#FF0000; text-decoration: none; }
+//-->
+</STYLE> 
+<BODY LINK="#0000BB" VLINK="#0000BB" BGCOLOR=WHITE BACKGROUND="baloon.gif" >
+<b><i><font size=5 color="blue" face=Sylfaen> Index </font></b></i>
+<br>
+<br>
+<font face=Sylfaen size=3 color="#FF0000"><b><a href="ccase.html" target="right">Clear Case </a></br>
+<a href="ddts.html" TARGET="right">DDTS</a><br>
+<a href="vpn.html" target="right">VPN IP-Addresses </a></br>
+<a href="mysql.html" target="right">MySQL in Solaris </a></br>
+<a href="profile.html" target="right">Profile issues </a></br>
+<a href="cron.html" target="right">Cron Syntax </a></br>
+<a href="oracle.html" target="right">Oracle steps </a></br>
+<a href="patch.html" target="right">Patch Installation Steps </a></br>
+</body>
+</html>

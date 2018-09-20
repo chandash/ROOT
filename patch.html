@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://snap.nlc.dcccd.edu/reference/sysadmin/julian/ch15/308-312.html -->
+<HTML><HEAD><TITLE>Solaris Advanced System Administrator's Guide, Second Edition:Installing and Managing System Software Patches</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+<!--ISBN=1578700396//--><!--TITLE=Solaris Advanced System Administrator's Guide, Second Edition//--><!--AUTHOR=Janice Winsor//--><!--PUBLISHER=Macmillan Computer Publishing//--><!--IMPRINT=Macmillan Technical Publishing//--><!--CHAPTER=15//--><!--PAGES=308-312//--><!--UNASSIGNED1//--><!--UNASSIGNED2//-->
+<META content="MSHTML 6.00.2900.2802" name=GENERATOR></HEAD>
+<BODY bgcolor=F0F5FF>
+<P><BR></P>
+<H3><A name=Heading6></A><FONT color=#000077>Patch Numbering</FONT></H3>
+<P>Patches are identified by unique alphanumeric strings with the patch base 
+code first, a hyphen, and a number that represents the patch revision number. 
+For example, patch 101977-02 is a Solaris 2.4 patch to correct the 
+<TT>lockd</TT> daemon. 101988 is the number for the <TT>lock</TT> daemon patch. 
+“-02” indicates that this is the second release of the patch.</P>
+<H3><A name=Heading7></A><FONT color=#000077>Installing a Patch</FONT></H3>
+<P>When you install a patch, the <TT>patchadd</TT> command copies files from the 
+patch directory to a local system disk. The <TT>patchadd</TT> command does the 
+following:</P>
+<DL>
+  <DD><B>•</B>&nbsp;&nbsp;Determines the Solaris version number of the managing 
+  host and the target host. 
+  <DD><B>•</B>&nbsp;&nbsp;Updates the <TT>pkginfo</TT> file of the patch package 
+  with information about patches that are rendered obsolete by the patch being 
+  installed, other patches required by this patch, and patches that are 
+  incompatible with this patch. </DD></DL>
+<P>During patch installation, the <TT>patchadd</TT> command keeps a log of the 
+patch installation in 
+<TT>/var/sadm/patch/</TT><TT><I>patch-number</I></TT><TT>/log</TT> for the 
+Solaris 2.4 and earlier operating environments. The Solaris 2.5 and 2.6 releases 
+also store log files in this location, but only in the event of installation 
+errors.</P>
+<P>The <TT>patchadd</TT> command does not install a patch under the following 
+conditions:</P>
+<DL>
+  <DD><B>•</B>&nbsp;&nbsp;The package is not fully installed on the host. 
+  <DD><B>•</B>&nbsp;&nbsp;The patch architecture differs from the system 
+  architecture. 
+  <DD><B>•</B>&nbsp;&nbsp;The patch version does not match the installed package 
+  version. 
+  <DD><B>•</B>&nbsp;&nbsp;A patch is already installed with the same base code 
+  and a higher version number. 
+  <DD><B>•</B>&nbsp;&nbsp;The patch is incompatible with another, already 
+  installed patch. (This information is stored in the <TT>pkginfo</TT> file for 
+  each patch.) 
+  <DD><B>•</B>&nbsp;&nbsp;The patch being installed requires another patch that 
+  is not installed. </DD></DL>
+<P>The following example installs a patch to a standalone system: </P><!-- CODE SNIP //--><PRE><B># patchadd /var/spool/patch/104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs a patch to a client system, <TT>client1</TT>, 
+from the server's console:</P><!-- CODE SNIP //--><PRE><B># patchadd -R /export/root/client1 /var/spool/patch/104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs a patch to a service from the server's 
+console: </P><!-- CODE SNIP //--><PRE><B># patchadd -S Solaris_2.3 /var/spool/patch/104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs multiple patches in a single <TT>patchadd</TT> 
+invocation:</P><!-- CODE SNIP //--><PRE><B># patchadd -M /var/spool/patch 104945-02 104946-02 102345-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs multiple patches, specifying a file that 
+contains the list of patches to install: </P><!-- CODE SNIP //--><PRE><B># patchadd -M /var/spool/patch patchlist</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs multiple patches to a client and saves the 
+backout data to a directory other than the default: </P><!-- CODE SNIP //--><PRE><B># patchadd -M /var/spool/patch -R /export/root/client1
+ -B/export/backoutrepository 104945-02 104946-02 102345-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs a patch to a Solaris 2.6 or later Net Install 
+Image: </P><!-- CODE SNIP //--><PRE><B># patchadd -C /export/Solaris_2.6/Tools/Boot /var/spool/patch/104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example installs a patch to a Solaris 2.6 or later Net Install 
+Image, but instructs the <TT>patchadd</TT> command not to save copies of files 
+that are updated or replaced:</P><!-- CODE SNIP //--><PRE><B># patchadd -d /export/Solaris_2.6/Tools/Boot /var/spool/patch/104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<BLOCKQUOTE>
+  <P><FONT size=-1>
+  <HR>
+  <B>CAUTION!</B> Never use the <I>-d</I> option because it makes it difficult 
+  to remove or back out patches that become obsolete.
+  <HR>
+  </FONT> </BLOCKQUOTE>
+<H3><A name=Heading8></A><FONT color=#000077>Removing Patches</FONT></H3>
+<P>When you remove, or back out, a patch, the <TT>patchrm</TT> command restores 
+all files modified by that patch, unless any of the following are true:</P>
+<DL>
+  <DD><B>•</B>&nbsp;&nbsp;The patch was installed with <TT>patchadd</TT> 
+  <TT>-d</TT>, which instructs <TT>patchadd</TT> not to save copies of files 
+  that are updated or replaced. 
+  <DD><B>•</B>&nbsp;&nbsp;The patch has been obsoleted by a later patch. 
+  <DD><B>•</B>&nbsp;&nbsp;The patch is required by another patch. </DD></DL>
+<P>The <TT>patchrm</TT> command calls <TT>pkgadd</TT> to restore packages that 
+were saved from the initial patch installation.</P>
+<P>During the patch installation, <TT>patchrm</TT> keeps a log of the patch 
+installation in <TT>/tmp/backoutlog.</TT><TT><I>pid</I></TT>. This log is 
+removed if the patch backs out successfully.</P>
+<P>The following example removes a patch from a standalone system:</P><!-- CODE SNIP //--><PRE><B># patchrm 104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example removes a patch from a client's system from the 
+server's console: </P><!-- CODE SNIP //--><PRE><B># patchrm -R /export/root/client1 104945-2</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example removes a patch from a server's service area: </P><!-- CODE SNIP //--><PRE><B># patchrm -S Solaris_2.3 104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P>The following example removes a patch from a Net Install Image: </P><!-- CODE SNIP //--><PRE><B># patchrm -C /export/Solaris_2.6/Tools/Boot 104945-02</B>
+</PRE><!-- END CODE SNIP //-->
+<P><BR></P>
+<pre>Here is the complete set of error codes.
+
+Exit code Meaning 
+0 No error 
+1 Usage error 
+2 Attempt to apply a patch that's already been applied 
+3 Effective UID is not root 
+4 Attempt to save original files failed 
+5 pkgadd failed 
+6 Patch is obsoleted 
+7 Invalid package directory 
+8 Attempting to patch a package that is not installed 
+9 Cannot access /usr/sbin/pkgadd (client problem) 
+10 Package validation errors 
+11 Error adding patch to root template 
+12 Patch script terminated due to signal 
+13 Symbolic link included in patch 
+14 NOT USED 
+15 The prepatch script had a return code other than 0. 
+16 The postpatch script had a return code other than 0. 
+17 Mismatch of the -d option between a previous patch install and the current one. 
+18 Not enough space in the file systems that are targets of the patch. 
+19 $SOFTINFO/INST_RELEASE file not found 
+20 A direct instance patch was required but not found 
+21 The required patches have not been installed on the manager 
+22 A progressive instance patch was required but not found 
+23 A restricted patch is already applied to the package 
+24 An incompatible patch is applied 
+25 A required patch is not applied 
+26 The user specified backout data can't be found 
+27 The relative directory supplied can't be found 
+28 A pkginfo file is corrupt or missing 
+29 Bad patch ID format 
+30 Dryrun failure(s) 
+31 Path given for -C option is invalid 
+32 Must be running Solaris 2.6 or greater 
+33 Bad formatted patch file or patch file not found 
+34 The appropriate kernel jumbo patch needs to be installed 
+
+What we see from this is that the error codes we saw (2 and 8) mean that either a patch was already installed or that the patch was irrelevant.
+
+Sometimes you will see more serious errors. The most common of the serious errors is code 5 which means that the internal run of pkgadd failed. You should check the detailed log file /var/sadm/install_data/Solaris_2.6_Recommended_log for the reasons.
+
+It is not necessary to reboot the system immediately after installation but the system does need to be rebooted before any kernel or libc patches can take effect.
+</pre>
+</TD></TR></TABLE></BODY></HTML>

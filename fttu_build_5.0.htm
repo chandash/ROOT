@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://192.168.220.162/fttu-build/fttu_build_5.0.html -->
+<HTML><HEAD><TITLE>FTTU Build steps - Jeevan</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.3492" name=GENERATOR></HEAD>
+<BODY>
+<P><B><FONT face=Verdana 
+size=6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<U>FTTU 5.0 build procedure</U></FONT></B></P>
+<P><U><B><I><FONT face=Verdana>Morning</FONT></I></B></U><I><U><B><FONT 
+face=Verdana> process:</FONT></B></U></I></P>
+<P><FONT face=Verdana size=2>Create 2 views</FONT></P>
+<P><FONT face=Verdana size=2>1.) One for <B>host</B> build and other for 
+<B>target</B> build. Just execute below scripts to create the same.</FONT></P>
+<P><I><U><B><FONT face=Verdana 
+size=2>Bugzilla:(192.168.220.161)</FONT></B></U></I></P>
+<P><FONT face=Verdana size=2>bash$ <B>perl 
+~/PERL/create_50_view.pl</B></FONT></P>
+<P><FONT face=Verdana size=2>2.) Fetch the latest config spec from <B><FONT 
+color=#0000ff>/vobs/dsl/source12/Raleigh/cspecs</FONT> </B>&nbsp;copy latest 
+release and latest version to your views. After executing above script, 
+automatically official config spec will be copied from the VOB and placed under 
+<B>/home/jeevanm/CSPECS</B> directory with current date.</FONT></P>
+<P><FONT face=Verdana size=2><B>ct setcs r5.0_ntlt.cs_DATE //</B>Set this spec 
+for both the views which are created using the script</FONT></P>
+<P><FONT face=Verdana size=2>3.) Fix the errors which are popping up during 
+<B>ct </B></FONT><B><FONT face=Verdana size=2>setcs &lt;ConfigSpec 
+File&gt;</FONT></B></P>
+<P><FONT face=Verdana size=2><B><FONT color=#0000ff>cd 
+/vobs/esam/build/exnt-b/OS</FONT></B></FONT></P>
+<P><FONT face=Verdana size=2>For host build:</FONT><B><FONT face=Verdana size=2> 
+<FONT color=#0000ff>cmake E=SUN</FONT> </FONT></B><FONT face=Verdana 
+size=2><BR>For target build: </FONT><B><FONT face=Verdana color=#0000ff 
+size=2>cmake</FONT></B></P>
+<P><FONT face=Verdana size=2>In Parallel, wait for developers check-in up to 
+3PM.</FONT></P>
+<P><FONT face=Verdana size=2>Check for craft or mapper team check-in.</FONT></P>
+<P><FONT face=Verdana size=2>If it is <B>craft</B>, add below rules after 
+CHECKEDOUT on both the views.</FONT></P>
+<P><FONT face=Verdana size=2>#############CRAFT#######################<BR><FONT 
+color=#0000ff>time 16-Feb-2009.15:00:00<BR>element /cm4/fsn/app/asam/craft/... 
+.../ahaa/wipro_blr_gpon_fgu50_temp/LATEST<BR>end 
+time</FONT><BR>########################################</FONT></P>
+<P><FONT face=Verdana color=#ff0000 size=2><B>Note:</B> Change the time stamp in 
+the above rule.</FONT></P>
+<P><FONT face=Verdana size=2>If it is <B>mapper</B>, then get the rules from the 
+mapper team and add the rules after CHECKEDOUT on both the views.</FONT></P>
+<P><FONT face=Verdana size=2>If it is both <B>craft and mapper</B> check-ins are 
+done, add both the rules after CHECKEDOUT on both the views.</FONT></P>
+<P><FONT face=Verdana size=2>Now run module/full build.</FONT></P>
+<P><FONT face=Verdana size=2>ie. If it is <B>only craft</B>, then</FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff><B>cmake E=SUN 
+M=craft</B></FONT> //host build view<BR><B><FONT color=#0000ff>cmake M=craft 
+2&gt;~/TargetWarnings/target_warnings_10Apr2008 </FONT></B>//target build 
+view</FONT></P>
+<P><FONT face=Verdana size=2>if it is <B>only mapper</B>, then</FONT></P>
+<P><FONT face=Verdana size=2><B><FONT color=#0000ff>cmake E=SUN 
+M=</FONT></B></FONT><B><FONT face=Arial><SPAN class=250541509-27112007><FONT 
+face=Verdana color=#0000ff size=2><SPAN 
+class=656440405-30012008>GponNt/</SPAN></FONT></SPAN></FONT></B><FONT 
+face=Verdana size=2><B><FONT color=#0000ff>mapper</FONT> </B>//host build 
+view<BR><FONT color=#0000ff><B>cmake M=</B></FONT></FONT><B><FONT 
+face=Arial><SPAN class=250541509-27112007><FONT face=Verdana color=#0000ff 
+size=2><SPAN 
+class=656440405-30012008>GponNt/</SPAN></FONT></SPAN></FONT></B><FONT 
+face=Verdana size=2><FONT color=#0000ff><B>mapper</B></FONT> //target build 
+view</FONT></P>
+<P><FONT face=Verdana size=2>if it <B>both craft and mapper</B>, then</FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff><B>cmake E=SUN</B></FONT>&nbsp; 
+//host build view<BR><FONT color=#0000ff><B>cmake&nbsp; 
+2&gt;~/TargetWarnings/target_warnings_10Apr2008 </B></FONT>//target build 
+view</FONT></P>
+<P><FONT face=Verdana size=2><FONT 
+color=#ff0000><I><U><B>Note:</B></U></I>&nbsp; whenever we are building for 
+craft we have to check warnings.<BR></FONT><BR></FONT><U><I><B><FONT 
+face=Verdana size=5>Generate TL1 summary after build completes. (Only for CRAFT 
+build)</FONT></B></I></U></P>
+<P><FONT face=Verdana size=2><B>How to prepare a TL1 Summary ?</B></FONT></P>
+<P><FONT face=Verdana size=2><I><U><B><FONT 
+color=#ff0000>Note:</FONT></B></U></I><FONT color=#ff0000> No TL1 summary for 
+MAPPER changes.</FONT><B><BR></B><BR>• Add the following rules to the config 
+spec after CHECKEDOUT rule on <B>host view. //Because in most occasions, Host 
+build will complete first when compare to target 
+build.</B><BR><BR>######################## Select ANS tools 
+#############<BR></FONT><font face="Verdana" size="2" color="#0000FF">element 
+-directory /cm4/tools/ANS/... /main/LATEST -mkbranch fttu2<br>
+element /cm4/tools/ANS/... .../main/LATEST<br>
+element /cm4/tools/ANS/... /main/LATEST -mkbranch fttu2</font><FONT face=Verdana size=2><BR>################END##############################<BR><FONT 
+color=#0000ff>•cd /cm4/tools/ANS/scripts <BR>•tl1report -exnt-b -cmdauto + 
+&gt;~/TL1Report_5.0/fgu50tl1report_16Feb2009</FONT> //wait for 5 mins for 
+completion<BR><BR><B>Where to Checkin?</B><BR><BR><FONT color=#0000ff>cd 
+/cm4/fsn/app/asam/craft/information<BR>ls<BR>ct co -unres 
+tl1_summary_exnt-b</FONT></FONT><FONT face=Verdana color=#0000ff size=2><BR>cp 
+</FONT><FONT face=Verdana color=#0000ff 
+size=2>~/TL1Report/fgu50tl1report_16Feb2009 </FONT><FONT face=Verdana 
+color=#0000ff size=2>tl1_summary_ehnt-a</FONT><FONT face=Verdana size=2><FONT 
+color=#0000ff><BR>ct lsvtree –g 
+tl1_summary_exnt-b<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT>do <B>ct 
+diff</B> with previous version. if there is any differences <B>inform the 
+developer and do check-in once he confirmed</B>.</FONT></P>
+<P><FONT face=Verdana size=2>Call craft leads (Vani) and inform the difference. 
+Else <B>undo check-out</B> and <B>remove ANS rules</B> immediately. (If there 
+are differences, proceed further without checking-in the <FONT 
+color=#0000ff>tl1_summary_exnt-b</FONT> file.</FONT></P>
+<P><FONT face=Verdana 
+size=2>========================================================================</FONT></P>
+<P><FONT face=Verdana size=2>After target build completes, Bring up the target 
+by flashing sandisk with latest image.</FONT></P>
+<P><B><FONT face=Verdana size=2>/fttu/writeCF2 
+/fttu/olt/sanitytestimage/gpon_R_4.5.5.*.img</FONT></B></P>
+<P><U><B><FONT face=Verdana size=5>Bringing up the Target:</FONT></B></U></P>
+<P><FONT face=Verdana size=2><B>telnet 10.200.231.20</B> </FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff>TS&gt;</FONT><B>su</B><BR><FONT 
+color=#0000ff>Password:</FONT><B>xlnet</B></FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff>SU&gt;</FONT><B>po 2 
+resetport</B><BR><FONT color=#0000ff>SU&gt;</FONT><B>po 7 
+resetport</B></FONT></P>
+<P><FONT face=Verdana size=2>=============Craft Terminal============</FONT></P>
+<P><FONT face=Verdana size=2><B>telnet 10.200.231.20 4002</B><BR><FONT 
+color=#0000ff><BR>Enter Username :</FONT> <B>SUPERUSER</B><BR><FONT 
+color=#0000ff>Enter Password : </FONT><B>ANS#150</B><BR></FONT><FONT 
+face=Verdana color=#0000ff size=2><BR></FONT><FONT face=Verdana color=#000080 
+size=2>rtrv-ipport::acuenet;<BR>dlt-IPPORT::ACUENET::;<BR></FONT><FONT 
+face=Verdana size=2><FONT 
+color=#000080>ent-ipport::acuenet:::manual:IPADDR=10.200.231.166,NETMASK=255.255.255.0;<BR>set-ne-all::COM::::<SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">CLRMEMALM</SPAN>=,SHUTPREP=,DEFROUTER=10.200.231.1,TZOFFSET=; 
+</FONT><B><BR></B></FONT><FONT face=Verdana color=#008000 
+size=2>-------------------------------------------------------------------------------------------------------------</FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#ff0000><B>Note:</B> Check 
+10.200.231.166 is reachable or not</FONT><BR><BR>==============T and D window 
+(Trace and Debug Window)======================</FONT></P>
+<P><FONT face=Verdana size=2><B>octopus STDIO 10.200.231.166:udp:23</B><BR><FONT 
+color=#0000ff>Login: </FONT><B>shell</B><BR><FONT color=#0000ff>Password: 
+</FONT><B>nt</B></FONT></P>
+<P><FONT face=Verdana size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR><I>=================T and D window (Trace and Debug Window) This connection 
+is possible only if GICI box connection is available============</I></FONT></P>
+<P><FONT face=Verdana size=2><I>$ <B>telnet 10.200.231.20 4007</B><BR><FONT 
+color=#0000ff>Trying 10.200.231.20...<BR>Connected to 10.200.231.20.<BR>Escape 
+character is '^]'.<BR><BR>Invalid login.<BR><BR>Login:</FONT> 
+<B>shell</B><BR>&gt;<B>inic showStates</B><BR><FONT color=#0000ff>phaseBoot = 
+Completed<BR>phaseOSWStartUp = Completed<BR>phaseKernelInit = 
+Completed<BR>phaseHwWrapperAndPlatformInit = Completed<BR>phaseEqptCoreInit = 
+Completed<BR>phaseRefDatabaseAndActStdbySel = Completed<BR>phaseDiskSync = 
+Completed<BR>phaseApplInit = Completed<BR>phaseExtInit = 
+Completed<BR>phaseExtAudit = Completed<BR>phaseLsmInit = 
+Completed<BR>phaseLsmAudit = Completed<BR>phaseEnableAsamMgnt = 
+Completed</FONT><BR>&gt;<B>cd /Sw </B><BR>&gt;<B>dir</B><BR><FONT 
+color=#0000ff>Inode dev uid gid link size mode<BR>22 2 0 0 3 416 40755 [.]<BR>1 
+2 0 0 11 272 40777 [..]<BR>23 2 0 0 1 6575443 100777 M18PAA45.024<BR>24 2 0 0 1 
+27 100777 M3C4AA44.000<BR>25 2 0 0 1 2405450 100777 M3C5AA45.042<BR>26 2 0 0 1 
+79850 100777 MK4EAA43.201<BR>27 2 0 0 1 6808016 100777 MK4FAA45.042<BR>28 2 0 0 
+1 701620 100777 MK4GAA45.042<BR>29 2 0 0 1 3488238 100777 MK4HAA45.040<BR>30 2 0 
+0 1 3510883 100777 MK4HAB45.040<BR>31 2 0 0 1 5096559 100777 MK4JAA45.001<BR>32 
+2 0 0 1 304381 100777 MK4UAA44.000<BR>33 2 0 0 1 173056 100777 
+MK4VAA45.042<BR>34 2 0 0 1 1557489 100777 ML21AA40.009<BR>35 2 0 0 1 20260 
+100777 ML2YAA44.001<BR>36 2 0 0 1 2793 100777 ML3NAA45.042<BR>37 2 0 0 1 69 
+100777 ML3PAA45.042<BR>38 2 0 0 1 117 100777 ML3QAA45.042<BR>39 2 0 0 1 23 
+100777 ML3RAA45.042<BR>40 2 0 0 1 23 100777 ML3SAA45.042<BR>41 2 0 0 1 4520991 
+100777 MUVFAA45.028<BR>42 2 0 0 1 6178621 100777 MXCYAA45.020<BR>43 2 0 0 1 
+10240 100777 NA34AA45.002<BR>44 2 0 0 1 48 40755 [OSWP1]<BR>46 2 0 0 1 32 40755 
+[OSWP2]<BR>BLOCK: 13290 allocated, 52043 free, 0 recoverable, 65333 
+total<BR>INODE: 77 allocated, 21767 free, 0 recoverable, 21844 
+total</FONT><BR>&gt;</I><BR><BR>=================Uploading TARGET build package 
+(*.lz7) =================================<BR></FONT><FONT face=Verdana 
+color=#0000ff size=2><BR>[blr_gpon_r4.5_target_291207]fttu40:</FONT><FONT 
+face=Verdana size=2><B>/vobs/esam/build/ehnt-a/OS</B></FONT><FONT face=Verdana 
+color=#0000ff size=2><BR>$ </FONT><FONT face=Verdana size=2><B>tftp 
+10.200.231.166</B></FONT><FONT face=Verdana color=#0000ff size=2><BR>tftp&gt; 
+</FONT><FONT face=Verdana size=2><B>bin</B></FONT><FONT face=Verdana 
+color=#0000ff size=2><BR>tftp&gt;<B> </B></FONT><B><FONT face=Verdana size=2>put 
+MK4FAA45.lz7 /Sw/MK4FAA45.042</FONT></B><FONT face=Verdana color=#0000ff 
+size=2><BR>Sent 6807207 bytes in 11.9 seconds<BR>tftp&gt; </FONT><FONT 
+face=Verdana size=2><B>q</B></FONT><FONT face=Verdana color=#0000ff 
+size=2><BR>[blr_gpon_r4.5_target_291207]fttu40:/vobs/esam/build/ehnt-a/OS<BR>$</FONT></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff>&gt;</FONT><B>err wreset</B> 
+<FONT color=#0000ff>----- after above</FONT> <B>tftp 10.200.231.166</B> (<FONT 
+color=#0000ff>from the target view</FONT>) <FONT color=#0000ff>//Execute this 
+command in T and D window.</FONT></FONT></P>
+<P><FONT face=Verdana color=#0000ff size=2>Bring up the target again for below 
+sanity script testing.</FONT></P>
+<P><FONT face=Verdana 
+size=2>========================================================================================<BR></FONT><FONT 
+face=Verdana size=5><I><U><B>Running sanity script</B></U></I></FONT></P>
+<P><FONT face=Verdana color=#0000ff size=2>$</FONT><FONT face=Verdana size=2> 
+<B>telnet 10.200.231.201</B></FONT><FONT face=Verdana color=#0000ff 
+size=2><BR>Trying 10.200.231.201...<BR>Connected to 10.200.231.201.<BR>Escape 
+character is '^]'.<BR><BR>SunOS 5.8<BR><BR>login: </FONT><FONT face=Verdana 
+size=2><B>root</B></FONT><FONT face=Verdana color=#0000ff size=2><BR>Password: 
+</FONT><FONT face=Verdana size=2><B>root123</B></FONT><FONT face=Verdana 
+color=#0000ff size=2><BR>Last login: Sat Dec 15 04:10:48 from fttu<BR>Sun 
+Microsystems Inc. SunOS 5.8 Generic Patch October 2001<BR>You have new 
+mail.<BR>#</FONT><FONT face=Verdana size=2><B>ksh</B></FONT><FONT face=Verdana 
+color=#0000ff size=2><BR># </FONT><FONT face=Verdana 
+size=2><B>./.profile</B></FONT><FONT face=Verdana color=#0000ff 
+size=2><BR>fttu1:/<BR># </FONT><FONT face=Verdana size=2><B>cd /tl1</B> 
+</FONT><FONT face=Verdana color=#0000ff size=2><BR>fttu1:/tl1<BR># </FONT><FONT 
+face=Verdana size=2><B>export DISPLAY=192.168.220.161:1.0</B></FONT><FONT 
+face=Verdana color=#0000ff size=2><BR>fttu1:/tl1<BR># </FONT><FONT face=Verdana 
+size=2><B>./tl1 </B></FONT><FONT face=Verdana color=#0000ff 
+size=2><BR>fttu1:/tl1<BR>#</FONT></P>
+<P><IMG height=620 src="fttu_build_5.0_files/lab_sanity_script.jpg" width=801 
+border=0></P>
+<P><FONT face=Verdana size=2><FONT color=#0000ff>Select </FONT><B>File</B> 
+</FONT><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Wingdings">è</SPAN><SPAN 
+style="FONT-SIZE: 10pt"><FONT face=Verdana> <B>open</B> </FONT></SPAN><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Wingdings">è</SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana"> <B>latestSanity.txt (<FONT 
+color=#0000ff>Ask developer to test</FONT>)<BR></B><FONT color=#0000ff>SaveAs: 
+</FONT><B>label_traces_10Apr2008.txt</B></SPAN></P>
+<P><FONT color=#0000ff size=2><SPAN style="FONT-FAMILY: Verdana">This script 
+will bring down the target. So bring again the target up by assigning the above 
+IP.</SPAN></FONT></P>
+<P><FONT color=#0000ff size=2><SPAN style="FONT-FAMILY: Verdana">Call developers 
+for developer testing at craft terminal.</SPAN></FONT></P>
+<P><FONT face=Verdana color=#0000ff size=2>After developer testing, do the 
+</FONT><FONT face=Verdana size=2><B>check-in</B></FONT><FONT face=Verdana 
+color=#0000ff size=2> of </FONT><FONT face=Verdana size=2><B>tl1summary_exnt-b 
+</B><FONT color=#0000ff>file.</FONT></FONT><FONT face=Verdana color=#0000ff 
+size=2><BR></FONT><B><FONT face=Verdana size=2>ct ci 
+tl1summary_exnt-b</FONT></B></P>
+<P><FONT face=Verdana color=#0000ff size=2>1.) Remove above ANS rules or 
+TL1Summary rules from the config spec of the host view after check-in (of 
+</FONT><FONT face=Verdana size=2><B>tl1summary_exnt-b</B><FONT 
+color=#0000ff>)</FONT></FONT></P>
+<P><FONT face=Verdana color=#0000ff size=2>2.) Check whether your view is 
+pointing to ZERO</FONT><SUP><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Verdana">th</SPAN></SUP><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Verdana"> version</SPAN><FONT 
+face=Verdana color=#0000ff size=2> of an element. Because we should not label on 
+ZERO</FONT><SUP><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Verdana">th</SPAN></SUP><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Verdana"> of any element. To 
+check execute below find command.</SPAN></P>
+<P><FONT face=Verdana size=2><B>ct find /cm4/fsn/app/asam/craft/ -version 
+'version(.../ahaa/LATEST)' -print | grep \/ahaa\/0 </B></FONT></P>
+<P><FONT face=Verdana size=2><B>ct find /cm4/fsn/app/asam/craft/ -version 
+'version(.../</B></FONT><B><FONT face=Verdana 
+size=2>wipro_blr_gpon_fgu50_temp</FONT></B><FONT face=Verdana 
+size=2><B>/LATEST)' -print | grep \/</B></FONT><B><FONT face=Verdana 
+size=2>wipro_blr_gpon_fgu50_temp</FONT></B><FONT face=Verdana 
+size=2><B>\/0<BR><BR></B><FONT color=#0000ff>and check whether there is any 
+checked-out files in your view<BR></FONT><B><BR>ct lsp -co</B></FONT></P>
+<P><FONT face=Verdana color=#0000ff size=2>3.) </FONT><FONT face=Verdana 
+size=2><B>ct mklbtype MOD_CRAFT_TEMP_V5.0.02</B></FONT><FONT face=Verdana 
+color=#0000ff size=2> <BR>4.) <B>cd /cm4/fsn/app/asam/craft/</B><BR>5.) 
+</FONT><FONT face=Verdana size=2><B>ct mklabel -rec MOD_CRAFT_TEMP_V5.0.02 
+.&nbsp;&nbsp;&nbsp; </B><FONT color=#ff0000>//At the end .(dot) is important 
+from </FONT></FONT><FONT face=Verdana color=#ff0000 
+size=2><B>/cm4/fsn/app/asam/craft/ </B>directory.</FONT><FONT face=Verdana 
+size=2><B><BR></B></FONT><FONT face=Verdana color=#0000ff size=2>6.) Replace the 
+label from previous version to LATEST version of </FONT><FONT face=Verdana 
+size=2><B>tl1summary_ehnt-a </B></FONT><FONT face=Verdana color=#0000ff 
+size=2>file., if check-in is done else no need.<BR><BR></FONT><FONT face=Verdana 
+size=2><B>&nbsp;ct mklabel -replace MOD_CRAFT_TEMP_V5.0.02&nbsp; 
+tl1_summary_exnt-b test@@/main/181 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Note:</B>This will move the label 
+for the file tl1_summary_exnt-b from current version to 181.<BR></FONT><FONT 
+face=Verdana color=#0000ff size=2><BR>7.) Modify config spec by 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.) 
+Removing time-stamp rule of CRAFT 
+team<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.) 
+Updating LABELS with newly created label of craft and mapper.<BR><BR>8.) Take a 
+copy of this config spec in your home directory.<BR>9.) Set this config spec in 
+both the views.<BR>10.) Start complete build with new label.<BR>11.) Take loc 
+between new label and the previous label.<BR></FONT><FONT face=Verdana 
+size=2><BR></FONT><FONT face=Verdana size=5><I><U><B>How To take craft LOC 
+???.</B></U></I></FONT></P>
+<P><font face="Verdana" size="2">/home/jeevanm/INV2/fetch.sh <b>&lt;FromVersion&gt; &lt;ToVersion&gt;</b></font></P>
+<P><b><font face="Verdana" size="2">ie</font></b></P>
+<P><font face="Verdana" size="2">/home/jeevanm/INV2/fetch.sh 
+<B>MOD_CRAFT_TEMP_V5.0.02 MOD_CRAFT_TEMP_V5.0.02</B></font></P>
+<P><font face="Verdana" size="2">The output file will be at <b>
+/home/jeevanm/INV2/ </b>with current date.</font></P>
+<P><font face="Verdana" size="2"><i><u><b>Old method:</b></u> (SCLC tool)</i></font></P>
+<P><i><font face="Verdana" size="2">~jeevanm/SCLC/sclc -recurse -fromversion 
+<B>MOD_CRAFT_TEMP_V5.0.02</B></font><FONT face=Verdana color=#0000ff size=2> 
+</FONT><FONT face=Verdana size=2>-toversion <B>MOD_CRAFT_TEMP_V5.0.03</B> 
+*&gt;<B>~/LOC/craft50_loc_16Feb2009.loc</B></FONT></i></P>
+<P><FONT face=Verdana color=#0000ff size=2>11.) Check for completion of the 
+label build. <BR>12.) Compose client mail by attaching copied </FONT><FONT 
+face=Verdana size=2><B>config-spec, craft-loc-output, craft-release-note, 
+craft-check-list</B> <FONT color=#0000ff>and</FONT> </FONT><B><FONT face=Verdana 
+size=2>Mapper-release-note</FONT><FONT face=Verdana color=#0000ff 
+size=2>.<BR></FONT></B><FONT face=Verdana color=#0000ff size=2>13.) Request 
+leads to review the mail and send it once the label build is 
+successful.<BR><BR></FONT><FONT face=Verdana color=#ff0000 size=2><B>Note: 
+</B>Craft release notes will be provided by team members and should reviewed by 
+Vani.</FONT></P>
+<HR>
+
+<HR>
+
+<HR>
+
+<P><I><U><B><FONT face=Verdana size=2>Help Commands:</FONT></B></U></I></P>
+<P><FONT face=Verdana size=2>1.) <B>ct find . -version 
+"lbtype(MOD_CRAFT_TEMP_V5.0.02)" -print<BR></B>2.) <B>ct find . -version 
+"lbtype(MOD_CRAFT_TEMP_V5.0.02) &amp;&amp; brtype(</B></FONT><B><FONT 
+face=Verdana size=2>wipro_blr_gpon_fgu50_temp</FONT></B><FONT face=Verdana 
+size=2><B>)" -print</B><BR>3.) <FONT color=#0000ff>In Target View: 
+</FONT><B>cmake -u Just_link=1</B><FONT color=#0000ff> // Command to run the 
+complete build forcefully.<BR>&nbsp;&nbsp;&nbsp;&nbsp; In Host View:</FONT> 
+<B>cmake&nbsp; E=SUN -u Just_link=1</B></FONT></P>
+<P><FONT face=Verdana size=2>4.) <B>cmake CONT=1</B> <FONT color=#0000ff>//To 
+continue the build from where it got stopped</FONT></FONT></P>
+<P class=MsoNormal><FONT face=Verdana size=2><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">5.)</SPAN></FONT><FONT 
+face=Verdana color=blue size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Verdana"> 
+[blr_gpon_r4.5.5_target_ehnt-a_10Apr2008]bugzilla:/vobs/esam/build/ehnt-a/OS<BR>$ 
+</SPAN></FONT><FONT face=Verdana size=2><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana"><B><SPAN 
+style="FONT-WEIGHT: bold">ct catcr -flat MK4FAA45.lz7 &gt; 
+~jeevanm/TEST/config_record_28Mar2009 </SPAN></B><FONT color=#0000ff>//To take 
+the config record of the build executable.</FONT></SPAN></FONT></P>
+<TABLE id=table1 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle width=295 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/R4%205%205%20Craft%20Label%20Delivery%20.msg"><FONT 
+      color=#800000>Client Mail Template for CRAFT label delivery 
+      </FONT></A></FONT></B></TD>
+    <TD align=middle width=202 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/R4%205%205%20Craft%20and%20Mapper%20Label%20Delivery%20.msg"><FONT 
+      color=#800000>Client Mail Template for CRAFT &amp; Mapper label delivery 
+      </FONT></A></FONT></B></TD>
+    <TD align=middle width=234 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/craft_delivery_280108.cs"><FONT 
+      color=#800000>Craft label Config spec</FONT></A></FONT></B></TD>
+    <TD align=middle width=532 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/craft_mapper_delivery_18012008.cs"><FONT 
+      color=#800000>Craft &amp; Mapper label Config 
+Spec</FONT></A></FONT></B></TD>
+    <TD align=middle width=532 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/craft45_loc_280108"><FONT 
+      color=#800000>Craft LOC Template</FONT></A></FONT></B></TD>
+    <TD align=middle width=532 bgColor=#c0c0c0><B><FONT face=Verdana 
+      color=#0000ff size=2><A 
+      href="http://192.168.220.162/fttu-build/MOD_CRAFT_AH_V4.5.5.0.6%20Checklist.doc"><SPAN 
+      style="TEXT-DECORATION: none"><FONT 
+      color=#800000>&nbsp;</FONT></SPAN><FONT color=#800000>Craft Check-list 
+      Template</FONT></A></FONT></B></TD></TR></TBODY></TABLE></BODY></HTML>

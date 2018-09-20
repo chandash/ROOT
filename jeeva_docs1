@@ -1,0 +1,315 @@
+[root@ccserver2 Jee_Chan]#  ct lstype -help
+Usage: lstype [-local] [-long | -short | -fmt format] [-obsolete]
+            { -kind type-kind [-invob vob-selector]
+            | type_selector ...
+            }
+[root@ccserver2 Jee_Chan]#  ct lstype -kind brtype
+10-Nov.09:33   root        branch type "BRANCH_1"
+10-Nov.09:06   root        branch type "main"
+  "Predefined branch type used to represent the main branch of elements."
+[root@ccserver2 Jee_Chan]#  ct lstype -kind trtype
+[root@ccserver2 Jee_Chan]#
+[root@ccserver2 Jee_Chan]#  ct lstype -kind brtype
+10-Nov.09:33   root        branch type "BRANCH_1"
+10-Nov.09:06   root        branch type "main"
+  "Predefined branch type used to represent the main branch of elements."
+[root@ccserver2 Jee_Chan]#  ct lstype -kind trtype
+[root@ccserver2 Jee_Chan]#  ct lstype -kind eltype
+10-Nov.09:06   root        element type "binary_delta_file"
+  "Predefined element type used to represent a file in binary delta format."
+10-Nov.09:06   root        element type "compressed_file"
+  "Predefined element type used to represent a file in compressed format."
+10-Nov.09:06   root        element type "compressed_text_file"
+  "Predefined element type used to represent a text file in compressed format."
+10-Nov.09:06   root        element type "directory"
+  "Predefined element type used to represent a directory."
+10-Nov.09:06   root        element type "file"
+  "Predefined element type used to represent a file."
+10-Nov.09:06   root        element type "file_system_object"
+  "Predefined element type used to represent a file system object."
+10-Nov.09:06   root        element type "html"
+  "Predefined element type used to represent an HTML file."
+10-Nov.09:06   root        element type "ms_word"
+  "Predefined element type used to represent a Microsoft Word document."
+10-Nov.09:06   root        element type "rose"
+  "Predefined element type used to represent a Rational Rose model."
+10-Nov.09:06   root        element type "rosert"
+  "Predefined element type used to represent a Rational Rose RealTime model."
+10-Nov.09:06   root        element type "text_file"
+  "Predefined element type used to represent a text file."
+10-Nov.09:06   root        element type "xde"
+  "Predefined element type used to represent a Rational XDE file."
+10-Nov.09:06   root        element type "xml"
+  "Predefined element type used to represent an XML file."
+[root@ccserver2 Jee_Chan]#
+==================================================
+[root@ccserver2 Jee_Chan]#  ct lstype -kind hltype
+10-Nov.09:06   root        hyperlink type "AdminVOB"
+  "Predefined hyperlink type used to link a VOB to another VOB with administrative information."
+10-Nov.09:06   root        hyperlink type "BaselineLbtype"
+  "Predefined hyperlink type used to link a baseline to its label type."
+10-Nov.09:06   root        hyperlink type "Change"
+  "Predefined hyperlink type used to link a change set to its contents."
+10-Nov.09:06   root        hyperlink type "ComponentRootDir"
+  "Predefined hyperlink type used to link a component to its root directory element."
+10-Nov.09:06   root        hyperlink type "GlobalDefinition"
+  "Predefined hyperlink type used to link a local type to its global definition."
+10-Nov.09:06   root        hyperlink type "IncrementalLbtype"
+  "Predefined hyperlink type used to indicate a baseline - DO NOT MODIFY."
+10-Nov.09:06   root        hyperlink type "IndependentGuard"
+  "Predefined hyperlink type used to link an independent guardian activity to an object it guards."
+10-Nov.09:06   root        hyperlink type "Merge"
+  "Predefined hyperlink type used to represent merges."
+10-Nov.09:06   root        hyperlink type "RelocationVOB"
+  "Predefined hyperlink type used to link a VOB containing relocated objects to
+the VOB that originally contained them."
+[root@ccserver2 Jee_Chan]#  ct lstype -kind trtype
+[root@ccserver2 Jee_Chan]#
+[root@ccserver2 Jee_Chan]#  ct lstype -kind lbtype
+10-Nov.09:06   root        label type "BACKSTOP"
+  "Predefined label type used to represent a backstop for baselines."
+10-Nov.09:06   root        label type "CHECKEDOUT"
+  "Predefined label type used to represent checked out versions."
+10-Nov.09:30   root        label type "LABEL1"
+10-Nov.09:38   root        label type "LABEL2"
+10-Nov.09:06   root        label type "LATEST"
+  "Predefined label type used to represent the latest version on a branch."
+[root@ccserver2 Jee_Chan]#
+                              
+[root@ccserver2 Jee_Chan]#  ct lstype -kind attype
+10-Nov.09:06   root        attribute type "FeatureLevel"
+  "Predefined attribute type used to manage feature levels."
+10-Nov.09:06   root        attribute type "HlinkFromText"
+  "Predefined attribute type used to represent "from" text of hyperlinks."
+10-Nov.09:06   root        attribute type "HlinkToText"
+  "Predefined attribute type used to represent "to" text of hyperlinks."
+[root@ccserver2 Jee_Chan]#
+
+============================================
+  849   ct lstype -help
+  850   ct lstype -kind brtype
+  852   ct lstype -kind eltype
+  855   ct lstype -kind hltype
+  856   ct lstype -kind trtype
+  857   ct lstype -kind lbtype
+  858   ct lstype -kind attype
+----------------------------------------------
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5_from_branch_1.cpp  F6
+[root@ccserver2 Dir1]# ct lsvtree -g F1.cpp
+[root@ccserver2 Dir1]# Warning:Missing charsets in String to FontSet conversion
+ 
+[root@ccserver2 Dir1]# ct edcs
+Set config spec for view "jee_chan_view"?  [yes]
+[root@ccserver2 Dir1]# ct mkbrtype -global -nc BRANCH_2
+Created branch type "BRANCH_2".
+[root@ccserver2 Dir1]# ct mkbrtype -global -nc BRANCH_3
+Created branch type "BRANCH_3".
+[root@ccserver2 Dir1]# ct mkbrtype -global -nc BRANCH_4
+Created branch type "BRANCH_4".
+[root@ccserver2 Dir1]# ct lsco
+[root@ccserver2 Dir1]# pwd
+/Jee_Chan/Pradeep/Dir1
+[root@ccserver2 Dir1]# ls -l
+total 12
+-r--r--r--    1 root     root           10 Nov 10 11:36 F1.cpp
+-r--r--r--    1 root     root            8 Nov 10 11:36 F2.cpp
+-r--r--r--    1 root     root           18 Nov 10 11:36 F3.cpp
+-r--r--r--    1 root     root           13 Nov 10 11:38 F4.cpp
+-r--r--r--    1 root     root           14 Nov 10 11:41 F5_from_branch_1.cpp
+drwxr-xr-x    2 root     root            0 Nov 10 14:34 F6
+[root@ccserver2 Dir1]# ct co F1.cpp
+Checkout comments for "F1.cpp":
+.
+Created branch "BRANCH_2" from "F1.cpp" version "/main/1".
+Created branch "BRANCH_3" from "F1.cpp" version "/main/BRANCH_2/0".
+Created branch "BRANCH_4" from "F1.cpp" version "/main/BRANCH_2/BRANCH_3/0".
+Checked out "F1.cpp" from version "/main/BRANCH_2/BRANCH_3/BRANCH_4/0".
+[root@ccserver2 Dir1]# ct catcs
+element * CHECKEDOUT
+element * /main/BRANCH_2/BRANCH_3/BRANCH_4/LATEST
+element * /main/BRANCH_2/BRANCH_3/LATEST -mkbranch BRANCH_4
+element * /main/BRANCH_2/LATEST -mkbranch BRANCH_3
+element * /main/LATEST -mkbranch BRANCH_2
+element * /main/LATEST
+[root@ccserver2 Dir1]#
+-----------------------------------------------------------
+Selective Merge:
+ct merge -to F1.cpp -insert -version F1.cpp@@/main/5
+
+Subtractivon Merge:
+ct merge -to F1.cpp -delete -version F1.cpp@@/main/2 F1.cpp@@/main/3
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[root@ccserver2 Dir1]# ct co -nc F3.cpp
+Checked out "F3.cpp" from version "/main/1".
+[root@ccserver2 Dir1]# cat >> F3.cpp
+afkllskf
+asfkddsafdsafjddfjdsfldsafk
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/2".
+[root@ccserver2 Dir1]# ct co -nc F3.cpp
+Checked out "F3.cpp" from version "/main/2".
+[root@ccserver2 Dir1]# cat >> F3.cpp
+Thrid afjk
+,fm
+123213213fdsgfdsgfdsgfdsgfdgjkfdklgjfdsgjfgjljgjlfgjfjgkeHRDfndafhhuidagjkfdhghj^[
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/3".
+[root@ccserver2 Dir1]# ct co -nc F3.cpp
+Checked out "F3.cpp" from version "/main/3".
+[root@ccserver2 Dir1]# cat >> F3.cpp
+This is my 4th version.................
+,,,,,,,,,,,,,,,,,,
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/4".
+[root@ccserver2 Dir1]# ct co -nc F3.cpp
+Checked out "F3.cpp" from version "/main/4".
+[root@ccserver2 Dir1]# cat >> F3.cpp
+Thoiasgfdkfdsglfdsgfds;g;
+fkgfdsgporgfds,.gmxcmva;'glfd
+gfd'gkfdsg;fdsgfdgl;fdsklaKSFDAG
+DFLAG;LFG;';sGFDS;G;;flgfdsg
+d
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/5".
+[root@ccserver2 Dir1]# ct lsvtree
+cleartool: Error: Element pathname required.
+Usage: lsvtree -graphical [-all] [-nmerge] [-nco]
+               [-options pass-through-opts] pname ...
+       lsvtree [-nrecurse] [-short] [-all] [-merge] [-nco] [-obsolete]
+               [-branch branch-pname] pname ...
+[root@ccserver2 Dir1]# ct lsvtree F3.cpp
+F3.cpp@@/main
+F3.cpp@@/main/5
+[root@ccserver2 Dir1]# ct co -nc F3.cpp
+Checked out "F3.cpp" from version "/main/5".
+[root@ccserver2 Dir1]# ct unco -nc F3.cpp
+cleartool: Error: Unrecognized option "-nc"
+Usage: uncheckout | unco [-keep | -rm] [-cact] pname ...
+[root@ccserver2 Dir1]# ct unco  F3.cpp
+Save private copy of "F3.cpp"?  [yes] no
+Checkout cancelled for "F3.cpp".
+[root@ccserver2 Dir1]# ct co -nc -unres F3.cpp
+Checked out "F3.cpp" from version "/main/5".
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -delete F3.cpp@@/main/2 F3.cpp@@/main/3
+********************************
+<<< file 1: F3.cpp@@/main/3
+>>> file 2: /Jee_Chan/Pradeep/Dir1/F3.cpp@@/main/1
+>>> file 3: F3.cpp
+********************************
+---------[deleted 3-7 file 1]----------|------------[after 2 file 2]-----------
+afkllskf                               |-
+asfkddsafdsafjddfjdsfldsafk            |
+Thrid afjk                             |
+,fm                                    |
+123213213fdsgfdsgfdsgfdsgfdgjkfdklgjfd+|
+                                      -|
+*** Automatic: Applying DELETION from file 2 [deleting base lines 3-7]
+============
+============
+-----------[after 7 file 1]------------|---------[inserted 8-14 file 3]--------
+                                      -| This is my 4th version................+                                       | ,,,,,,,,,,,,,,,,,,
+                                       | Thoiasgfdkfdsglfdsgfds;g;
+                                       | fkgfdsgporgfds,.gmxcmva;'glfd
+                                       | gfd'gkfdsg;fdsgfdgl;fdsklaKSFDAG
+                                       | DFLAG;LFG;';sGFDS;G;;flgfdsg
+                                       | d
+                                       |-
+Do you want the INSERTION made in file 3?  [yes]
+Applying INSERT from file 3 [lines 8-14]
+============
+============
+Moved contributor "F3.cpp" to "F3.cpp.contrib".
+Output of merge is in "F3.cpp".
+[root@ccserver2 Dir1]# cat F3.cpp
+asdfaklfdd
+F3.cpp
+This is my 4th version.................
+,,,,,,,,,,,,,,,,,,
+Thoiasgfdkfdsglfdsgfds;g;
+fkgfdsgporgfds,.gmxcmva;'glfd
+gfd'gkfdsg;fdsgfdgl;fdsklaKSFDAG
+DFLAG;LFG;';sGFDS;G;;flgfdsg
+d
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/6".
+[root@ccserver2 Dir1]#
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Merging Non-Clearcase Files:
+
+[root@ccserver2 Dir1]# ct merge -out
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 Dir1]#
+
+Merge Clearcase and Non-Clearcase Files:
+**************************************
+&
+Comparing 2 non-clearcase files:
+*******************************
+&
+Comparing clearcase and non-clearcase files:
+*********************************************
+[root@ccserver2 Dir1]# ct merge -to F3.cpp F3.cpp@@/main/3
+cleartool: Warning: Merge not needed: only one distinct contributor. Other contributors are the same version as the base: "/Jee_Chan/Pradeep/Dir1/F3.cpp@@/main/3".
+Trivial merge: "F3.cpp@@/main/3" is same as base "/Jee_Chan/Pradeep/Dir1/F3.cpp@@/main/3".
+Copying "F3.cpp" to output file.
+Moved contributor "F3.cpp" to "F3.cpp.contrib.1".
+Output of merge is in "F3.cpp".
+Recorded merge of "F3.cpp".
+[root@ccserver2 Dir1]# ct ci -nc F3.cpp
+Checked in "F3.cpp" version "/main/8".
+[root@ccserver2 Dir1]# ct rmver --help
+cleartool: Error: Unrecognized option "--help"
+Usage: rmver [-force] [-xbranch] [-xlabel] [-xattr] [-xhlink] [-data]
+             [-version version-selector | -vrange low-version high-version]
+             [-c comment | -cfile pname | -cq | -cqe | -nc] pname ...
+[root@ccserver2 Dir1]# ct rmver -xhlink F3.cpp@@/main/8
+Removing these versions of "F3.cpp":
+  /main/8 (has: hyperlinks)
+Remove versions?  [no] yes
+Removed versions of "F3.cpp".
+[root@ccserver2 Dir1]# ct co -nc -unres F3.cpp
+Checked out "F3.cpp" from version "/main/7".
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main/3
+cleartool: Error: Element "F3.cpp" version "F3.cpp@@/main/3" not found.
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main/3
+[root@ccserver2 Dir1]# ct merge
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main/4
+cleartool: Error: Element "F3.cpp" version "F3.cpp@@/main/4" not found.
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main
+cleartool: Error: Element "F3.cpp" version "F3.cpp@@/main" not found.
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main/3
+cleartool: Error: Element "F3.cpp" version "F3.cpp@@/main/3" not found.
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version F3.cpp@@/main/7
+cleartool: Error: Element "F3.cpp" version "F3.cpp@@/main/7" not found.
+[root@ccserver2 Dir1]# ct merge -to F3.cpp -insert -version /main/3
+cleartool: Error: "/Jee_Chan/Pradeep/Dir1/F3.cpp@@/main/3" must not be the ancestor of "F3.cpp".
+[root@ccserver2 Dir1]#
+=================================================
+
+ct lstype -kind attype
+ct mkattype interger BugNum
+ct mkattr bugNum 22 test.c@@/main/bug_fix/1
+
+ct lstype -kind hltype
+ct mkhltype implements
+ct mkhlink implements hello.c hello.txt
+ct desc hello.c

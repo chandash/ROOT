@@ -1,0 +1,18 @@
+Lines  Blank  Cmnts   NCSL     AESL     
+=====  =====  =====  =====  ==========  =======================================
+    3      0      1      3        18.0  GponMapper.cc DELETED  (C++)
+    4      1      2      1         6.0  GponMapper.cc INSERTED  (C++)
+    1      0      0      1        15.0  Makefile DELETED  (make)
+    1      0      0      1        15.0  Makefile INSERTED  (make)
+   40     11     10     19       114.0  gponCmSnmp.cc DELETED  (C++)
+  564     75    225    279      1674.0  gponCmSnmp.cc INSERTED  (C++)
+    8      0      0      8        48.0  gponFttbSnmp.cc DELETED  (C++)
+   69     14      6     50       300.0  gponFttbSnmp.cc INSERTED  (C++)
+   80     14     10     56       336.0  gponXdslCm.cc DELETED  (C++)
+  155     12     27    117       702.0  gponXdslCm.cc INSERTED  (C++)
+  131     25     21     86       516.0  ----- C++ DELETED -----  (4 files)
+  792    102    260    447      2682.0  ----- C++ INSERTED -----  (4 files)
+    1      0      0      1        15.0  ----- make DELETED -----  (1 file)
+    1      0      0      1        15.0  ----- make INSERTED -----  (1 file)
+  132     25     21     87       531.0  ***** TOTAL DELETED *****  (5 files)
+  793    102    260    448      2697.0  ***** TOTAL INSERTED *****  (5 files)

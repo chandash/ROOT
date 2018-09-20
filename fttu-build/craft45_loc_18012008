@@ -1,0 +1,14 @@
+Lines  Blank  Cmnts   NCSL     AESL     
+=====  =====  =====  =====  ==========  =======================================
+    1      0      0      1         6.0  new//alarm/Alarm.cc DELETED  (C++)
+    1      0      0      1         6.0  new//alarm/Alarm.cc INSERTED  (C++)
+    2      0      0      2         5.0  ported1603//inc/sa_parm_enum_type.h DELETED  (C)
+    2      0      1      1         2.5  ported1603//inc/sa_parm_enum_type.h INSERTED  (C)
+   44      0      6     44       110.0  ported1603//inc/sa_base_comp.tl1 DELETED  (C)
+   36      0      3     36        90.0  ported1603//inc/sa_base_comp.tl1 INSERTED  (C)
+    1      0      0      1         6.0  ----- C++ DELETED -----  (1 file)
+    1      0      0      1         6.0  ----- C++ INSERTED -----  (1 file)
+   46      0      6     46       115.0  ----- C DELETED -----  (2 files)
+   38      0      4     37        92.5  ----- C INSERTED -----  (2 files)
+   47      0      6     47       121.0  ***** TOTAL DELETED *****  (3 files)
+   39      0      4     38        98.5  ***** TOTAL INSERTED *****  (3 files)

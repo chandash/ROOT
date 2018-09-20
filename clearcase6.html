@@ -1,0 +1,567 @@
+<html><body bgcolor=#e8e8e8>
+<div align="center">
+<pre>
+<i><u><b><font face="Verdana" size="5">Solaris-8.0 Clearcase (version 6) Installation  </font></b></u></i></pre>
+</div>
+<pre>
+<font face="Verdana" color="000000">===================================================================================================
+<b>User Information
+</b>===================================================================================================
+$ <b>pwd</b>
+</font><font face="Verdana" color="#0000FF">/vbadm</font><font face="Verdana" color="000000">
+$ <b>ls -ld .</b>
+</font><font face="Verdana" color="#0000FF">drwxr-xr-x   2 vbadm    vbgrp        512 Jun 20 06:28 .</font><font face="Verdana" color="000000">
+$ <b>id</b>
+</font><font face="Verdana" color="#0000FF">uid=22222(vbadm) gid=22222(vbgrp)</font><font face="Verdana" color="000000">
+$ 
+
+===================================================================================================
+<b>SITE PREPARATION</b>
+===================================================================================================
+bash-2.03# <b>cd /clearcase_dump/2003.06.00/sun5/clearcase/install/</b>
+bash-2.03# <b>./site_prep</b> 
+
+        </font><font face="Verdana" color="#0000FF">Updating release area '/clearcase_dump/2003.06.00/sun5'
+
+        For any of the queries that follow, help is available
+        by entering 'help', 'h' or '?' at the prompt.
+
+
+         The host name of the ClearCase license host must match the host
+         name returned by the '/bin/uname -n' command on the license host and
+         it must be resolvable by the 'gethostbyname(3N)' function.
+
+
+Site default ClearCase license host: [Unknown] </font><font face="Verdana"><b>asamap1</b></font><font face="Verdana" color="#0000FF">
+
+         Recording site default ClearCase license host:asamap1
+
+
+
+NOTE: You are responsible for setting up the ClearCase license file
+      on the host you have chosen as the license server.
+
+      To do this you must obtain a license from Rational Software
+      Corporation.  Fill out the License Registration Form included 
+      with the product, and follow the instructions on the form.  
+      Rational will send back the authorization code.
+
+      On the license server host, create file /var/adm/rational/clearcase/license.db, 
+      and enter the license authorization code as instructed.  If the
+      license server host is already installed with this release of 
+      ClearCase, the /var/adm/rational/clearcase will be created, otherwise
+      you will need to create it first.
+
+
+         The host name of the ClearCase registry host must match the host
+         name returned by the '/bin/uname -n' command on the registry host and
+         it must be resolvable by the 'gethostbyname(3N)' function.
+         
+
+Site default ClearCase registry host: [Unknown] </font><font face="Verdana"><b>lab1</b></font><font face="Verdana" color="#0000FF">
+
+         Recording site default ClearCase registry host:lab1
+
+
+         The name of the ClearCase registry data backup host must match the 
+         host name returned by the '/bin/uname -n' command on that host and
+         it must be resolvable by the 'gethostbyname(3N)' function.
+         
+
+Site default ClearCase registry data backup host: [</font><font face="Verdana"><b>Unknown</b></font><font face="Verdana" color="#0000FF">] 
+
+         Recording site default ClearCase registry data backup host:Unknown
+
+
+Site default ClearCase registry region: [Unknown] </font><font face="Verdana"><b>training</b></font><font face="Verdana" color="#0000FF">
+
+         Recording site default ClearCase registry region:training
+
+
+NOTE: Inspecting release area defaults for allowing setuid and setgid
+      mounts of the viewroot and VOB file systems in the release area 
+      '/clearcase_dump/2003.06.00/sun5'
+
+
+Would you like to change the existing host data for setuid operation [</font><font face="Verdana"><b>no</b></font><font face="Verdana" color="#0000FF">] 
+
+NOTE: Select setting for ClearCase Remote Administration for
+      ClearCase clients installed from this release area. 
+      o Enabling Remote Administration will allow privileged users to 
+        administer systems remotely.
+      o Disabling will not allow any user to administer systems remotely.
+
+Would you like ClearCase Remote Administration to be enabled on clients [</font><font face="Verdana"><b>no</b></font><font face="Verdana" color="#0000FF">] 
+
+
+
+         The port number value is mandatory and it must be a positive numeric value.
+         NOTE: port 0 is an invalid port number.
+
+Port on which Rational Web Platform listens for HTTP requests: [</font><font face="Verdana"><b>80</b></font><font face="Verdana" color="#0000FF">] 
+
+        Recording site default Rational Web Platform port number:80
+
+</font></pre>
+<pre>
+<font face="Verdana" color="#0000FF">    
+         An account name is required for the Rational Web Platform server process
+
+Account name for Rational Web Platform server: [nobody] </font><font face="Verdana"><b>vbadm</b></font><font face="Verdana" color="#0000FF">
+
+        Recording site default Rational Web Platform server account name:vbadm
+
+</font></pre>
+<pre>
+<font face="Verdana" color="#0000FF">
+         A group name for the account is required for the Rational Web Platform server process
+
+Group name for Rational Web Platform server: [nobody] </font><font face="Verdana"><b>vbgrp</b></font><font face="Verdana" color="#0000FF">
+
+        Recording site default Rational Web Platform server group name:vbgrp
+
+    
+
+
+NOTE: Changing release area software ownership to root.other
+      in the release area 
+      '/clearcase_dump/2003.06.00/sun5'
+      This step may take a while to complete.
+
+
+NOTE: Protecting release area software from updates by removing write 
+      privileges in the release area 
+      '/clearcase_dump/2003.06.00/sun5'
+      This step may take a while to complete.
+
+
+NOTE: Changing some programs to be 'setUID root'
+
+    /clearcase_dump/2003.06.00/sun5/clearcase/etc/dumpers/db_dumper.53
+    /clearcase_dump/2003.06.00/sun5/clearcase/etc/dumpers/db_dumper.54
+    /clearcase_dump/2003.06.00/sun5/clearcase/web/bin/ccweb
+
+NOTE: Changing some programs to remove 'setUID root'
+
+</font><font face="Verdana">bash-2.03#</font><font face="Verdana" color="#0000FF"> </font><font face="Verdana" color="000000">
+===================================================================================================
+
+bash-2.03# <b>./install_release</b> 
+
+</font><font face="Verdana" color="#0000FF">Copyright Rational Software Corporation. All Rights Reserved.  This
+software contains proprietary and confidential information of Rational
+and its suppliers.  Use, disclosure or reproduction is prohibited
+without the prior express written consent of Rational.  Subject to
+RESTRICTED RIGHTS for US Government users. 
+
+This software is protected by the following registered
+United States patents: 5574898, 5649200, 5675802. 
+
+Copyright 1992, 2001, Rational Software Corporation, All Rights Reserved.
+Copyright 1989, 1991, The Regents of the University of California.
+Copyright 1984-1991 by Raima Corporation.
+Copyright 1994 Visix Software Inc. (Galaxy Run Time Components only.)
+This release area contains the following Rational product(s):
+
+        ClearCase ClearQuest Integration
+        ClearCase
+        ClearCase ClearDDTS Integration
+        MultiSite
+        ClearCase Web Interface Server
+
+ A transcript of this installation will be initially written 
+ to /tmp/Rational_install.060620.06:40.
+ After a successful installation, the transcript will be located
+ at /var/adm/rational/clearcase/log/Rational_install.060620.06:40.
+
+
+The following installation methods are available:
+
+1. Local Install:            Install occurs on the local host.
+2. Remote Install:           Install occurs on a single remote host.
+3. Multiple Remote Installs: Install occurs on a set of remote hosts.
+4. Local Deinstall:          Deinstall occurs on the local host.
+
+Type "Help" or "h" for expanded descriptions
+
+Type "Quit" or "q" to exit the installation
+
+Please select the installation method by number.
+
+
+Method of installation>> </font><b><font face="Verdana">1</font></b><font face="Verdana" color="#0000FF">
+
+******************************************************************************
+------------------------------------------------------------------------------
+
+
+            Displaying IBM License Agreement
+
+            Press the space bar to display the next page.
+            Press 'x' or 'q' to skip displaying the license agreement.
+
+
+
+------------------------------------------------------------------------------
+******************************************************************************
+
+International Program License Agreement
+
+Part 1 - General Terms
+
+BY DOWNLOADING, INSTALLING, COPYING, ACCESSING, OR USING THE PROGRAM YOU AGREE TO THE TERMS OF THIS AGREEMENT. IF YOU ARE AC
+CEPTING THESE TERMS ON BEHALF OF ANOTHER PERSON OR A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT AND WARRANT THAT YOU HAVE 
+FULL AUTHORITY TO BIND THAT PERSON, COMPANY, OR LEGAL ENTITY TO THESE TERMS. IF YOU DO NOT AGREE TO THESE TERMS, 
+
+- DO NOT DOWNLOAD, INSTALL, COPY, ACCESS, OR USE THE PROGRAM; AND
+
+- PROMPTLY RETURN THE PROGRAM AND PROOF OF ENTITLEMENT TO THE PARTY FROM WHOM YOU ACQUIRED IT TO OBTAIN A REFUND OF THE AMOU
+NT YOU PAID. IF YOU DOWNLOADED THE PROGRAM, CONTACT THE PARTY FROM WHOM YOU ACQUIRED IT.
+
+"IBM" is International Business Machines Corporation or one of its subsidiaries.
+
+"License Information" ("LI") is a document that provides information specific to a Program. The Program's LI is available at
+ http://www.ibm.com/software/sla/ . The LI may also be found in a file in the Program's directory, by the use of a system co
+mmand, or as a booklet which accompanies the Program.
+
+"Program" is the following, including the original and all whole or partial copies: 1) machine-readable instructions and dat
+a, 2) components, 3) audio-visual content (such as images, text, recordings, or pictures), 4) related licensed materials, an
+d 5) license use documents or keys, and documentation.
+
+A "Proof of Entitlement" ("PoE") is evidence of Your authorization to use a Program at a specified level. That level may be 
+measured, for example, by the number of processors or users. The PoE is also evidence of Your eligibility for warranty, futu
+Do you accept the terms of this license agreement? (y/n): </font><font face="Verdana"><b>y</b></font><font face="Verdana" color="#0000FF">
+******************************************************************************
+------------------------------------------------------------------------------
+
+
+            Displaying Intellectual Property Notices and other Licensing Requirements
+
+            Press the space bar to display the next page.
+            Press 'x' or 'q' to skip displaying the license agreement.
+
+
+
+------------------------------------------------------------------------------
+******************************************************************************
+
+Intellectual Property Notices and Other Licensing Requirements
+Version 2003.06.15, March 2005
+This file last updated: 
+Copyright
+Copyright (c) 1987-2004, IBM Corp. All rights reserved.
+Portions Copyright (c) 1992-2001, Summit Software Company. All rights reserved.
+Portions Copyright (c) 2000-2001, Compaq Computer Corporation. All rights reserved.
+Portions Copyright (c) eHelp Corporation. All rights reserved.
+Portions based on Design Patterns: Elements of Reusable Object-Oriented Software, by Erich Gamma, Richard Helm, Ralph Johnso
+n and John Vlissides. Copyright (c) 1995 by Addison-Wesley Publishing Company, Inc. All rights reserved.
+Portions Copyright (c) 1997 OpenLink Software, Inc. All rights reserved.
+Portions of this product were created using LEADTOOLS (c)1991-1999, LEAD Technologies, Inc. ALL RIGHTS RESERVED.
+Portions Copyright (c) 1991-2002 ComponentOne LLC . All Rights Reserved. 
+Portions Copyright (c) Coast Software Inc. All Rights Reserved.
+Portions Copyright (c) 1997-2000 Barry Allyn. All Rights Reserved.
+For Adobe software portions: Unpublished-rights reserved under the copyright laws of the United States. Adobe Systems Incorp
+orated, 345 Park Avenue, San Jose, CA 955110
+Portions Copyright (c) 1991-2002 Compuware Corporation.
+Portions Copyright (c) Microsoft Corporation. All rights reserved. 
+Portions Copyright (c) 1996, 1997-1999 Netscape Communications Corp. All rights reserved.
+Portions Copyright (c) 2002 Sun Microsystems Inc. All rights reserved.
+Portions Copyright (c) 1994-1996  Bennet-Tec Information Systems.
+ 
+Trademarks
+Rational, Rational Software Corporation, the Rational logo, Rational Developer Network, AnalystStudio, ClearCase, ClearCase 
+Do you accept the terms of this license agreement? (y/n): </font><font face="Verdana"><b>y</b></font><font face="Verdana" color="#0000FF">
+         User specified:Install method:local
+
+
+
+The following installation operations or models are available:
+
+1. Standard:  Regular installation, allowing links to this release area.
+2. Full-copy: Regular installation, with no links to this release area.
+3. Mounted:   Host install via mounted or pre-populated /opt/rational/clearcase or CLEARCASEHOME.
+4. Link-only: Host install via a symbolic link to this release-area.
+5. Deinstall: Deinstall software from the local installed host.
+
+Type "Help" or "h" for expanded descriptions
+
+Type "Quit" or "q" to exit
+
+Please select the installation type by number.
+
+
+Model of installation>> </font><font face="Verdana"><b>2</b></font><font face="Verdana" color="#0000FF">
+         User specified:Install model:full
+
+
+Specify directory in which Rational products are to be installed 
+      (ClearCase and ClearQuest|ClearQuest Web will be  
+      installed in the subdirectories of the specified directory. 
+      The subdirectories are named 'clearcase' and 'clearquest', 
+      respectively.)
+[</font><font face="Verdana"><b>/opt/rational</b></font><font face="Verdana" color="#0000FF">]:
+
+         User specified:Install into: /opt/rational
+
+
+Pathname to the network-wide release directory
+    (used as target of symbolic links)
+ [</font><font face="Verdana"><b>/clearcase_dump/2003.06.00/sun5</b></font><font face="Verdana" color="#0000FF">]:
+
+         User specified:Release area pathname:/clearcase_dump/2003.06.00/sun5
+
+  1 : ClearCase Minimal Developer Installation
+  2 : ClearCase Server-only Installation
+  3 : ClearCase MultiSite Full Function Installation
+  4 : ClearCase Web Interface Server
+  5 : ClearQuest Integration with ClearCase
+  6 : ClearDDTS Integration with ClearCase
+  7 : ClearCase Mainframe Connectors
+  8 : ClearCase MultiSite Shipping Server-only Installation
+  9 : ClearCase Full Function Installation
+  a : Select all
+  f : Finish selection
+  x : Toggle expanded descriptions
+  r : Reset selections
+  q : Quit
+
+Selection number(s)>> </font><font face="Verdana"><b>a</b></font><font face="Verdana" color="#0000FF">
+Next selection, '*' denotes a selected component
+
+* 1 : ClearCase Minimal Developer Installation
+* 2 : ClearCase Server-only Installation
+* 3 : ClearCase MultiSite Full Function Installation
+* 4 : ClearCase Web Interface Server
+* 5 : ClearQuest Integration with ClearCase
+* 6 : ClearDDTS Integration with ClearCase
+* 7 : ClearCase Mainframe Connectors
+* 8 : ClearCase MultiSite Shipping Server-only Installation
+* 9 : ClearCase Full Function Installation
+  a : Select all
+  f : Finish selection
+  x : Toggle expanded descriptions
+  r : Reset selections
+  q : Quit
+
+Selection number(s)>> </font><font face="Verdana"><b>f</b></font><font face="Verdana" color="#0000FF">
+         	The following list of selected components is out-of-date relative to the installed software and will be replaced:
+
+         ClearCase Rational Web Platform web server
+         Atria Database Server Basics
+         Atria Required Basics
+         Atria required C++ library support
+         Atria required C++ support
+         Atria required GUI support
+         Atria required X11 support
+         ClearCase Client Audited Build Support
+         ClearCase Client Basics &amp; MVFS
+         ClearCase Client GUI
+         ClearCase Client Integrations with ToolTalk and/or SoftBench
+         ClearCase Documentation, Tutorial and Examples
+         ClearCase Full Function Installation
+         ClearCase Import and Exporters
+         ClearCase Mainframe Connectors
+         ClearCase Minimal Developer Installation
+         ClearCase Minimal Developer Installation
+         ClearCase MultiSite
+         ClearCase MultiSite Full Function Installation
+         ClearCase MultiSite Shipping Server
+         ClearCase MultiSite Shipping Server-only Installation
+         ClearCase Product Family installation mechanism
+         ClearCase Required Basics
+         ClearCase Required Basics (No registry)
+         ClearCase Required Perl and Perl Modules
+         ClearCase Server-only Installation
+         ClearCase Server-only Installation
+         ClearCase VOB Server
+         ClearCase View Server
+         ClearCase Web Interface Server
+         ClearCase and ClearQuest Required Perl and Perl Modules
+         ClearDDTS Integration with ClearCase
+         ClearQuest Integration with ClearCase
+         ClearTrack 1.0.2 to ClearCase 3.0 Integration Stub
+         Java Runtime Environment
+         RWP Required Basics
+         Required Basics for Integrations with ClearCase
+
+
+         ***************************************************************************
+         &gt;&gt; Beginning component specific queries.
+         ***************************************************************************
+         Reading component installation scripts.
+         
+         ClearCase License Server Host[</font><font face="Verdana"><b>asamap1</b></font><font face="Verdana" color="#0000FF">]:
+         User specified:License host is asamap1
+         
+         
+         ClearCase Registry Server Host[</font><font face="Verdana"><b>lab1</b></font><font face="Verdana" color="#0000FF">]:
+         User specified:Registry host is lab1
+
+
+         ClearCase Registry Backup Host(s)[</font><font face="Verdana"><b>Unknown</b></font><font face="Verdana" color="#0000FF">]:
+         User specified:Registry backup host(s): Unknown
+
+
+         ClearCase Registry Region[</font><font face="Verdana"><b>training</b></font><font face="Verdana" color="#0000FF">]:
+         User specified:Registry region: training
+
+
+         Choose whether to install extended VOB support.
+
+         * Extended VOB support files in the VOB database to grow beyond 2 Gigabytes.
+
+         * Extended VOB support is required only for very large VOB databases.
+
+         * Installing extended VOB support requires a reformat of existing VOBs on this machine.
+
+         Install this feature? (yes, no, quit)[no]:</font><font face="Verdana"><b>yes</b></font><font face="Verdana" color="#0000FF">
+         User specified:extended VOB support selected: TRUE
+
+
+
+         Port on which Rational Web Platform listens for HTTP requests [</font><font face="Verdana"><b>80</b></font><font face="Verdana" color="#0000FF">]:
+         User specified port number: 80
+
+
+
+         Enter account name for Rational Web Platform use [</font><font face="Verdana"><b>vbadm</b></font><font face="Verdana" color="#0000FF">]:
+         User specified Rational Web Platform account name: vbadm
+
+
+
+         Enter group name for Rational Web Platform use [</font><b><font face="Verdana">vbgrp</font></b><font face="Verdana" color="#0000FF">]:
+         User specified Rational Web Platform group name: vbgrp
+
+         ***************************************************************************
+         &gt;&gt; Summary of installation selections
+         ***************************************************************************
+         Install into: /opt/rational
+         Install method:local
+         Install model:full
+         License host is asamap1
+         Registry backup host(s): Unknown
+         Registry host is lab1
+         Registry region: training
+         Release area pathname:/clearcase_dump/2003.06.00/sun5
+         extended VOB support selected: TRUE
+
+         The interactive portion of the installation is complete.
+         If you choose to continue, the previously listed components will be installed/updated.
+
+         Upon completion, the installation status will indicate whether
+         there were problems, and provide reminders of post-installation steps.
+
+         This WILL include stopping all currently running ClearCase Product Family software.
+         This WILL NOT require a reboot of the system.
+
+         **** Enter 'quit' or 'no' to abort the installation ****
+         **** Enter 'yes' or press &lt;RETURN&gt; to continue ****
+
+         Continue installation?(yes, no, quit)[</font><font face="Verdana"><b>yes</b></font><font face="Verdana" color="#0000FF">]:
+         ***************************************************************************
+         &gt;&gt; Begin installing files into /opt/rational
+         ***************************************************************************
+         *****************************************************************
+         &gt;&gt; Beginning installation of component files for ratl_perl into /opt/rational/common
+         Updated: /opt/rational/common/bin
+         Updated: /opt/rational/common/lib/perl5/5.6.1/AnyDBM_File.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/AutoLoader.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/AutoSplit.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/B/assemble
+         Updated: /opt/rational/common/lib/perl5/5.6.1/B/cc_harness
+         Updated: /opt/rational/common/lib/perl5/5.6.1/B/disassemble
+         Updated: /opt/rational/common/lib/perl5/5.6.1/B/makeliblinks
+         Updated: /opt/rational/common/lib/perl5/5.6.1/Benchmark.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Apache.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Carp.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Cookie.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Fast.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Pretty.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Push.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Switch.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Manifest.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Miniperl.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Mkbootstrap.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Mksymlists.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Packlist.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/inst
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/testlib.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/typemap
+         Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/xsubpp
+         Updated: /opt/rational/common/lib/perl5/5.6.1/Fatal.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Basename.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/CheckTree.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Compare.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Copy.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/DosGlob.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Find.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Path.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/Epoc.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/Functions.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/Mac.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/OS2.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/Unix.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/VMS.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Spec/Win32.pm
+         Updated: /opt/rational/common/lib/perl5/5.6.1/File/Temp.pm
+                                   .</font></pre>
+<pre>
+<font face="Verdana" color="#0000FF">		         .</font></pre>
+<pre>
+<font face="Verdana" color="#0000FF">		         .
+         Updated:   /var/adm/rational/cdf/CQ_CC_int.cdf
+         Updated:   /var/adm/rational/cdf/CC_WEB.cdf
+         Updated:   /var/adm/rational/cdf/MS_FULL.cdf
+         Updated:   /var/adm/rational/cdf/CC_ONLY_SERVER_X.cdf
+         Updated:   /var/adm/rational/cdf/CC_MIN_STD_X.cdf
+         Updated:   /var/adm/atria
+***************************************************************************
+>> Begin component pre-startup customizations
+***************************************************************************
+***************************************************************************
+>> Starting ClearCase Product Family software
+***************************************************************************
+***************************************************************************
+>> Begin component final customizations
+***************************************************************************
+
+
+FINAL: lab1     Errors:0        Warnings:0
+
+         Log file for this session: /var/adm/rational/clearcase/log/Rational_install.060620.06:40</font><font face="Verdana" color="000000">
+
+bash-2.03#
+===========================================================================================
+
+bash-2.03# <b>cd /usr/atria/etc/</b>
+bash-2.03# <b>ls</b>
+</font><font face="Verdana" color="#0000FF">Gzip                      delayed_export            rfm_sync_export.pl        view_db_schema_version
+abe                       display_url.sh            rgy_backup                view_dumper_10
+abe_starter               dumpers                   rgy_check                 view_dumper_9
+admin_server              export_mvfs               rgy_passwd                view_scrubber
+albd_server               exports.mvfs              rgy_switchover            view_scrubber.sh
+atria_persist             gnubuiltin.mk             rgy_upgrade               view_server
+atria_start               gnubuiltinvars.mk         rsh                       vob_db.dbd
+builtin.mk                hhstart                   sb_nf_server              vob_db_schema_version
+ccfs_server               imsglog                   sb_nf_server_curr         vob_restore
+chown_container           lockmgr                   sb_nf_server_prev         vob_restore.pl
+chown_pool                mkorder                   scrubber                  vob_scrubber
+clearcase                 mntrpc_server             shipping_server           vob_server
+clearcase_persist         ms_report_file_shipped    sunbuiltin.mk             vob_snap_machdep.pl
+clearencap_sb             msadm_server              sunvars.mk                vob_snapshot
+clearencap_sb_curr        mvfs_umountall            syncmgr_scrubber          vob_snapshot.pl
+clearencap_sb_prev        mvfscache                 syncmgr_server            vob_snapshot_setup
+clearencap_tt             mvfslog                   syncmgrdb_schema_version  vob_snapshot_setup.pl
+convert_exports.sh        mvfsstat                  tt_nf_server              vob_synctool
+credmap_server            mvfsstorage               umount_mvfs               vobrpc_server
+db_loader                 mvfstime                  utils
+db_server                 promote_server            view_db.dbd</font><font face="Verdana" color="000000">
+bash-2.03# <b>./rgy_passwd </b>
+</font><font face="Verdana" color="#0000FF">Password: </font><font face="Verdana" color="000000">
+bash-2.03# 
+
+===========================================================================================</font></pre>
+</body>
+</html>

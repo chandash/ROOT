@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0042)http://bama.ua.edu/cgi-bin/man-cgi?etrn+1M -->
+<HTML><HEAD><TITLE>UNIX man pages : etrn (1M)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.2802" name=GENERATOR></HEAD>
+<BODY><PRE>
+System Administration Commands                           etrn(1M)
+
+<H2>NAME</H2>
+     etrn - start mail queue run
+
+<H2>SYNOPSIS</H2>
+     etrn [-v] <CITE>server</CITE>-<CITE>host</CITE> [<CITE>client</CITE>-<CITE>hosts</CITE>]
+
+<H2>DESCRIPTION</H2>
+     SMTP's ETRN command allows an  SMTP  client  and  server  to
+     interact, giving the server an opportunity to start the pro-
+     cessing of its queues for messages to go to  a  given  host.
+     This  is meant to be used in start-up conditions, as well as
+     for mail nodes that have transient connections to their ser-
+     vice providers.
+
+     The etrn utility initiates an SMTP  session  with  the  host
+     <CITE>server</CITE>-<CITE>host</CITE>  and sends one or more ETRN commands as follows:
+     If no <CITE>client</CITE>-<CITE>hosts</CITE> are specified, etrn looks up  every  host
+     name  for  which  <A href="http://bama.ua.edu/cgi-bin/man-cgi?sendmail+1M">sendmail(1M)</A>  accepts  email and, for each
+     name, sends an ETRN command with that name as the  argument.
+     If  any  <CITE>client</CITE>-<CITE>hosts</CITE> are specified, etrn uses each of these
+     as arguments for successive ETRN commands.
+
+<H2>OPTIONS</H2>
+     The following option is supported:
+
+     -v    The normal mode of operation for etrn is to do all  of
+           its  work  silently.   The -v option makes it verbose,
+           which causes etrn to display  its  conversations  with
+           the remote SMTP server.
+
+<H2>ENVIRONMENT VARIABLES</H2>
+     No  environment  variables  are  used.  However,  at  system
+     start-up,  /etc/init.d/sendmail reads /etc/default/sendmail.
+     In  this  file,  if  the   variable   ETRN_HOSTS   is   set,
+     /etc/init.d/sendmail  parses  this variable and invokes etrn
+     appropriately. ETRN_HOSTS should be of the form:
+
+     "s1:c1.1,c1.2        s2:c2.1 s3:c3.1,c3.2,c3.3"
+
+     That is, white-space separated groups of <CITE>server</CITE>:<CITE>client</CITE> where
+     <CITE>client</CITE> can be one or more comma-separated names. The :<CITE>client</CITE>
+     part is optional. <CITE>server</CITE> is the name of the server to  prod;
+     a  mail queue run is requested for each <CITE>client</CITE> name. This is
+     comparable to running:
+
+     /usr/lib/sendmail -qR <CITE>client</CITE>
+
+     on the host <CITE>server</CITE>.
+
+<H2>EXAMPLES</H2>
+     Example 1: Using etrn
+
+SunOS 5.9         Last change: 7 September 2000                 1
+
+System Administration Commands                           etrn(1M)
+
+     Inserting the line:
+
+     ETRN_HOSTS="s1.domain.com:clnt.domain.com s2.domain.com:clnt.domain.com"
+
+     in  /etc/default/sendmail  results  in  /etc/init.d/sendmail
+     invoking  etrn  such  that  ETRN  commands  are sent to both
+     s1.domain.com   and   s2.domain.com,   with   both    having
+     clnt.domain.com as the ETRN argument.
+
+     The line:
+
+     ETRN_HOSTS="server.domain.com:client1.domain.com,client2.domain.com"
+
+     results   in   two   ETRN    commands    being    sent    to
+     server.domain.com, one with the argument client1.domain.com,
+     the other with the argument client2.domain.com.
+
+     The line:
+
+     ETRN_HOSTS="server1.domain.com server2.domain.com"
+
+     results in set  of  a  ETRN  commands  being  sent  to  both
+     server1.domain.com and server2.domain.com; each set contains
+     one ETRN command for each host name for  which  <A href="http://bama.ua.edu/cgi-bin/man-cgi?sendmail+1M">sendmail(1M)</A>
+     accepts email, with that host name as the argument.
+
+<H2>FILES</H2>
+     /etc/mail/sendmail.cf
+           sendmail configuration file
+
+     /etc/default/sendmail
+           Variables used by /etc/init.d/sendmail
+
+<H2>ATTRIBUTES</H2>
+     See <A href="http://bama.ua.edu/cgi-bin/man-cgi?attributes+5">attributes(5)</A> for descriptions of the  following  attri-
+     butes:
+
+     ____________________________________________________________
+    |       ATTRIBUTE TYPE        |       ATTRIBUTE VALUE       |
+    |_____________________________|_____________________________|
+    | Availability                | SUNWsndmu                   |
+    |_____________________________|_____________________________|
+
+<H2>SEE ALSO</H2>
+     <A href="http://bama.ua.edu/cgi-bin/man-cgi?sendmail+1M">sendmail(1M)</A>, RFC 1985.
+
+<H2>CAVEATS</H2>
+     Not all SMTP servers support ETRN.
+
+SunOS 5.9         Last change: 7 September 2000                 2
+
+</PRE>
+<HR>
+
+<H3><A href="http://bama.ua.edu/cgi-bin/man-cgi"><IMG alt="" 
+src="UNIX man pages  etrn (1M)_files/pages.gif"> Solaris Man Pages</A></H3>
+<HR>
+
+<ADDRESS>© 1994 <A href="http://www.ntua.gr/~christia/man-cgi.html">Man-cgi 
+1.15S</A>, Panagiotis Christias &lt;christia@theseas.ntua.gr&gt; <BR>1995 
+Modified for Solaris 2.3, David Adams, &lt;d.j.adams@soton.ac.uk&gt; 
+</ADDRESS></BODY></HTML>

@@ -1,0 +1,1471 @@
+mkdir /Jeeva_views
+mkdir /Jeeva_vobs
+=========
+[root@ccserver2 root]# ct mkvob -tag /Jee_Chan /Jeeva_vobs/Jee_Chan.vbs
+Comments for "/Jeeva_vobs/Jee_Chan.vbs":
+New Vob Created...My First VOB...
+.
+Created versioned object base.
+Host-local path: ccserver2:/Jeeva_vobs/Jee_Chan.vbs
+Global path:     /Jeeva_vobs/Jee_Chan.vbs
+cleartool: Warning: VOB is owned by root.
+VOB ownership:
+  owner root
+  group root
+Additional groups:
+  group bin
+  group daemon
+  group sys
+  group adm
+  group disk
+  group wheel
+ 
+VOBs have special data backup considerations.  For more information on how to
+back up your VOB properly, see the documentation for administering ClearCase.
+If the backups aren't done properly, you are putting your data at risk!
+================
+[root@ccserver2 root]# umask
+0022
+[root@ccserver2 root]# umask 002
+[root@ccserver2 root]# umask
+0002
+[root@ccserver2 root]#
+==================
+[root@ccserver2 root]# ct mkview -tag jee_chan_view /Jeeva_views/jee_chan_view.vws
+Created view.
+Host-local path: ccserver2:/Jeeva_views/jee_chan_view.vws
+Global path:     /Jeeva_views/jee_chan_view.vws
+cleartool: Warning: It is owned by root.
+It has the following rights:
+User : root     : rwx
+Group: root     : r-x
+Other:          : r-x
+[root@ccserver2 root]#
+===========================
+[root@ccserver2 root]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+  /test_vob            /vobstore/test_vob.vbs private
+  /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+[root@ccserver2 root]# ct mount
+[root@ccserver2 root]# mkdir /
+[root@ccserver2 root]# ct mount /Jee_Chan
+The mount-over directory "/Jee_Chan" was not found.
+[root@ccserver2 root]# mkdir /Jee_Chan
+[root@ccserver2 root]# ct mount /Jee_Chan
+[root@ccserver2 root]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+* /test_vob            /vobstore/test_vob.vbs private
+* /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+=======================
+[root@ccserver2 root]# ct lsview
+* view1                /views/view1.vws
+* div_view1            /dviews/div_view1.vws
+* test_view            /views/test_view.vws
+* jee_chan_view        /Jeeva_views/jee_chan_view.vws
+[root@ccserver2 root]# ct setview jee_chan_view
+[root@ccserver2 root]# ct pwv
+Working directory view: ** NONE **
+Set view: jee_chan_view
+[root@ccserver2 root]# cd /Jee_Chan
+[root@ccserver2 Jee_Chan]# ct pwv
+Working directory view: jee_chan_view
+Set view: jee_chan_view
+[root@ccserver2 Jee_Chan]#
+=================
+[root@ccserver2 Jee_Chan]# ls
+lost+found
+[root@ccserver2 Jee_Chan]# pwd
+/Jee_Chan
+[root@ccserver2 Jee_Chan]# ct mkdir My_First_Dir
+cleartool: Error: Can't modify directory "." because it is not checked out.
+[root@ccserver2 Jee_Chan]# ct co .
+Checkout comments for ".":
+.
+Checked out "." from version "/main/0".
+[root@ccserver2 Jee_Chan]# ct mkdir My_First_Dir
+Creation comments for "My_First_Dir":
+.
+Created directory element "My_First_Dir".
+Checked out "My_First_Dir" from version "/main/0".
+[root@ccserver2 Jee_Chan]# ct lsco .
+10-Nov.09:13   root       checkout directory version "My_First_Dir" from /main/0 (reserved)
+[root@ccserver2 Jee_Chan]#
+============================
+[root@ccserver2 Jee_Chan]# ct mkelem -eltype directory -master -nco -nc Chandra
+Created element "Chandra" (type "directory").
+[root@ccserver2 Jee_Chan]# ct lsco
+10-Nov.09:13   root       checkout directory version "." from /main/0 (reserved)  "Added directory element "My_First_Dir".
+   Added directory element "Chandra"."
+10-Nov.09:13   root       checkout directory version "My_First_Dir" from /main/0 (reserved)
+[root@ccserver2 Jee_Chan]# ct mkelem -eltype directory -master -nc Pradeep
+Created element "Pradeep" (type "directory").
+Checked out "Pradeep" from version "/main/0".
+=======================
+[root@ccserver2 Jee_Chan]# ct co Chandra
+Checkout comments for "Chandra":
+.
+Checked out "Chandra" from version "/main/0".
+[root@ccserver2 Jee_Chan]# ct lsco
+10-Nov.09:13   root       checkout directory version "." from /main/0 (reserved)  "Added directory element "My_First_Dir".
+   Added directory element "Chandra".
+   Added directory element "Pradeep"."
+10-Nov.09:18   root       checkout directory version "Chandra" from /main/0 (reserved)
+10-Nov.09:13   root       checkout directory version "My_First_Dir" from /main/0 (reserved)
+10-Nov.09:17   root       checkout directory version "Pradeep" from /main/0 (reserved)
+[root@ccserver2 Jee_Chan]#
+====================
+[root@ccserver2 Jee_Chan]# ct ci Pradeep Chandra My_First_Dir
+Checkin comments for "Pradeep":
+.
+Checked in "Pradeep" version "/main/1".
+Checkin comments for "Chandra":
+.
+Checked in "Chandra" version "/main/1".
+Checkin comments for "My_First_Dir":
+.
+Checked in "My_First_Dir" version "/main/1".
+[root@ccserver2 Jee_Chan]#
+===================
+[root@ccserver2 Jee_Chan]# ls
+Chandra  lost+found  My_First_Dir  Pradeep
+[root@ccserver2 Jee_Chan]# ct ls
+Chandra@@/main/1                                         Rule: /main/LATEST
+lost+found@@/main/0                                      Rule: /main/LATEST
+My_First_Dir@@/main/1                                    Rule: /main/LATEST
+Pradeep@@/main/1                                         Rule: /main/LATEST
+[root@ccserver2 Jee_Chan]# ct catcs
+element * CHECKEDOUT
+element * /main/LATEST
+[root@ccserver2 Jee_Chan]# ct pwv
+Working directory view: jee_chan_view
+Set view: jee_chan_view
+[root@ccserver2 Jee_Chan]#
+=======================
+[root@ccserver2 Jee_Chan]# cd My_First_Dir
+[root@ccserver2 My_First_Dir]# ct lsco .
+[root@ccserver2 My_First_Dir]# ct lsco
+[root@ccserver2 My_First_Dir]# ct co .
+Checkout comments for ".":
+.
+Checked out "." from version "/main/1".
+[root@ccserver2 My_First_Dir]# ct lsco .
+[root@ccserver2 My_First_Dir]# ct lsco
+10-Nov.09:20   root       checkout directory version "." from /main/1 (reserved)[root@ccserver2 My_First_Dir]# ct ls
+[root@ccserver2 My_First_Dir]# cd ..
+[root@ccserver2 Jee_Chan]# ct lsco .
+10-Nov.09:20   root       checkout directory version "My_First_Dir" from /main/1 (reserved)
+[root@ccserver2 Jee_Chan]#
+[root@ccserver2 Jee_Chan]# cd -
+/Jee_Chan/My_First_Dir
+[root@ccserver2 My_First_Dir]# ct lsco
+10-Nov.09:20   root       checkout directory version "." from /main/1 (reserved)[root@ccserver2 My_First_Dir]# ct mkelem -eltype file -master -nc File1.cpp
+Created element "File1.cpp" (type "file").
+Checked out "File1.cpp" from version "/main/0".
+[root@ccserver2 My_First_Dir]#
+============================================
+[root@ccserver2 Jee_Chan]# cd -
+/Jee_Chan/My_First_Dir
+[root@ccserver2 My_First_Dir]# ct lsco
+10-Nov.09:20   root       checkout directory version "." from /main/1 (reserved)
+[root@ccserver2 My_First_Dir]# ct mkelem -eltype file -master -nc File1.cpp
+Created element "File1.cpp" (type "file").
+Checked out "File1.cpp" from version "/main/0".
+[root@ccserver2 My_First_Dir]# vi File1.cpp
+[root@ccserver2 My_First_Dir]# cat File1.cpp
+New File
+asdfdsafdf
+                                                                                
+with default config spec...
+                                                                                
+=================
+[root@ccserver2 My_First_Dir]# ct ci File1.cpp
+Checkin comments for "File1.cpp":
+.
+Checked in "File1.cpp" version "/main/1".
+[root@ccserver2 My_First_Dir]# ct ci .
+Default:
+Added file element "File1.cpp".
+Checkin comments for ".":  ("." to accept default)
+.
+Checked in "." version "/main/2".
+[root@ccserver2 My_First_Dir]#
+========================
+[root@ccserver2 My_First_Dir]# ls
+File1.cpp
+[root@ccserver2 My_First_Dir]# ct lsvtree -g File1.cpp
+[root@ccserver2 My_First_Dir]# ct ls
+File1.cpp@@/main/1                                       Rule: /main/LATEST
+[root@ccserver2 My_First_Dir]#
+===========================
+[root@ccserver2 My_First_Dir]# ls
+File1.cpp
+[root@ccserver2 My_First_Dir]# ct co File1.cpp
+Checkout comments for "File1.cpp":
+.
+Checked out "File1.cpp" from version "/main/1".
+[root@ccserver2 My_First_Dir]# vi File1.cpp
+[root@ccserver2 My_First_Dir]# cat File1.cpp
+New File
+asdfdsafdf
+>>>>>>>>>>with default config spec...
+=================
+With same Default COnfig Spec....
+[root@ccserver2 My_First_Dir]# ct ci .
+cleartool: Error: No branch of element is checked out to view "ccserver2:/Jeeva_views/jee_chan_view.vws".
+cleartool: Error: Unable to find checked out version for ".".
+[root@ccserver2 My_First_Dir]# ct ci File1.cpp
+Checkin comments for "File1.cpp":
+.
+Checked in "File1.cpp" version "/main/2".
+==============================
+ct lsvtree -g File1.cpp
+[root@ccserver2 My_First_Dir]# ct mklbtype --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mklbtype [-replace] [-global [-acquire] | -ordinary] [-pbranch] [-shared]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                label-type-selector ...
+[root@ccserver2 My_First_Dir]#
+[root@ccserver2 My_First_Dir]# ct mklbtype -global -nc LABEL1
+Created label type "LABEL1".
+[root@ccserver2 My_First_Dir]#
+============================================
+[root@ccserver2 My_First_Dir]# ct mklabel --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mklabel [-replace] [-recurse] [-follow] [-version version-selector]
+               [-c comment | -cfile pname | -cq | -cqe | -nc]
+               label-type-selector pname ...
+       mklabel [-replace] [-c comment | -cfile pname | -cq | -cqe | -nc]
+               [-select do-leaf-pattern] [-ci] [-type {f|d}...]
+               [-name tail-pattern] -config do-pname ... label-type-selector
+[root@ccserver2 My_First_Dir]# ct mklabel -nc LABEL1 File1.cpp@@/main/2
+Created label "LABEL1" on "File1.cpp" version "/main/2".
+[root@ccserver2 My_First_Dir]# ct lsvtree -g File1.cpp
+====================================
+[root@ccserver2 My_First_Dir]# ct mkbrtype --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mkbrtype [-replace] [-global [-acquire] | -ordinary] [-pbranch]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                branch-type-selector ...
+[root@ccserver2 My_First_Dir]# ct mkbrtype -global -nc BRANCH_1
+Created branch type "BRANCH_1".
+[root@ccserver2 My_First_Dir]# ct mkbranch --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mkbranch [-c comment | -cfile pname | -cq | -cqe | -nc] [-nwarn] [-nco]
+                [-version version-selector] branch-type-selector pname ...
+[root@ccserver2 My_First_Dir]# ct mkbranch -nc BRANCH_1 File1.cpp@@/main/1
+Created branch "BRANCH_1" from "File1.cpp" version "/main/1".
+cleartool: Warning: Version checked out ("/main/BRANCH_1/0") is different from version selected by view before checkout ("/main/2").
+Checked out "File1.cpp" from version "/main/BRANCH_1/0".
+[root@ccserver2 My_First_Dir]# ct lsvtree -g File1.cpp
+[root@ccserver2 My_First_Dir]# 
+[root@ccserver2 My_First_Dir]# ct ci File1.cpp
+Checkin comments for "File1.cpp":
+.
+cleartool: Warning: Version checked in is not selected by view.
+Checked in "File1.cpp" version "/main/BRANCH_1/1".
+[root@ccserver2 My_First_Dir]#
+======================================
+[root@ccserver2 My_First_Dir]# ct mklbtype -global -nc LABEL2
+Created label type "LABEL2".
+[root@ccserver2 My_First_Dir]# ct mklabel -nc LABEL2 File1.cpp@@/main/BRANCH_1/1
+Created label "LABEL2" on "File1.cpp" version "/main/BRANCH_1/1".
+[root@ccserver2 My_First_Dir]# ct lsvtree -g File1.cpp
+[root@ccserver2 My_First_Dir]# 
+===============================
+>>>>>>>>>>>>>>>>>>>Merging <<<<<<<<<<<<<<<<<<<
+[root@ccserver2 My_First_Dir]# ct merge
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 My_First_Dir]# 
+============================
+[root@ccserver2 My_First_Dir]# ct co File1.cpp
+Checkout comments for "File1.cpp":
+.
+Checked out "File1.cpp" from version "/main/2".
+[root@ccserver2 My_First_Dir]# vi File1.cpp
+[root@ccserver2 My_First_Dir]# ct ci -nc
+[root@ccserver2 My_First_Dir]# cat File1.cpp
+New File
+asdfdsafdf
+>>>>>>>>>>with default config spec...
+=================
+With same Default COnfig Spec....
+==============
+With same Default COnfig Spec....
+==============
+[root@ccserver2 My_First_Dir]# ct ci -nc File1.cpp
+Checked in "File1.cpp" version "/main/3".
+[root@ccserver2 My_First_Dir]# ct co -unreserve File1.cpp@@/main/3
+Checkout comments for "File1.cpp":
+.
+Checked out "File1.cpp" from version "/main/3".
+[root@ccserver2 My_First_Dir]#
+====================================
+*******************************************************************
+[root@ccserver2 My_First_Dir]# ct ci -nc File1.cpp
+Checked in "File1.cpp" version "/main/3".
+[root@ccserver2 My_First_Dir]# ct co -nc File1.cpp@@main/3
+cleartool: Error: Unable to access "File1.cpp@@main/3": No such file or directory.[root@ccserver2 My_First_Dir]# ct co -nc File1.cpp@@/main/3
+Checked out "File1.cpp" from version "/main/3".
+[root@ccserver2 My_First_Dir]# ct unco File1.cpp
+Save private copy of "File1.cpp"?  [yes] no
+Checkout cancelled for "File1.cpp".
+[root@ccserver2 My_First_Dir]# ct co -nc -unreserve File1.cpp@@main/3
+cleartool: Error: Unable to access "File1.cpp@@main/3": No such file or directory.[root@ccserver2 My_First_Dir]# ct co -nc -unreserv File1.cpp@@main/3
+cleartool: Error: Unable to access "File1.cpp@@main/3": No such file or directory.[root@ccserver2 My_First_Dir]# ct co -unreserve File1.cpp@@main/3
+cleartool: Error: Unable to access "File1.cpp@@main/3": No such file or directory.[root@ccserver2 My_First_Dir]# ct co -unreserve File1.cpp@@/main/3
+Checkout comments for "File1.cpp":
+.
+Checked out "File1.cpp" from version "/main/3".
+[root@ccserver2 My_First_Dir]# ct mege
+cleartool: Error: Unrecognized command: "mege"
+[root@ccserver2 My_First_Dir]# ct merge
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp@@/main/3 File1.cpp@@/main/BRANCH_1/1
+Redirecting output of merger to a private file because the specified target "File1.cpp@@/main/3" is not a checked out version.
+cleartool: Error: Unable to create a merge arrow because the result of the merger
+is not a VOB version object.
+cleartool: Error: Unable to merge to target "File1.cpp@@/main/3".
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp@@/main/BRANCH_1/1
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp@@/main/BRANCH_1/1
+cleartool: Error: Pathname required.
+Usage: merge {-out output-pname | -to contrib-and-result-pname}
+             { -graphical [-tiny] |
+               [-tiny | -window] [-serial_format | -diff_format | -columns n]}
+             [-base pname | -insert | -delete] [-ndata | -narrows] [-replace]
+             [-query | -abort | -qall]
+             [-c comment | -cfile pname | -cq | -cqe | -nc]
+             [-options pass-through-options]
+             {-version contrib-version-selector ... | contrib-pname ...}
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp@@/main/3 -qall File1.cpp@@/main/BRANCH_1/1
+Redirecting output of merger to a private file because the specified target "File1.cpp@@/main/3" is not a checked out version.
+cleartool: Error: Unable to create a merge arrow because the result of the merger
+is not a VOB version object.
+cleartool: Error: Unable to merge to target "File1.cpp@@/main/3".
+[root@ccserver2 My_First_Dir]# ct lsco
+10-Nov.09:54   root       checkout version "File1.cpp" from /main/3 (unreserved)
+[root@ccserver2 My_First_Dir]# ct unco File1.cpp
+Save private copy of "File1.cpp"?  [yes] no
+Checkout cancelled for "File1.cpp".
+[root@ccserver2 My_First_Dir]# ct co -nc File1.cpp
+Checked out "File1.cpp" from version "/main/3".
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp@@/main/3 -qall File1.cpp@@/main/BRANCH_1/1
+Redirecting output of merger to a private file because the specified target "File1.cpp@@/main/3" is not a checked out version.
+cleartool: Error: Unable to create a merge arrow because the result of the merger
+is not a VOB version object.
+cleartool: Error: Unable to merge to target "File1.cpp@@/main/3".
+[root@ccserver2 My_First_Dir]# ct merge -to File1.cpp -qall File1.cpp@@/main/BRANCH_1/1
+********************************
+<<< file 1: /Jee_Chan/My_First_Dir/File1.cpp@@/main/1
+>>> file 2: File1.cpp@@/main/BRANCH_1/1
+>>> file 3: File1.cpp
+********************************
+---------[changed 3-5 file 1]----------|---------[changed to 3 file 3]---------
+                                       | >>>>>>>>>>with default config spec...
+with default config spec...            |-
+                                       |
+                                      -|
+Do you want the CHANGE made in file 3?  [yes] no
+Keeping ORIGINAL text from file 1 (BASE) [lines 3-5]
+============
+============
+-----------[after 6 file 1]------------|---------[inserted 5-8 file 3]---------
+                                      -| With same Default COnfig Spec....
+                                       | ==============
+                                       | With same Default COnfig Spec....
+                                       | ==============
+                                       |-
+Do you want the INSERTION made in file 3?  [yes]
+Applying INSERT from file 3 [lines 5-8]
+============
+============
+Moved contributor "File1.cpp" to "File1.cpp.contrib".
+Output of merge is in "File1.cpp".
+Recorded merge of "File1.cpp".
+[root@ccserver2 My_First_Dir]# ct ci -nc File1.cpp
+Checked in "File1.cpp" version "/main/4".
+****************************************************************************
+[root@ccserver2 My_First_Dir]# ct findmerge . -fversion
+cleartool: Error: Version selector required.
+Usage: findmerge -graphical
+       findmerge {pname ... | [pname ...] -all | -avobs}
+                 {-ftag view-tag |-fversion version-selector | -flatest}
+                 [-depth | -nrecurse | -directory] [-follow] [-visible]
+                 <general options>
+       findmerge activity-selector ... -fcsets
+                 [-ftag view-tag |-fversion version-selector | -flatest]
+                 <general options>
+                 [-user login-name] [-group group-name] [-type {f|d|fd}]
+                 [-name 'pattern'] [-element query]
+                 [-nzero] [-nback] [-whynot] [-log log-pname]
+                 [-c checkout-comment | -cfile pname | -cq | -cqe | -nc]
+                 [-unreserved] [-query | -abort | -qall] [-serial]
+                 {-print [-long | -short | -nxname]
+                 | {-merge | -okmerge}
+                 | {-gmerge | -okgmerge}
+                 | -exec command-invocation
+                 | -ok command-invocation
+                 | -co
+                 } ...
+[root@ccserver2 My_First_Dir]#
+================================
+hyperlink "Merge@71@/Jee_Chan"
+  created 10-Nov-06.10:04:36 by root.root@ccserver2
+  owner: root
+  group: root
+  Merge@71@/Jee_Chan  /Jee_Chan/My_First_Dir/File1.cpp@@/main/BRANCH_1/1 -> /Jee_Chan/My_First_Dir/File1.cpp@@/main/4
+===================================
+[root@ccserver2 My_First_Dir]# ct rmbranch -nc -force File1.cpp@@/main/BRANCH_1
+Removed branch "File1.cpp@@/main/BRANCH_1".
+[root@ccserver2 My_First_Dir]# ct rmbranch --help
+cleartool: Error: Unrecognized option "--help"
+Usage: rmbranch [-c comment | -cfile pname | -cq | -cqe | -nc]
+                [-force] pname ...
+[root@ccserver2 My_First_Dir]#
+======================================
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[root@ccserver2 Jee_Chan]# ls
+Chandra  lost+found  My_First_Dir  Pradeep
+[root@ccserver2 Jee_Chan]# ct co -nc Chandra
+Checked out "Chandra" from version "/main/1".
+[root@ccserver2 Jee_Chan]# cd Chandra/
+[root@ccserver2 Chandra]# ls
+[root@ccserver2 Chandra]# ct ls
+[root@ccserver2 Chandra]# ct mkelem -eltype file -nc -master
+File1.c
+Created element "File1.c" (type "file").
+Checked out "File1.c" from version "/main/0".
+[root@ccserver2 Chandra]# cat >> File1.c
+File1.c checked out with default config spec....
+.................................
+.
+[root@ccserver2 Chandra]# cat File1.c
+File1.c checked out with default config spec....
+.................................
+.
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+Checked in "File1.c" version "/main/1".
+[root@ccserver2 Chandra]# ct mkelem -eltype file -nc -master
+File2.c
+Created element "File2.c" (type "file").
+Checked out "File2.c" from version "/main/0".
+[root@ccserver2 Chandra]# cat >> File2.c
+Default config spec check out for file 2..............
+[root@ccserver2 Chandra]# cat File2.c
+Default config spec check out for file 2..............
+[root@ccserver2 Chandra]# ct ci -nc File2.c
+Checked in "File2.c" version "/main/1".
+[root@ccserver2 Chandra]# ls
+File1.c  File2.c
+[root@ccserver2 Chandra]# ct ls
+File1.c@@/main/1                                         Rule: /main/LATEST
+File2.c@@/main/1                                         Rule: /main/LATEST
+[root@ccserver2 Chandra]# ct mkelem -eltype file -nc -master File3.c
+Created element "File3.c" (type "file").
+Checked out "File3.c" from version "/main/0".
+[root@ccserver2 Chandra]# cat >> File3.c
+File3..........Checkedout......
+[root@ccserver2 Chandra]# ct ci -nc File3.c
+Checked in "File3.c" version "/main/1".
+[root@ccserver2 Chandra]# ct ls
+File1.c@@/main/1                                         Rule: /main/LATEST
+File2.c@@/main/1                                         Rule: /main/LATEST
+File3.c@@/main/1                                         Rule: /main/LATEST
+=================================================================
+[root@ccserver2 Chandra]# ct co -nc File1.c
+Checked out "File1.c" from version "/main/1".
+[root@ccserver2 Chandra]# vi File1.c
+[root@ccserver2 Chandra]# cat File1.c
+File1.c checked out with default config spec....
+.................................
+Second checkout with DCS...
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+Checked in "File1.c" version "/main/2".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct co -nc File1.c
+Checked out "File1.c" from version "/main/2".
+[root@ccserver2 Chandra]# vi File1.c
+[root@ccserver2 Chandra]# cat File1.c
+File1.c checked out with default config spec....
+.................................
+Second checkout with DCS...
+................................
+3rd Checkout with DCS ...
+...............................
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+Checked in "File1.c" version "/main/3".
+
+====================================
+[root@ccserver2 Chandra]# ct lsvtree -g File1.c
+[root@ccserver2 Chandra]# ct mkbrtype -global -nc BRANCH_1
+cleartool: Error: Definition of branch type "BRANCH_1" in /Jee_Chan would be eclipsed by definition(s):
+        branch type "BRANCH_1" in /Jee_Chan
+cleartool: Error: Unable to create branch type "BRANCH_1".
+[root@ccserver2 Chandra]# ct mkbranch -nc BRANCH_1 File1.c@@/main/2
+Created branch "BRANCH_1" from "File1.c" version "/main/2".
+cleartool: Warning: Version checked out ("/main/BRANCH_1/0") is different from version selected by view before checkout ("/main/3").
+Checked out "File1.c" from version "/main/BRANCH_1/0".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# vi File1.c
+[root@ccserver2 Chandra]# cat File1.c
+File1.c checked out with default config spec....
+.................................
+Second checkout with DCS...
+................................
+CO with BRANCH_1........
+.....................
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+cleartool: Warning: Version checked in is not selected by view.
+Checked in "File1.c" version "/main/BRANCH_1/1".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct co -nc File1.c
+Checked out "File1.c" from version "/main/3".
+[root@ccserver2 Chandra]# vi File1.c
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+Checked in "File1.c" version "/main/4".
+[root@ccserver2 Chandra]# cat File1.c
+File1.c checked out with default config spec....From Version Main/3
+[root@ccserver2 Chandra]#
+==============================================================
+[root@ccserver2 Chandra]# ct co -nc File1.c
+Checked out "File1.c" from version "/main/4".
+[root@ccserver2 Chandra]# ct unco -nc File1.c
+cleartool: Error: Unrecognized option "-nc"
+Usage: uncheckout | unco [-keep | -rm] [-cact] pname ...
+[root@ccserver2 Chandra]# ct unco  File1.c
+Save private copy of "File1.c"?  [yes] no
+Checkout cancelled for "File1.c".
+[root@ccserver2 Chandra]# ct co -nc -unreserve File1.c
+Checked out "File1.c" from version "/main/4".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct merge -to File1.c -qall File1.c@@/main/BRANCH_1/1
+********************************
+<<< file 1: /Jee_Chan/Chandra/File1.c@@/main/2
+>>> file 2: File1.c@@/main/BRANCH_1/1
+>>> file 3: File1.c
+********************************
+---------[changed 1-3 file 1]----------|---------[changed to 1 file 3]---------
+File1.c checked out with default confi+| File1.c checked out with default confi+
+.................................      |-
+Second checkout with DCS...            |
+                                      -|
+Do you want the CHANGE made in file 3?  [yes]
+Applying CHANGE from file 3 [line 1]
+============
+============
+-----------[after 3 file 1]------------|---------[inserted 4-6 file 2]---------
+                                      -| ................................
+                                       | CO with BRANCH_1........
+                                       | .....................
+                                       |-
+Do you want the INSERTION made in file 2?  [yes] no
+============
+============
+Moved contributor "File1.c" to "File1.c.contrib".
+Output of merge is in "File1.c".
+Recorded merge of "File1.c".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct unco File1.c
+Save private copy of "File1.c"?  [yes] no
+Checkout cancelled for "File1.c".
+[root@ccserver2 Chandra]# ct merge -to File1.c -qall File1.c@@/main/BRANCH_1/1
+Redirecting output of merger to a private file because the specified target "File1.c" is not a checked out version.
+cleartool: Error: Unable to create a merge arrow because the result of the merger is not a VOB version object.
+cleartool: Error: Unable to merge to target "File1.c".
+[root@ccserver2 Chandra]# ct co -nc -unreserve File1.c
+Checked out "File1.c" from version "/main/4".
+[root@ccserver2 Chandra]# ct merge -to File1.c -qall File1.c@@/main/BRANCH_1/1
+********************************
+<<< file 1: /Jee_Chan/Chandra/File1.c@@/main/2
+>>> file 2: File1.c@@/main/BRANCH_1/1
+>>> file 3: File1.c
+********************************
+---------[changed 1-3 file 1]----------|---------[changed to 1 file 3]---------
+File1.c checked out with default confi+| File1.c checked out with default confi+
+.................................      |-
+Second checkout with DCS...            |
+                                      -|
+Do you want the CHANGE made in file 3?  [yes] no
+Keeping ORIGINAL text from file 1 (BASE) [lines 1-3]
+============
+============
+-----------[after 3 file 1]------------|---------[inserted 4-6 file 2]---------
+                                      -| ................................
+                                       | CO with BRANCH_1........
+                                       | .....................
+                                       |-
+Do you want the INSERTION made in file 2?  [yes]
+Applying INSERT from file 2 [lines 4-6]
+============
+============
+Moved contributor "File1.c" to "File1.c.contrib.1".
+Output of merge is in "File1.c".
+Recorded merge of "File1.c".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct ci -nc File1.c
+Checked in "File1.c" version "/main/5".
+[root@ccserver2 Chandra]#
+[root@ccserver2 Chandra]# ct lsco
+10-Nov.10:54   root       checkout directory version "." from /main/1 (reserved)
+  "Added file element "File1.c".
+   Added file element "File2.c".
+   Added file element "File3.c"."
+[root@ccserver2 Chandra]# ct ci .
+Default:
+Added file element "File1.c".
+Added file element "File2.c".
+Added file element "File3.c".
+Checkin comments for ".":  ("." to accept default)
+.
+Checked in "." version "/main/2".
+[root@ccserver2 Chandra]#
+==============================================================
+))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))[root@ccserver2 Pradeep]# ls
+[root@ccserver2 Pradeep]# pwd
+/Jee_Chan/Pradeep
+[root@ccserver2 Pradeep]# ct co -nc .
+Checked out "." from version "/main/1".
+[root@ccserver2 Pradeep]# ct mkelem -directory -nc -master Dir1
+cleartool: Error: Unrecognized option "-directory"
+Usage: mkelem [-eltype elem-type-name] [-nco | -ci [-ptime]]
+              [-mkpath] [-master] [-nwarn]
+              [-c comment | -cfile pname | -cq | -cqe | -nc] element-pname ...
+[root@ccserver2 Pradeep]# ct mkelem -eltype directory -nc -master Dir1
+Created element "Dir1" (type "directory").
+Checked out "Dir1" from version "/main/0".
+[root@ccserver2 Pradeep]# cd Dir1/
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F1.cpp
+Created element "F1.cpp" (type "file").
+Checked out "F1.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F2.cpp
+Created element "F2.cpp" (type "file").
+Checked out "F2.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F3.cpp
+Created element "F3.cpp" (type "file").
+Checked out "F3.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# ct lsco
+10-Nov.11:33   root       checkout directory version "." from /main/0 (reserved)
+  "Added file element "F1.cpp".
+   Added file element "F2.cpp".
+   Added file element "F3.cpp"."
+10-Nov.11:34   root       checkout version "F1.cpp" from /main/0 (reserved)
+10-Nov.11:34   root       checkout version "F2.cpp" from /main/0 (reserved)
+10-Nov.11:34   root       checkout version "F3.cpp" from /main/0 (reserved)
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# vi F1.cpp
+[root@ccserver2 Dir1]# vi F2.cpp
+[root@ccserver2 Dir1]# vi F3.cpp
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp
+[root@ccserver2 Dir1]# ct ci -nc *
+Checked in "F1.cpp" version "/main/1".
+Checked in "F2.cpp" version "/main/1".
+Checked in "F3.cpp" version "/main/1".
+[root@ccserver2 Dir1]# ct ci -nc .
+Checked in "." version "/main/1".
+[root@ccserver2 Dir1]# ct lsco
+[root@ccserver2 Dir1]# ct lsco .
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct co -unreserv -nc .
+Checked out "." from version "/main/1".
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F4.cpp
+Created element "F4.cpp" (type "file").
+Checked out "F4.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# vi F4.cpp
+[root@ccserver2 Dir1]# ct ci -nc .
+Checked in "." version "/main/2".
+[root@ccserver2 Dir1]# ct ci -nc F4.cpp
+Checked in "F4.cpp" version "/main/1".
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct mkbranch -nc BRANCH_1 /Jee_Chan/Pradeep/Dir1@@/main/2
+Created branch "BRANCH_1" from "/Jee_Chan/Pradeep/Dir1" version "/main/2".
+cleartool: Warning: Version checked out ("/main/BRANCH_1/0") is different from version selected by view before checkout ("/main/2").
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/BRANCH_1/0".
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F5_from_branch_1.cpp
+Created element "F5_from_branch_1.cpp" (type "file").
+Checked out "F5_from_branch_1.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# vi F5_from_branch_1.cpp
+[root@ccserver2 Dir1]# ct ci -nc F5_from_branch_1.cpp
+Checked in "F5_from_branch_1.cpp" version "/main/1".
+[root@ccserver2 Dir1]# ct ci -nc .
+cleartool: Warning: Version checked in is not selected by view.
+Checked in "." version "/main/BRANCH_1/1".
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct co -nc /Jee_Chan/Pradeep/Dir1
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/2".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F5.cpp
+Created element "F5.cpp" (type "file").
+Checked out "F5.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# vi F5.cpp
+[root@ccserver2 Dir1]# ct ci F5.cpp
+Checkin comments for "F5.cpp":
+.
+Checked in "F5.cpp" version "/main/1".
+[root@ccserver2 Dir1]# ct ci -nc .
+Checked in "." version "/main/3".
+[root@ccserver2 Dir1]#
+================================================
+[root@ccserver2 Dir1]# ct co -nc -unreserve /Jee_Chan/Pradeep/Dir1
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/3".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5.cpp
+[root@ccserver2 Dir1]# ct rm F5.cpp
+Removed "F5.cpp".
+[root@ccserver2 Dir1]# ct ci -nc /Jee_Chan/Pradeep/Dir1
+Checked in "/Jee_Chan/Pradeep/Dir1" version "/main/4".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct edcs
+Set config spec for view "jee_chan_view"?  [yes]
+[root@ccserver2 Dir1]# ct catcs
+element * CHECKEDOUT
+element * /main/BRANCH_1/LATEST
+element * /main/LATEST
+[root@ccserver2 Dir1]# ct co -nc -unres  /Jee_Chan/Pradeep/Dir1
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/BRANCH_1/1".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5_from_branch_1.cpp
+[root@ccserver2 Dir1]# ct mkelem -eltype file -nc -master F5.cpp
+Created element "F5.cpp" (type "file").
+Checked out "F5.cpp" from version "/main/0".
+[root@ccserver2 Dir1]# cat >> F5.cpp
+agfgfgfgflgfdsgl;fdgj
+[root@ccserver2 Dir1]# ct ci -nc F5.cpp
+Checked in "F5.cpp" version "/main/1".
+[root@ccserver2 Dir1]# ct ci -nc  /Jee_Chan/Pradeep/Dir1
+Checked in "/Jee_Chan/Pradeep/Dir1" version "/main/BRANCH_1/2".
+[root@ccserver2 Dir1]# ct edcs
+Set config spec for view "jee_chan_view"?  [yes]
+[root@ccserver2 Dir1]# ct catcs
+element * CHECKEDOUT
+element * /main/LATEST
+[root@ccserver2 Dir1]#
+=============================================================
+[root@ccserver2 Dir1]# ct co -unres -nc /Jee_Chan/Pradeep/Dir1@@/main/4
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/4".
+[root@ccserver2 Dir1]# ct merge -to /Jee_Chan/Pradeep/Dir1@@/main/4 -qall /Jee_Chan/Pradeep/Dir1@@/main/BRANCH_1/2
+cleartool: Error: Unable to merge directory data because the specified target "/Jee_Chan/Pradeep/Dir1@@/main/4" is not checked out.
+[root@ccserver2 Dir1]# ct merge -to /Jee_Chan/Pradeep/Dir1 -qall /Jee_Chan/Pradeep/Dir1@@/main/BRANCH_1/2
+********************************
+<<< directory 1: /Jee_Chan/Pradeep/Dir1@@/main/2
+>>> directory 2: /Jee_Chan/Pradeep/Dir1@@/main/BRANCH_1/2
+>>> directory 3: /Jee_Chan/Pradeep/Dir1
+********************************
+-----------[ directory 1 ]-------------|---------[ added directory 2 ]---------
+                                      -| F5.cpp  10-Nov.11:51 root
+Do you want the INSERT made in dir 2?  [yes]
+*** Automatic: Applying ADDITION from directory 2
+-----------[ directory 1 ]-------------|---------[ added directory 2 ]---------
+                                      -| F5_from_branch_1.cpp  10-Nov.11:41 roo+
+Do you want the INSERT made in dir 2?  [yes] no
+Recorded merge of "/Jee_Chan/Pradeep/Dir1".
+[root@ccserver2 Dir1]# 
+[root@ccserver2 Dir1]# ct ci -nc /Jee_Chan/Pradeep/Dir1
+Checked in "/Jee_Chan/Pradeep/Dir1" version "/main/5".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5.cpp
+[root@ccserver2 Dir1]#
+=================================================
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5.cpp
+[root@ccserver2 Dir1]# ct rmver -help
+Usage: rmver [-force] [-xbranch] [-xlabel] [-xattr] [-xhlink] [-data]
+             [-version version-selector | -vrange low-version high-version]
+             [-c comment | -cfile pname | -cq | -cqe | -nc] pname ...
+[root@ccserver2 Dir1]# ct rmver -force /Jee_Chan/Pradeep/Dir1@@/main/5
+cleartool: Error: Removal of "interesting" versions must be explicitly enabled.
+Not removing these "interesting" versions of "/Jee_Chan/Pradeep/Dir1":
+  /main/5 (has: hyperlinks)
+cleartool: Error: No versions of "/Jee_Chan/Pradeep/Dir1" to remove.
+[root@ccserver2 Dir1]# ct rmver -force -xhlink /Jee_Chan/Pradeep/Dir1@@/main/5
+Removing these versions of "/Jee_Chan/Pradeep/Dir1":
+  /main/5 (has: hyperlinks)
+Removed versions of "/Jee_Chan/Pradeep/Dir1".
+[root@ccserver2 Dir1]# ct co -unres -nc /Jee_Chan/Pradeep/Dir1@@/main/4
+Checked out "/Jee_Chan/Pradeep/Dir1" from version "/main/4".
+[root@ccserver2 Dir1]# ct merge -to /Jee_Chan/Pradeep/Dir1 -qall /Jee_Chan/Pradeep/Dir1@@/main/BRANCH_1/2
+********************************
+<<< directory 1: /Jee_Chan/Pradeep/Dir1@@/main/2
+>>> directory 2: /Jee_Chan/Pradeep/Dir1@@/main/BRANCH_1/2
+>>> directory 3: /Jee_Chan/Pradeep/Dir1
+********************************
+-----------[ directory 1 ]-------------|---------[ added directory 2 ]---------
+                                      -| F5.cpp  10-Nov.11:51 root
+Do you want the INSERT made in dir 2?  [yes] no
+-----------[ directory 1 ]-------------|---------[ added directory 2 ]---------
+                                      -| F5_from_branch_1.cpp  10-Nov.11:41 roo+
+Do you want the INSERT made in dir 2?  [yes]
+*** Automatic: Applying ADDITION from directory 2
+Recorded merge of "/Jee_Chan/Pradeep/Dir1".
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5_from_branch_1.cpp
+[root@ccserver2 Dir1]# ct ci -nc .
+Checked in "." version "/main/6".
+[root@ccserver2 Dir1]#
+========================================================
+[root@ccserver2 Dir1]# ct co -unres -nc .
+Checked out "." from version "/main/6".
+[root@ccserver2 Dir1]# mkdir F6
+[root@ccserver2 Dir1]# ct mkelem -eltype directory F6
+cleartool: Error: Can't create directory element because
+"F6" already exists.
+[root@ccserver2 Dir1]# ct mkelem -eltype directory -mkpath F6
+Creation comments for "F6":
+Using MKPATH command...
+.
+Created directory element "F6".
+Created element "F6" (type "directory").
+Checked out "F6" from version "/main/0".
+[root@ccserver2 Dir1]# ct ci -nc F6
+Checked in "F6" version "/main/1".
+[root@ccserver2 Dir1]# ct ci -nc .
+Checked in "." version "/main/7".
+[root@ccserver2 Dir1]#
+=========================================================
+[root@ccserver2 Dir1]# clear
+clear              cleardiff          clearfsimport      clearmake
+clearapropos       cleardiffbl        cleargetlog        clearmrgman
+clearapropos.pl    clearexport_ccase  cleargui           clearprojexp
+clearaudit         clearexport_cvs    clearhistory       clearprompt
+clearbug           clearexport_pvcs   clearimport        cleartool
+cleardescribe      clearexport_rcs    clearjoinproj      clearviewupdate
+cleardescribe1     clearexport_sccs   clearlicense       clearvobadmin
+========================================================
+[root@ccserver2 Dir1]# ls
+F1.cpp  F2.cpp  F3.cpp  F4.cpp  F5_from_branch_1.cpp  F6
+[root@ccserver2 Dir1]# ct chevent
+cleartool: Error: Required command argument is missing.
+Usage: chevent [-c comment | -cq | -cfile pname | -cqe | -nc]
+               [-append | -insert | -replace]
+             { -event [-invob vob-selector] event-id ...
+             | [-pname] pname ...
+             | object-selector ...
+             }
+[root@ccserver2 Dir1]# ct chevent -c "Using -mkpath option mkelem" -replace F6
+Modified event of directory version "F6".
+[root@ccserver2 Dir1]# ct desc F6
+directory version "F6@@/main/1"
+  created 10-Nov-06.12:23:55 by root.root@ccserver2
+  "Using -mkpath option mkelem"
+  Element Protection:
+    User : root     : rwx
+    Group: root     : r-x
+    Other:          : r-x
+  element type: directory
+  predecessor version: /main/0
+[root@ccserver2 Dir1]# ct lsco
+[root@ccserver2 Dir1]# ct lsco .
+[root@ccserver2 Dir1]#
+=======================================
+Move element from ONE VOB to Antother VOB
+-------------------------------------------
+[root@ccserver2 Dir1]# ct relocate
+cleartool: Error: Pathname required.
+Usage: relocate [-force] [-qall] [-log log-pname] [-update]
+                pname [pname ...] target-dir-pname
+====================================
+Move element within the VOB
+----------------------------
+[root@ccserver2 Dir1]# ct mv
+cleartool: Error: Pathname required.
+Usage: move | mv [-c comment | -cfile pname | -cq | -cqe | -nc]
+          pname target-pname
+       move | mv [-c comment | -cfile pname | -cq | -cqe | -nc]
+          pname [pname ...] target-dir-pname
+[root@ccserver2 Dir1]#
+=======================================
+File will be existing but name will not be visible.....
+----------------------------------------------------
+[root@ccserver2 Dir1]# ct rmname
+cleartool: Error: Directory pathname required.
+Usage: rmname [-c comment | -cfile pname | -cq | -cqe | -nc]
+              [-nco] [-force] pname ...
+[root@ccserver2 Dir1]#
+========================================
+To remove a version.....
+-----------------------
+root@ccserver2 Dir1]# ct rmver
+cleartool: Error: Pathname required.
+Usage: rmver [-force] [-xbranch] [-xlabel] [-xattr] [-xhlink] [-data]
+             [-version version-selector | -vrange low-version high-version]
+             [-c comment | -cfile pname | -cq | -cqe | -nc] pname ...
+[root@ccserver2 Dir1]#
+=========================================
+Removing element....
+-----------------
+[root@ccserver2 Dir1]# ct rmelem --help
+cleartool: Error: Unrecognized option "--help"
+Usage: rmelem [-force] [-c comment | -cfile pname | -cq | -cqe | -nc] pname ...
+[root@ccserver2 Dir1]#
+==========================================
+To view the history.....
+---------------------
+[root@ccserver2 Dir1]# ct lshistory F1.cpp
+10-Nov.11:36   root       create version "F1.cpp@@/main/1"
+10-Nov.11:34   root       create version "F1.cpp@@/main/0"
+10-Nov.11:34   root       create branch "F1.cpp@@/main"
+10-Nov.11:34   root       create file element "F1.cpp@@"
+========================================
+Lost+Found has orphan file & Dirs..
+----------------------------------
+1.) checkout a dir...
+2.) created an element..
+3.)un-checkout...
+4.)the created file will goto Lost+found dir...
+====================================
+[root@ccserver2 Dir1]# ct apropos trigger
+or
+[root@ccserver2 Dir1]# ct apr trigger
+mktrigger                Attaches a trigger to an element or UCM object
+mktrtype                 Creates a trigger type object
+rmtrigger                Removes trigger from an element or UCM object
+[root@ccserver2 Dir1]# ct mktrtype --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mktrtype [-replace] {-element [-all] | -type | -ucmobject [-all]}
+                {-preop | -postop} opkind[,...] [-nusers login-name[,...]]
+                {-exec command-invocation |
+                 -execunix command-invocation |
+                 -execwin command-invocation |
+                 -mklabel label-type-selector |
+                 -mkattr attr-type-selector=value |
+                 -mkhlink hlink-type-selector,{to|from}=pname} ...
+                [-attype attr-type-selector[,...]]
+                [-brtype branch-type-selector[,...]]
+                [-eltype elem-type-selector[,...]]
+                [-hltype hlink-type-selector[,...]]
+                [-lbtype label-type-selector[,...]]
+                [-trtype trigger-type-selector[,...]]
+                [-project project-selector[,...]]
+                [-stream stream-selector[,...]]
+                [-component component-selector[,...]] [-print]
+                [-c comment | -cfile pname | -cq | -cqe | -nc] type-selector ...
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct mktrigger --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mktrigger [-c comment | -cfile pname | -cq | -cqe | -nc] [-recurse]
+                 [-ninherit | -nattach] [-force]
+                 trigger-type-selector {pname | ucm-object-selector} ...
+[root@ccserver2 Dir1]# ct rmtrigger --help
+cleartool: Error: Unrecognized option "--help"
+Usage: rmtrigger [-c comment | -cfile pname | -cq | -cqe | -nc]
+                 [-ninherit | -nattach] [-recurse]
+                 trigger-type-selector {pname | ucm-object-selector} ...
+[root@ccserver2 Dir1]#
+=====================================================
+TYPE COMMANDS....
+----------------
+[root@ccserver2 Dir1]# ct mklbtype
+cleartool: Error: Type name required.
+Usage: mklbtype [-replace] [-global [-acquire] | -ordinary] [-pbranch] [-shared]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                label-type-selector ...
+[root@ccserver2 Dir1]# ct mkhltype
+cleartool: Error: Type name required.
+Usage: mkhltype [-replace] [-global [-acquire] | -ordinary]
+                [-attype attr-type-selector[,...]] [-shared]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                hlink-type-selector ...
+[root@ccserver2 Dir1]# ct apr hyper
+checkvob                 Finds and fixes inconsistencies between VOB database and storage pools, problems with hyperlinks, and problems with global types
+hyperhelp                Displays a help file
+mkhlink                  Attaches a hyperlink to an object
+mkhltype                 Creates or updates a hyperlink type object
+rmhlink                  Removed a hyperlink object
+[root@ccserver2 Dir1]# ct mkeltype
+cleartool: Error: Type name required.
+Usage: mkeltype [-replace] [-global [-acquire] | -ordinary]
+                -supertype elem-type-selector [-manager mgr-name]
+                [-ptime] [-attype attr-type-selector[,...]]
+                [-mergetype {auto | user | never}]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                element-type-selector ...
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct mktrtype
+cleartool: Error: Either -element or -type must be specified.
+Usage: mktrtype [-replace] {-element [-all] | -type | -ucmobject [-all]}
+                {-preop | -postop} opkind[,...] [-nusers login-name[,...]]
+                {-exec command-invocation |
+                 -execunix command-invocation |
+                 -execwin command-invocation |
+                 -mklabel label-type-selector |
+                 -mkattr attr-type-selector=value |
+                 -mkhlink hlink-type-selector,{to|from}=pname} ...
+                [-attype attr-type-selector[,...]]
+                [-brtype branch-type-selector[,...]]
+                [-eltype elem-type-selector[,...]]
+                [-hltype hlink-type-selector[,...]]
+                [-lbtype label-type-selector[,...]]
+                [-trtype trigger-type-selector[,...]]
+                [-project project-selector[,...]]
+                [-stream stream-selector[,...]]
+                [-component component-selector[,...]] [-print]
+                [-c comment | -cfile pname | -cq | -cqe | -nc] type-selector ...
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct mkbrtype
+cleartool: Error: Type name required.
+Usage: mkbrtype [-replace] [-global [-acquire] | -ordinary] [-pbranch]
+                [-c comment | -cfile pname | -cq | -cqe | -nc]
+                branch-type-selector ...
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct apr att
+Attache                  Overview of the Attache client program
+attache_command_line_interface / Using Attache commands
+attache_graphical_interface / Attache windows, toolbar, and menus
+attcmd                   Attache user-level commands (command-line interface)
+att_clnt                 Attache user-level commands (command-line interface)
+find                     Uses a pattern, query, or expression to search for objects
+get                      In ClearCase and ClearCase LT, copies a specified version of a file element into a snapshot view. In Attache, downloads files to an Attache workspace
+help                     Displays help on command usage, or (on Attache) a reference page
+intro                    Introduction to ClearCase, ClearCase LT, ClearCase MultiSite, and Attache reference pages
+mkattr                   Attaches attributes to objects
+mkattype                 Creates or updates an attribute type object
+mkhlink                  Attaches a hyperlink to an object
+mklabel                  Attaches version labels to versions of elements
+mktrigger                Attaches a trigger to an element or UCM object
+quit                     Quits an interactive or Attache session
+rmattr                   Removes an attribute from an object
+update                   Updates elements in a snapshot view or Attache workspace
+wildcards                Pattern-matching characters for Attache pathnames
+wildcards_ccase          Pattern-matching characters for ClearCase and ClearCase LT pathnames
+ws_helper                Server process connecting an Attache workspace to a ClearCase view
+[root@ccserver2 Dir1]#
+===================================================
+[root@ccserver2 Dir1]# ct apr reformat
+reformatview             Updates the format of a view database
+reformatvob              Updates the format of a VOB database.
+[root@ccserver2 Dir1]# ct reformatview
+cleartool: Error: View directory pathname must be specified.
+Usage: reformatview [-dump | -load] {-tag view-tag | view-storage-pname}
+[root@ccserver2 Dir1]# ct reformatvob
+cleartool: Error: Pathname required.
+Usage: reformatvob [-dump | -load] [-rm] [-force] [-to dumpfile-dir-pname]
+                 [-host hostname -hpath host-stg-pname]
+                 vob-storage-pname
+[root@ccserver2 Dir1]#
+=====================================================
+[root@ccserver2 F6]# clearfsimport --help
+Usage: clearfsimport [-follow] [-recurse] [-rmname]
+                     [-mklabel label] [-nsetevent]
+                     [-identical] [-master] [-comment comment]
+                     [-unco] [-preview]  source-name ... target-VOB-directory
+[root@ccserver2 F6]# clearfsimport -master /Jeeva_vobs/
+Jee_Chan.vbs     jeeva_docs       .jeeva_docs.swp
+[root@ccserver2 F6]# clearfsimport -master /Jeeva_vobs/jeeva_docs .
+Validating directory ".".
+Creating element "./jeeva_docs".
+    version "/main/1".
+Closing directories.
+Checked in version "/main/2" of directory "."
+[root@ccserver2 F6]# ct lsvtree -g .
+=================================================
+[root@ccserver2 Dir1]# ct lsco -view test_view
+cleartool: Error: Unrecognized option "-view"
+Usage: lscheckout | lsco [-long | -short | -fmt format] [-cview]
+                         [-brtype branch-type-selector] [-me | -user login-name]
+                         [-recurse | -directory | -all | -avobs ] [-areplicas]
+                         [pname ...]
+root@ccserver2 Dir1]# ct unco --help
+cleartool: Error: Unrecognized option "--help"
+Usage: uncheckout | unco [-keep | -rm] [-cact] pname ...
+[root@ccserver2 Dir1]#
+================================================
+========================
+[root@ccserver2 Dir1]# ct apr regi
+lsclients                Displays the client host list for a ClearCase license or registry server host, or for a ClearCase LT server host
+lsregion                 Lists ClearCase network regions
+lsview                   Lists view registry entries
+lsvob                    Lists VOB registry entries
+lsws                     Lists local workspace registry entries
+mkregion                 Registers a new ClearCase network region
+mkview                   Creates and registers a view
+mkvob                    Creates and registers a versioned object base (VOB)
+register                 Creates an entry in the VOB or view object registry.
+rgy_backup               Copies registry files and client list from primary registry server host
+to backup registry server host
+rgy_check                Check registry files for inconsistencies
+rgy_passwd               Creates or changes encrypted VOB-tag registry password
+rgy_switchover           Makes a backup registry server host the primary registry server host
+rmregion                 Unregisters a ClearCase network region
+rmstgloc                 Removes registry entries for server storage locations.
+rmtag                    Removes a view-tag or a VOB-tag from the networkwide storage registry
+rmws                     Removes and unregisters a workspace
+setsite                  Sets or unsets site-wide properties in the site config registry
+unregister               Removes an entry from the vob_object or view_object registry
+[root@ccserver2 Dir1]#
+==================================================
+[root@ccserver2 Dir1]# ct apr vob_scrubber
+vob_scrubber             Remove event records and oplog entries from VOB database
+[root@ccserver2 Dir1]# /opt/rational/clearcase/etc/rgy_check --help
+rgy_check: Error: Unrecognized option "--help"
+rgy_check: Error: Invalid command flag specified.
+rgy_check: Error: Usage: rgy_check {-views | -vobs} ... [-region region-name] [-storage]
+[root@ccserver2 Dir1]# /opt/rational/clearcase/etc/rgy_check --views
+rgy_check: Error: Unrecognized option "--views"
+rgy_check: Error: Invalid command flag specified.
+rgy_check: Error: Usage: rgy_check {-views | -vobs} ... [-region region-name] [-storage]
+[root@ccserver2 Dir1]# /opt/rational/clearcase/etc/rgy_check -views
+No registry errors/inconsistencies detected.
+[root@ccserver2 Dir1]#
+[root@ccserver2 Dir1]# ct mkview -tag reg-view /Jeeva_views/reg-view.vws
+Created view.
+Host-local path: ccserver2:/Jeeva_views/reg-view.vws
+Global path:     /Jeeva_views/reg-view.vws
+cleartool: Warning: It is owned by root.
+It has the following rights:
+User : root     : rwx
+Group: root     : r-x
+Other:          : r-x
+[root@ccserver2 Dir1]# ct unreg -view /Jeeva_views/reg-view.vws
+[root@ccserver2 Dir1]# ct lsview
+* view1                /views/view1.vws
+* div_view1            /dviews/div_view1.vws
+* test_view            /views/test_view.vws
+* jee_chan_view        /Jeeva_views/jee_chan_view.vws
+* div_view2            /dviews/div_view2.vws
+  demo_view            /views/demo_view.vws
+* reg-view             /Jeeva_views/reg-view.vws
+[root@ccserver2 Dir1]# ct setview reg-view
+cleartool: Error: Cannot obtain registry snapshot view attribute for view tag "reg-view": ClearCase object not found.
+[root@ccserver2 Dir1]# /opt/rational/clearcase/etc/rgy_check -views
+rgy_check: Error: This view tag has no view object with the same UUID:
+        -tag = "reg-view"
+        -hostname = "ccserver2"
+        -global_path = "/Jeeva_views/reg-view.vws"
+        -region = "ccserver2"
+        -view_uuid = "59e36b0d.70f711db.9707.00:50:ba:89:88:a6"
+ 
+rgy_check: Error: 1 total registry errors/inconsistencies detected.
+[root@ccserver2 Dir1]# ct rmtag -view reg-view
+[root@ccserver2 Dir1]# rm -rf /Jeeva_views/reg-view.vws
+[root@ccserver2 Dir1]# /opt/rational/clearcase/etc/rgy_check -views
+No registry errors/inconsistencies detected.
+[root@ccserver2 Dir1]#
+==========================================
+[root@ccserver2 Dir1]# ct mkview --help
+cleartool: Error: Unrecognized option "--help"
+Usage: mkview -tag dynamic-view-tag [-tcomment tag-comment] [-tmode text-mode]
+              [-region network-region] [-ln link-storage-to-dir-pname]
+              [-ncaexported] [-cachesize size]
+              [-shareable_dos | -nshareable_dos]
+              [-stream stream-selector]
+              { -stgloc {view-stgloc-name | -auto}
+              | [-host hostname -hpath host-stg-pname -gpath global-stg-pname]
+                dynamic-view-storage-pname
+              }
+       mkview -snapshot [-tag snapshot-view-tag]
+              [-tcomment tag-comment] [-tmode text-mode]
+              [-cachesize size] [-ptime] [-stream stream-selector]
+              [ -stgloc view-stgloc-name
+              | -colocated_server [-host hostname -hpath host-snapshot-view-pname -gpath global-snapshot-view-pname]
+              | -vws view-storage-pname [-host hostname -hpath host-stg-pname -gpath global-stg-pname]
+              ] snapshot-view-pname
+[root@ccserver2 Dir1]# ct mkview -snapshot -tag snap_jeeva_view /Jeeva_views/snap_jeeva_view.vws
+Created view.
+Host-local path: ccserver2:/Jeeva_views/snap_jeeva_view.vws/.view.stg
+Global path:     /Jeeva_views/snap_jeeva_view.vws/.view.stg
+cleartool: Warning: It is owned by root.
+It has the following rights:
+User : root     : rwx
+Group: root     : r-x
+Other:          : r-x
+Created snapshot view directory "/Jeeva_views/snap_jeeva_view.vws".
+[root@ccserver2 Dir1]# ct mkview -tag dyn_jeeva_view /Jeeva_views/dyn_jeeva_view.vws
+Created view.
+Host-local path: ccserver2:/Jeeva_views/dyn_jeeva_view.vws
+Global path:     /Jeeva_views/dyn_jeeva_view.vws
+cleartool: Warning: It is owned by root.
+It has the following rights:
+User : root     : rwx
+Group: root     : r-x
+Other:          : r-x
+[root@ccserver2 Dir1]#
+-===========================================
+[root@ccserver2 Dir1]#  ct apr snap
+clearviewupdate          Updates elements in a snapshot view
+get                      In ClearCase and ClearCase LT, copies a specified version of a file element into a snapshot view. In Attache, downloads files to an Attache workspace
+ls                       Lists VOB-resident objects, elements loaded into a snapshot view, and view-private objects in a directory
+snapshot.conf            VOB snapshot configuration file
+update                   Updates elements in a snapshot view or Attache workspace
+vob_snapshot             Copies the VOB databases of all local VOBs or replicas configured for database snapshot
+vob_snapshot_setup       Sets or displays VOB database snapshot parameters
+[root@ccserver2 Dir1]#
+====================
+[root@ccserver2 Dir1]#  ct apr snap
+clearviewupdate          Updates elements in a snapshot view
+get                      In ClearCase and ClearCase LT, copies a specified version of a file element into a snapshot view. In Attache, downloads files to an Attache workspace
+ls                       Lists VOB-resident objects, elements loaded into a snapshot view, and view-private objects in a directory
+snapshot.conf            VOB snapshot configuration file
+update                   Updates elements in a snapshot view or Attache workspace
+vob_snapshot             Copies the VOB databases of all local VOBs or replicas configured for database snapshot
+vob_snapshot_setup       Sets or displays VOB database snapshot parameters
+[root@ccserver2 Dir1]# ct mount -all
+[root@ccserver2 Dir1]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+* /test_vob            /vobstore/test_vob.vbs private
+* /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+  /testsnap            /vobstore/testsnap.vbs private
+[root@ccserver2 Dir1]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+* /test_vob            /vobstore/test_vob.vbs private
+* /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+  /testsnap            /vobstore/testsnap.vbs private
+[root@ccserver2 Dir1]# ct mount -all
+[root@ccserver2 Dir1]# ct lsview
+* view1                /views/view1.vws
+  div_view1            /dviews/div_view1.vws
+* test_view            /views/test_view.vws
+* jee_chan_view        /Jeeva_views/jee_chan_view.vws
+* div_view2            /dviews/div_view2.vws
+  demo_view            /views/demo_view.vws
+  snap_jeeva_view      /Jeeva_views/snap_jeeva_view.vws/.view.stg
+* dyn_jeeva_view       /Jeeva_views/dyn_jeeva_view.vws
+  snap_view1           /dviews/snap_view1.vws/.view.stg
+* snapview             /views/snapview_sn
+  snapview1            /views/snapview1_sn/.view.stg
+  demo_snapview        /views/demo_snapview_sn/.view.stg
+[root@ccserver2 Dir1]# cd /Jeeva_views/snap_jeeva_view.vws
+[root@ccserver2 snap_jeeva_view.vws]# ls
+[root@ccserver2 snap_jeeva_view.vws]# ct edcs
+cleartool: Warning: Using working directory view "snap_jeeva_view", which is different from set view "jee_chan_view".
+Set config spec and load snapshot view "snap_jeeva_view"?  [yes]
+Log has been written to "/Jeeva_views/snap_jeeva_view.vws/update.10-Nov-06.15:27:36.updt".
+[root@ccserver2 snap_jeeva_view.vws]# ct edcs
+cleartool: Warning: Using working directory view "snap_jeeva_view", which is different from set view "jee_chan_view".
+Set config spec and load snapshot view "snap_jeeva_view"?  [yes]
+Making dir "Jee_Chan".
+Processing dir "Jee_Chan".
+Making dir "Jee_Chan/lost+found".
+Processing dir "Jee_Chan/lost+found".
+End dir "Jee_Chan/lost+found".
+End dir "Jee_Chan".
+Done loading "/Jee_Chan" (2 objects, copied 0 KB).
+Log has been written to "/Jeeva_views/snap_jeeva_view.vws/update.10-Nov-06.15:28:13.updt".
+[root@ccserver2 snap_jeeva_view.vws]#
+root@ccserver2 snap_jeeva_view.vws]# ls
+Jee_Chan  update.10-Nov-06.15:27:36.updt  update.10-Nov-06.15:28:13.updt
+
+[root@ccserver2 Jee_Chan]# pwd
+/Jeeva_views/snap_jeeva_view.vws/Jee_Chan
+[root@ccserver2 Jee_Chan]# ct update .
+Processing dir "Jee_Chan".
+Processing dir "Jee_Chan/lost+found".
+End dir "Jee_Chan/lost+found".
+.
+End dir "Jee_Chan".
+.
+Done loading "/Jee_Chan" (2 objects, copied 0 KB).
+Log has been written to "/Jeeva_views/snap_jeeva_view.vws/update.10-Nov-06.15:36:31.updt".
+[root@ccserver2 Jee_Chan]#
+
+=========================================================
+Use -identical option//if version 0 and 1 are identical.
+
+[root@ccserver2 root]# ct ci
+cleartool: Error: Element pathname required.
+Usage: checkin | ci [-c comment | -cfile pname | -cq | -cqe | -nc] [-nwarn]
+                    [-cr] [-ptime] [-keep | -rm] [-from source-pname]
+                    [-identical] {-cact | activity_selector ... | pname ...}
+[root@ccserver2 root]# 
+[root@ccserver2 root]# ct co
+cleartool: Error: Element pathname required.
+Usage: checkout | co [-reserved] [-unreserved [-nmaster]]
+                     [-out dest-pname | -ndata] [-ptime]
+                     [-branch branch-pname | -version] [-nwarn]
+                     [-c comment | -cfile pname | -cq | -cqe | -nc]
+                     [-query | -nquery] pname ...
+[root@ccserver2 root]#
+==================================
+[root@ccserver2 root]#
+[root@ccserver2 root]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+* /test_vob            /vobstore/test_vob.vbs private
+* /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+* /testsnap            /vobstore/testsnap.vbs private
+[root@ccserver2 root]# ct lsview
+* view1                /views/view1.vws
+  div_view1            /dviews/div_view1.vws
+* test_view            /views/test_view.vws
+* jee_chan_view        /Jeeva_views/jee_chan_view.vws
+* div_view2            /dviews/div_view2.vws
+  demo_view            /views/demo_view.vws
+  snap_view1           /dviews/snap_view1.vws/.view.stg
+* snapview             /views/snapview_sn
+  snapview1            /views/snapview1_sn/.view.stg
+  demo_snapview        /views/demo_snapview_sn/.view.stg
+[root@ccserver2 root]# ct setview jee_chan_view
+[root@ccserver2 root]# ct catcs
+element * CHECKEDOUT
+element * /main/LATEST
+[root@ccserver2 root]# cd //Jee_Chan
+[root@ccserver2 Jee_Chan]# ct pwv
+Working directory view: jee_chan_view
+Set view: jee_chan_view
+[root@ccserver2 Jee_Chan]# ls
+Chandra  lost+found  My_First_Dir  Pradeep
+[root@ccserver2 Jee_Chan]# exit
+[root@ccserver2 root]# ct mkview -snapshot -tag my_snap_view /Jeeva_views/my_snap_view.vws
+Created view.
+Host-local path: ccserver2:/Jeeva_views/my_snap_view.vws/.view.stg
+Global path:     /Jeeva_views/my_snap_view.vws/.view.stg
+cleartool: Warning: It is owned by root.
+It has the following rights:
+User : root     : rwx
+Group: root     : r-x
+Other:          : r-x
+Created snapshot view directory "/Jeeva_views/my_snap_view.vws".
+[root@ccserver2 root]# ct lsview
+* view1                /views/view1.vws
+  div_view1            /dviews/div_view1.vws
+* test_view            /views/test_view.vws
+* jee_chan_view        /Jeeva_views/jee_chan_view.vws
+* div_view2            /dviews/div_view2.vws
+  demo_view            /views/demo_view.vws
+  snap_view1           /dviews/snap_view1.vws/.view.stg
+* snapview             /views/snapview_sn
+  snapview1            /views/snapview1_sn/.view.stg
+  demo_snapview        /views/demo_snapview_sn/.view.stg
+  my_snap_view         /Jeeva_views/my_snap_view.vws/.view.stg
+[root@ccserver2 root]# ct setview my_snap_view
+cleartool: Error: You cannot use the "setview" command with a snapshot view.
+[root@ccserver2 root]# cd /Jeeva_views/my_snap_view.vws/.view.stg
+[root@ccserver2 .view.stg]# cd /Jeeva_views/my_snap_view.vws/
+[root@ccserver2 my_snap_view.vws]#
+[root@ccserver2 my_snap_view.vws]# pwd
+/Jeeva_views/my_snap_view.vws
+[root@ccserver2 my_snap_view.vws]# ct catcs
+element * CHECKEDOUT
+element * /main/LATEST
+[root@ccserver2 my_snap_view.vws]# ct edcs
+Set config spec and load snapshot view "my_snap_view"?  [yes]
+Making dir "Jee_Chan".
+Processing dir "Jee_Chan".
+Making dir "Jee_Chan/lost+found".
+Processing dir "Jee_Chan/lost+found".
+End dir "Jee_Chan/lost+found".
+End dir "Jee_Chan".
+Done loading "/Jee_Chan" (2 objects, copied 0 KB).
+Log has been written to "/Jeeva_views/my_snap_view.vws/update.10-Nov-06.15:42:07.updt".
+[root@ccserver2 my_snap_view.vws]# ct lsvob
+* /vob1                /vobstore/vob1.vbs private
+* /div_vob1            /dvobs/div_vob1.vbs private
+* /test_vob            /vobstore/test_vob.vbs private
+* /Jee_Chan            /Jeeva_vobs/Jee_Chan.vbs private
+* /testsnap            /vobstore/testsnap.vbs private
+[root@ccserver2 my_snap_view.vws]# ct catcs
+load /Jee_Chan
+element * CHECKEDOUT
+element * /main/LATEST
+[root@ccserver2 my_snap_view.vws]#
+=============================================================
+All the VOB elements are listing in Dynamic views but not in Snapshot views.
+Reason: Checkout available 
+Eg:
+[root@ccserver2 Jee_Chan]# ct lsco
+10-Nov.09:13   root       checkout directory version "." from /main/0 (reserved)  "Added directory element "My_First_Dir".
+   Added directory element "Chandra".
+   Added directory element "Pradeep"."
+10-Nov.11:32   root       checkout directory version "Pradeep" from /main/1 (reserved)
+  "Added directory element "Dir1"."
+[root@ccserver2 Jee_Chan]# ct ci .
+Default:
+Added directory element "My_First_Dir".
+Added directory element "Chandra".
+Added directory element "Pradeep".
+Checkin comments for ".":  ("." to accept default)
+.
+Checked in "." version "/main/1".
+[root@ccserver2 Jee_Chan]# ct lsco
+10-Nov.11:32   root       checkout directory version "Pradeep" from /main/1 (reserved)
+  "Added directory element "Dir1"."
+[root@ccserver2 Jee_Chan]# cd Pradeep/
+[root@ccserver2 Pradeep]# ct ci .
+Default:
+Added directory element "Dir1".
+Checkin comments for ".":  ("." to accept default)
+.
+Checked in "." version "/main/2".
+[root@ccserver2 Pradeep]# ct lsco
+[root@ccserver2 Pradeep]# cd ..
+[root@ccserver2 Jee_Chan]# ct lsco
+[root@ccserver2 Jee_Chan]#
+[root@ccserver2 my_snap_view.vws]# cd Jee_Chan/
+[root@ccserver2 Jee_Chan]# ls
+lost+found
+[root@ccserver2 Jee_Chan]# ls
+lost+found
+[root@ccserver2 Jee_Chan]# cd /Jeeva_views/my_snap_view.vws
+[root@ccserver2 my_snap_view.vws]# ct update .
+Making dir "Jee_Chan".
+Processing dir "Jee_Chan".
+Processing dir "Jee_Chan/lost+found".
+End dir "Jee_Chan/lost+found".
+.
+Making dir "Jee_Chan/My_First_Dir".
+Processing dir "Jee_Chan/My_First_Dir".
+Loading "Jee_Chan/My_First_Dir/File1.cpp" (166 bytes).
+End dir "Jee_Chan/My_First_Dir".
+Making dir "Jee_Chan/Chandra".
+Processing dir "Jee_Chan/Chandra".
+Loading "Jee_Chan/Chandra/File1.c" (148 bytes).
+Loading "Jee_Chan/Chandra/File2.c" (55 bytes).
+Loading "Jee_Chan/Chandra/File3.c" (32 bytes).
+End dir "Jee_Chan/Chandra".
+Making dir "Jee_Chan/Pradeep".
+Processing dir "Jee_Chan/Pradeep".
+Making dir "Jee_Chan/Pradeep/Dir1".
+Processing dir "Jee_Chan/Pradeep/Dir1".
+Loading "Jee_Chan/Pradeep/Dir1/F1.cpp" (10 bytes).
+Loading "Jee_Chan/Pradeep/Dir1/F2.cpp" (8 bytes).
+Loading "Jee_Chan/Pradeep/Dir1/F3.cpp" (18 bytes).
+Loading "Jee_Chan/Pradeep/Dir1/F4.cpp" (13 bytes).
+Loading "Jee_Chan/Pradeep/Dir1/F5_from_branch_1.cpp" (14 bytes).
+Making dir "Jee_Chan/Pradeep/Dir1/F6".
+Processing dir "Jee_Chan/Pradeep/Dir1/F6".
+End dir "Jee_Chan/Pradeep/Dir1/F6".
+End dir "Jee_Chan/Pradeep/Dir1".
+End dir "Jee_Chan/Pradeep".
+End dir "Jee_Chan".
+Done loading "/Jee_Chan" (16 objects, copied 0 KB).
+Log has been written to "/Jeeva_views/my_snap_view.vws/update.10-Nov-06.15:47:06.updt".
+[root@ccserver2 my_snap_view.vws]# ls
+Jee_Chan  update.10-Nov-06.15:42:07.updt  update.10-Nov-06.15:47:06.updt
+[root@ccserver2 my_snap_view.vws]# ls -l Jee_Chan/
+total 16
+drwxr-xr-x    2 root     root         4096 Nov 10 15:47 Chandra
+drwxr-xr-x    2 root     root         4096 Nov 10 15:42 lost+found
+drwxr-xr-x    2 root     root         4096 Nov 10 15:47 My_First_Dir
+drwxr-xr-x    3 root     root         4096 Nov 10 15:47 Pradeep
+[root@ccserver2 my_snap_view.vws]#
+

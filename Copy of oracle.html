@@ -1,0 +1,131 @@
+<html>
+<body bgcolor=F0F5FF font=Sylfaen>
+<center><b><font color=red size=5>Welcome to Oracle server startup Page<br></b></center></font>
+<br>
+===================================================================================================<br>
+<center><b>How to make all the Oracle related services Up???<br></b></center>
+===================================================================================================<br>
+<font face=Sylfaen color=blue>
+<b><u><i>Server Details:</i></u></b><br>
+<pre>
+Login to the below mentioned machine...<br>
+<font color=red>Hostname   #</font> asamsitws48 (alcat134)
+<font color=red>IP Address #</font> 192.168.22.183
+<font color=red>Username   #</font> oracle
+<font color=red>Password   #</font> 
+
+Below are the cut paste of the commands.........
+
+bash-2.03$<font color=red> svrmgrl</font>
+
+Oracle Server Manager Release 3.1.7.0.0 - Production
+
+Copyright (c) 1997, 1999, Oracle Corporation.  All Rights Reserved.
+
+Oracle8i Release 8.1.7.0.0 - Production
+JServer Release 8.1.7.0.0 - Production
+
+SVRMGR><font color=red> connect internal</font>
+Connected.
+SVRMGR><font color=red> startup</font>
+ORACLE instance started.
+Total System Global Area                        166510752 bytes
+Fixed Size                                          73888 bytes
+Variable Size                                    61030400 bytes
+Database Buffers                                105226240 bytes
+Redo Buffers                                       180224 bytes
+Database mounted.
+Database opened.
+SVRMGR><font color=red> exit </font>
+Server Manager complete.
+bash-2.03$<font color=red> lsnrctl start </font>
+
+LSNRCTL for Solaris: Version 8.1.7.0.0 - Production on 05-DEC-2006 01:52:42
+
+(c) Copyright 1998 Oracle Corporation.  All rights reserved.
+
+Starting /oracle/OraHome1//bin/tnslsnr: please wait...
+
+TNSLSNR for Solaris: Version 8.1.7.0.0 - Production
+System parameter file is /oracle/OraHome1/network/admin/listener.ora
+Log messages written to /oracle/OraHome1/network/log/listener.log
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC)))
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=asamsitws48)(PORT=1521)))
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=asamsitws48)(PORT=2481))(PROTOCOL_STACK=(PRESENTATION=GIOP)(SESSION=RAW)))
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC)))
+STATUS of the LISTENER
+------------------------
+Alias                     LISTENER
+Version                   TNSLSNR for Solaris: Version 8.1.7.0.0 - Production
+Start Date                05-DEC-2006 01:52:42
+Uptime                    0 days 0 hr. 0 min. 0 sec
+Trace Level               off
+Security                  OFF
+SNMP                      OFF
+Listener Parameter File   /oracle/OraHome1/network/admin/listener.ora
+Listener Log File         /oracle/OraHome1/network/log/listener.log
+Services Summary...
+  PLSExtProc            has 1 service handler(s)
+  astra         has 1 service handler(s)
+The command completed successfully
+bash-2.03$
+</pre></font>
+===================================================================================================<br>
+<b><center>Thus all the services are UP and running fine in the Oracle server<br></b></center>
+===================================================================================================<br>
+</pre>
+<hr>
+<font face=Sylfaen color=blue>
+<b><u><i>Additional Commands:</i></u></b><br>
+<pre>
+bash-2.03$<font color=red> lsnrctl stop </font>
+
+LSNRCTL for Solaris: Version 8.1.7.0.0 - Production on 05-DEC-2006 01:52:41
+
+(c) Copyright 1998 Oracle Corporation.  All rights reserved.
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC)))
+The command completed successfully
+bash-2.03$
+
+bash-2.03$<font color=red> svrmgrl </font>
+
+Oracle Server Manager Release 3.1.7.0.0 - Production
+
+Copyright (c) 1997, 1999, Oracle Corporation.  All Rights Reserved.
+
+Oracle8i Release 8.1.7.0.0 - Production
+JServer Release 8.1.7.0.0 - Production
+
+SVRMGR><font color=red> help </font>
+The following are SIMPLIFIED syntax descriptions. For complete syntax
+descriptions, please refer to the Oracle Server Manager User's Guide.
+
+STARTUP      [DBA] [FORCE] [PFILE=filespec] [EXCLUSIVE | SHARED]
+             [MOUNT dbname | OPEN dbname] [NOMOUNT]
+
+SHUTDOWN     [NORMAL | IMMEDIATE | ABORT]
+
+MONITOR      For graphical modes only, bring up a monitor
+
+ARCHIVE LOG  [START] [STOP] [LIST] [NEXT] [<n>] [ALL] ['destination']
+
+RECOVER      { [DATABASE [MANUAL] ] | [TABLESPACE ts-name [,tsname]] }
+
+CONNECT      [username [/password] ] [INTERNAL] ['@'instance-spec]
+DISCONNECT
+
+SET          options: INSTANCE, ECHO, TERMOUT, TIMING, NUMWIDTH, CHARWIDTH
+SHOW         LONGWIDTH, DATEWIDTH, AUTOPRINT and for SHOW: ALL, SPOOL
+
+EXIT
+REM
+             SQL statements can also be executed.
+SVRMGR><font color=red> exit </font>
+Server Manager complete.
+</pre></font>
+===================================================================================================<br>
+<b><center>The END !!!!!!!!!!!!<br></b></center>
+===================================================================================================<br>
+</HTML>

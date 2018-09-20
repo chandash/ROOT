@@ -1,0 +1,74 @@
+<html>
+<pre>
+Problem 
+This technote explains how to manually uninstall IBM. Rational. ClearCase. from a Sun. Solaris. server by removing the installed binaries and start-up scripts.  
+  
+Solution 
+The instructions for this process are specific to the ClearCase version installed. 
+
+For ALL ClearCase versions: 
+
+============================ 
+
+1. Log in as root 
+
+2. Stop ClearCase services (/usr/atria/etc/atria_start stop) -- VERY IMPORTANT! 
+
+3. Backup the /var/adm/atria directory 
+
+4. Make sure that any customizations (such as trigger scripts or a modified atria_start) made in the /usr/atria path are backed up 
+
+5. Remove the /view directory (ClearCase services MUST be stopped before this in done!!) 
+
+
+ClearCase 4.2 through 2002.05.00: 
+
+============================
+
+6. Rename (or remove) the ClearCase files in the start-up directories 
+
+mv /etc/init.d/atria /etc/init.d/old.atria 
+mv /etc/rc2.d/S77atria /etc/rc2.d/old.S77atria 
+mv /etc/rc0.d/K35atria /etc/rc0.d/old.K35atria
+
+
+7. Remove the install directory (by default stored in /usr/atria)
+
+cd /usr
+rm -rf atria
+
+8. Remove the adm directory (by default stored in /var/adm/atria)
+
+cd /var/adm
+rm -rf atria
+
+9. Reboot the server.
+
+
+
+ClearCase 2003.06.00 
+
+============================ 
+
+6. Rename (or remove) the ClearCase files in the start-up directories 
+
+mv /etc/init.d/clearcase /etc/init.d/old.clearcase 
+mv /etc/rc2.d/S77clearcase /etc/rc2.d/old.S77clearcase 
+mv /etc/rc0.d/K35clearcase /etc/rc0.d/old.K35clearcase
+
+
+7. Remove the install directory (by default stored in /opt/rational/clearcase)
+
+cd /opt/rational/
+rm -rf clearcase
+
+8. Remove the adm directory (by default stored in /var/adm/rational/clearcase)
+
+cd /var/adm/rational/
+rm -rf clearcase
+
+9. Reboot the server.
+
+ClearCase is now completely de-installed from the system.
+</pre>
+</html>

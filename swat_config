@@ -1,0 +1,106 @@
+	
+ 
+[Dukes Earned 3] murilloa
+Posts:43
+Registered: 9/13/06
+	
+Re: samba on solaris 10   
+Feb 13, 2006 6:29 AM (reply 1 of 15)
+	
+Click to email this message
+
+ 
+	
+Samba is already included on Solaris 10 installation.
+On Solaris 3/05 is 3.0.4
+On Solaris 1-06 is 3.0.11
+
+You only have to configure the one is already there, this is what I did and it works for me:
+
+For SAMBA 3.0.4 or 3.0.11
+
+a) Configuration file (if it does not exist, create it):
+#/etc/sfw/smb.conf
+
+b) To determine the version of Samba installed, the following command can be run:
+#/usr/sfw/sbin/smbd -V
+
+c) Create folder and adjust permissions: (e.g.)
+#mkdir /disk2
+chmod 777 /disk2
+chmod +t /disk2
+chown sys /disk2
+chgrp sys /disk2
+
+d) Sample smb.conf file:
+
+[global]
+workgroup = WORKGROUP
+security = SHARE
+preferred master = No
+local master = No
+domain master = No
+ldap ssl = no
+hosts allow = localhost, myPC, 192.168.1.
+hosts deny = All
+
+[utility]
+comment = Utilities to re-build
+path = /utility
+read only = No
+guest ok = Yes
+
+[disk2]
+comment = Disk 2 storage
+path = /disk2
+read only = No
+guest ok = Yes
+
+[disk1]
+comment = Disk 1 storage
+path = /disk1
+read only = No
+guest ok = Yes
+
+[respaldo]
+comment = Backup
+path = /backup
+read only = No
+guest ok = Yes
+browseable = No
+
+e) To test configuration:
+# /usr/sfw/bin/testparm
+
+f) Edit /etc/services and /etc/inetd.conf
+
+* For /etc/services, after the line which reads:
+
+ldaps 636/udp # LDAP protocol over TLS/SSL (was sldap)
+
+insert the line:
+swat 901/tcp # Samba swat
+
+* For /etc/inetd.conf add the following 2 lines to the end of the file:
+
+Solaris 10:
+netbios-ssn stream tcp nowait root /usr/sfw/sbin/smbd smbd
+swat stream tcp nowait root /usr/sfw/sbin/swat swat
+
+* NOTE: Use ?tabs? for spaces.
+
+To connect to Swat, simply start your Web browser and point it at: http://localhost:901
+You can edit your smb.conf file from within the web browser.
+
+( Note: You will receive the following error message on ?dmesg?:
+
+Configuration file /etc/inet/inetd.conf has been modified since inetconv was last run.
+"inetconv -i/etc/inet/inetd.conf" must be run to apply any changes to SMF
+
+Just run:
+# inetconv -i/etc/inet/inetd.conf
+on a terminal window.)
+
+Tht's it, it works out of the box with no hasle, configue you smb.conf to your needs, this is just a home sample I use.
+
+Cheeres. 

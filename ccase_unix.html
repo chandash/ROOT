@@ -1,0 +1,2292 @@
+<html>
+<pre>
+bash-2.04# cd /net/asamvob1/opt/ccase_rls/v4.2/sun5/install/
+bash-2.04# ./install_release 
+
+Copyright Rational Software Corporation. All Rights Reserved.  This
+software contains proprietary and confidential information of Rational
+and its suppliers.  Use, disclosure or reproduction is prohibited
+without the prior express written consent of Rational.  Subject to
+RESTRICTED RIGHTS for US Government users. 
+
+This software is protected by the following registered
+United States patents: 5574898, 5649200, 5675802. 
+
+Copyright 1994, 2000, Rational Software Corporation, All Rights Reserved.
+Copyright 1989, 1991, The Regents of the University of California.
+Copyright 1984-1991 by Raima Corporation.
+Copyright 1992 Purdue Research Foundation, West Lafayette, Indiana 47907.
+Copyright 1994 Visix Software Inc. (Galaxy Run Time Components only.)
+This release area contains the following Atria product(s):
+
+        ClearCase Attache
+        ClearCase ClearQuest Integration
+        ClearCase
+        ClearCase ClearDDTS Integration
+        MultiSite
+        ClearCase Web Interface Server
+
+ A transcript of this installation will be initially written 
+ to /tmp/Atria_install.060918.22:57.
+ After a successful installation, the transcript will be located
+ at /var/adm/atria/log/Atria_install.060918.22:57.
+
+
+The following installation methods are available:
+
+1. Local Install:            Install occurs on the local host.
+2. Remote Install:           Install occurs on a single remote host.
+3. Multiple Remote Installs: Install occurs on a set of remote hosts.
+4. Local Deinstall:          Deinstall occurs on the local host.
+
+Type "Help" or "h" for expanded descriptions
+
+Type "Quit" or "q" to exit the installation
+
+Please select the installation method by number.
+
+
+Method of installation>> 1
+         User specified:Install method:local
+
+
+
+The following installation operations or models are available:
+
+1. Standard:  Regular installation, allowing links to this release area.
+2. Full-copy: Regular installation, with no links to this release area.
+3. Mounted:   Host install via mounted or pre-populated /usr/atria or ATRIAHOME.
+4. Link-only: Host install via a symbolic link to this release-area.
+5. Deinstall: Deinstall software from the local installed host.
+
+Type "Help" or "h" for expanded descriptions
+
+Type "Quit" or "q" to exit
+
+Please select the installation type by number.
+
+
+Model of installation>> 2
+         User specified:Install model:full
+
+
+Specify directory to be installed with ClearCase Attache, ClearCase ClearQuest Integration, ClearCase, ClearCase ClearDDTS Integration, MultiSite, ClearCase Web Interface Server
+ [/usr/atria]:
+
+         User specified:Install into: /usr/atria
+
+
+Pathname to the network-wide release directory
+    (used as target of symbolic links)
+ [/net/asamvob1/opt/ccase_rls/v4.2/sun5]:
+
+         User specified:Release area pathname:/net/asamvob1/opt/ccase_rls/v4.2/sun5
+
+  1 : ClearQuest Integration with ClearCase
+  2 : ClearCase MultiSite Full Function Installation
+  3 : ClearCase Attache Helper
+  4 : ClearCase Server-only Installation
+  5 : ClearCase MultiSite Shipping Server-only Installation
+  6 : ClearCase Web Interface Server
+  7 : ClearCase Minimal Developer Installation
+  8 : ClearCase Full Function Installation
+  9 : ClearDDTS Integration with ClearCase
+  a : Select all
+  f : Finish selection
+  x : Toggle expanded descriptions
+  r : Reset selections
+  q : Quit
+
+Selection number(s)>> 8
+Next selection, '*' denotes a selected component
+
+  1 : ClearQuest Integration with ClearCase
+  2 : ClearCase MultiSite Full Function Installation
+  3 : ClearCase Attache Helper
+  4 : ClearCase Server-only Installation
+  5 : ClearCase MultiSite Shipping Server-only Installation
+  6 : ClearCase Web Interface Server
+  7 : ClearCase Minimal Developer Installation
+* 8 : ClearCase Full Function Installation
+  9 : ClearDDTS Integration with ClearCase
+  a : Select all
+  f : Finish selection
+  x : Toggle expanded descriptions
+  r : Reset selections
+  q : Quit
+
+Selection number(s)>> f
+         
+         The following list of selected components is out-of-date relative
+         to the installed software and will be replaced:
+
+                Atria Database Server Basics
+                Atria Help Viewer
+                Atria Required Basics
+                Atria Required Basics (No registry)
+                Atria required C++ library support 
+                Atria required C++ support 
+                Atria required GUI support 
+                Atria required X11 support 
+                ClearCase Client Audited Build Support
+                ClearCase Client Basics & MVFS
+                ClearCase Client GUI
+                ClearCase Client Integrations with ToolTalk and/or SoftBench
+                ClearCase Documentation, Tutorial and Examples
+                ClearCase Full Function Installation
+                ClearCase Import and Exporters
+              ClearCase Minimal Developer Installation
+                ClearCase Product Family installation mechanism
+                ClearCase Required Basics
+                ClearCase Required Perl and Perl Modules
+                ClearCase Server-only Installation
+                ClearCase VOB Server
+                ClearCase View Server
+         
+
+***************************************************************************
+>> Beginning component specific queries.
+***************************************************************************
+         Reading component installation scripts.
+
+Atria License Server Host[192.168.22.87]:192.168.220.251
+         User specified:License host is 192.168.220.251
+
+
+ClearCase Registry Server Host[asamvob1]:
+
+         User specified:Registry host is asamvob1
+
+
+ClearCase Registry Backup Host(s)[Unknown]:
+
+         User specified:Registry backup host(s): Unknown
+
+
+ClearCase Registry Region[asamvob1]:
+
+         User specified:Registry region: asamvob1
+
+
+Choose whether to install extended VOB support.
+
+         * Extended VOB support files in the VOB database to grow 
+           beyond 2 Gigabytes.
+
+         * Extended VOB support is required only for very large VOB 
+           databases.
+
+         * Installing extended VOB support requires a reformat of existing 
+           VOBs on this machine.
+
+ Install this feature? (yes, no, quit)[no]:yes
+
+         User specified:extended VOB support selected: TRUE
+
+***************************************************************************
+>> Summary of installation selections
+***************************************************************************
+        Install into: /usr/atria
+        Install method:local
+        Install model:full
+        License host is 192.168.220.251
+        Registry backup host(s): Unknown
+        Registry host is asamvob1
+        Registry region: asamvob1
+        Release area pathname:/net/asamvob1/opt/ccase_rls/v4.2/sun5
+        extended VOB support selected: TRUE
+         
+         The interactive portion of the installation is complete.
+         If you choose to continue, the previously listed components
+         will be installed/updated.
+
+         Upon completion,  the installation status will indicate whether
+         there were problems, and provide reminders of post-installation
+         steps.
+
+         This WILL include stopping all currently running ClearCase Product Family
+         software.
+         This WILL NOT require a reboot of the system.
+         
+**** Enter 'quit' or 'no' to abort the installation ****
+**** Enter 'yes' or press  to continue ****
+
+Continue installation?(yes, no, quit)[yes]:
+
+***************************************************************************
+>> Begin installing files into /usr/atria
+***************************************************************************
+         *****************************************************************
+         >> Beginning installation of component files for atria_perl
+         Updated:   /usr/atria/sun5/bin/Perl
+         Updated:   /usr/atria/sun5/lib/perl5/AutoLoader.pm
+         Updated:   /usr/atria/sun5/lib/perl5/CGI.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Carp.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Config.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Cwd.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Date/Format.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Date/Parse.pm
+         Updated:   /usr/atria/sun5/lib/perl5/DynaLoader.pm
+         Updated:   /usr/atria/sun5/lib/perl5/English.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Exporter.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Fcntl.pm
+         Updated:   /usr/atria/sun5/lib/perl5/File/Basename.pm
+         Updated:   /usr/atria/sun5/lib/perl5/FileHandle.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Getopt/Long.pm
+         Updated:   /usr/atria/sun5/lib/perl5/IPC/Open2.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Mail/Mailer.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Mail/Send.pm
+         Updated:   /usr/atria/sun5/lib/perl5/SelectSaver.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Socket.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Symbol.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Text/ParseWords.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Time/Local.pm
+         Updated:   /usr/atria/sun5/lib/perl5/Time/Zone.pm
+         Updated:   /usr/atria/sun5/lib/perl5/auto/Fcntl/Fcntl.so
+         Updated:   /usr/atria/sun5/lib/perl5/auto/Fcntl/autosplit.ix
+         Updated:   /usr/atria/sun5/lib/perl5/auto/FileHandle/FileHandle.so
+         Updated:   /usr/atria/sun5/lib/perl5/auto/Socket/Socket.so
+         Updated:   /usr/atria/sun5/lib/perl5/auto/Socket/autosplit.ix
+         Updated:   /usr/atria/sun5/lib/perl5/open2.pl
+         Updated:   /usr/atria/sun5/lib/perl5/open3.pl
+         Updated:   /usr/atria/sun5/lib/perl5/perl5db.pl
+         Updated:   /usr/atria/sun5/lib/perl5/shellwords.pl
+         Updated:   /usr/atria/sun5/lib/perl5/strict.pm
+         Updated:   /usr/atria/sun5/lib/perl5/vars.pm
+         *****************************************************************
+         >> Beginning installation of component files for atria_install
+         *****************************************************************
+         >> Beginning installation of component files for atria_basement
+         Updated:   /usr/atria/bin
+         Updated:   /usr/atria/config/scheduler/initial_schedule
+         Updated:   /usr/atria/config/scheduler/tasks/README
+         Updated:   /usr/atria/config/scheduler/tasks/ccase_day.sh
+         Updated:   /usr/atria/config/scheduler/tasks/ccase_wk.sh
+         Updated:   /usr/atria/config/scheduler/tasks/cleanlogs.sh
+         Updated:   /usr/atria/config/scheduler/tasks/templates/ccase_local_day.sh
+         Updated:   /usr/atria/config/scheduler/tasks/templates/ccase_local_wk.sh
+         Updated:   /usr/atria/config/scheduler/tasks/templates/task_registry
+         Updated:   /usr/atria/config/services/admin.conf.template
+         Updated:   /usr/atria/config/services/albd.conf
+         Updated:   /usr/atria/config/services/log_classes.db
+         Updated:   /usr/atria/config/services/product_info.db
+         Updated:   /usr/atria/etc
+         Updated:   /usr/atria/lib
+         Updated:   /usr/atria/shlib
+         Updated:   /usr/atria/sun5/../config/services/admin.conf
+         Updated:   /usr/atria/sun5/bin/clearlicense
+         Updated:   /usr/atria/sun5/bin/notify
+         Updated:   /usr/atria/sun5/etc/admin_server
+         Updated:   /usr/atria/sun5/etc/albd_server
+         Updated:   /usr/atria/sun5/etc/atria_persist
+         Updated:   /usr/atria/sun5/etc/atria_start
+         Updated:   /usr/atria/sun5/etc/credmap_server
+         Updated:   /usr/atria/sun5/etc/delayed_export
+         Updated:   /usr/atria/sun5/etc/utils/albd_list
+         Updated:   /usr/atria/sun5/etc/utils/credmap
+         Updated:   /usr/atria/sun5/shlib/libatriaadm.so
+         Updated:   /usr/atria/sun5/shlib/libatriacredmap.so
+         Updated:   /usr/atria/sun5/shlib/libatriaks.so
+         Updated:   /usr/atria/sun5/shlib/libatriamvfs.so
+         Updated:   /usr/atria/sun5/shlib/libatriastats_svr.so
+         Updated:   /usr/atria/sun5/shlib/libatriatbs.so
+         Updated:   /usr/atria/sun5/shlib/libatriaxdr.so
+         Updated:   /usr/atria/sun5/shlib/libezrpc.so
+         Updated:   /usr/atria/sun5/shlib/libperl.so
+         Updated:   /usr/atria/sun5/shlib/libperlDynaLoader.so
+         *****************************************************************
+         >> Beginning installation of component files for atria_cplus_shlib
+         Updated:   /usr/atria/sun5/shlib/libC.so.5
+         *****************************************************************
+         >> Beginning installation of component files for atria_base
+         Updated:   /usr/atria/config/scheduler/tasks/rgy_backup.sh
+         Updated:   /usr/atria/sun5/etc/imsglog
+         Updated:   /usr/atria/sun5/etc/rgy_backup
+         Updated:   /usr/atria/sun5/etc/rgy_check
+         Updated:   /usr/atria/sun5/etc/rgy_passwd
+         Updated:   /usr/atria/sun5/etc/rgy_switchover
+         *****************************************************************
+         >> Beginning installation of component files for CC_base
+         Updated:   /usr/atria/config/magic/default.magic
+         Updated:   /usr/atria/config/vob/vob_server.template
+         Updated:   /usr/atria/default_config_spec
+         Unchanged: /usr/atria/lib/perl5/Carp.pm
+         Unchanged: /usr/atria/lib/perl5/Exporter.pm
+         Updated:   /usr/atria/lib/perl5/HTML/Entities.pm
+         Updated:   /usr/atria/lib/perl5/HTML/Filter.pm
+         Updated:   /usr/atria/lib/perl5/HTML/Normalize.pm
+         Updated:   /usr/atria/lib/perl5/HTML/Parser.pm
+         Unchanged: /usr/atria/lib/perl5/strict.pm
+         Unchanged: /usr/atria/lib/perl5/vars.pm
+         Updated:   /usr/atria/sun5/bin/Perl4
+         Updated:   /usr/atria/sun5/bin/clearbug
+         Updated:   /usr/atria/sun5/bin/cleardiff
+         Updated:   /usr/atria/sun5/bin/cleartool
+         Updated:   /usr/atria/sun5/bin/htmlnormdiff.pl
+         Updated:   /usr/atria/sun5/etc/Gzip
+         Updated:   /usr/atria/sun5/etc/utils/README
+         Updated:   /usr/atria/sun5/etc/utils/ck_all_tfd_for_nulls.pl
+         Updated:   /usr/atria/sun5/etc/utils/date2time
+         Updated:   /usr/atria/sun5/etc/utils/invoke_mgr
+         Updated:   /usr/atria/sun5/etc/utils/oid2date
+         Updated:   /usr/atria/sun5/etc/utils/pvarutil
+         Updated:   /usr/atria/sun5/etc/utils/recover_delta.sh
+         Updated:   /usr/atria/sun5/etc/utils/regen_view_dot_dat.pl
+         Updated:   /usr/atria/sun5/etc/utils/squid_patch
+         Updated:   /usr/atria/sun5/etc/utils/time2date
+         Updated:   /usr/atria/sun5/etc/utils/ucmutil
+         Updated:   /usr/atria/sun5/etc/view_scrubber
+         Updated:   /usr/atria/sun5/etc/view_scrubber.sh
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/htmlnormdiff
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/_html/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/_ms_word/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/_rose/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/_xml/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/bdtm
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/binary_delta/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/directory/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/directory/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/directory/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/directory/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/mgr_info.h
+         Updated:   /usr/atria/sun5/lib/mgrs/mgr_info.sh
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/tfdmgr
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/text_file_delta/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/whole_copy/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/whole_copy/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/whole_copy/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/whole_copy/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/Z_text_mgr
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/annotate
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/z_text_file_delta/xmerge
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/Zmgr
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/compare
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/construct_version
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/create_branch
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/create_element
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/create_version
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/delete_branches_versions
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/get_cont_info
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/merge
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/xcompare
+         Updated:   /usr/atria/sun5/lib/mgrs/z_whole_copy/xmerge
+         Updated:   /usr/atria/sun5/shlib/libClearCase_ActivityChangeSetCtrl_1.so
+         Updated:   /usr/atria/sun5/shlib/libatriaafd.so
+         Updated:   /usr/atria/sun5/shlib/libatriabdtm.so
+         Updated:   /usr/atria/sun5/shlib/libatriaccfs.so
+         Updated:   /usr/atria/sun5/shlib/libatriaclient_meters.so
+         Updated:   /usr/atria/sun5/shlib/libatriacm.so
+         Updated:   /usr/atria/sun5/shlib/libatriacmd.so
+         Updated:   /usr/atria/sun5/shlib/libatriacmdsyn.so
+         Updated:   /usr/atria/sun5/shlib/libatriadb.so
+         Updated:   /usr/atria/sun5/shlib/libatriadb_ldb.so
+         Updated:   /usr/atria/sun5/shlib/libatriadbrpc.so
+         Updated:   /usr/atria/sun5/shlib/libatriaddiff.so
+         Updated:   /usr/atria/sun5/shlib/libatriaexport.so
+         Updated:   /usr/atria/sun5/shlib/libatriafsimport.so
+         Updated:   /usr/atria/sun5/shlib/libatriaimport.so
+         Updated:   /usr/atria/sun5/shlib/libatriamntrpc.so
+         Updated:   /usr/atria/sun5/shlib/libatriamsadm.so
+         Updated:   /usr/atria/sun5/shlib/libatriasplit.so
+         Updated:   /usr/atria/sun5/shlib/libatriasquidad.so
+         Updated:   /usr/atria/sun5/shlib/libatriasquidcore.so
+         Updated:   /usr/atria/sun5/shlib/libatriasum.so
+         Updated:   /usr/atria/sun5/shlib/libatriasumcmd.so
+         Updated:   /usr/atria/sun5/shlib/libatriati_encap.so
+         Updated:   /usr/atria/sun5/shlib/libatriatirpc.so
+         Updated:   /usr/atria/sun5/shlib/libatriatool.so
+         Updated:   /usr/atria/sun5/shlib/libatriaview.so
+         Updated:   /usr/atria/sun5/shlib/libatriavob.so
+         Updated:   /usr/atria/sun5/shlib/libatriavobxdr.so
+         Updated:   /usr/atria/sun5/shlib/libatriazmgr.so
+         Updated:   /usr/atria/sun5/shlib/libccsumcqint.so
+         *****************************************************************
+         >> Beginning installation of component files for atria_X11_base
+         Updated:   /usr/atria/config/ui/lib/X11/XErrorDB
+         Updated:   /usr/atria/config/ui/lib/X11/XKeysymDB
+         Updated:   /usr/atria/config/ui/lib/X11/locale/C/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/compose.dir
+         Updated:   /usr/atria/config/ui/lib/X11/locale/en_US.utf/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-1/Compose
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-1/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-2/Compose
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-2/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-3/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-4/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-5/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-6/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-7/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-8/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/iso8859-9/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/ja.JIS/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/ja.SJIS/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/ja/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/ko/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/locale.alias
+         Updated:   /usr/atria/config/ui/lib/X11/locale/locale.dir
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/gb2312
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/jis0201
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/jis0208
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/ksc5601
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_1
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_2
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_3
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_4
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_5
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_6
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_7
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_8
+         Updated:   /usr/atria/config/ui/lib/X11/locale/tbl_data/tab8859_9
+         Updated:   /usr/atria/config/ui/lib/X11/locale/th_TH.TACTIS/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/zh/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/X11/locale/zh_TW/XLC_LOCALE
+         Updated:   /usr/atria/config/ui/lib/bindings/acorn
+         Updated:   /usr/atria/config/ui/lib/bindings/apollo
+         Updated:   /usr/atria/config/ui/lib/bindings/dec
+         Updated:   /usr/atria/config/ui/lib/bindings/dg_AViiON
+         Updated:   /usr/atria/config/ui/lib/bindings/doubleclick
+         Updated:   /usr/atria/config/ui/lib/bindings/hal
+         Updated:   /usr/atria/config/ui/lib/bindings/hitachi
+         Updated:   /usr/atria/config/ui/lib/bindings/hp
+         Updated:   /usr/atria/config/ui/lib/bindings/ibm
+         Updated:   /usr/atria/config/ui/lib/bindings/intergraph
+         Updated:   /usr/atria/config/ui/lib/bindings/intergraph17
+         Updated:   /usr/atria/config/ui/lib/bindings/megatek
+         Updated:   /usr/atria/config/ui/lib/bindings/motorola
+         Updated:   /usr/atria/config/ui/lib/bindings/ncr_at
+         Updated:   /usr/atria/config/ui/lib/bindings/ncr_vt
+         Updated:   /usr/atria/config/ui/lib/bindings/pc
+         Updated:   /usr/atria/config/ui/lib/bindings/sgi
+         Updated:   /usr/atria/config/ui/lib/bindings/siemens_9733
+         Updated:   /usr/atria/config/ui/lib/bindings/siemens_wx200
+         Updated:   /usr/atria/config/ui/lib/bindings/sni
+         Updated:   /usr/atria/config/ui/lib/bindings/sni_97801
+         Updated:   /usr/atria/config/ui/lib/bindings/sony
+         Updated:   /usr/atria/config/ui/lib/bindings/sun_mit
+         Updated:   /usr/atria/config/ui/lib/bindings/sun_news
+         Updated:   /usr/atria/config/ui/lib/bindings/tek
+         Updated:   /usr/atria/config/ui/lib/bindings/xmbind.alias
+         Updated:   /usr/atria/sun5/shlib/libICE.so.6.3
+         Updated:   /usr/atria/sun5/shlib/libSM.so.6.0
+         Updated:   /usr/atria/sun5/shlib/libX11.so.6.1
+         Updated:   /usr/atria/sun5/shlib/libXaw.so.6.1
+         Updated:   /usr/atria/sun5/shlib/libXext.so.6.3
+         Updated:   /usr/atria/sun5/shlib/libXmu.so.6.0
+         Updated:   /usr/atria/sun5/shlib/libXp.so.6.2
+         Updated:   /usr/atria/sun5/shlib/libXt.so.6.0
+         Updated:   /usr/atria/sun5/shlib/libatriamotif.so
+         Updated:   /usr/atria/sun5/shlib/liboldX.so.6.0
+         *****************************************************************
+         >> Beginning installation of component files for atria_hlp_viewer
+         Updated:   /usr/atria/config/app-defaults/HyperHelp
+         Updated:   /usr/atria/doc/hlp/hoh.cnt
+         Updated:   /usr/atria/doc/hlp/hoh.hlp
+         Updated:   /usr/atria/sun5/bin/hyperhelp
+         Updated:   /usr/atria/sun5/lib/xprinter/Xpdefaults
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/agaramond-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/avantgarde-book.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/avantgarde-bookoblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/avantgarde-demi.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/avantgarde-demioblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/bookman-demi.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/bookman-demiitalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/bookman-light.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/bookman-lightitalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/courier-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/courier-boldoblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/courier-oblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/courier.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/gothicbbb-medium-83pv-rksj-h.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/gothicbbb-medium.roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/helvetica-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/helvetica-boldoblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/helvetica-oblique.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/helvetica.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newbaskerville-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newbaskerville-bolditalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newbaskerville-italic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newbaskerville-roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newcenturyschlbk-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newcenturyschlbk-bolditalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newcenturyschlbk-italic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/newcenturyschlbk-roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/palatino-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/palatino-bolditalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/palatino-italic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/palatino-roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/ryumin-light-83pv-rksj-h.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/ryumin-light.roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/symbol.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/times-bold.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/times-bolditalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/times-italic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/times-roman.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/windsor.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/zapfchancery-mediumitalic.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/afm/zapfdingbats.afm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00041.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00042.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00050.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00153.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00292.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb00491.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb01869.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb02995.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb03902.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb03903.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb04827.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb05436.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb05447.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb05448.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb05705.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb06334.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb06335.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb09894.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb09961.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb11478.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb11538.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb11942.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb12382.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb14604.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb14771.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb15724.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb16827.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb17035.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb17421.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb17673.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb18467.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb18468.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb18716.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb18717.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19169.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19170.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19718.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19895.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19896.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb19912.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb21726.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb21727.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb23281.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb23811.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb24464.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb25667.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb26299.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb26500.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb26501.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb26962.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb28145.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb28703.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb29358.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb30333.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb31322.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/9nb32391.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14e1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14lga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14pca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14pda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14pma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb14r8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1ce1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1clga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1clgc.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1cpca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1cpda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1cpma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crb1cr8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14e1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14lga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14pca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14pda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14pma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri14r8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1ce1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1clga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1cpca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1cpda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1cpma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/cri1cr8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14e1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14lga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14pca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14pda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14pma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr14r8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1ce1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1clga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1cpca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1cpda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1cpma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/crr1cr8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0ye1a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0ylga.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0ypca.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0ypda.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0ypma.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/lpr0yr8a.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/trb0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/tri0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/trj0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/trr0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/una0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unb0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unc0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unf0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unh0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/uni0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unj0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/unr0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/fontmetrics/tfm/zdr0000s.tfm
+         Updated:   /usr/atria/sun5/lib/xprinter/pclstd.fonts
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/a_pnt518.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ac500503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aljii523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/amchr518.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ap_ntxj1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aplwiif1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aplwiig1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aplwntr1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/apple230.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/apple380.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/apple422.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aps08522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aps12522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aps26522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/aps80522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ast__470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cg94_493.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cn_500_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cn_500j1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cnlbp4_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cnlbp8_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cnlbp8r1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cnlbp8t1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cppmq151.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/cppmq201.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/datap462.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dcd11501.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dcd21501.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dcd22501.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dclps201.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dclps401.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dp_us470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dpl15601.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/dplz9601.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ep826051.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/epl3kf21.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/epl3kf51.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/epl75523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/f71rx503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gcbl4921.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gcbl5141.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gcblp2_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gcblp2s1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gcblpel1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/generic.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/gsgl8001.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp3si.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp3si.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp3si523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp4l.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp4l.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp4m.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp4si.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp4si.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp_3d522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hp_3p522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpdj1200.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpdj1200.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpii.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiid.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiid522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiii.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiii.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiii522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiiid.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiiip.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiip.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiip.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiip522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiv.pcl
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hpiv.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hplj_31.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hplj_3d1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/hplj_3p1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ib4029a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ib4029b1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ibm17523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ibm20470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ibm30505.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ibm39523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/kdcolor1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l100_425.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l200_471.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l200_493.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l300_471.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l300_493.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l330_523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l3330523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l500_493.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l530_523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/l5330523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/lh_630_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/lwnt_470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/lwntx470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/lwntx518.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/moim1201.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/mono_522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/n2090522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/n2290520.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/n890_470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/n890x505.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nc95fax1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nc97fax1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nc_n4f21.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nc_n4f51.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nccps401.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nccps801.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ncol_519.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ncs29901.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ncsw_951.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/np20.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/npclplus.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/nx_nlp_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/o5242503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ok801pf1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ol830525.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ol840518.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/p4455514.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q2200523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q2210523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q2220523.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q810t517.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q820_517.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/q820t517.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qcs10503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qcs20503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qcs30503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qm1700_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qm2000_1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qm815mr1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qm825mr1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmps4101.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmps8151.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmps8251.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qms81470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qms8_461.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qms8p461.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmscs494.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmsj_461.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qmsjp461.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/qume_470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/r6000505.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/s5232503.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/s746j522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/scg20522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/sprn.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/t1513470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/t1535470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/ti08_450.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tim17521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tim35521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/titrb161.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/titrbo61.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/titrbo91.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tix17521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tix35521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkph2sd1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphz2j1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphz3j1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphzr21.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphzr22.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphzr31.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkphzr32.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkpxe171.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/tkpxe391.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/u9415470.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/uni17521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/uni39521.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/v5334522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt42p522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt43p522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4510a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4530a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4530b1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4530c1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4533b1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4533c1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt453ea1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt453eb1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4550a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4550b1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4550c1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4551a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4563a1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4563b1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt49901.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4l3001.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4l3301.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4l5001.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt4l5301.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt530522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt550522.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt600p1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt600w1.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt60p480.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/vt60w480.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/xrdocu11.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/xrdt0851.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/xrdt0901.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/ppds/xrdt1351.ps
+         Updated:   /usr/atria/sun5/lib/xprinter/psstd.fonts
+         Updated:   /usr/atria/sun5/lib/xprinter/rgb.txt
+         Updated:   /usr/atria/sun5/lib/xprinter/xprinter.prolog
+         *****************************************************************
+         >> Beginning installation of component files for CC_client
+         Updated:   /usr/atria/etc/utils/change_suid_mounts
+         Updated:   /usr/atria/sun5/bin/mvfsversion
+         Updated:   /usr/atria/sun5/etc/convert_exports.sh
+         Updated:   /usr/atria/sun5/etc/export_mvfs
+         Updated:   /usr/atria/sun5/etc/exports.mvfs
+         Updated:   /usr/atria/sun5/etc/mntrpc_server
+         Updated:   /usr/atria/sun5/etc/mount_mvfs
+         Updated:   /usr/atria/sun5/etc/mvfs_umountall
+         Updated:   /usr/atria/sun5/etc/mvfscache
+         Updated:   /usr/atria/sun5/etc/mvfslog
+         Updated:   /usr/atria/sun5/etc/mvfsstat
+         Updated:   /usr/atria/sun5/etc/mvfsstorage
+         Updated:   /usr/atria/sun5/etc/mvfstime
+         Updated:   /usr/atria/sun5/etc/umount_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.6/fuser_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.6/mvfs
+         Updated:   /usr/atria/sun5/kvm/5.6/mvfs_param.c
+         Updated:   /usr/atria/sun5/kvm/5.6/show_mvfs_exports
+         Updated:   /usr/atria/sun5/kvm/5.7/fuser_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.7/mvfs
+         Updated:   /usr/atria/sun5/kvm/5.7/mvfs_param.c
+         Updated:   /usr/atria/sun5/kvm/5.7/show_mvfs_exports
+         Updated:   /usr/atria/sun5/kvm/5.7/sparcv9/fuser_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.7/sparcv9/mvfs
+         Updated:   /usr/atria/sun5/kvm/5.7/sparcv9/mvfs_param.c
+         Updated:   /usr/atria/sun5/kvm/5.8/fuser_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.8/mvfs
+         Updated:   /usr/atria/sun5/kvm/5.8/mvfs_param.c
+         Updated:   /usr/atria/sun5/kvm/5.8/show_mvfs_exports
+         Updated:   /usr/atria/sun5/kvm/5.8/sparcv9/fuser_mvfs
+         Updated:   /usr/atria/sun5/kvm/5.8/sparcv9/mvfs
+         Updated:   /usr/atria/sun5/kvm/5.8/sparcv9/mvfs_param.c
+         *****************************************************************
+         >> Beginning installation of component files for atria_server
+         Updated:   /usr/atria/sun5/etc/lockmgr
+         Updated:   /usr/atria/sun5/etc/utils/cclt2cc
+         Updated:   /usr/atria/sun5/etc/utils/countdb
+         Updated:   /usr/atria/sun5/etc/utils/datdump
+         Updated:   /usr/atria/sun5/etc/utils/db_query
+         Updated:   /usr/atria/sun5/etc/utils/db_query.dbd
+         Updated:   /usr/atria/sun5/etc/utils/dbcheck
+         Updated:   /usr/atria/sun5/etc/utils/dbedit
+         Updated:   /usr/atria/sun5/etc/utils/ida
+         Updated:   /usr/atria/sun5/etc/utils/keybuild
+         Updated:   /usr/atria/sun5/etc/utils/keydump
+         Updated:   /usr/atria/sun5/etc/utils/string_report
+         Updated:   /usr/atria/sun5/ldb/etc/utils/countdb
+         Updated:   /usr/atria/sun5/ldb/etc/utils/db_query
+         Updated:   /usr/atria/sun5/ldb/etc/utils/db_query.dbd
+         Updated:   /usr/atria/sun5/ldb/etc/utils/dbcheck
+         Updated:   /usr/atria/sun5/ldb/etc/utils/dbedit
+         Updated:   /usr/atria/sun5/ldb/etc/utils/ida
+         Updated:   /usr/atria/sun5/ldb/etc/utils/keybuild
+         Updated:   /usr/atria/sun5/ldb/etc/utils/keydump
+         Updated:   /usr/atria/sun5/ldb/etc/utils/string_report
+         *****************************************************************
+         >> Beginning installation of component files for atria_cplus_base
+         Updated:   /usr/atria/sun5/lib/libgwl.vr
+         Updated:   /usr/atria/sun5/lib/vgalaxy2.vr
+         Updated:   /usr/atria/sun5/shlib/libvgalaxy++.so.4
+         Updated:   /usr/atria/sun5/shlib/libvgalaxy++.so.4.0
+         *****************************************************************
+         >> Beginning installation of component files for atria_gui
+         Updated:   /usr/atria/sun5/bin/clearprompt
+         Updated:   /usr/atria/sun5/shlib/libatriabooch.so
+         Updated:   /usr/atria/sun5/shlib/libatriaccl.so
+         Updated:   /usr/atria/sun5/shlib/libatriagcl.so
+         Updated:   /usr/atria/sun5/shlib/libatriagu.so
+         Updated:   /usr/atria/sun5/shlib/libatriagutl.so
+         Updated:   /usr/atria/sun5/shlib/libatriagwl.so
+         Updated:   /usr/atria/sun5/shlib/libatriaui.so
+         *****************************************************************
+         >> Beginning installation of component files for CC_doc
+         Updated:   /usr/atria/doc/hlp/base_cc_cq.pdf
+         Updated:   /usr/atria/doc/hlp/base_cc_cq_dev.ux.pdf
+         Updated:   /usr/atria/doc/hlp/browsers.fts
+         Updated:   /usr/atria/doc/hlp/browsers.hlp
+         Updated:   /usr/atria/doc/hlp/cc_admin.pdf
+         Updated:   /usr/atria/doc/hlp/cc_build.pdf
+         Updated:   /usr/atria/doc/hlp/cc_cq_int.fts
+         Updated:   /usr/atria/doc/hlp/cc_cq_int.hlp
+         Updated:   /usr/atria/doc/hlp/cc_dev.pdf
+         Updated:   /usr/atria/doc/hlp/cc_dev_tasks.fts
+         Updated:   /usr/atria/doc/hlp/cc_dev_tasks.hlp
+         Updated:   /usr/atria/doc/hlp/cc_disconnected.fts
+         Updated:   /usr/atria/doc/hlp/cc_disconnected.hlp
+         Updated:   /usr/atria/doc/hlp/cc_dlv_rbs.fts
+         Updated:   /usr/atria/doc/hlp/cc_dlv_rbs.hlp
+         Updated:   /usr/atria/doc/hlp/cc_gloss.hlp
+         Updated:   /usr/atria/doc/hlp/cc_intro.pdf
+         Updated:   /usr/atria/doc/hlp/cc_main.cnt
+         Updated:   /usr/atria/doc/hlp/cc_main.ftg
+         Updated:   /usr/atria/doc/hlp/cc_main.fts
+         Updated:   /usr/atria/doc/hlp/cc_main.hlp
+         Updated:   /usr/atria/doc/hlp/cc_mvfs.fts
+         Updated:   /usr/atria/doc/hlp/cc_mvfs.hlp
+         Updated:   /usr/atria/doc/hlp/cc_proj.pdf
+         Updated:   /usr/atria/doc/hlp/cc_ref.cnt
+         Updated:   /usr/atria/doc/hlp/cc_ref.fts
+         Updated:   /usr/atria/doc/hlp/cc_ref.hlp
+         Updated:   /usr/atria/doc/hlp/cc_tut.cnt
+         Updated:   /usr/atria/doc/hlp/cc_tut.hlp
+         Updated:   /usr/atria/doc/hlp/cc_vprofile.fts
+         Updated:   /usr/atria/doc/hlp/cc_vprofile.hlp
+         Updated:   /usr/atria/doc/hlp/ccint_ddts.pdf
+         Updated:   /usr/atria/doc/hlp/ccint_f4j.hlp
+         Updated:   /usr/atria/doc/hlp/ccint_fdev.cnt
+         Updated:   /usr/atria/doc/hlp/ccint_fdev.hlp
+         Updated:   /usr/atria/doc/hlp/ccint_frame.pdf
+         Updated:   /usr/atria/doc/hlp/ccms_pfm.cnt
+         Updated:   /usr/atria/doc/hlp/ccms_pfm.fts
+         Updated:   /usr/atria/doc/hlp/ccms_pfm.hlp
+         Updated:   /usr/atria/doc/hlp/ccms_relnotes.pdf
+         Updated:   /usr/atria/doc/hlp/ccsumcqint.hlp
+         Updated:   /usr/atria/doc/hlp/cleardescribe.fts
+         Updated:   /usr/atria/doc/hlp/cleardescribe.hlp
+         Updated:   /usr/atria/doc/hlp/cleardescribe1.fts
+         Updated:   /usr/atria/doc/hlp/cleardescribe1.hlp
+         Updated:   /usr/atria/doc/hlp/cleardiffbl.fts
+         Updated:   /usr/atria/doc/hlp/cleardiffbl.hlp
+         Updated:   /usr/atria/doc/hlp/cleargetlog.fts
+         Updated:   /usr/atria/doc/hlp/cleargetlog.hlp
+         Updated:   /usr/atria/doc/hlp/clearhistory.fts
+         Updated:   /usr/atria/doc/hlp/clearhistory.hlp
+         Updated:   /usr/atria/doc/hlp/clearmrgman.fts
+         Updated:   /usr/atria/doc/hlp/clearmrgman.hlp
+         Updated:   /usr/atria/doc/hlp/clearprojexp.fts
+         Updated:   /usr/atria/doc/hlp/clearprojexp.hlp
+         Updated:   /usr/atria/doc/hlp/clearviewupdate.fts
+         Updated:   /usr/atria/doc/hlp/clearviewupdate.hlp
+         Updated:   /usr/atria/doc/hlp/clearvobadmin.fts
+         Updated:   /usr/atria/doc/hlp/clearvobadmin.hlp
+         Updated:   /usr/atria/doc/hlp/cpf_install.pdf
+         Updated:   /usr/atria/doc/hlp/cpf_supplement.pdf
+         Updated:   /usr/atria/doc/hlp/htree.fts
+         Updated:   /usr/atria/doc/hlp/htree.hlp
+         Updated:   /usr/atria/doc/hlp/ms_manual.pdf
+         Updated:   /usr/atria/doc/hlp/softb_int.cnt
+         Updated:   /usr/atria/doc/hlp/softb_int.hlp
+         Updated:   /usr/atria/doc/hlp/tut01d.hlp
+         Updated:   /usr/atria/doc/hlp/tut01s.hlp
+         Updated:   /usr/atria/doc/hlp/tut02d.hlp
+         Updated:   /usr/atria/doc/hlp/tut02s.hlp
+         Updated:   /usr/atria/doc/hlp/tut03d.hlp
+         Updated:   /usr/atria/doc/hlp/tut03s.hlp
+         Updated:   /usr/atria/doc/hlp/tut04d.hlp
+         Updated:   /usr/atria/doc/hlp/tut04s.hlp
+         Updated:   /usr/atria/doc/hlp/tut05d.hlp
+         Updated:   /usr/atria/doc/hlp/tut05s.hlp
+         Updated:   /usr/atria/doc/hlp/tut06d.hlp
+         Updated:   /usr/atria/doc/hlp/tut06s.hlp
+         Updated:   /usr/atria/doc/hlp/tut07d.hlp
+         Updated:   /usr/atria/doc/hlp/tut08d.hlp
+         Updated:   /usr/atria/doc/hlp/tut09d.hlp
+         Updated:   /usr/atria/doc/hlp/ucm_dev.pdf
+         Updated:   /usr/atria/doc/hlp/ucm_tut.hlp
+         Updated:   /usr/atria/doc/hlp/ucm_tut_dev.hlp
+         Updated:   /usr/atria/doc/hlp/ucm_tut_projmgr.hlp
+         Updated:   /usr/atria/doc/hlp/vtree.fts
+         Updated:   /usr/atria/doc/hlp/vtree.hlp
+         Updated:   /usr/atria/doc/hlp/xccase.fts
+         Updated:   /usr/atria/doc/hlp/xccase.hlp
+         Updated:   /usr/atria/doc/hlp/xcleardiff.fts
+         Updated:   /usr/atria/doc/hlp/xcleardiff.hlp
+         Updated:   /usr/atria/doc/man/cat1/abe.1
+         Updated:   /usr/atria/doc/man/cat1/admin_server.1
+         Updated:   /usr/atria/doc/man/cat1/albd_server.1
+         Updated:   /usr/atria/doc/man/cat1/att_clnt.1
+         Updated:   /usr/atria/doc/man/cat1/attache.1
+         Updated:   /usr/atria/doc/man/cat1/attcmd.1
+         Updated:   /usr/atria/doc/man/cat1/clearaudit.1
+         Updated:   /usr/atria/doc/man/cat1/clearbug.1
+         Updated:   /usr/atria/doc/man/cat1/cleardescribe.1
+         Updated:   /usr/atria/doc/man/cat1/cleardiff.1
+         Updated:   /usr/atria/doc/man/cat1/cleardiffbl.1
+         Updated:   /usr/atria/doc/man/cat1/clearencap_sb.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_ccase.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_cvs.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_ffile.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_pvcs.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_rcs.1
+         Updated:   /usr/atria/doc/man/cat1/clearexport_sccs.1
+         Updated:   /usr/atria/doc/man/cat1/clearhistory.1
+         Updated:   /usr/atria/doc/man/cat1/clearimport.1
+         Updated:   /usr/atria/doc/man/cat1/clearjoinproj.1
+         Updated:   /usr/atria/doc/man/cat1/clearlicense.1
+         Updated:   /usr/atria/doc/man/cat1/clearmake.1
+         Updated:   /usr/atria/doc/man/cat1/clearmrgman.1
+         Updated:   /usr/atria/doc/man/cat1/clearprompt.1
+         Updated:   /usr/atria/doc/man/cat1/cleartool.1
+         Updated:   /usr/atria/doc/man/cat1/clearviewupdate.1
+         Updated:   /usr/atria/doc/man/cat1/ct+annotate.1
+         Updated:   /usr/atria/doc/man/cat1/ct+apropos.1
+         Updated:   /usr/atria/doc/man/cat1/ct+catcr.1
+         Updated:   /usr/atria/doc/man/cat1/ct+catcs.1
+         Updated:   /usr/atria/doc/man/cat1/ct+cd.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chactivity.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chbl.1
+         Updated:   /usr/atria/doc/man/cat1/ct+checkin.1
+         Updated:   /usr/atria/doc/man/cat1/ct+checkout.1
+         Updated:   /usr/atria/doc/man/cat1/ct+checkvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chevent.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chflevel.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chfolder.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chmaster.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chpool.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chproject.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chstream.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chtype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+chview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+ci.1
+         Updated:   /usr/atria/doc/man/cat1/ct+clearprojexp.1
+         Updated:   /usr/atria/doc/man/cat1/ct+co.1
+         Updated:   /usr/atria/doc/man/cat1/ct+cptype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+deliver.1
+         Updated:   /usr/atria/doc/man/cat1/ct+describe.1
+         Updated:   /usr/atria/doc/man/cat1/ct+diff.1
+         Updated:   /usr/atria/doc/man/cat1/ct+diffbl.1
+         Updated:   /usr/atria/doc/man/cat1/ct+diffcr.1
+         Updated:   /usr/atria/doc/man/cat1/ct+dospace.1
+         Updated:   /usr/atria/doc/man/cat1/ct+edcs.1
+         Updated:   /usr/atria/doc/man/cat1/ct+endview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+file.1
+         Updated:   /usr/atria/doc/man/cat1/ct+find.1
+         Updated:   /usr/atria/doc/man/cat1/ct+findmerge.1
+         Updated:   /usr/atria/doc/man/cat1/ct+get.1
+         Updated:   /usr/atria/doc/man/cat1/ct+getcache.1
+         Updated:   /usr/atria/doc/man/cat1/ct+getlog.1
+         Updated:   /usr/atria/doc/man/cat1/ct+help.1
+         Updated:   /usr/atria/doc/man/cat1/ct+hostinfo.1
+         Updated:   /usr/atria/doc/man/cat1/ct+import.1
+         Updated:   /usr/atria/doc/man/cat1/ct+ln.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lock.1
+         Updated:   /usr/atria/doc/man/cat1/ct+ls.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsactivity.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsbl.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lscheckout.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsclients.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsco.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lscomp.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsdo.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsfolder.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lshistory.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lslock.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsmaster.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lspool.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsprivate.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsproject.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsregion.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsreplica.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lssite.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsstgloc.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsstream.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lstype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+lsvtree.1
+         Updated:   /usr/atria/doc/man/cat1/ct+man.1
+         Updated:   /usr/atria/doc/man/cat1/ct+merge.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkactivity.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkattr.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkattype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkbl.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkbranch.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkbrtype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkcomp.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkdir.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkelem.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkeltype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkfolder.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkhlink.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkhltype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mklabel.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mklbtype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkpool.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkproject.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkregion.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkstgloc.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkstream.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mktag.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mktrigger.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mktrtype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mkvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mount.1
+         Updated:   /usr/atria/doc/man/cat1/ct+move.1
+         Updated:   /usr/atria/doc/man/cat1/ct+mv.1
+         Updated:   /usr/atria/doc/man/cat1/ct+protect.1
+         Updated:   /usr/atria/doc/man/cat1/ct+protectvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+pwd.1
+         Updated:   /usr/atria/doc/man/cat1/ct+pwv.1
+         Updated:   /usr/atria/doc/man/cat1/ct+quit.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rebase.1
+         Updated:   /usr/atria/doc/man/cat1/ct+recoverview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+reformatview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+reformatvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+register.1
+         Updated:   /usr/atria/doc/man/cat1/ct+relocate.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rename.1
+         Updated:   /usr/atria/doc/man/cat1/ct+reqmaster.1
+         Updated:   /usr/atria/doc/man/cat1/ct+reserve.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmactivity.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmattr.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmbl.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmbranch.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmcomp.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmdo.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmelem.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmfolder.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmhlink.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmlabel.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmmerge.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmname.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmpool.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmproject.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmregion.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmstgloc.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmstream.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmtag.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmtrigger.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmtype.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmver.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+rmvob.1
+         Updated:   /usr/atria/doc/man/cat1/ct+schedule.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setactivity.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setcache.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setcs.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setplevel.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setsite.1
+         Updated:   /usr/atria/doc/man/cat1/ct+setview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+shell.1
+         Updated:   /usr/atria/doc/man/cat1/ct+space.1
+         Updated:   /usr/atria/doc/man/cat1/ct+startview.1
+         Updated:   /usr/atria/doc/man/cat1/ct+umount.1
+         Updated:   /usr/atria/doc/man/cat1/ct+uncheckout.1
+         Updated:   /usr/atria/doc/man/cat1/ct+unco.1
+         Updated:   /usr/atria/doc/man/cat1/ct+unlock.1
+         Updated:   /usr/atria/doc/man/cat1/ct+unregister.1
+         Updated:   /usr/atria/doc/man/cat1/ct+unreserve.1
+         Updated:   /usr/atria/doc/man/cat1/ct+update.1
+         Updated:   /usr/atria/doc/man/cat1/ct+winkin.1
+         Updated:   /usr/atria/doc/man/cat1/db_dumper.1
+         Updated:   /usr/atria/doc/man/cat1/db_loader.1
+         Updated:   /usr/atria/doc/man/cat1/db_server.1
+         Updated:   /usr/atria/doc/man/cat1/export_mvfs.1
+         Updated:   /usr/atria/doc/man/cat1/get.1
+         Updated:   /usr/atria/doc/man/cat1/hyperhelp.1
+         Updated:   /usr/atria/doc/man/cat1/init.d_atria.1
+         Updated:   /usr/atria/doc/man/cat1/init_ccase.1
+         Updated:   /usr/atria/doc/man/cat1/lockmgr.1
+         Updated:   /usr/atria/doc/man/cat1/lslocal.1
+         Updated:   /usr/atria/doc/man/cat1/lsws.1
+         Updated:   /usr/atria/doc/man/cat1/make.1
+         Updated:   /usr/atria/doc/man/cat1/mkws.1
+         Updated:   /usr/atria/doc/man/cat1/mount_ccase.1
+         Updated:   /usr/atria/doc/man/cat1/mount_mvfs.1
+         Updated:   /usr/atria/doc/man/cat1/msdostext_mode.1
+         Updated:   /usr/atria/doc/man/cat1/mvfscache.1
+         Updated:   /usr/atria/doc/man/cat1/mvfslog.1
+         Updated:   /usr/atria/doc/man/cat1/mvfsstat.1
+         Updated:   /usr/atria/doc/man/cat1/mvfsstorage.1
+         Updated:   /usr/atria/doc/man/cat1/mvfstime.1
+         Updated:   /usr/atria/doc/man/cat1/mvfsversion.1
+         Updated:   /usr/atria/doc/man/cat1/mvws.1
+         Updated:   /usr/atria/doc/man/cat1/promote_server.1
+         Updated:   /usr/atria/doc/man/cat1/put.1
+         Updated:   /usr/atria/doc/man/cat1/rc.atria.1
+         Updated:   /usr/atria/doc/man/cat1/rgy_backup.1
+         Updated:   /usr/atria/doc/man/cat1/rgy_check.1
+         Updated:   /usr/atria/doc/man/cat1/rgy_passwd.1
+         Updated:   /usr/atria/doc/man/cat1/rgy_switchover.1
+         Updated:   /usr/atria/doc/man/cat1/rmws.1
+         Updated:   /usr/atria/doc/man/cat1/sb_nf_server.1
+         Updated:   /usr/atria/doc/man/cat1/scrubber.1
+         Updated:   /usr/atria/doc/man/cat1/setws.1
+         Updated:   /usr/atria/doc/man/cat1/softbench_ccase.1
+         Updated:   /usr/atria/doc/man/cat1/umount_mvfs.1
+         Updated:   /usr/atria/doc/man/cat1/update.1
+         Updated:   /usr/atria/doc/man/cat1/view_scrubber.1
+         Updated:   /usr/atria/doc/man/cat1/view_server.1
+         Updated:   /usr/atria/doc/man/cat1/vob_restore.1
+         Updated:   /usr/atria/doc/man/cat1/vob_scrubber.1
+         Updated:   /usr/atria/doc/man/cat1/vob_server.1
+         Updated:   /usr/atria/doc/man/cat1/vob_snapshot.1
+         Updated:   /usr/atria/doc/man/cat1/vob_snapshot_setup.1
+         Updated:   /usr/atria/doc/man/cat1/vobrpc_server.1
+         Updated:   /usr/atria/doc/man/cat1/ws_helper.1
+         Updated:   /usr/atria/doc/man/cat1/wshell.1
+         Updated:   /usr/atria/doc/man/cat1/xclearcase.1
+         Updated:   /usr/atria/doc/man/cat1/xcleardiff.1
+         Updated:   /usr/atria/doc/man/cat4/bldhost.4
+         Updated:   /usr/atria/doc/man/cat4/bldserver.control.4
+         Updated:   /usr/atria/doc/man/cat4/cc.icon.4
+         Updated:   /usr/atria/doc/man/cat4/cc.magic.4
+         Updated:   /usr/atria/doc/man/cat4/config_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/config_record.4
+         Updated:   /usr/atria/doc/man/cat4/config_spec.4
+         Updated:   /usr/atria/doc/man/cat4/default.icon.4
+         Updated:   /usr/atria/doc/man/cat4/default.magic.4
+         Updated:   /usr/atria/doc/man/cat4/derived_object.4
+         Updated:   /usr/atria/doc/man/cat4/dfstab_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/errorlogs_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/exports.mvfs.4
+         Updated:   /usr/atria/doc/man/cat4/exports_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/license.db.4
+         Updated:   /usr/atria/doc/man/cat4/profile_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/registry_ccase.4
+         Updated:   /usr/atria/doc/man/cat4/schemes.4
+         Updated:   /usr/atria/doc/man/cat4/snapshot.conf.4
+         Updated:   /usr/atria/doc/man/cat4/type_manager.4
+         Updated:   /usr/atria/doc/man/cat4/type_object.4
+         Updated:   /usr/atria/doc/man/cat4/view.4
+         Updated:   /usr/atria/doc/man/cat4/vob.4
+         Updated:   /usr/atria/doc/man/cat5/command_interface.5
+         Updated:   /usr/atria/doc/man/cat5/comments.5
+         Updated:   /usr/atria/doc/man/cat5/env_ccase.5
+         Updated:   /usr/atria/doc/man/cat5/events_ccase.5
+         Updated:   /usr/atria/doc/man/cat5/fmt_ccase.5
+         Updated:   /usr/atria/doc/man/cat5/graph_interface.5
+         Updated:   /usr/atria/doc/man/cat5/pathnames_ccase.5
+         Updated:   /usr/atria/doc/man/cat5/permissions.5
+         Updated:   /usr/atria/doc/man/cat5/query_language.5
+         Updated:   /usr/atria/doc/man/cat5/version_selector.5
+         Updated:   /usr/atria/doc/man/cat5/viewroot.5
+         Updated:   /usr/atria/doc/man/cat5/wildcards.5
+         Updated:   /usr/atria/doc/man/cat5/wildcards_ccase.5
+         Updated:   /usr/atria/doc/man/cc_whatis
+         Updated:   /usr/atria/doc/man/cc_whatis.aux
+         Updated:   /usr/atria/doc/tutorial/BachConcerto.jpg
+         Updated:   /usr/atria/doc/tutorial/Makefile
+         Updated:   /usr/atria/doc/tutorial/cdcatalog.html
+         Updated:   /usr/atria/doc/tutorial/compiler
+         Updated:   /usr/atria/doc/tutorial/config_spec.branch
+         Updated:   /usr/atria/doc/tutorial/config_spec.rel1
+         Updated:   /usr/atria/doc/tutorial/hello.txt
+         Updated:   /usr/atria/doc/tutorial/home.html
+         Updated:   /usr/atria/doc/tutorial/home.html.3
+         Updated:   /usr/atria/doc/tutorial/linker
+         Updated:   /usr/atria/doc/tutorial/newclassic.html
+         Updated:   /usr/atria/doc/tutorial/newclassic.html.2
+         Updated:   /usr/atria/doc/tutorial/newclassic.html.3
+         Updated:   /usr/atria/doc/tutorial/smallsplash.jpg
+         Updated:   /usr/atria/doc/tutorial/snaptut.pl
+         Updated:   /usr/atria/doc/tutorial/splash.jpg
+         Updated:   /usr/atria/doc/tutorial/sys.txt
+         Updated:   /usr/atria/doc/tutorial/tut_common.pl
+         Updated:   /usr/atria/doc/tutorial/tut_element.pl
+         Updated:   /usr/atria/doc/tutorial/tut_u1
+         Updated:   /usr/atria/doc/tutorial/tut_u2a
+         Updated:   /usr/atria/doc/tutorial/tut_u2b
+         Updated:   /usr/atria/doc/tutorial/tut_u5
+         Updated:   /usr/atria/doc/tutorial/tut_u8
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_clobber_all
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_common
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_element
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_misc
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_newbase_dev
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_newbase_proj
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_setup_dev
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_start_proj
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_verify_all
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_view
+         Updated:   /usr/atria/doc/tutorial/tut_ucm_vob
+         Updated:   /usr/atria/doc/tutorial/tut_view.pl
+         Updated:   /usr/atria/doc/tutorial/tut_vob.pl
+         Updated:   /usr/atria/examples/clearcase/README
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sh/README
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sh/checkpoint
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.aix4_power
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.att3_x86
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.hp10_pa
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.hp11_pa
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.osf1_axp
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.rhat_x86
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.sgi5
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.sgi6
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.sni5
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.sol_x86
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.sun5
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/Makefile.uw2_x86
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/README
+         Updated:   /usr/atria/examples/clearcase/checkpoint_sys/checkpoint.c
+         Updated:   /usr/atria/examples/clearcase/emacs/README
+         Updated:   /usr/atria/examples/clearcase/emacs/checkouts.el
+         Updated:   /usr/atria/examples/clearcase/group/README
+         Updated:   /usr/atria/examples/clearcase/group/group
+         Updated:   /usr/atria/examples/clearcase/group/group_add
+         Updated:   /usr/atria/examples/clearcase/group/group_create
+         Updated:   /usr/atria/examples/clearcase/group/group_del
+         Updated:   /usr/atria/examples/clearcase/group/group_destroy
+         Updated:   /usr/atria/examples/clearcase/group/group_init
+         Updated:   /usr/atria/examples/clearcase/logs/README
+         Updated:   /usr/atria/examples/clearcase/logs/inc/.summary
+         Updated:   /usr/atria/examples/clearcase/logs/inc/poolkind_cleartext/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/inc/poolkind_derived/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/inc/poolkind_source/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/inc/summary
+         Updated:   /usr/atria/examples/clearcase/logs/newer/.summary
+         Updated:   /usr/atria/examples/clearcase/logs/newer/poolkind_cleartext/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/newer/poolkind_derived/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/newer/poolkind_source/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/newer/summary
+         Updated:   /usr/atria/examples/clearcase/logs/older/.summary
+         Updated:   /usr/atria/examples/clearcase/logs/older/poolkind_cleartext/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/older/poolkind_derived/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/older/poolkind_source/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/older/summary
+         Updated:   /usr/atria/examples/clearcase/logs/roots/.summary
+         Updated:   /usr/atria/examples/clearcase/logs/roots/poolkind_source/transcript
+         Updated:   /usr/atria/examples/clearcase/logs/roots/summary
+         Updated:   /usr/atria/examples/clearcase/mkeltype/README
+         Updated:   /usr/atria/examples/clearcase/mkeltype/mkeltype_basic
+         Updated:   /usr/atria/examples/clearcase/mkeltype/mkeltype_specific
+         Updated:   /usr/atria/examples/clearcase/rmver_all/README
+         Updated:   /usr/atria/examples/clearcase/rmver_all/rmver_all
+         Updated:   /usr/atria/examples/clearcase/setenv.sh
+         Updated:   /usr/atria/examples/clearcase/task/README
+         Updated:   /usr/atria/examples/clearcase/task/task_checkin_exec
+         Updated:   /usr/atria/examples/clearcase/task/task_checkout_exec
+         Updated:   /usr/atria/examples/clearcase/task/task_create
+         Updated:   /usr/atria/examples/clearcase/task/task_create_q
+         Updated:   /usr/atria/examples/clearcase/task/task_off
+         Updated:   /usr/atria/examples/clearcase/task/task_off_q
+         Updated:   /usr/atria/examples/clearcase/task/task_on
+         Updated:   /usr/atria/examples/clearcase/task/task_on_q
+         Updated:   /usr/atria/examples/clearcase/task/task_print_task_contribs
+         Updated:   /usr/atria/examples/clearcase/task/task_print_task_contribs_q
+         Updated:   /usr/atria/examples/clearcase/task/task_print_tasks
+         Updated:   /usr/atria/examples/clearcase/task/task_print_tasks_q
+         Updated:   /usr/atria/examples/clearcase/task/task_print_ver_task
+         Updated:   /usr/atria/examples/clearcase/task/task_print_ver_task_q
+         Updated:   /usr/atria/examples/clearcase/task/task_set
+         Updated:   /usr/atria/examples/clearcase/task/task_set_q
+         Updated:   /usr/atria/examples/clearcase/task/task_set_status
+         Updated:   /usr/atria/examples/clearcase/task/task_set_status_q
+         Updated:   /usr/atria/examples/clearcase/trig_bugnum/README
+         Updated:   /usr/atria/examples/clearcase/trig_bugnum/bugnum_exec
+         Updated:   /usr/atria/examples/clearcase/trig_bugnum/bugnum_rm_global_trig
+         Updated:   /usr/atria/examples/clearcase/trig_bugnum/bugnum_set_global_trig
+         Updated:   /usr/atria/examples/clearcase/trig_mail/README
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_exec
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_make_elem_trig_type
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_rm_elem_trig
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_rm_elem_trig_type
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_rm_global_trig
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_set_elem_trig
+         Updated:   /usr/atria/examples/clearcase/trig_mail/mail_set_global_trig
+         Updated:   /usr/atria/examples/clearcase/trig_warn_merge/README
+         Updated:   /usr/atria/examples/clearcase/trig_warn_merge/tr_merge_exec
+         Updated:   /usr/atria/examples/clearcase/trig_warn_merge/tr_merge_rm_global_trig
+         Updated:   /usr/atria/examples/clearcase/trig_warn_merge/tr_merge_set_global_trig
+         Updated:   /usr/atria/examples/clearcase/update_tree/README
+         Updated:   /usr/atria/examples/clearcase/update_tree/citree
+         Updated:   /usr/atria/examples/clearcase/update_tree/cotree
+         Updated:   /usr/atria/install/cc_issues.htm
+         Updated:   /usr/atria/install/cc_patches.htm
+         Updated:   /usr/atria/install/ccms_relnotes.txt
+         Updated:   /usr/atria/install/ms_issues.htm
+         Updated:   /usr/atria/sun5/bin/clearapropos
+         Updated:   /usr/atria/sun5/bin/clearapropos.pl
+         *****************************************************************
+         >> Beginning installation of component files for CC_bld_client
+         Updated:   /usr/atria/config/clearmake/atria_append_str
+         Updated:   /usr/atria/config/clearmake/atria_check_ts
+         Updated:   /usr/atria/config/clearmake/atria_clean_ptrep
+         Updated:   /usr/atria/config/clearmake/atria_cxx
+         Updated:   /usr/atria/config/clearmake/atria_cxxc
+         Updated:   /usr/atria/config/clearmake/atria_cxxl
+         Updated:   /usr/atria/config/clearmake/atria_find_objs
+         Updated:   /usr/atria/config/clearmake/atria_list_obj
+         Updated:   /usr/atria/config/clearmake/atria_make_ptrep
+         Updated:   /usr/atria/config/clearmake/atria_make_ts_cache
+         Updated:   /usr/atria/config/clearmake/atria_prepend_str
+         Updated:   /usr/atria/config/clearmake/cfront_simple.mk
+         Updated:   /usr/atria/config/clearmake/cmsafe_cxx.mk
+         Updated:   /usr/atria/config/clearmake/comp_cxx.mk
+         Updated:   /usr/atria/config/clearmake/inc_cxx.mk
+         Updated:   /usr/atria/config/clearmake/sunpro_4_0_simple.mk
+         Updated:   /usr/atria/sun5/bin/Gmake
+         Updated:   /usr/atria/sun5/bin/clearaudit
+         Updated:   /usr/atria/sun5/bin/clearmake
+         Updated:   /usr/atria/sun5/etc/abe
+         Updated:   /usr/atria/sun5/etc/builtin.mk
+         Updated:   /usr/atria/sun5/etc/gnubuiltin.mk
+         Updated:   /usr/atria/sun5/etc/gnubuiltinvars.mk
+         Updated:   /usr/atria/sun5/etc/rsh
+         Updated:   /usr/atria/sun5/etc/sunbuiltin.mk
+         Updated:   /usr/atria/sun5/etc/sunvars.mk
+         Updated:   /usr/atria/sun5/shlib/libatriabld.so
+         Updated:   /usr/atria/sun5/shlib/libatriamf.so
+         *****************************************************************
+         >> Beginning installation of component files for CC_vob_svr
+         Updated:   /usr/atria/config/scheduler/tasks/scrubber.sh
+         Updated:   /usr/atria/config/scheduler/tasks/vob_do_space.sh
+         Updated:   /usr/atria/config/scheduler/tasks/vob_scrubber.sh
+         Updated:   /usr/atria/config/scheduler/tasks/vob_snapshot.sh
+         Updated:   /usr/atria/config/scheduler/tasks/vob_space.sh
+         Updated:   /usr/atria/config/vob/vob_scrubber_params
+         Updated:   /usr/atria/sun5/etc/ccfs_server
+         Updated:   /usr/atria/sun5/etc/chown_container
+         Updated:   /usr/atria/sun5/etc/chown_pool
+         Updated:   /usr/atria/sun5/etc/db_loader
+         Updated:   /usr/atria/sun5/etc/db_server
+         Updated:   /usr/atria/sun5/etc/dumpers/db_dumper.38
+         Updated:   /usr/atria/sun5/etc/dumpers/db_dumper.53
+         Updated:   /usr/atria/sun5/etc/dumpers/db_dumper.54
+         Updated:   /usr/atria/sun5/etc/scrubber
+         Updated:   /usr/atria/sun5/etc/utils/cr_fix
+         Updated:   /usr/atria/sun5/etc/utils/msdostext_mode
+         Updated:   /usr/atria/sun5/etc/vob_db.dbd
+         Updated:   /usr/atria/sun5/etc/vob_db_schema_version
+         Updated:   /usr/atria/sun5/etc/vob_restore
+         Updated:   /usr/atria/sun5/etc/vob_restore.pl
+         Updated:   /usr/atria/sun5/etc/vob_scrubber
+         Updated:   /usr/atria/sun5/etc/vob_server
+         Updated:   /usr/atria/sun5/etc/vob_snap_machdep.pl
+         Updated:   /usr/atria/sun5/etc/vob_snapshot
+         Updated:   /usr/atria/sun5/etc/vob_snapshot.pl
+         Updated:   /usr/atria/sun5/etc/vob_snapshot_setup
+         Updated:   /usr/atria/sun5/etc/vob_snapshot_setup.pl
+         Updated:   /usr/atria/sun5/etc/vobrpc_server
+         Updated:   /usr/atria/sun5/ldb/etc/db_dumper
+         Updated:   /usr/atria/sun5/ldb/etc/db_loader
+         Updated:   /usr/atria/sun5/ldb/etc/db_server
+         Updated:   /usr/atria/sun5/ldb/etc/vob_db.dbd
+         Updated:   /usr/atria/sun5/ldb/etc/vob_db_schema_version
+         Updated:   /usr/atria/sun5/ldb/etc/vobrpc_server
+         *****************************************************************
+         >> Beginning installation of component files for CC_view_svr
+         Updated:   /usr/atria/config/scheduler/tasks/view_space.sh
+         Updated:   /usr/atria/sun5/etc/promote_server
+         Updated:   /usr/atria/sun5/etc/utils/view_sr
+         Updated:   /usr/atria/sun5/etc/view_db.dbd
+         Updated:   /usr/atria/sun5/etc/view_db_schema_version
+         Updated:   /usr/atria/sun5/etc/view_dumper_9
+         Updated:   /usr/atria/sun5/etc/view_server
+         *****************************************************************
+         >> Beginning installation of component files for CC_int_client
+         Updated:   /usr/atria/config/ccfdev/ccfdev.pwi
+         Updated:   /usr/atria/config/ccfdev/ccfdev.xpm
+         Updated:   /usr/atria/config/softbench/Softdm_menu_C
+         Updated:   /usr/atria/config/softbench/Softdm_menu_MDF.m
+         Updated:   /usr/atria/config/tooltalk/tt_all.types
+         Updated:   /usr/atria/config/tooltalk/tt_build.types
+         Updated:   /usr/atria/config/tooltalk/tt_build_opnums.h
+         Updated:   /usr/atria/config/tooltalk/tt_cm.types
+         Updated:   /usr/atria/config/tooltalk/tt_cm_opnums.h
+         Updated:   /usr/atria/sun5/bin/CCDeveloper
+         Updated:   /usr/atria/sun5/bin/ccf4j
+         Updated:   /usr/atria/sun5/bin/ccfdevinstall
+         Updated:   /usr/atria/sun5/bin/ccintf4j.jar
+         Updated:   /usr/atria/sun5/etc/clearencap_sb
+         Updated:   /usr/atria/sun5/etc/clearencap_sb_curr
+         Updated:   /usr/atria/sun5/etc/clearencap_sb_prev
+         Updated:   /usr/atria/sun5/etc/clearencap_tt
+         Updated:   /usr/atria/sun5/etc/sb_nf_server
+         Updated:   /usr/atria/sun5/etc/sb_nf_server_curr
+         Updated:   /usr/atria/sun5/etc/sb_nf_server_prev
+         Updated:   /usr/atria/sun5/etc/tt_nf_server
+         Updated:   /usr/atria/sun5/shlib/libccf4j.so
+         *****************************************************************
+         >> Beginning installation of component files for CC_gui_client
+         Updated:   /usr/atria/bin/cleardescribe2
+         Updated:   /usr/atria/config/ui/Schemes/Base/Base
+         Updated:   /usr/atria/config/ui/Schemes/Base/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Base/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Base/palette
+         Updated:   /usr/atria/config/ui/Schemes/Bayou/Bayou
+         Updated:   /usr/atria/config/ui/Schemes/Bayou/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Bayou/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Bayou/palette
+         Updated:   /usr/atria/config/ui/Schemes/BlackAndWhite/BlackAndWhite
+         Updated:   /usr/atria/config/ui/Schemes/BlackAndWhite/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/BlackAndWhite/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/BlackAndWhite/palette
+         Updated:   /usr/atria/config/ui/Schemes/Buckingham/Buckingham
+         Updated:   /usr/atria/config/ui/Schemes/Buckingham/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Buckingham/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Buckingham/palette
+         Updated:   /usr/atria/config/ui/Schemes/Gainsborough/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Gainsborough/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Gainsborough/Gainsborough
+         Updated:   /usr/atria/config/ui/Schemes/Gainsborough/palette
+         Updated:   /usr/atria/config/ui/Schemes/Gotham/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Gotham/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Gotham/Gotham
+         Updated:   /usr/atria/config/ui/Schemes/Gotham/palette
+         Updated:   /usr/atria/config/ui/Schemes/GrayScale/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/GrayScale/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/GrayScale/GrayScale
+         Updated:   /usr/atria/config/ui/Schemes/GrayScale/palette
+         Updated:   /usr/atria/config/ui/Schemes/Lascaux/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Lascaux/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Lascaux/Lascaux
+         Updated:   /usr/atria/config/ui/Schemes/Lascaux/palette
+         Updated:   /usr/atria/config/ui/Schemes/Leonardo/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Leonardo/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Leonardo/Leonardo
+         Updated:   /usr/atria/config/ui/Schemes/Leonardo/palette
+         Updated:   /usr/atria/config/ui/Schemes/Mendocino/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Mendocino/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Mendocino/Mendocino
+         Updated:   /usr/atria/config/ui/Schemes/Mendocino/palette
+         Updated:   /usr/atria/config/ui/Schemes/Monet/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Monet/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Monet/Monet
+         Updated:   /usr/atria/config/ui/Schemes/Monet/palette
+         Updated:   /usr/atria/config/ui/Schemes/Potrero/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Potrero/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Potrero/Potrero
+         Updated:   /usr/atria/config/ui/Schemes/Potrero/palette
+         Updated:   /usr/atria/config/ui/Schemes/Print/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Print/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Print/Print
+         Updated:   /usr/atria/config/ui/Schemes/Print/palette
+         Updated:   /usr/atria/config/ui/Schemes/RedGreenSafe/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/RedGreenSafe/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/RedGreenSafe/RedGreenSafe
+         Updated:   /usr/atria/config/ui/Schemes/RedGreenSafe/palette
+         Updated:   /usr/atria/config/ui/Schemes/Rembrandt/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Rembrandt/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Rembrandt/Rembrandt
+         Updated:   /usr/atria/config/ui/Schemes/Rembrandt/palette
+         Updated:   /usr/atria/config/ui/Schemes/RoseGarden/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/RoseGarden/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/RoseGarden/RoseGarden
+         Updated:   /usr/atria/config/ui/Schemes/RoseGarden/palette
+         Updated:   /usr/atria/config/ui/Schemes/Sargent/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Sargent/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Sargent/Sargent
+         Updated:   /usr/atria/config/ui/Schemes/Sargent/palette
+         Updated:   /usr/atria/config/ui/Schemes/Titian/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Titian/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Titian/Titian
+         Updated:   /usr/atria/config/ui/Schemes/Titian/palette
+         Updated:   /usr/atria/config/ui/Schemes/Turner/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Turner/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Turner/Turner
+         Updated:   /usr/atria/config/ui/Schemes/Turner/palette
+         Updated:   /usr/atria/config/ui/Schemes/VanGogh/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/VanGogh/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/VanGogh/VanGogh
+         Updated:   /usr/atria/config/ui/Schemes/VanGogh/palette
+         Updated:   /usr/atria/config/ui/Schemes/Whistler/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Whistler/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Whistler/Whistler
+         Updated:   /usr/atria/config/ui/Schemes/Whistler/palette
+         Updated:   /usr/atria/config/ui/Schemes/Willis/ClearCase
+         Updated:   /usr/atria/config/ui/Schemes/Willis/ClearCasePalette
+         Updated:   /usr/atria/config/ui/Schemes/Willis/Willis
+         Updated:   /usr/atria/config/ui/Schemes/Willis/palette
+         Updated:   /usr/atria/config/ui/app-resources/xcleardiff
+         Updated:   /usr/atria/config/ui/bitmaps/RSactivity.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSactivity.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSactivity.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSaddtosrc.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSbaseline.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSbaseline.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScheckin.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScheckin.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScheckout.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScheckout.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScomponent.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScomponent.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScreate_development_view.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RScreate_integration_view.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdel_to_sym.l.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdel_to_sym.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdel_to_sym.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdel_to_sym.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdeliver_avi.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdestination.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdetail_view.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdev_strm.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdev_strm.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdev_strm_open.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSdiff.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfile.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfile.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfind.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder_comp.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder_comp.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder_comp_open.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSfolder_open.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RShistory.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSincomplete_deliver.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSint_strm.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSint_strm.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSint_strm_open.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSjoin_proj.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSlg_view.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSlist_view.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSmerge.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSname_the_project.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSopen.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSproject.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSproject.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSprojexp.l.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSprojexp.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSprojexp.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSproperties.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrebase.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrebase_sym.l.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrebase_sym.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrebase_sym.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrebase_sym.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrecbaseline.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrecbaseline.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSrefresh.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSsave.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_a_project.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_components_narrow.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_components_wide.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_development_stream.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_existing_project.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_project_policy.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSselect_views.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSsm_view.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSsource.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSstoreloc.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSsuccessful_deliver.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSuncheckout.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSuncheckout.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSupdate.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSview.m.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSview.t.pm
+         Updated:   /usr/atria/config/ui/bitmaps/RSvtree.s.pm
+         Updated:   /usr/atria/config/ui/bitmaps/audio.40
+         Updated:   /usr/atria/config/ui/bitmaps/audio2.40
+         Updated:   /usr/atria/config/ui/bitmaps/block.40
+         Updated:   /usr/atria/config/ui/bitmaps/browser_button.20
+         Updated:   /usr/atria/config/ui/bitmaps/c.30
+         Updated:   /usr/atria/config/ui/bitmaps/c.32
+         Updated:   /usr/atria/config/ui/bitmaps/c.40
+         Updated:   /usr/atria/config/ui/bitmaps/c_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/c_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/change.pm
+         Updated:   /usr/atria/config/ui/bitmaps/change_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/char.40
+         Updated:   /usr/atria/config/ui/bitmaps/ci_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/ci_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/ci_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/ci_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/ci_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/ci_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/cleardescribe_splash
+         Updated:   /usr/atria/config/ui/bitmaps/cleargetlog_splash
+         Updated:   /usr/atria/config/ui/bitmaps/clearhistory_splash
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_tgt_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_tgt_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_tgt_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/clearmake_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/clearmrgman.l.pm
+         Updated:   /usr/atria/config/ui/bitmaps/clearvobadmin_splash
+         Updated:   /usr/atria/config/ui/bitmaps/co_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/co_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/co_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/co_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/co_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/co_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/collapsed.pm
+         Updated:   /usr/atria/config/ui/bitmaps/core.40
+         Updated:   /usr/atria/config/ui/bitmaps/core_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/csh.32
+         Updated:   /usr/atria/config/ui/bitmaps/csh.40
+         Updated:   /usr/atria/config/ui/bitmaps/csh_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/csh_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/current.pm
+         Updated:   /usr/atria/config/ui/bitmaps/current_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/decwrite.40
+         Updated:   /usr/atria/config/ui/bitmaps/delete.pm
+         Updated:   /usr/atria/config/ui/bitmaps/delete_file_a.32
+ Updated:   /usr/atria/config/ui/bitmaps/delete_file_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/delete_file_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/delete_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/deletemove.pm
+         Updated:   /usr/atria/config/ui/bitmaps/deletemove_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/describe_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/describe_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/describe_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/describe_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/describe_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/describe_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/dev.40
+         Updated:   /usr/atria/config/ui/bitmaps/dhtree_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/dhtree_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/dhtree_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/dhtree_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/diff_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/diff_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/diff_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/diff_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/diff_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/diff_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/exec.30
+         Updated:   /usr/atria/config/ui/bitmaps/exec.40
+         Updated:   /usr/atria/config/ui/bitmaps/exec_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/expanded.pm
+         Updated:   /usr/atria/config/ui/bitmaps/file.30
+         Updated:   /usr/atria/config/ui/bitmaps/file.32
+         Updated:   /usr/atria/config/ui/bitmaps/file.40
+         Updated:   /usr/atria/config/ui/bitmaps/file.pm
+         Updated:   /usr/atria/config/ui/bitmaps/file_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_own_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_own_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_rule_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_rule_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_time_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_time_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_type_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_type_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_ver_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_d_ver_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_co_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_co_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_rule_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_rule_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_time_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_time_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_type
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_type_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_s_type_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_tg_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/file_tg_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/file_tg_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/file_tg_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/fold.30
+         Updated:   /usr/atria/config/ui/bitmaps/fold.32
+         Updated:   /usr/atria/config/ui/bitmaps/fold.40
+         Updated:   /usr/atria/config/ui/bitmaps/fold_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/fold_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/folder.pm
+         Updated:   /usr/atria/config/ui/bitmaps/frame.40
+         Updated:   /usr/atria/config/ui/bitmaps/frame_book.40
+         Updated:   /usr/atria/config/ui/bitmaps/frame_dict.40
+         Updated:   /usr/atria/config/ui/bitmaps/frame_font.40
+         Updated:   /usr/atria/config/ui/bitmaps/frame_mif.40
+         Updated:   /usr/atria/config/ui/bitmaps/frame_mml.40
+         Updated:   /usr/atria/config/ui/bitmaps/h.30
+         Updated:   /usr/atria/config/ui/bitmaps/h.32
+         Updated:   /usr/atria/config/ui/bitmaps/h.40
+         Updated:   /usr/atria/config/ui/bitmaps/h_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/h_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_expand_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_prune_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/htree_root_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/ihtree_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/ihtree_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/ihtree_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/ihtree_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/info_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/insert.pm
+         Updated:   /usr/atria/config/ui/bitmaps/insert_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/insertmove.pm
+         Updated:   /usr/atria/config/ui/bitmaps/insertmove_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/keyboard_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/keyboard_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/keyboard_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/ksh.40
+         Updated:   /usr/atria/config/ui/bitmaps/lib.32
+         Updated:   /usr/atria/config/ui/bitmaps/lib.40
+         Updated:   /usr/atria/config/ui/bitmaps/lib1.40
+         Updated:   /usr/atria/config/ui/bitmaps/lib_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/lib_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/lock.pm
+         Updated:   /usr/atria/config/ui/bitmaps/make.32
+         Updated:   /usr/atria/config/ui/bitmaps/make.40
+         Updated:   /usr/atria/config/ui/bitmaps/make_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/make_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/merge_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/merge_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/merge_advance.pm
+         Updated:   /usr/atria/config/ui/bitmaps/merge_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/merge_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/merge_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/merge_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/merged.pm
+         Updated:   /usr/atria/config/ui/bitmaps/merged_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/merging.pm
+         Updated:   /usr/atria/config/ui/bitmaps/merging_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_active_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_active_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_active_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_active_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_lock_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_lock_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_lock_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_lock_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_obs_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_obs_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_obs_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_d_obs_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_attr_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_attr_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_branch_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_branch_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_element_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_element_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_hlink_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_hlink_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_label_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_label_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_trigger_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/metatype_t_trigger_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/next.pm
+         Updated:   /usr/atria/config/ui/bitmaps/next_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/next_unresolve.pm
+         Updated:   /usr/atria/config/ui/bitmaps/next_unresolve_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/nochange.pm
+         Updated:   /usr/atria/config/ui/bitmaps/nochange_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/o.30
+         Updated:   /usr/atria/config/ui/bitmaps/o.32
+         Updated:   /usr/atria/config/ui/bitmaps/o.40
+         Updated:   /usr/atria/config/ui/bitmaps/o_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/o_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/padding.pm
+         Updated:   /usr/atria/config/ui/bitmaps/padding_hl.pm
+         Updated:   /usr/atria/config/ui/bitmaps/pipe.40
+         Updated:   /usr/atria/config/ui/bitmaps/prev_unresolve.pm
+         Updated:   /usr/atria/config/ui/bitmaps/prev_unresolve_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/previous.pm
+         Updated:   /usr/atria/config/ui/bitmaps/previous_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/ps.40
+         Updated:   /usr/atria/config/ui/bitmaps/render_html.pm
+         Updated:   /usr/atria/config/ui/bitmaps/sh.32
+         Updated:   /usr/atria/config/ui/bitmaps/sh.40
+         Updated:   /usr/atria/config/ui/bitmaps/sh_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/sh_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/sh_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/sh_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/sh_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/sh_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/sh_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/shlib.40
+         Updated:   /usr/atria/config/ui/bitmaps/sock.40
+         Updated:   /usr/atria/config/ui/bitmaps/sock2.40
+         Updated:   /usr/atria/config/ui/bitmaps/symlink.pm
+         Updated:   /usr/atria/config/ui/bitmaps/text.32
+         Updated:   /usr/atria/config/ui/bitmaps/text.40
+         Updated:   /usr/atria/config/ui/bitmaps/text_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/text_a.40
+         Updated:   /usr/atria/config/ui/bitmaps/to_first.pm
+         Updated:   /usr/atria/config/ui/bitmaps/to_first_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/to_last.pm
+         Updated:   /usr/atria/config/ui/bitmaps/to_last_ins.pm
+         Updated:   /usr/atria/config/ui/bitmaps/unco_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/unco_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/unco_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/unco_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/unco_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/unco_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/unlock.pm
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_lab_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_lab_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_lab_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_lab_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_ver_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_ver_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_ver_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_all_ver_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_co_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_co_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_co_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_co_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_merge_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_merge_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_merge_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_d_merge_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_i.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_i.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_tg_a.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_tg_a.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_tg_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_tg_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_u.24
+         Updated:   /usr/atria/config/ui/bitmaps/vtree_u.32
+         Updated:   /usr/atria/config/ui/bitmaps/xclearcase.40
+         Updated:   /usr/atria/config/ui/bitmaps/xcleardiff.40
+         Updated:   /usr/atria/config/ui/bitmaps/xcleardiff.pm
+         Updated:   /usr/atria/config/ui/grp/0_pulldown_A_file.grp
+         Updated:   /usr/atria/config/ui/grp/annotate.sh
+         Updated:   /usr/atria/config/ui/grp/attype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/attype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/attype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/brtype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/brtype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/brtype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/checkout_curr_dir.sh
+         Updated:   /usr/atria/config/ui/grp/cleanupview_1.sh
+         Updated:   /usr/atria/config/ui/grp/cleanupview_2.sh
+         Updated:   /usr/atria/config/ui/grp/cleanupview_pulldown.grp
+         Updated:   /usr/atria/config/ui/grp/cleanupview_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/clearmake.sh
+         Updated:   /usr/atria/config/ui/grp/co_tool_B_versions.grp
+         Updated:   /usr/atria/config/ui/grp/co_tool_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/common_alias.grp
+         Updated:   /usr/atria/config/ui/grp/cr_display.sh
+         Updated:   /usr/atria/config/ui/grp/create_pool.sh
+         Updated:   /usr/atria/config/ui/grp/default_shareable_dos_yesno.sh
+         Updated:   /usr/atria/config/ui/grp/edcs.sh
+         Updated:   /usr/atria/config/ui/grp/editor.sh
+         Updated:   /usr/atria/config/ui/grp/eltype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/eltype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/eltype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/error_display.sh
+         Updated:   /usr/atria/config/ui/grp/file_popup.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_A_file.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_Ap_project.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_B_versions.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_C_view.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_D_metadata.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_E_report.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_F_building.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_G_admin.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_H_options.grp
+         Updated:   /usr/atria/config/ui/grp/file_pulldown_Z_help.grp
+         Updated:   /usr/atria/config/ui/grp/file_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/file_view_browser.grp
+         Updated:   /usr/atria/config/ui/grp/findmerge.sh
+         Updated:   /usr/atria/config/ui/grp/fix_attr_value.sh
+         Updated:   /usr/atria/config/ui/grp/hltype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/hltype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/hltype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_A_file.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_B_versions.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_C_hlink.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_D_report.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_E_file_options.grp
+         Updated:   /usr/atria/config/ui/grp/htree_pulldown_F_link_options.grp
+         Updated:   /usr/atria/config/ui/grp/htree_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/lbtype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/lbtype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/lbtype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/make_comma_list.sh
+         Updated:   /usr/atria/config/ui/grp/merge_cond.sh
+         Updated:   /usr/atria/config/ui/grp/mini_atype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_btype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_etype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_file_options.grp
+         Updated:   /usr/atria/config/ui/grp/mini_htree_file_options.grp
+         Updated:   /usr/atria/config/ui/grp/mini_htree_link_options.grp
+         Updated:   /usr/atria/config/ui/grp/mini_htype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_ltype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_ttype_file.grp
+         Updated:   /usr/atria/config/ui/grp/mini_type_options.grp
+         Updated:   /usr/atria/config/ui/grp/mini_vtree_options.grp
+         Updated:   /usr/atria/config/ui/grp/open_file.sh
+         Updated:   /usr/atria/config/ui/grp/pname_to_branch.sh
+         Updated:   /usr/atria/config/ui/grp/pool_pulldown_B_pool.grp
+         Updated:   /usr/atria/config/ui/grp/pool_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/pool_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/print_file.sh
+         Updated:   /usr/atria/config/ui/grp/success_list.sh
+         Updated:   /usr/atria/config/ui/grp/term_display.sh
+         Updated:   /usr/atria/config/ui/grp/trtype_pulldown_B_type.grp
+         Updated:   /usr/atria/config/ui/grp/trtype_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/trtype_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/user.grp.template
+         Updated:   /usr/atria/config/ui/grp/view_pulldown_B_view.grp
+         Updated:   /usr/atria/config/ui/grp/view_pulldown_C_cspec.grp
+         Updated:   /usr/atria/config/ui/grp/view_pulldown_D_admin.grp
+         Updated:   /usr/atria/config/ui/grp/view_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/vob_pulldown_B_vob.grp
+         Updated:   /usr/atria/config/ui/grp/vob_pulldown_C_locks.grp
+         Updated:   /usr/atria/config/ui/grp/vob_pulldown_D_admin.grp
+         Updated:   /usr/atria/config/ui/grp/vob_toolbar.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_popup.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_A_file.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_B_version.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_C_branch.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_D_metadata.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_E_report.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_F_hlink.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_G_options.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_pulldown_Z_help.grp
+         Updated:   /usr/atria/config/ui/grp/vtree_toolbar.grp
+         Updated:   /usr/atria/config/ui/icon/default.icon
+         Updated:   /usr/atria/etc/display_url.sh
+         Updated:   /usr/atria/sun5/bin/ccsumcqint_select_view
+         Updated:   /usr/atria/sun5/bin/cleardescribe
+         Updated:   /usr/atria/sun5/bin/cleardescribe1
+         Updated:   /usr/atria/sun5/bin/cleardiffbl
+         Updated:   /usr/atria/sun5/bin/cleargetlog
+         Updated:   /usr/atria/sun5/bin/cleargui
+         Updated:   /usr/atria/sun5/bin/clearhistory
+         Updated:   /usr/atria/sun5/bin/clearhistory1
+         Updated:   /usr/atria/sun5/bin/clearhistory2
+         Updated:   /usr/atria/sun5/bin/clearjoinproj
+         Updated:   /usr/atria/sun5/bin/clearmrgman
+         Updated:   /usr/atria/sun5/bin/clearprojexp
+         Updated:   /usr/atria/sun5/bin/clearviewupdate
+         Updated:   /usr/atria/sun5/bin/clearvobadmin
+         Updated:   /usr/atria/sun5/bin/xclearcase
+         Updated:   /usr/atria/sun5/bin/xcleardiff
+         Updated:   /usr/atria/sun5/bin/xlsvtree
+         Updated:   /usr/atria/sun5/etc/hhstart
+         Updated:   /usr/atria/sun5/lib/cleardescribe1.vr
+         Updated:   /usr/atria/sun5/lib/cleargetlog.vr
+         Updated:   /usr/atria/sun5/lib/clearhistory.vr
+         Updated:   /usr/atria/sun5/lib/clearhistory1.vr
+         Updated:   /usr/atria/sun5/lib/clearvobadmin.vr
+         Updated:   /usr/atria/sun5/shlib/libatriaXCHelp.so
+         Updated:   /usr/atria/sun5/shlib/libatriaXbae.so
+         Updated:   /usr/atria/sun5/shlib/libatriaXpm.so
+         Updated:   /usr/atria/sun5/shlib/libatriaabl.so
+         Updated:   /usr/atria/sun5/shlib/libatriadcl.so
+         Updated:   /usr/atria/sun5/shlib/libatriafxds.so
+         Updated:   /usr/atria/sun5/shlib/libatriajoinproj.so
+         Updated:   /usr/atria/sun5/shlib/libatriamcl.so
+         Updated:   /usr/atria/sun5/shlib/libatriasumcmn.so
+         Updated:   /usr/atria/sun5/shlib/libatriasumdlg.so
+         Updated:   /usr/atria/sun5/shlib/libatriasumprp.so
+         Updated:   /usr/atria/sun5/shlib/libatriasumwzd.so
+         Updated:   /usr/atria/sun5/shlib/libatriavk.so
+         Updated:   /usr/atria/sun5/shlib/libatriavkext.so
+         Updated:   /usr/atria/sun5/shlib/libatriavkw.so
+         *****************************************************************
+         >> Beginning installation of component files for CC_cnv_client
+         Updated:   /usr/atria/sun5/bin/clearexport_ccase
+         Updated:   /usr/atria/sun5/bin/clearexport_cvs
+         Updated:   /usr/atria/sun5/bin/clearexport_ffile
+         Updated:   /usr/atria/sun5/bin/clearexport_pvcs
+         Updated:   /usr/atria/sun5/bin/clearexport_rcs
+         Updated:   /usr/atria/sun5/bin/clearexport_sccs
+         Updated:   /usr/atria/sun5/bin/clearfsimport
+         Updated:   /usr/atria/sun5/bin/clearimport
+         *****************************************************************
+         >> Beginning installation of component files for CC_MIN_STD
+         *****************************************************************
+         >> Beginning installation of component files for CC_ONLY_SERVER
+         *****************************************************************
+         >> Beginning installation of component files for CC_FULL
+***************************************************************************
+>> Begin component main customizations
+***************************************************************************
+         *****************************************************************
+         >> Executing main customizations for component atria_perl
+         *****************************************************************
+         >> Executing main customizations for component atria_install
+         *****************************************************************
+         >> Executing main customizations for component atria_basement
+         *****************************************************************
+         >> Setup the ClearCase Product Family administrative and log directory.
+         License host: 192.168.220.251 recorded in /var/adm/atria/config/license_host
+         Updated:   /var/adm/atria/config/admin.conf
+         Updated:   /etc/init.d/atria
+         Updated:   /etc/rc0.d/K35atria
+         Updated:   /etc/rc2.d/S77atria
+         *****************************************************************
+         >> Executing main customizations for component atria_cplus_shlib
+         *****************************************************************
+         >> Executing main customizations for component atria_base
+         Registry host: asamvob1 recorded in /var/adm/atria/rgy/rgy_hosts.conf
+         Registry region: asamvob1 recorded in /var/adm/atria/rgy/rgy_region.conf
+         *****************************************************************
+         >> Executing main customizations for component CC_base
+         *****************************************************************
+         >> Executing main customizations for component atria_X11_base
+         *****************************************************************
+         >> Executing main customizations for component atria_hlp_viewer
+         Updated:   /usr/lib/X11/app-defaults/HyperHelp
+         *****************************************************************
+         >> Executing main customizations for component CC_client
+         Updated:   /usr/lib/fs/mvfs/mount
+         Updated:   /etc/exports.mvfs
+         MVFS viewroot handling
+         Creating the 'viewroot' directory /view.
+         Checking super-user's crontab to prune find(1) over MVFS mount points.
+         Crontab entries for super-user unchanged.
+NOTE:    Setuid and setgid execution is being disabled!
+         *****************************************************************
+         >> Executing main customizations for component atria_server
+         Extended vob support selected: Setting up files
+         File setup for alternate vob format complete.
+         *****************************************************************
+ >> Executing main customizations for component atria_cplus_base
+         *****************************************************************
+         >> Executing main customizations for component atria_gui
+         *****************************************************************
+         >> Executing main customizations for component CC_doc
+         *****************************************************************
+         >> Executing main customizations for component CC_bld_client
+         Enabling rstatd startup
+         Rstatd is already correctly enabled for startup.
+         Updated:   /bin/abe
+         *****************************************************************
+         >> Executing main customizations for component CC_vob_svr
+         Making setUID: /usr/atria/etc/db_loader
+         Making setUID: /usr/atria/etc/dumpers/db_dumper.53
+         Making setUID: /usr/atria/etc/dumpers/db_dumper.54
+         Recording settings for VOB snap-shots
+         *****************************************************************
+         >> Executing main customizations for component CC_view_svr
+         *****************************************************************
+         >> Executing main customizations for component CC_int_client
+         *****************************************************************
+         >> Executing main customizations for component CC_gui_client
+         *****************************************************************
+         >> Executing main customizations for component CC_cnv_client
+         *****************************************************************
+         >> Executing main customizations for component CC_MIN_STD
+         *****************************************************************
+         >> Executing main customizations for component CC_ONLY_SERVER
+         *****************************************************************
+         >> Executing main customizations for component CC_FULL
+***************************************************************************
+>> Recording clean installation of components
+***************************************************************************
+         Updated:   /var/adm/atria/cdf/atria_perl.cdf
+         Updated:   /var/adm/atria/cdf/atria_install.cdf
+         Updated:   /var/adm/atria/cdf/atria_basement.cdf
+         Updated:   /var/adm/atria/cdf/atria_cplus_shlib.cdf
+         Updated:   /var/adm/atria/cdf/atria_base.cdf
+         Updated:   /var/adm/atria/cdf/CC_base.cdf
+         Updated:   /usr/atria/install/version
+         Updated:   /var/adm/atria/cdf/atria_X11_base.cdf
+         Updated:   /var/adm/atria/cdf/atria_hlp_viewer.cdf
+         Updated:   /var/adm/atria/cdf/CC_client.cdf
+         Updated:   /var/adm/atria/cdf/atria_server.cdf
+         Updated:   /var/adm/atria/cdf/atria_cplus_base.cdf
+         Updated:   /var/adm/atria/cdf/atria_gui.cdf
+         Updated:   /var/adm/atria/cdf/CC_doc.cdf
+         Updated:   /var/adm/atria/cdf/CC_bld_client.cdf
+         Updated:   /var/adm/atria/cdf/CC_vob_svr.cdf
+         Updated:   /var/adm/atria/cdf/CC_view_svr.cdf
+         Updated:   /var/adm/atria/cdf/CC_int_client.cdf
+         Updated:   /var/adm/atria/cdf/CC_gui_client.cdf
+         Updated:   /var/adm/atria/cdf/CC_cnv_client.cdf
+         Updated:   /var/adm/atria/cdf/CC_MIN_STD.cdf
+         Updated:   /var/adm/atria/cdf/CC_ONLY_SERVER.cdf
+         Updated:   /var/adm/atria/cdf/CC_FULL.cdf
+***************************************************************************
+>> Starting ClearCase Product Family software
+***************************************************************************
+***************************************************************************
+>> Begin component final customizations
+***************************************************************************
+
+
+FINAL: asamsitws37      Errors:0        Warnings:0
+
+         Log file for this session: /var/adm/atria/log/Atria_install.060918.22:57
+
+bash-2.04# 
+================================================================================
+================================================================================
+Restarting CLearcase....
+------------------------
+bash-2.04# /etc/init.d/atria stop
+Unmounting VOBs...
+Unloading mvfs ...
+bash-2.04# /etc/init.d/atria start
+ClearCase daemons: albd_server lockmgr
+Loading MVFS ...
+Mounting public VOBs...
+bash-2.04# 
+*********************************************************************
+</pre>
+</html>

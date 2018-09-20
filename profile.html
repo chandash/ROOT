@@ -1,0 +1,70 @@
+<html>
+<body  background=bg.jpg >
+<b><font size="2">
+<font face=Verdana color=blue>
+Are you getting the login screen repeatedly after giving the username and password correctly in Cygwin? ( 
+</font> <font face=Verdana color=red>Profile problem </font>
+<font face=Verdana color=blue>
+).</font></font></b><font face=Verdana color=blue><font size="2"><br>
+<br>How to solve this?<br><br>
+1.) Login through telnet to any of the machine with your ID.<br>
+2.) Execute the following commands from your home directory (Since below files are resided inside your home directory).</font></font><font face=Verdana><ol type=disc>
+<li><b><font size="2">mv .profile .profile_old</li></font></b><li><b>
+<font size="2">mv .dt .dt_old</li></font></b><li><b><font size="2">mv .dtprofile .dtprofile_old</li></font></b><li>
+<b><font size="2">mv .Xauthority .Xauthority_old</li></font></b><li><b>
+<font size="2">mv .Xdefaults .Xdefaults_old</li></font></b><li><b>
+<font size="2">mv .TTauthority .TTauthority_old</li></font></b><li><b>
+<font size="2">mv .user .user_old</font></b></ol>
+</font>
+<font face=Verdana color=blue>
+<font size="2">3.) Creating new profile by executing <b>stdenv</b> by<br>
+
+
+$ </font></font><font size="2"><b>
+<font face=Verdana>
+/ap/local/5.8/shell/stdenv</font></b><font face=Verdana color=blue><br>
+0) EDITOR     = emacs         : Command line editor<br>
+1) PRINTER    = beantp0000068 : Name of nearest printer<br>
+2) EDITOR1    = vi            : Editor used for small files<br>
+3) SRC_EDITOR = gvim          : Editor to edit source files<br>
+4) USE_VIPER  = no            : Use viper in xemacs ?<br>
+5) DARK_BG    = no            : Do you use a dark background ?<br>
+6) echo_dot   = no            : Print a line before parsing .rc files ?<br>
+7) Save<br>
+Give number of value to change : </font><b>
+<font face=Verdana>
+0</font></b><font face=Verdana color=blue><br>
+EDITOR : Command line editor<br>
+1) emacs<br>
+2) vi<br>
+[1] > :</font><b><font face=Verdana>2</font></b><font face=Verdana color=blue><br>
+0) EDITOR     = vi            : Command line editor<br>
+1) PRINTER    = beantp0000068 : Name of nearest printer<br>
+2) EDITOR1    = vi            : Editor used for small files<br>
+3) SRC_EDITOR = gvim          : Editor to edit source files<br>
+4) USE_VIPER  = no            : Use viper in xemacs ?<br>
+5) DARK_BG    = no            : Do you use a dark background ?<br>
+6) echo_dot   = no            : Print a line before parsing .rc files ?<br>
+7) Save<br>
+Give number of value to change : </font>
+<font face=Verdana>
+<b>7</b></font><font face=Verdana color=blue><br>
+Save old .profile to .profile.old ? (y/n)<br>
+</font>
+<font face=Verdana>
+<b>y</b></font><font face=Verdana color=blue><br>
+Attention, you might need to move/symlink/edit some user specific files<br>
+.user/env   : user specific environmen variables<br>
+.user/alias : user specific aliases<br>
+.user/zshrc : user specific interactive settings<br>
+.user/fvwm-init : Commands started at startup<br>
+You need to <i>log out</i>, and log in again in order to make your changes active<br>
+<br>
+</font></font>
+<font face=Verdana color=blue>
+</font>
+<font face=Sylfaen color=blue>
+</pre><font color=blue><font size="2" face="Verdana"><br>
+<br>
+</font></body>
+</html>

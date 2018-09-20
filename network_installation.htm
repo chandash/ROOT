@@ -1,0 +1,255 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Installing Solaris Over The Netw</title>
+</head>
+
+<body>
+
+<blockquote>
+	<table cellSpacing="0" cellPadding="2" width="100%" border="0" id="table1">
+		<tr bgColor="#0066cc">
+			<td><font face="Verdana" color="#ffffff" size="2"><b>&nbsp;Installing 
+			Solaris Over The Network</b></font></td>
+		</tr>
+	</table>
+	<p><font face="Verdana" size="2">Typically, most Solaris installations use 
+	the system's internal cdrom. However, there are times when you will need to 
+	install over the network. For instance, you do not have an external cdrom, 
+	and need to install Solaris on a Netra T1 that is not equipped with an 
+	internal cdrom. </font></p>
+	<p><font face="Verdana" size="2">Alternatively, you may want to setup a 
+	Jumpstart server in which you can limit the interaction needed to complete 
+	the installation. Jumpstart servers are relatively complex to setup, and are 
+	typically used in a large environment where multiple systems need to be 
+	installed identically. </font></p>
+	<p><font face="Verdana" size="2">This document details the steps needed for 
+	a simple network installation of Solaris on the same subnet. The examples 
+	use Solaris 8 as a reference. Refer to the &quot;Advanced Installation Guide&quot; 
+	that accompanies your installation media for more details.</font></p>
+	<p><font face="Verdana" size="2"><b><font color="#cc0000">Assumptions:</font></b></font></p>
+	<ul>
+		<li><font face="Verdana" size="2">Using /etc files and not a name 
+		service such as NIS or NIS+. </font></li>
+		<li><font face="Verdana" size="2">All associated servers are on the same 
+		subnet(no router between servers). </font></li>
+	</ul>
+	<p><font face="Verdana" size="2"><b><font color="#cc0000">Create Install 
+	Server</font></b></font></p>
+	<p><font face="Verdana" size="2">An Install Server must be created by 
+	copying the Solaris 8 CD images to its hard drive.</font></p>
+	<p><font face="Verdana" size="2"><b>Insert the CD labeled Solaris 8 software 
+	1 of 2 into the CDRom drive</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">Volume manager automatically mounts the 
+		cdrom. Otherwise mount manually.</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Make a directory where the Solaris 
+	images will be stored. Be sure that there is enough space to allocate to the 
+	CD images</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># mkdir /var/Solaris8</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Change directories to the Tools 
+	directory</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># cd /cdrom/sol_8_sparc/s0/Solaris_8/Tools</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Copy the image from the CD to the 
+	install directory</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># ./setup_install_server /var/Solaris8</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Eject the CD. Insert CD labeled Solaris 
+	8 Software 2 of 2 into the cdrom drive</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">Volume manager automatically mounts the 
+		cdrom</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Change directories to the Tools 
+	directory</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># CD /cdrom/sol_8_sparc_2/Solaris_8/Tools</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Copy the image from the CD to the 
+	install directory.</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># ./add_to_install_server /var/Solaris8</font></p>
+	</blockquote>
+	<p><font face="Verdana" color="#cc0000" size="2"><b>Configure System to be 
+	Installed over Network</b></font></p>
+	<p><font face="Verdana" size="2">Be sure to collect the following 
+	information on the new system:</font></p>
+	<ul>
+		<li><font face="Verdana" size="2">Host name </font></li>
+		<li><font face="Verdana" size="2">IP address </font></li>
+		<li><font face="Verdana" size="2">Ethernet address </font></li>
+		<li><font face="Verdana" size="2"><a href="#group">Platform Group</a>
+		</font></li>
+	</ul>
+	<p><font face="Verdana" size="2"><b>Create entry in /etc/ethers. If 
+	/etc/ethers does not exist, then create it with the following entry. You 
+	must remove the leading zeros in the ethernet address </b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">8:0:20:c2:36:68 sun-001</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Update /etc/hosts file with the ip 
+	address for the new server</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">10.10.1.114 sun-001</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Verify that /etc/nsswitch.conf is using 
+	the /etc/bootparams file</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">bootparams: files</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Change directory to the Tools directory 
+	on the Install Server</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># CD /var/Solaris8/Solaris_8/Tools</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Add the new server using the 
+	add_install_client utility. Note that sun-001 is the server name and sun4u 
+	is the appropriate platform group for the Netra T1. </b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2"># ./add_install_client sun-001 sun4u</font></p>
+		<p><font face="Verdana" size="2"><i>Output:</i></font></p>
+		<p><font face="Verdana" size="2">saving original /etc/dfs/dfstab in 
+		/etc/dfs/dfstab.orig<br>
+		Adding &quot;share -F nfs -o ro,anon=0 /var/Solaris8&quot; to /etc/dfs/dfstab <br>
+		making /tftpboot <br>
+		enabling tftp in /etc/inetd.conf <br>
+		starting rarpd starting bootparamd <br>
+		starting nfsd's starting nfs mountd <br>
+		updating /etc/bootparams <br>
+		copying inetboot to /tftpboot</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b><font color="#cc0000">Install Solaris 8 
+	on New System</font></b></font></p>
+	<p><font face="Verdana" size="2"><b>At the system OK prompt:</b></font></p>
+	<blockquote>
+		<p><font face="Verdana" size="2">boot net</font></p>
+	</blockquote>
+	<p><font face="Verdana" size="2"><b>Platform Groups</b></font></p>
+	<table cellSpacing="1" cellPadding="0" width="68%" border="0" id="table2">
+		<tr>
+			<td width="68%"><font face="Verdana" size="2"><b>System</b></font></td>
+			<td width="32%"><font face="Verdana" size="2"><b>Platform Group</b></font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Intel Architecture</font></td>
+			<td width="32%"><font face="Verdana" size="2">i86pc</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCserver 1000</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4d</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCcenter 2000</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4d</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation 5</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation 10</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation 10SX</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation20</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation LX</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation LX+</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCclassic</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCclassic X</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">SPARCstation 4</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4m</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 1 systems</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Sun Enterprise 1 
+			system</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 30</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 2</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Enterprise 2</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Enterprise 150</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 450</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Enterprise 450</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Enterprise 3000, 3500, 
+			4500, 4000, 4500, 5000, 5500, 6000, 6500, 10000</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 5</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 10</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 60</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Ultra 80</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+		<tr>
+			<td width="68%"><font face="Verdana" size="2">Netra T1</font></td>
+			<td width="32%"><font face="Verdana" size="2">sun4u</font></td>
+		</tr>
+	</table>
+</blockquote>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><i><u><b>Ref:</b></u></i>&nbsp;<a href="http://www.filibeto.org/sun/lib/networking/misc/installing_sol_over_network.htm">http://www.filibeto.org/sun/lib/networking/misc/installing_sol_over_network.htm</a><br>
+<i><u><b>Referred By:</b></u></i> Jeevan M</font></p>
+
+</body>
+
+</html>

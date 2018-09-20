@@ -1,0 +1,306 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>bash-2</title>
+</head>
+
+<body>
+
+<p><font size="2" face="Verdana">bash-2.03# pkgadd -d 
+dhcp-3.1.0-sol8-sparc-local <br>
+<br>
+The following packages are available:<br>
+1 SMCdhcp dhcp<br>
+(sparc) 3.1.0<br>
+<br>
+Select package(s) you wish to process (or 'all' to process<br>
+all packages). (default: all) [?,??,q]: <br>
+<br>
+Processing package instance &lt;SMCdhcp&gt; from &lt;/mnt/8/dhcp-3.1.0-sol8-sparc-local&gt;<br>
+<br>
+dhcp<br>
+(sparc) 3.1.0<br>
+ISC<br>
+Using &lt;/usr/local&gt; as the package base directory.<br>
+## Processing package information.<br>
+## Processing system information.<br>
+9 package pathnames are already properly installed.<br>
+## Verifying disk space requirements.<br>
+## Checking for conflicts with packages already installed.<br>
+## Checking for setuid/setgid programs.<br>
+<br>
+Installing dhcp as &lt;SMCdhcp&gt;<br>
+<br>
+## Installing part 1 of 1.<br>
+/usr/local/bin/omshell<br>
+/usr/local/doc/dhcp/LICENSE<br>
+/usr/local/doc/dhcp/README<br>
+/usr/local/doc/dhcp/RELNOTES<br>
+/usr/local/doc/dhcp/contrib/3.0b1-lease-convert<br>
+/usr/local/doc/dhcp/contrib/dhclient-tz-exithook.sh<br>
+/usr/local/doc/dhcp/contrib/dhcp.spec<br>
+/usr/local/doc/dhcp/contrib/ms2isc/Registry.pm<br>
+/usr/local/doc/dhcp/contrib/ms2isc/ms2isc.pl<br>
+/usr/local/doc/dhcp/contrib/ms2isc/readme.txt<br>
+/usr/local/doc/dhcp/contrib/sethostname.sh<br>
+/usr/local/doc/dhcp/contrib/solaris.init<br>
+/usr/local/doc/dhcp/doc/IANA-arp-parameters<br>
+/usr/local/doc/dhcp/doc/Makefile<br>
+/usr/local/doc/dhcp/doc/References.html<br>
+/usr/local/doc/dhcp/doc/References.txt<br>
+/usr/local/doc/dhcp/doc/References.xml<br>
+/usr/local/doc/dhcp/doc/api+protocol<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhclient-script.8<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhclient.8<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhclient.conf.5<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhclient.leases.5<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhcp-eval.5<br>
+/usr/local/doc/dhcp/doc/ja_JP.eucJP/dhcp-options.5<br>
+/usr/local/doc/dhcp/site.conf<br>
+/usr/local/etc/dhcpd.leases<br>
+/usr/local/include/dhcpctl.h<br>
+/usr/local/include/isc-dhcp/boolean.h<br>
+/usr/local/include/isc-dhcp/dst.h<br>
+/usr/local/include/isc-dhcp/int.h<br>
+/usr/local/include/isc-dhcp/lang.h<br>
+/usr/local/include/isc-dhcp/list.h<br>
+/usr/local/include/isc-dhcp/result.h<br>
+<br>
+~<br>
+~<br>
+*** DHCP Configuration ***<br>
+<br>
+<br>
+Would you like to:<br>
+<br>
+1) Configure DHCP Service<br>
+<br>
+2) Configure BOOTP Relay Agent<br>
+<br>
+3) Unconfigure DHCP or Relay Service<br>
+<br>
+4) Exit<br>
+<br>
+<br>
+<br>
+Choice: 1<br>
+<br>
+### DHCP Service Configuration ###<br>
+### Configure DHCP data store and location ###<br>
+<br>
+Enter data store (SUNWbinfiles, SUNWfiles or SUNWnisplus) [SUNWnisplus]: 
+SUNWfiles<br>
+Enter full path to data location [/var/dhcp]: <br>
+Enter location for hosts data (none, files, dns, or nisplus) [none]: <br>
+Enter default DHCP lease policy (in days) [3]: <br>
+Do you want to allow clients to renegotiate their leases? ([Y]/N):<br>
+Created DHCP configuration file.<br>
+Created dhcptab.<br>
+Added &quot;Locale&quot; macro to dhcptab.<br>
+Added server macro to dhcptab - Training.<br>
+DHCP server started.<br>
+<br>
+### Common daemon option setup ###<br>
+<br>
+Would you like to specify nondefault daemon options (Y/[N]):<br>
+<br>
+### DHCP server option setup ###<br>
+<br>
+Would you like to specify nondefault server options (Y/[N]):<br>
+<br>
+### Select Networks For BOOTP/DHCP Support ###<br>
+<br>
+Enable DHCP/BOOTP support of networks you select? ([Y]/N):<br>
+<br>
+### Configure Local Networks ###<br>
+<br>
+Configure BOOTP/DHCP on local LAN network: 10.200.234.0? ([Y]/N):<br>
+Enter starting IP address [10.200.234.0]: <br>
+Enter the number of clients you want to add (x &lt; 255): <br>
+/usr/lib/inet/dhcp/svcadm/dhcpconfig[177]: N: bad number<br>
+Error, enter digits.<br>
+Enter the number of clients you want to add (x &lt; 255): 255<br>
+Error, maximum clients on 10.200.234.0 is 254, not 256<br>
+Enter the number of clients you want to add (x &lt; 255): 254 <br>
+Disable (ping) verification of 10.200.234.0 address(es)? (Y/[N]):<br>
+<br>
+Warning: Address 10.200.234.1 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.2 in 10.200.234.0 in use... skipping...<br>
+\ 00% Complete.<br>
+Warning: Address 10.200.234.5 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.6 in 10.200.234.0 in use... skipping...<br>
+\ 05% Complete.<br>
+Warning: Address 10.200.234.19 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.20 in 10.200.234.0 in use... skipping...<br>
+| 05% Complete.<br>
+Warning: Address 10.200.234.22 in 10.200.234.0 in use... skipping...<br>
+- 09% Complete.<br>
+Warning: Address 10.200.234.33 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.34 in 10.200.234.0 in use... skipping...<br>
+/ 12% Complete.<br>
+Warning: Address 10.200.234.42 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.43 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.44 in 10.200.234.0 in use... skipping...<br>
+\ 12% Complete.<br>
+Warning: Address 10.200.234.47 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.48 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.49 in 10.200.234.0 in use... skipping...<br>
+\ 14% Complete.<br>
+Warning: Address 10.200.234.54 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.55 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.56 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.57 in 10.200.234.0 in use... skipping...<br>
+| 14% Complete.<br>
+Warning: Address 10.200.234.59 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.60 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.61 in 10.200.234.0 in use... skipping...<br>
+/ 15% Complete.<br>
+Warning: Address 10.200.234.63 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.64 in 10.200.234.0 in use... skipping...<br>
+- 15% Complete.<br>
+Warning: Address 10.200.234.66 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.67 in 10.200.234.0 in use... skipping...<br>
+\ 17% Complete.<br>
+Warning: Address 10.200.234.73 in 10.200.234.0 in use... skipping...<br>
+| 18% Complete.<br>
+Warning: Address 10.200.234.75 in 10.200.234.0 in use... skipping...<br>
+| 21% Complete.<br>
+Warning: Address 10.200.234.84 in 10.200.234.0 in use... skipping...<br>
+- 23% Complete.<br>
+Warning: Address 10.200.234.91 in 10.200.234.0 in use... skipping...<br>
+/ 24% Complete.<br>
+Warning: Address 10.200.234.95 in 10.200.234.0 in use... skipping...<br>
+- 25% Complete.<br>
+Warning: Address 10.200.234.97 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.98 in 10.200.234.0 in use... skipping...<br>
+| 25% Complete.<br>
+Warning: Address 10.200.234.101 in 10.200.234.0 in use... skipping...<br>
+- 26% Complete.<br>
+Warning: Address 10.200.234.104 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.105 in 10.200.234.0 in use... skipping...<br>
+| 27% Complete.<br>
+Warning: Address 10.200.234.108 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.109 in 10.200.234.0 in use... skipping...<br>
+/ 27% Complete.<br>
+Warning: Address 10.200.234.111 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.112 in 10.200.234.0 in use... skipping...<br>
+- 28% Complete.<br>
+Warning: Address 10.200.234.114 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.115 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.116 in 10.200.234.0 in use... skipping...<br>
+\ 28% Complete.<br>
+Warning: Address 10.200.234.118 in 10.200.234.0 in use... skipping...<br>
+/ 29% Complete.<br>
+Warning: Address 10.200.234.121 in 10.200.234.0 in use... skipping...<br>
+\ 30% Complete.<br>
+Warning: Address 10.200.234.124 in 10.200.234.0 in use... skipping...<br>
+/ 31% Complete.<br>
+Warning: Address 10.200.234.127 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.128 in 10.200.234.0 in use... skipping...<br>
+\ 31% Complete.<br>
+Warning: Address 10.200.234.131 in 10.200.234.0 in use... skipping...<br>
+| 32% Complete.<br>
+Warning: Address 10.200.234.133 in 10.200.234.0 in use... skipping...<br>
+/ 32% Complete.<br>
+Warning: Address 10.200.234.135 in 10.200.234.0 in use... skipping...<br>
+- 34% Complete.<br>
+Warning: Address 10.200.234.141 in 10.200.234.0 in use... skipping...<br>
+\ 35% Complete.<br>
+Warning: Address 10.200.234.143 in 10.200.234.0 in use... skipping...<br>
+- 37% Complete.<br>
+Warning: Address 10.200.234.151 in 10.200.234.0 in use... skipping...<br>
+\ 38% Complete.<br>
+Warning: Address 10.200.234.153 in 10.200.234.0 in use... skipping...<br>
+\ 41% Complete.<br>
+Warning: Address 10.200.234.162 in 10.200.234.0 in use... skipping...<br>
+| 43% Complete.<br>
+Warning: Address 10.200.234.168 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.169 in 10.200.234.0 in use... skipping...<br>
+/ 51% Complete.<br>
+Warning: Address 10.200.234.191 in 10.200.234.0 in use... skipping...<br>
+- 55% Complete.<br>
+Warning: Address 10.200.234.201 in 10.200.234.0 in use... skipping...<br>
+\ 55% Complete.<br>
+Warning: Address 10.200.234.203 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.204 in 10.200.234.0 in use... skipping...<br>
+| 55% Complete.<br>
+Warning: Address 10.200.234.206 in 10.200.234.0 in use... skipping...<br>
+| 57% Complete.<br>
+Warning: Address 10.200.234.211 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.212 in 10.200.234.0 in use... skipping..<br>
+| 59% Complete.<br>
+Warning: Address 10.200.234.217 in 10.200.234.0 in use... skipping...<br>
+/ 61% Complete.<br>
+Warning: Address 10.200.234.223 in 10.200.234.0 in use... skipping...<br>
+| 62% Complete.<br>
+Warning: Address 10.200.234.227 in 10.200.234.0 in use... skipping...<br>
+/ 62% Complete.<br>
+Warning: Address 10.200.234.229 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.230 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.231 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.232 in 10.200.234.0 in use... skipping...<br>
+\ 63% Complete.<br>
+Warning: Address 10.200.234.235 in 10.200.234.0 in use... skipping...<br>
+| 63% Complete.<br>
+Warning: Address 10.200.234.237 in 10.200.234.0 in use... skipping...<br>
+/ 64% Complete.<br>
+Warning: Address 10.200.234.239 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.240 in 10.200.234.0 in use... skipping...<br>
+- 64% Complete.<br>
+Warning: Address 10.200.234.242 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.243 in 10.200.234.0 in use... skipping...<br>
+<br>
+Warning: Address 10.200.234.244 in 10.200.234.0 in use... skipping...</font></p>
+<p><font face="Verdana" size="2">*** DHCP Configuration ***<br>
+<br>
+<br>
+Would you like to:<br>
+<br>
+1) Configure DHCP Service<br>
+<br>
+2) Configure BOOTP Relay Agent<br>
+<br>
+3) Unconfigure DHCP or Relay Service<br>
+<br>
+4) Exit<br>
+<br>
+<br>
+<br>
+Choice: 4<br>
+bash-2.03#<br>
+&nbsp;</font></p>
+
+</body>
+
+</html>

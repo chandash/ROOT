@@ -1,0 +1,291 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Starting ORACLE DATABASE after O</title>
+</head>
+
+<body>
+
+<p><i><u><b><font face="Verdana" size="6">Starting ORACLE DATABASE after Oracle 
+server reboot</font></b></u></i></p>
+<p><font face="Verdana" size="2">Login to 192.168.22.183 (alcat134) as 
+<font color="#0000FF">oracle </font>user and provide below cut and paste commands</font></p>
+<p><font size="2" face="Verdana">bash-3.00$ <font color="#0000FF"><b>dgmgrl</b></font><br>
+DGMGRL for Solaris: Version 10.2.0.1.0 - 64bit Production<br>
+<br>
+Copyright (c) 2000, 2005, Oracle. All rights reserved.<br>
+<br>
+Welcome to DGMGRL, type &quot;help&quot; for information.<br>
+DGMGRL&gt; <b><font color="#0000FF">connect sys</font><br>
+</b>Password:<b>&lt;<font color="#0000FF">Same password of astra admin user</font>&gt;</b><br>
+Connected.<br>
+Error: <br>
+ORA-01034: ORACLE not available<br>
+<br>
+DGMGRL&gt; <font color="#0000FF"><b>startup</b></font><br>
+ORACLE instance started.<br>
+Database mounted.<br>
+Database opened.<br>
+DGMGRL&gt; <font color="#0000FF"><b>exit</b></font><br>
+bash-3.00$ <font color="#0000FF"><b>lsnrctl start</b></font><br>
+<br>
+LSNRCTL for Solaris: Version 10.2.0.1.0 - Production on 29-OCT-2007 14:01:10<br>
+<br>
+Copyright (c) 1991, 2005, Oracle. All rights reserved.<br>
+<br>
+Starting /oracle/oracle/product/10.2.0/db_2/bin/tnslsnr: please wait...<br>
+<br>
+TNSLSNR for Solaris: Version 10.2.0.1.0 - Production<br>
+System parameter file is /oracle/oracle/product/10.2.0/db_2/network/admin/listener.ora<br>
+Log messages written to /oracle/oracle/product/10.2.0/db_2/network/log/listener.log<br>
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=alcat134)(PORT=1521)))<br>
+<br>
+Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))<br>
+STATUS of the LISTENER<br>
+------------------------<br>
+Alias LISTENER<br>
+Version TNSLSNR for Solaris: Version 10.2.0.1.0 - Production<br>
+Start Date 29-OCT-2007 14:01:10<br>
+Uptime 0 days 0 hr. 0 min. 0 sec<br>
+Trace Level off<br>
+Security ON: Local OS Authentication<br>
+SNMP OFF<br>
+Listener Parameter File /oracle/oracle/product/10.2.0/db_2/network/admin/listener.ora<br>
+Listener Log File /oracle/oracle/product/10.2.0/db_2/network/log/listener.log<br>
+Listening Endpoints Summary...<br>
+(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=alcat134)(PORT=1521)))<br>
+The listener supports no services<br>
+<b><font color="#008000">The command completed successfully</font></b><br>
+bash-3.00$</font></p>
+<p><font face="Verdana" size="2">Open you ASTRA (Rational Clearquest) from your 
+PC and check whether you are able to access without any error or warnings.</font></p>
+<hr>
+<p><i><u><b><font face="Verdana" size="2">Optional</font></b></u></i></p>
+<p><font face="Verdana" size="2">You can manage oracle database (mastersit) 
+through web interface.</font></p>
+<p><font face="Verdana" size="2"><a href="http://192.168.22.183:1158/em">
+http://192.168.22.183:1158/em</a> is the link for mastersit DB.</font></p>
+<p><font face="Verdana" size="2">Login as <font color="#0000FF"><b>sys</b></font> 
+user and <b>&lt;<font color="#0000FF">Same password of astra admin user</font>&gt;.</b></font></p>
+<p><b><font face="Verdana" size="2">Note: <font color="#FF0000">Don't try to 
+shutdown the database while people acessing the DB. There is a chance of DB 
+crash. </font></font></b></p>
+<p><b><font face="Verdana" size="2">if this web console is not working,</font></b></p>
+<p><b><font face="Verdana" size="2">the provide the below cut and paste commands
+</font></b></p>
+<p><font face="Verdana" size="2">Login to 192.168.22.183 (alcat134) as 
+<font color="#0000FF">oracle </font>user and provide below cut and paste commands</font></p>
+<p><font face="Verdana" size="2">bash-3.00$ <font color="#0000FF"><b>emctl 
+status dbconsole</b></font><br>
+Oracle Enterprise Manager 10g Database Control Release 10.2.0.1.0 <br>
+Copyright (c) 1996, 2005 Oracle Corporation. All rights reserved.<br>
+http://alcat134:1158/em/console/aboutApplication<br>
+<font color="#FF0000">Oracle Enterprise Manager 10g is not running. </font><br>
+------------------------------------------------------------------<br>
+Logs are generated in directory 
+/oracle/oracle/product/10.2.0/db_2/alcat134_astra/sysman/log <br>
+bash-3.00$ <b><font color="#0000FF">emctl start dbconsole</font></b><br>
+Oracle Enterprise Manager 10g Database Control Release 10.2.0.1.0 <br>
+Copyright (c) 1996, 2005 Oracle Corporation. All rights reserved.<br>
+http://alcat134:1158/em/console/aboutApplication<br>
+ps: unknown output format: -o cmd<br>
+ps: illegal option -- cols<br>
+usage: ps [ -aAdeflcjLPyZ ] [ -o format ] [ -t termlist ]<br>
+[ -u userlist ] [ -U userlist ] [ -G grouplist ]<br>
+[ -p proclist ] [ -g pgrplist ] [ -s sidlist ] [ -z zonelist ]<br>
+'format' is one or more of:<br>
+user ruser group rgroup uid ruid gid rgid pid ppid pgid sid taskid ctid<br>
+pri opri pcpu pmem vsz rss osz nice class time etime stime zone zoneid<br>
+f s c lwp nlwp psr tty addr wchan fname comm args projid project pset<br>
+<font color="#008000">Starting Oracle Enterprise Manager 10g Database Control 
+.................... started. </font><br>
+------------------------------------------------------------------<br>
+Logs are generated in directory 
+/oracle/oracle/product/10.2.0/db_2/alcat134_astra/sysman/log <br>
+bash-3.00$</font></p>
+<p><font face="Verdana" size="2">Not try accessing the above mentioned link.</font></p>
+<hr>
+<p><u><i><b><font face="Verdana" size="2">Commands I learnt from ORACLE 
+upgradation are below:</font></b></i></u></p>
+<table border="1" width="100%" id="table1">
+	<tr>
+		<td align="center" bgcolor="#0000FF"><b>
+		<font size="2" face="Verdana" color="#FFFFFF">S.No</font></b></td>
+		<td align="center" bgcolor="#0000FF"><b>
+		<font size="2" face="Verdana" color="#FFFFFF">Commands</font></b></td>
+		<td width="223" align="center" bgcolor="#0000FF"><b>
+		<font size="2" face="Verdana" color="#FFFFFF">Abbreviation</font></b></td>
+		<td width="310" align="center" bgcolor="#0000FF"><b>
+		<font size="2" face="Verdana" color="#FFFFFF">Comments/This command used 
+		for</font></b></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">1</font></td>
+		<td><br>
+		<font face="Verdana" size="2">dbca</font><p>&nbsp;</td>
+		<td width="223"><font face="Verdana" size="2">Database Configuration 
+		Assistant</font></td>
+		<td width="310"><font face="Verdana" size="2">&nbsp;(i) Create a 
+		database<br>
+&nbsp;(ii) Configure database options<br>
+&nbsp;(iii) Delete a database<br>
+&nbsp;(iv) Manage Templates<br>
+&nbsp;(v) Configure Automatic Storage Management</font></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">2</font></td>
+		<td><br>
+		<font size="2" face="Verdana"><a name="top0">exp userid=system/manager 
+		file=/oracle2/EXPORT_DBS/expdata1.dmp rows=Y full=Y log=/oracle2/EXPORT_DBS/expdata1.log</a></font><br>
+&nbsp;</td>
+		<td width="223"><font face="Verdana" size="2">Export </font></td>
+		<td width="310"><font face="Verdana" size="2">Used from database version 
+		Oracle 8i (8.1.7.4.0) to export the database into other versions</font></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">3</font></td>
+		<td><br>
+		<font size="2" face="Verdana"><a name="top">imp userid=system/manager 
+		file=/oracle2/IMPORTED_FROM_8174/expdata1.dmp ignore=y rows=Y full=Y 
+		log=/oracle2/IMPORTED_FROM_8174/impdata2.log</a></font><br>
+&nbsp;</td>
+		<td width="223"><font face="Verdana" size="2">Import</font></td>
+		<td width="310"><font face="Verdana" size="2">Used from database version 
+		Oracle 10g (10.2.0.1) to import the database from above oracle 
+		8i(8.1.7.4.0).</font></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">4</font></td>
+		<td><font face="Verdana" size="2"><br>
+		emctl status dbconsole<br>
+		emctl stop dbconsole<br>
+		emctl start dbconsole<br>
+&nbsp;</font></td>
+		<td width="223"><font face="Verdana" size="2">Oracle Enterprise Manager 
+		10g Database Control </font></td>
+		<td width="310"><font face="Verdana" size="2"><br>
+		To stop/start/check the web console of Oracle Enterprise Manager 10g 
+		Database.<br>
+		(i.e) <a href="http://192.168.22.183:1158/em">
+		http://192.168.22.183:1158/em</a> </font></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">5</font></td>
+		<td><font face="Verdana" size="2">dgmgrl</font></td>
+		<td width="223">&nbsp;</td>
+		<td width="310"><font face="Verdana" size="2">Same as svrmgrl, which can 
+		be used to startup/shutdown the database (See below for more help)</font></td>
+	</tr>
+	<tr>
+		<td><font size="2" face="Verdana">6</font></td>
+		<td><font size="2" color="blue" face="Verdana">
+		<span style="font-size: 10.0pt; font-family: Verdana; color: blue">
+		SELECT tablespace_name FROM dba_tablespaces; </span></font></td>
+		<td width="223">&nbsp;</td>
+		<td width="310"><font face="Verdana" size="2">&nbsp;To list available 
+		tablespaces.(Note: This is a SQL query.To execute this query</font></td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<p><font face="Verdana" size="2">bash-3.00$ <b>dgmgrl</b><br>
+DGMGRL for Solaris: Version 10.2.0.1.0 - 64bit Production<br>
+<br>
+Copyright (c) 2000, 2005, Oracle. All rights reserved.<br>
+<br>
+Welcome to DGMGRL, type &quot;help&quot; for information.<br>
+DGMGRL&gt; <b>help</b><br>
+<br>
+The following commands are available:<br>
+<br>
+add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add 
+a standby database to the broker configuration<br>
+connect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Connect to an Oracle instance<br>
+create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create a broker 
+configuration<br>
+disable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Disable a configuration, 
+a database, or Fast-Start Failover<br>
+edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Edit a configuration, database, or instance<br>
+enable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enable a configuration, a 
+database, or Fast-Start Failover<br>
+exit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Exit the program<br>
+failover&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change a standby database to 
+be the primary database<br>
+help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display 
+description and syntax for a command<br>
+quit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Exit the program<br>
+reinstate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change a disabled database into a viable 
+standby database<br>
+rem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Comment to be ignored by DGMGRL<br>
+remove&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove a configuration, 
+database, or instance<br>
+show&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display 
+information about a configuration, database, or instance<br>
+shutdown&nbsp;&nbsp;&nbsp;&nbsp; Shutdown a currently running Oracle instance<br>
+start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start 
+Fast-Start Failover observer<br>
+startup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start an Oracle database 
+instance<br>
+stop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stop 
+Fast-Start Failover observer<br>
+switchover&nbsp;&nbsp; Switch roles between the primary database and a standby 
+database<br>
+<br>
+Use &quot;help &lt;command&gt;&quot; to see syntax for individual commands<br>
+<br>
+DGMGRL&gt; <b>exit</b><br>
+bash-3.00$<br>
+<br>
+------------------------------------------------------------------------------------------------------<br>
+<br>
+bash-3.00$ <font color="#0000FF"><b>pwd</b></font><br>
+/oracle/oracle/product/10.2.0/db_2/bin<br>
+<br>
+bash-3.00$ <font color="#0000FF"><b>sqlplus / as sysdba</b></font><br>
+<br>
+SQL*Plus: Release 10.2.0.1.0 - Production on Thu Dec 11 16:09:22 2008<br>
+<br>
+Copyright (c) 1982, 2005, Oracle. All rights reserved.<br>
+<br>
+<br>
+Connected to:<br>
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - 64bit Production<br>
+With the Partitioning, OLAP and Data Mining options<br>
+<br>
+SQL&gt; <b><font color="#0000FF">alter user scott identified by tiger account 
+unlock; </font></b><br>
+<br>
+<font color="#008000">User altered.</font><br>
+<br>
+SQL&gt;<b> <font color="#0000FF">exit</font></b><br>
+Disconnected from Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - 
+64bit Production<br>
+With the Partitioning, OLAP and Data Mining options<br>
+bash-3.00$ <br>
+bash-3.00$ <b><font color="#0000FF">sqlplus</font></b><br>
+<br>
+SQL*Plus: Release 10.2.0.1.0 - Production on Thu Dec 11 16:09:54 2008<br>
+<br>
+Copyright (c) 1982, 2005, Oracle. All rights reserved.<br>
+<br>
+Enter user-name: <b><font color="#0000FF">scott</font></b><br>
+Enter password: <br>
+<br>
+Connected to:<br>
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - 64bit Production<br>
+With the Partitioning, OLAP and Data Mining options<br>
+<br>
+SQL&gt; <b><font color="#0000FF">exit</font></b><br>
+Disconnected from Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - 
+64bit Production<br>
+With the Partitioning, OLAP and Data Mining options<br>
+bash-3.00$ <br>
+------------------------------------------------------------------------------------------------------</font></p>
+<p>&nbsp;</p>
+</body>
+</html>

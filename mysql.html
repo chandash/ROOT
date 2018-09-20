@@ -1,0 +1,196 @@
+<html>
+
+<head>
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+</head>
+
+<body bgcolor=F0F5FF>
+<pre>
+<font face="Verdana">
+Create MySQL User Account: 
+
+bash-2.03#groupadd -g 116 mysql
+bash-2.03#mkdir /u01
+bash-2.03#mkdir /u01/app
+bash-2.03#mkdir /u01/app/mysql
+bash-2.03#useradd -u 174 -c "MySQL Software Owner" -d /u01/app/mysql -g "mysql" -m -s /bin/bash mysql
+bash-2.03#passwd mysql
+bash-2.03#chown -R mysql:mysql /u01/app/mysql
+bash-2.03#cp mysql-standard-5.0.22-solaris8-sparc.pkg /usr/local
+bash-2.03#cd /usr/local
+bash-2.03#pkgadd -d mysql-standard-5.0.22-solaris8-sparc.pkg
+
+
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+bash-2.03# /etc/init.d/mysql stop
+Shutting down MySQL
+.. SUCCESS! 
+bash-2.03# /etc/init.d/mysql start
+Starting MySQL
+... SUCCESS! 
+bash-2.03# 
+
+
+
+bash-2.03# mysql -u mysql   
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9 to server version: 5.0.22-standard
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> 
+
+
+bash-2.03# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10 to server version: 5.0.22-standard
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql>
+
+ERROR 1045 (28000): Access denied for user 'mysql'@'localhost' (using password: YES)
+
+
+
+shell> <b>mysql -u root mysql</b>
+Issue the following commands in the mysql client: 
+mysql> UPDATE user SET Password=PASSWORD('mynewpassword')
+    ->             WHERE User='root';
+mysql> FLUSH PRIVILEGES;</font></pre>
+<pre>
+<font face="Verdana">or</font></pre>
+<p class="MsoNormal">
+<span style="font-size: 10.0pt; font-family: Verdana; font-weight: 700">SET 
+PASSWORD FOR 'root'@'localhost' = PASSWORD('root123');</span></p>
+<pre>
+<font face="Verdana">
+===================================================================
+Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist
+
+Hello Friend, 
+You can easily overcome this problem by removing the data directory before taking the backup of data if you have already have important data. 
+rm -rf /pathtodatadir 
+then 
+cd /usr/local/mysql1/bin 
+./mysql_install_db --user=mysql --ldata=/sqldata 
+./mysqld_safe --datadir=/sqldata --user=mysql & 
+
+I hope this will solve ur problem 
+
+====================================================================</font></pre>
+<pre>
+<font face="Verdana">mysql&gt; select current_date();
++----------------+
+| current_date() |
++----------------+
+| 2007-12-20 | 
++----------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select current_time();
++----------------+
+| current_time() |
++----------------+
+| 15:36:28 | 
++----------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select now();
++---------------------+
+| now() |
++---------------------+
+| 2007-12-20 15:37:52 | 
++---------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; </font></pre>
+<pre>
+<font face="Verdana">=================================================================</font></pre>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">mysql&gt; create table 
+USERS(EmpNo varchar(9) not null, adlogin varchar(10) not null, passwd 
+varchar(16) not null default 'wipro123', conpasswd varchar(16) not null default 
+'wipro123', fname varchar(16) not null, mname varchar(10), lname varchar(16) not 
+null, team varchar(6) not null, email varchar(40) not null, extn varchar(10) not 
+null ,active varchar(1) not null default 'Y', primary key&nbsp; (EmpNo), 
+unique(adlogin), unique(email));</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">Query OK, 0 rows affected 
+(0.11 sec)</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">&nbsp;</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">mysql&gt; desc USERS;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">
++-----------+-------------+------+-----+----------+-------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;| Field&nbsp;&nbsp;&nbsp;&nbsp; | Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Null | Key | Default&nbsp; | Extra |</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">
++-----------+-------------+------+-----+----------+-------+</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| EmpNo&nbsp;&nbsp;&nbsp;&nbsp; | varchar(9)&nbsp; 
+| NO&nbsp;&nbsp; | PRI | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| adlogin&nbsp;&nbsp; | varchar(10) 
+| NO&nbsp;&nbsp; | UNI | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| passwd&nbsp;&nbsp;&nbsp; | varchar(16) 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | wipro123 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| conpasswd | varchar(16) 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | wipro123 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| fname&nbsp;&nbsp;&nbsp;&nbsp; | varchar(16) 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| mname&nbsp;&nbsp;&nbsp;&nbsp; | varchar(10) 
+| YES&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| lname&nbsp;&nbsp;&nbsp;&nbsp; | varchar(16) 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| team&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | varchar(6)&nbsp; 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| email&nbsp;&nbsp;&nbsp;&nbsp; | varchar(40) 
+| NO&nbsp;&nbsp; | UNI | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| extn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | varchar(10) 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | NULL&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">| active&nbsp;&nbsp;&nbsp; | varchar(1)&nbsp; 
+| NO&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; | Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | </span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">
++-----------+-------------+------+-----+----------+-------+</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">11 rows in set (0.01 sec)</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">&nbsp;</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">mysql&gt;</span></font></p>
+<pre>
+<font face="Verdana">=================================================================</font></pre>
+<pre>
+&nbsp;</pre>
+
+
+
+
+</body>
+</html>

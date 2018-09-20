@@ -1,0 +1,388 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<link rel="File-List" href="asamap1_files/filelist.xml">
+<style>
+<!--
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body bgcolor=F0F5FF>
+<font face=Sylfaen color=red><h2><i><u><b></b>
+</u></i></font>
+<i><u><b>
+<font face=Verdana color=red><center>ASAMAP1 Licenses starting
+</font>
+</b>
+</u></i>
+<font face=Verdana color=red></center></font>
+<font face=Sylfaen color=red></h2></font>
+<font face=Verdana color=blue><b>MRI</b></font><font face="Verdana"> </font>
+<font face=Sylfaen color=blue>
+<pre>
+<font face="Verdana">user: setupadm
+command: /home/setupadm/mri/lmgrd -c license.dat -l log.log
+------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>Codewizard</b></font></font><font face=Verdana color=blue>
+</font>
+<font face=Sylfaen color=blue>
+<pre>
+<font face="Verdana">user:asamtool
+command:/home2/tools/codewizard/LicenseServer/licserv.d start
+
+to add licenses edit /home2/tools/codewizard/LicenseServer/.psrc file
+to view licenses use http://asamap1:2002
+-------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>Crisp</b>
+</font>
+<pre>
+<font face="Verdana">user:asamtool
+command:/home2/tools/crisp/bin.sol26-sparc/lmcrisp
+stats-usage: /home2/tools/crisp/bin.sol26-sparc/lmcrisp -licinfo
+-------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>DDTS,ClearQuest,Purify,Purify Plus</b>
+</font>
+<pre>
+<font face="Verdana">
+user:ddts
+command:
+cd /home2/ddts/bin/
+./lmgrd -c /home2/ddts/license.dat -l logl.log
+
+-------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>WTX</b>
+</font>
+<pre>
+<font face="Verdana">user:ayanavo
+setview srini_view (or any other view)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm4/tools/WRS/tornado/ppc/host/sun4-solaris2/lib
+export WIND_BASE=/cm4/tools/WRS/tornado 
+command:
+cd /cm4/tools/WRS/tornado/ppc/host/sun4-solaris2/bin
+./wtxregd &
+----------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>GHS</b>
+</font>
+<pre>
+<font face="Verdana">user:ayanavo
+export GHS_LMHOST=asamap1
+command /home2/tools/GHS/Sghs_elmd start
+deamon_to_run: /cm4/tools/WRS/tornado/ppc/host/sun4-solaris2/bin/wtxregd
+elmadmin -l give info on the installed licenses.
+Keys are generated in /home2/tools/GHS/keys:/home2/tools/GHS/tmp/keys  directory using command "4800000225_4800000586_*.sh /cm4/tools/GHS/ppc"
+after keys are generated modify Sghs_elmd to modify the path for keys directory
+
+To install licenses
+date_24_Nov_2005_key_install_for_asamap1.sh /home2/tools/GHS /home2/tools/GHS/keys</font></pre>
+<pre>
+<font face="Verdana">==================================================================================================</font></pre>
+<p class="MsoNormal"><b><i><u>
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">GHS-Multi License </span></u></i></b>
+<span style="font-size:10.0pt;
+font-family:Verdana;color:blue">(This includes user based licenses)</span></p>
+<p class="MsoNormal">&nbsp;</p>
+</font>
+<font face=Sylfaen>
+<p class="MsoNormal"><font size="2" color="#FF0000">
+<span style="font-family: Verdana; font-weight: 700">Note: </span></font>
+</font>
+<font size="2"><span style="font-family: Verdana; font-weight: 700">Stop both lm 
+and Sghs_elmd process before starting below steps</span></font><font face=Sylfaen></p>
+</font>
+<font face=Sylfaen color=blue>
+<p class="MsoNormal"><b><i><u>
+<span style="text-decoration: none; font-size: 10.0pt; font-family: Verdana; color: blue">
+&nbsp;</span></u></i></b></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 1: Login to asamap1 as vobadm with respective password</span></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 2: Set vobadm_view</span></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 3: </span>
+</font>
+<font face=Sylfaen>
+<span style="font-size: 10.0pt; font-family: Verdana"><b>cd /cm4/tools/GHS/multi/solaris2</b></span></p>
+</font>
+<font face=Sylfaen color=blue>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 4: Check out ecomppc, ccomppc and lm. (/main/test/1) if not.</span></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 5: Export proper DISPLAY and execute </span>
+</font>
+<font face=Sylfaen>
+<span style="font-size: 10.0pt; font-family: Verdana"><b>mlmadmin</b></span></p>
+</font>
+<font face=Sylfaen color=blue>
+<p class="MsoNormal"><b>
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">&nbsp;</span></b></p>
+<p class="MsoNormal"><b>
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t75" style='width:418.5pt;
+ height:317.25pt'>
+ <v:imagedata src="asamap1_files/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=558 height=423
+src="asamap1_files/image002.jpg" v:shapes="_x0000_s1025"><![endif]></span></b></p>
+<p class="MsoNormal"><b>
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">&nbsp;</span></b></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 6: Select “</span></font><b><span style="font-size: 10.0pt; font-family: Verdana">Install 
+a license which I already have</span><font face=Sylfaen color=blue><span style="font-size:10.0pt;font-family:Verdana;
+color:blue">”</span></font></b><font face=Sylfaen color=blue><span style="font-size:10.0pt;font-family:Verdana;
+color:blue"> or “</span></font><b><span style="font-size: 10.0pt; font-family: Verdana">Perform 
+License administration tasks</span><font face=Sylfaen color=blue><span style="font-size:10.0pt;font-family:Verdana;
+color:blue">”</span></font></b><font face=Sylfaen color=blue><span style="font-size:10.0pt;font-family:Verdana;
+color:blue"> and point your license file for installation.</span></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 7: mlmadmin will display the acknowledgment after installing 
+the license. Close mlmadmin after successful installation.</span></p>
+<p class="MsoNormal">
+<span style="font-size:10.0pt;font-family:Verdana;
+color:blue">Step 8: Login to asamap1 as ayanavo with respective password on 
+another terminal</span></p>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family:Verdana;color:blue">Step 9: After successful installation execute below both daemons</span></pre>
+</font>
+<font face=Sylfaen>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family: Verdana; font-weight: 700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /cm4/tools/GHS/multi/solaris2/lm -l /home2/tools/GHS/lm_log.log</span></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family: Verdana; font-weight: 700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: Verdana">&nbsp;&nbsp;&nbsp; and </span></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family: Verdana; font-weight: 700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /home2/tools/GHS/Sghs_elmd start</span></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt">&nbsp;</pre>
+</font>
+<font face=Sylfaen color=blue>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family:Verdana;color:blue">Step 10: execute </span></font><b><span style="font-family: Verdana">/cm4/tools/GHS/multi/solaris2/find_ghs_licenses</span><font face=Sylfaen color=blue><span style="font-family:Verdana;color:blue"> </span></font></b><font face=Sylfaen color=blue><span style="font-family:Verdana;color:blue">command to check the status of the installed license.</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font face=Sylfaen color=blue></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family:Verdana;color:blue">Step 11: execute ps –ef | grep –i ghs //To confirm whether both the processes are running or not.</span></pre>
+</font>
+<font face=Sylfaen>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family: Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:Verdana">ayanavo&nbsp; 5643&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 0 13:50:42 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2:09 /home2/tools/GHS/./ghs_elmd -e /home2/tools/GHS/keys:/home2/tools/GHS/tmp/keys </span></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family:Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ayanavo&nbsp; 5685&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 0 13:52:57 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0:04 /cm4/tools/GHS/multi/solaris2/lm -l /home2/tools/GHS/userbasedlic_Sep_19.log</span></pre>
+</font>
+<font face=Sylfaen color=blue>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><span style="font-family:Verdana;color:blue">Step 12: Finally ask the users to check and confirm whether the licenses are accessible or not.</span></pre>
+<pre>
+<font face="Verdana">==============================================================================================================</font></pre>
+<pre>
+<font face="Verdana">For Userbased Licenses(Eg:alcatelbuild)</font></pre>
+<pre>
+<font face="Verdana">Green Hills License Manager
+============================
+
+* How to check if licenses are running ok :
+--------------------------------------------
+
+&nbsp; setenv GHS_LMHOST licserv1
+&nbsp; /ap/flexadmin/Green_Hills/find_ghs_licenses
+
+&nbsp; should return active keys
+
+&nbsp; example output :
+
+&nbsp; Server bt0q16:2009 (138.203.86.90):
+&nbsp;&nbsp;&nbsp;&nbsp; ecomarm (3401): 1 installed, 1 in use, 1 hwm
+&nbsp;&nbsp;&nbsp;&nbsp; simarm (540): 1 installed, 0 in use, 0 hwm
+&nbsp; ...
+
+&nbsp; (note : 'find_ghs_licenses -b' returns license activity
+&nbsp; for all Green Hills license servers)
+
+&nbsp; You can also check the license daemon log file for more 
+&nbsp; info on check in/out activities or reasons why the license
+&nbsp; daemon is not working as expected :
+
+&nbsp; /ap/flexadmin/Green_Hills/logfile.log
+
+
+&nbsp;* How to install new license keys :
+-------------------------------------
+
+&nbsp; - login on licserv1 license server as user flexadm :
+
+&nbsp;&nbsp;&nbsp; ssh licserv1 -l flexadm 
+
+&nbsp;&nbsp;&nbsp; cd /ap/flexadmin/Green_Hills
+
+&nbsp; - check out (rcs) the old license file :
+
+&nbsp;&nbsp;&nbsp; /ap/tools/bin/co -l license.lck 
+
+&nbsp; - replace old license file with new license file :
+
+&nbsp;&nbsp;&nbsp; cp license_new.lck license.lck 
+
+&nbsp; - check in (rcs) the license file 
+
+&nbsp;&nbsp;&nbsp; /ap/tools/bin/ci -u license.lck
+
+&nbsp; - Start the Green Hills MultiLicensing wizard :
+
+&nbsp;&nbsp;&nbsp; mlmadmin 
+
+&nbsp; - Select &quot;Install a license which I already have.&quot; &amp; click &quot;Next&quot;
+
+&nbsp; - Select the file license.lck &amp; click &quot;Install&quot;
+
+&nbsp; - Click on Quit
+
+&nbsp; - stop the lm license daemon (kill the 'lm' process)
+&nbsp;&nbsp;&nbsp; use the following command to find the lm process id :
+&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; /bin/ps -ef | egrep '/Green_Hills/lm'
+
+&nbsp;&nbsp;&nbsp; kill &lt;lm-pid&gt;
+
+&nbsp; - remove the previous reservation from the userlist.txt file :
+
+&nbsp;&nbsp;&nbsp; glicusers ecomarm -d build_isam
+
+&nbsp; - add the user again to the userlist.txt file :
+
+&nbsp;&nbsp;&nbsp; glicusers ecomarm -a build_isam 
+
+&nbsp; - start the license daemon again : 
+
+&nbsp;&nbsp;&nbsp; /ap/flexadmin/Green_Hills/lm 
+
+&nbsp; - check the licenses : 
+
+&nbsp;&nbsp;&nbsp; setenv GHS_LMHOST licserv1
+&nbsp;&nbsp;&nbsp; find_ghs_licenses
+
+
+* To (re)start (&amp; stop) the license daemon
+--------------------------------------------
+
+&nbsp; - login on licserv1 license server as user flexadm :
+
+&nbsp;&nbsp;&nbsp; ssh licserv1 -l flexadm 
+&nbsp;&nbsp;&nbsp; cd /ap/flexadmin/Green_Hills
+
+&nbsp; - stop the lm license daemon (kill the 'lm' process)
+&nbsp;&nbsp;&nbsp; use the following command to find the lm process id :
+&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; /bin/ps -ef | egrep '/Green_Hills/lm'
+
+&nbsp;&nbsp;&nbsp; kill &lt;lm-pid&gt;
+
+&nbsp; - start the license daemon again : 
+
+&nbsp;&nbsp;&nbsp; /ap/flexadmin/Green_Hills/lm 
+
+&nbsp; - check the licenses : 
+
+&nbsp;&nbsp;&nbsp; setenv GHS_LMHOST licserv1
+&nbsp;&nbsp;&nbsp; find_ghs_licenses
+</font></pre>
+<pre>
+<font face="Verdana">Important Note:</font></pre>
+<pre>
+<font face="Verdana">Finally start lm,
+/cm4/tools/GHS/multi/solaris2/lm -l /cm4/tools/GHS/multi/solaris2/logfile.log</font></pre>
+<pre>
+<font face="Verdana">-----------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>Prism</b>
+</font>
+<pre>
+<font face="Verdana">cd /home2/tools/Prism
+/home2/tools/Prism/lmgrd -c license.dat -l lm_Oxx.log 
+__________________________________________________________________
+</font></pre>
+<font face=Verdana color=blue><b>Wind River</b>
+</font>
+<pre>
+<font face="Verdana">user: ayanavo
+location: /home2/tools/Prism
+Command ./lmgrd -c /home2/tools/Prism/WRSLicense -l WRSlm_xx.log
+___________________________________________________________________
+If encoutering port usage and lmgrd problems
+check ps -ef |grep lmgrd to see multiple deamons running
+kill all and rerun (use only kill not kill -9)
+
+use /usr/local/bin/lsof to check the port command in use
+
+kill lock files in /usr/tmp and /var/tmp
+------------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>SilverCreek</b>
+</font>
+<pre>
+<font face="Verdana">Vendor : InterWorking Labs
+user: ayanavo
+location : /home2/tools/SilverCreek
+command: /home2/tools/SilverCreek/bin/start-license-server
+Note: old licenses were available in /home2/tools/SilverCreek/wgserver8.3/start.sh
+------------------------------------------------------------------------
+</font></pre>
+<font face=Verdana color=blue><b>Tornado</b>
+</font>
+<pre>
+<font face="Verdana">cd /home2/tools/Tornado2.2
+./lmgrd -c /home2/tools/Tornado2.2/WRSLicense.lic -l /home2/tools/Tornado2.2/lmrgd.log
+</font></pre>
+<hr>
+<pre>
+<font face="Verdana">Error:tgtsvr<br>
+Cannot contact Wind Registry on host: asamap1 tgtsvr.ex
+<br>
+Solution:<br>
+user:ayanavo
+setview srini_view (or any other view)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm4/tools/WRS/tornado/ppc/host/sun4-solaris2/lib
+export WIND_BASE=/cm4/tools/WRS/tornado 
+command:
+cd /cm4/tools/WRS/tornado/ppc/host/sun4-solaris2/bin
+./wtxregd &
+</font></pre>
+</font>
+</body>
+</html>

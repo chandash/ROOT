@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>If you need to change the contro</title>
+</head>
+
+<body>
+
+<p><span class="Text"><font face="Verdana" size="2">If you need to change the 
+controller number listed for the VG because it changed, then the best way is 
+vgscan.<br>
+Move <b>/etc/lvmtab</b> to another name or location, then run <b>vgscan -av</b><br>
+to recreate the lvmtab file. Strings it for proper values for ALL VGs. If a 
+problem move/rename the new &amp; bring the old lvmtab back if necessary.<br>
+</font>
+--------------------------------------------------------------------------------------------------------------------------</span></p>
+<p><span class="Text"><font size="2" face="Verdana">root@alcnmd01:/etc# <b>mv 
+/etc/lvmtab /etc/old_lvmtab_OLD </b><br>
+root@alcnmd01:/etc# <b>vgscan -av</b><br>
+<font color="#0000FF">Creating &quot;/etc/lvmtab&quot;.<br>
+Couldn't stat physical volume &quot;/dev/dsk/c2t2d0&quot;:<br>
+Invalid argument<br>
+<br>
+/dev/vg01<br>
+/dev/dsk/c0t3d0<br>
+/dev/dsk/c0t4d0<br>
+/dev/dsk/c0t5d0<br>
+<br>
+/dev/vg00<br>
+/dev/dsk/c0t6d0<br>
+<br>
+/dev/vg02<br>
+/dev/dsk/c0t12d0<br>
+/dev/dsk/c0t13d0<br>
+<br>
+/dev/vg04<br>
+/dev/dsk/c0t14d0<br>
+<br>
+/dev/vg03<br>
+/dev/dsk/c4t8d0<br>
+<br>
+</font><font color="#FF0000">vgscan: Quorum not present, or some physical 
+volume(s) are missing.</font><font color="#0000FF"><br>
+<br>
+/dev/vg05<br>
+/dev/dsk/c4t10d0<br>
+<br>
+Scan of Physical Volumes Complete.</font><br>
+root@alcnmd01:/etc#</font></span></p>
+<p><span class="Text"><font size="2" face="Verdana">
+--------------------------------------------------------------------------------------------------------------</font></span></p>
+<p><span class="Text"><font size="2" face="Verdana">root@alcnmd01:/etc# <b>
+strings /etc/old_lvmtab_OLD</b><br>
+<font color="#0000FF">/dev/vg00<br>
+/dev/dsk/c0t6d0<br>
+/dev/vg01<br>
+/dev/dsk/c0t3d0<br>
+/dev/dsk/c0t4d0<br>
+/dev/dsk/c0t5d0<br>
+/dev/vg02<br>
+/dev/dsk/c0t12d0<br>
+/dev/dsk/c0t13d0<br>
+<b>/dev/vg03<br>
+/dev/dsk/c4t8d0<br>
+</b></font><b><font color="#FF0000">/dev/dsk/c4t9d0</font></b><font color="#0000FF"><br>
+/dev/vg04<br>
+/dev/dsk/c0t14d0<br>
+/dev/vg05<br>
+/dev/dsk/c4t10d0</font><br>
+root@alcnmd01:/etc# <b>strings /etc/lvmtab </b><br>
+<font color="#0000FF">/dev/vg01<br>
+/dev/dsk/c0t3d0<br>
+/dev/dsk/c0t4d0<br>
+/dev/dsk/c0t5d0<br>
+/dev/vg00<br>
+/dev/dsk/c0t6d0<br>
+/dev/vg02<br>
+/dev/dsk/c0t12d0<br>
+/dev/dsk/c0t13d0<br>
+/dev/vg04<br>
+/dev/dsk/c0t14d0<br>
+<b>/dev/vg03<br>
+/dev/dsk/c4t8d0&nbsp;&nbsp;&nbsp; --------------------&gt; </b></font>
+<font color="#FF0000"><b>/dev/dsk/c4t9d0</b> is missing</font><font color="#0000FF"><br>
+/dev/vg05<br>
+/dev/dsk/c4t10d0</font><br>
+root@alcnmd01:/etc#</font></span></p>
+<p><span class="Text"><font size="2" face="Verdana">
+--------------------------------------------------------------------------------------------------------------</font></span></p>
+<p><font size="2" face="Verdana">root@alcnmd01:/var/yp/src# <b>vgchange -a y</b><br>
+<font color="#0000FF">Volume group &quot;/dev/vg01&quot; has been successfully changed.<br>
+Volume group &quot;/dev/vg00&quot; has been successfully changed.<br>
+Volume group &quot;/dev/vg02&quot; has been successfully changed.<br>
+Volume group &quot;/dev/vg04&quot; has been successfully changed.<br>
+vgchange: Couldn't activate volume group &quot;/dev/vg03&quot;:<br>
+</font><font color="#FF0000">Quorum not present, or some physical volume(s) are 
+missing.</font><font color="#0000FF"><br>
+<br>
+Volume group &quot;/dev/vg05&quot; has been successfully changed.</font><br>
+root@alcnmd01:/var/yp/src# </font></p>
+
+<p><span class="Text"><font size="2" face="Verdana">
+--------------------------------------------------------------------------------------------------------------</font></span></p>
+<p><font face="Verdana" size="2"><font color="#0000FF">Activate a volume group:
+</font><b>vgchange -a y /dev/vg03</b><br>
+<br>
+<font color="#0000FF">Deactivate a volume group:</font> <b>vgchange -a n 
+/dev/vg03</b><br>
+<br>
+<font color="#0000FF">Activate a volume group without synchronizing extents that 
+are not current on logical volumes that have Mirror Write Cache turned on:</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>vgchange -a y -s 
+/dev/vg03</b><br>
+<br>
+<b><font color="#0000FF">&nbsp;FILES</font></b><br>
+<b>/etc/nomwcsyncd&nbsp; </b>&nbsp;<font color="#0000FF"> -&nbsp;&nbsp; Mirror 
+sychronization daemon for logical volumes that have Mirror Write Cache turned 
+off.</font><br>
+<br>
+</font><span class="Text"><font size="2" face="Verdana">
+--------------------------------------------------------------------------------------------------------------</font></span></p>
+
+</body>
+
+</html>

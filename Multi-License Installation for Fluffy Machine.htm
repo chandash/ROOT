@@ -1,0 +1,263 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 6.0">
+</HEAD>
+<BODY>
+
+<B><P ALIGN="CENTER"><font face="Verdana" size="4">MULTI License Installation in Fluffy Machine</font></P>
+
+<FONT SIZE=2>
+
+<P ALIGN="CENTER"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P><font face="Verdana">Login into Fluffy Machine (192.168.221.100)</font></P>
+
+<P><font face="Verdana">Login:root</font></P>
+<P><font face="Verdana">Pwd:</font></P>
+<P><font face="Verdana">bash-2.03# /etc/init.d/ghs_elmd stop</font></P>
+
+<P><font face="Verdana">bash-2.03# ps -ef | grep -i lm </font>      </P>
+</FONT>
+</B>
+
+<FONT SIZE=2>
+
+<P>    <font face="Verdana">root   238     1  0   Jul 28 ?        0:00 /opt/rational/clearcase/etc/lockmgr -a /var/adm/rational/clearcase/almd -q 1024</font></P>
+<P>    <font face="Verdana">root  8840     1  0 09:45:39 ?        0:00 /usr/ghs/multi/solaris2/lm -l /usr/ghs/multi/solaris2/lm_AUG_02_2008.log</font></P>
+<P>    <font face="Verdana">root  8874  8508  0 09:52:04 pts/5    0:00 grep -i lm</font></P>
+<B>
+<P><font face="Verdana">bash-2.03# kill 8840</font></P>
+
+<P><font face="Verdana">bash-2.03# ps -ef | grep -i lm</font></P>
+</B><P>    <font face="Verdana">root   238     1  0   Jul 28 ?        0:00 /opt/rational/clearcase/etc/lockmgr -a /var/adm/rational/clearcase/almd -q 1024</font></P>
+<P>    <font face="Verdana">root  8876  8508  0 09:52:20 pts/5    0:00 grep -i lm</font></P>
+<B>
+<P><font face="Verdana">bash-2.03#cd /usr/ghs/multi/solaris2</font></P>
+
+<P><font face="Verdana">bash-2.03# export DISPLAY=192.168.220.110:1.0</font></P>
+<P><font face="Verdana">bash-2.03# ./mlmadmin </font> </P>
+</B>
+<P><font face="Verdana">NOTE: select logfile path and name to create a log file</font></P>
+
+<P><font face="Verdana">Go to license--------&gt;configure server on local machine----&gt;enter log file name.</font></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Arial" SIZE=2><P></P>
+</FONT><FONT SIZE=2>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Arial" SIZE=2><P></P>
+<P></P>
+</FONT><FONT SIZE=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Arial" SIZE=2><P></P>
+</FONT><FONT SIZE=2>
+<P>&nbsp;</P>
+</FONT><FONT FACE="Arial" SIZE=2><P></P>
+</FONT><FONT SIZE=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><P>&nbsp;</P>
+<P><font face="Verdana">bash-2.03# ls -ld licenses_for_FLUFFY_PPC_242d.lck</font></P>
+</B><P><font face="Verdana">-rwxrwxr-x   1 root     other       2387 Aug  1 21:37 licenses_for_FLUFFY_PPC_242d.lck</font></P>
+
+<P>&nbsp;</P>
+<B><P><font face="Verdana">bash-2.03# ps -ef | grep -i   </font>   </P>
+</B><P><font face="Verdana">bash-2.03# /usr/ghs/multi/solaris2/lm -l /usr/ghs/multi/solaris2/lm_AUG_02_2008.log</font></P>
+
+<B><P><font face="Verdana">bash-2.03# /etc/init.d/ghs_elmd start</font></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><font face="Verdana">To check the log file</font></P>
+</B>
+<P>&#9;</P>
+<B><P><font face="Verdana">bash-2.03# more lm_AUG_02_2008.log</font></P>
+</B>
+<P><font face="Verdana">********************************************************</font></P>
+<P><font face="Verdana">***      GREEN HILLS SOFTWARE LICENSE MANAGER        ***</font></P>
+<P><font face="Verdana">***      Copyright 1993-2003.  All rights reserved.  ***</font></P>
+<P><font face="Verdana">********************************************************</font></P>
+
+<P><font face="Verdana">Sat Aug  2 09:45:39 2008: Starting execution</font></P>
+<P><font face="Verdana">Logging to /usr/ghs/multi/solaris2/lm_AUG_02_2008.log.</font></P>
+<P><font face="Verdana">Running in /usr/ghs/multi/solaris2</font></P>
+<P><font face="Verdana">----------------------------------------</font></P>
+<P><font face="Verdana">Handling requests on port 2009.</font></P>
+<P><font face="Verdana">Loading keys:</font></P>
+<P>   <font face="Verdana">Feature 100 (multi): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 113 (mevgui): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 115 (integrate): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 116 (dwarf2dbo): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 117 (wperf): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 118 (stabs2dbo): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 300 (rtserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 302 (rtnserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 317 (proxyserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 398 (mpserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 470 (simppc): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 610 (isim): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 2901 (ecomppc): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 7002 (rhapsodyint): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 7003 (timemachine): 4 licenses</font></P>
+<P><font face="Verdana">----------------------------------------</font></P>
+<P><font face="Verdana">Sat Aug  2 09:45:39 2008: Now handling requests</font></P>
+<P><font face="Verdana">Sat Aug  2 09:45:39 2008: 1024 files max</font></P>
+
+<P><font face="Verdana">********************************************************</font></P>
+<P><font face="Verdana">***      GREEN HILLS SOFTWARE LICENSE MANAGER        ***</font></P>
+<P><font face="Verdana">***      Copyright 1993-2003.  All rights reserved.  ***</font></P>
+<P><font face="Verdana">********************************************************</font></P>
+
+<P><font face="Verdana">Sat Aug  2 09:53:56 2008: Starting execution</font></P>
+<P><font face="Verdana">Logging to /usr/ghs/multi/solaris2/lm_AUG_02_2008.log.</font></P>
+<P><font face="Verdana">Running in /usr/ghs/multi/solaris2</font></P>
+<P><font face="Verdana">----------------------------------------</font></P>
+<P><font face="Verdana">Handling requests on port 2009.</font></P>
+<P><font face="Verdana">Loading keys:</font></P>
+<P>   <font face="Verdana">Feature 100 (multi): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 113 (mevgui): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 115 (integrate): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 116 (dwarf2dbo): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 117 (wperf): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 118 (stabs2dbo): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 300 (rtserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 302 (rtnserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 317 (proxyserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 398 (mpserv): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 470 (simppc): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 610 (isim): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 2901 (ecomppc): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 7002 (rhapsodyint): 4 licenses</font></P>
+<P>   <font face="Verdana">Feature 7003 (timemachine): 4 licenses</font></P>
+<P><font face="Verdana">----------------------------------------</font></P>
+<P><font face="Verdana">…</font></P>
+
+<B><P>&nbsp;</P>
+<P><font face="Verdana">bash-2.03# cat licenses_for_FLUFFY_PPC_242d.lck</font></P>
+</B><P><font face="Verdana"># AUTH PGHS001009489321F600F9</font></P>
+<P><font face="Verdana"># COMPANY Alcatel-Lucent</font></P>
+<P><font face="Verdana"># EXPIRY 242</font></P>
+<P><font face="Verdana"># SERVER CODE 0/83fbe2a9</font></P>
+<P><font face="Verdana"># SERIAL NUMBER 27366</font></P>
+<P><font face="Verdana"># PO 4800172571 (196680)</font></P>
+<P><font face="Verdana">serial: 27366</font></P>
+<P><font face="Verdana">port: 2009</font></P>
+<P><font face="Verdana">ethernet: 1.1.1.1</font></P>
+<P><font face="Verdana">lm key: 20bff87f</font></P>
+<P><font face="Verdana">lm code: 10000</font></P>
+<P><font face="Verdana">lm hostid: 83fbe2a9</font></P>
+<P><font face="Verdana"># lm expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">lm expiration: 49d22cf6</font></P>
+<P><font face="Verdana">multi key: d93eda87</font></P>
+<P><font face="Verdana">multi code: 100</font></P>
+<P><font face="Verdana">multi licenses: 4</font></P>
+<P><font face="Verdana"># multi expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">multi expiration: 49d22cf6</font></P>
+<P><font face="Verdana">rhapsodyint code: 7002</font></P>
+<P><font face="Verdana">rhapsodyint licenses: 4</font></P>
+<P><font face="Verdana"># rhapsodyint expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">rhapsodyint expiration: 49d22cf6</font></P>
+<P><font face="Verdana">timemachine code: 7003</font></P>
+<P><font face="Verdana">timemachine licenses: 4</font></P>
+<P><font face="Verdana"># timemachine expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">timemachine expiration: 49d22cf6</font></P>
+<P><font face="Verdana">ecomppc key: 1c1bd56e</font></P>
+<P><font face="Verdana">ecomppc code: 2901</font></P>
+<P><font face="Verdana">ecomppc licenses: 4</font></P>
+<P><font face="Verdana"># ecomppc expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">ecomppc expiration: 49d22cf6</font></P>
+<P><font face="Verdana">simppc key: eb59c1c</font></P>
+<P><font face="Verdana">simppc code: 470</font></P>
+<P><font face="Verdana">simppc licenses: 4</font></P>
+<P><font face="Verdana"># simppc expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">simppc expiration: 49d22cf6</font></P>
+<P><font face="Verdana">mevgui key: 6cbf2628</font></P>
+<P><font face="Verdana">mevgui code: 113</font></P>
+<P><font face="Verdana">mevgui licenses: 4</font></P>
+<P><font face="Verdana"># mevgui expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">mevgui expiration: 49d22cf6</font></P>
+<P><font face="Verdana">integrate key: 4a8ba5ad</font></P>
+<P><font face="Verdana">integrate code: 115</font></P>
+<P><font face="Verdana">integrate licenses: 4</font></P>
+<P><font face="Verdana"># integrate expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">integrate expiration: 49d22cf6</font></P>
+<P><font face="Verdana">dwarf2dbo key: 21d1aada</font></P>
+<P><font face="Verdana">dwarf2dbo code: 116</font></P>
+<P><font face="Verdana">dwarf2dbo licenses: 4</font></P>
+<P><font face="Verdana"># dwarf2dbo expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">dwarf2dbo expiration: 49d22cf6</font></P>
+<P><font face="Verdana">wperf key: 4d3370af</font></P>
+<P><font face="Verdana">wperf code: 117</font></P>
+<P><font face="Verdana">wperf licenses: 4</font></P>
+<P><font face="Verdana"># wperf expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">wperf expiration: 49d22cf6</font></P>
+<P><font face="Verdana">stabs2dbo key: c6205c2</font></P>
+<P><font face="Verdana">stabs2dbo code: 118</font></P>
+<P><font face="Verdana">stabs2dbo licenses: 4</font></P>
+<P><font face="Verdana"># stabs2dbo expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">stabs2dbo expiration: 49d22cf6</font></P>
+<P><font face="Verdana">rtserv key: ccb96da</font></P>
+<P><font face="Verdana">rtserv code: 300</font></P>
+<P><font face="Verdana">rtserv licenses: 4</font></P>
+<P><font face="Verdana"># rtserv expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">rtserv expiration: 49d22cf6</font></P>
+<P><font face="Verdana">rtnserv key: 7fd250f7</font></P>
+<P><font face="Verdana">rtnserv code: 302</font></P>
+<P><font face="Verdana">rtnserv licenses: 4</font></P>
+<P><font face="Verdana"># rtnserv expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">rtnserv expiration: 49d22cf6</font></P>
+<P><font face="Verdana">proxyserv key: 45e66ec6</font></P>
+<P><font face="Verdana">proxyserv code: 317</font></P>
+<P><font face="Verdana">proxyserv licenses: 4</font></P>
+<P><font face="Verdana"># proxyserv expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">proxyserv expiration: 49d22cf6</font></P>
+<P><font face="Verdana">mpserv key: 667ef586</font></P>
+<P><font face="Verdana">mpserv code: 398</font></P>
+<P><font face="Verdana">mpserv licenses: 4</font></P>
+<P><font face="Verdana"># mpserv expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">mpserv expiration: 49d22cf6</font></P>
+<P><font face="Verdana">isim key: 175a29ee</font></P>
+<P><font face="Verdana">isim code: 610</font></P>
+<P><font face="Verdana">isim licenses: 4</font></P>
+<P><font face="Verdana"># isim expires at Tue Mar 31 06:47:18 2009</font></P>
+<P><font face="Verdana">isim expiration: 49d22cf6</font></P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

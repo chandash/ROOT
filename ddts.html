@@ -1,0 +1,536 @@
+<html>
+<body bgcolor=F0F5FF font=Sylfaen>
+
+<center><b><font color=red size=5>Welcome to ClearDDTS info Page<br></b></center></font><br>
+===================================================================================================<br>
+<b>&nbsp;&nbsp;&nbsp;COMMAND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIPTION</b>
+===================================================================================================<br>
+<br>
+<b><center>ClearDDTS INSTALLATION </b></center>
+<pre>
+inst    Install ClearDDTS and make the current machine the ClearDDTS server
+dsbl    Disables (deinstalls) ClearDDTS.
+mins    Modify installation parameters (such as ddts administrator names).
+dbms    Build/rebuild the ClearDDTS database.
+chdb    Change the RDBMS used by ClearDDTS.
+</pre> 	
+<b><center>REMOTE SITE CONNECTION</b></center>
+<pre>                
+conn    Establish a connection between this site and another.
+dcon    Remove the connection between this site and another.
+</pre> 	
+<b><center>CLASS & PROJECT CREATION/MAINTENANCE/DELETION</b></center>
+<pre>                 
+clas    Create a new class.
+meta    Create a new metaclass.
+mmta    Modify metaclass parameters.
+dcls    Delete a class or metaclass.
+rcls    Rename a class or metaclass.
+
+aprj    Add a new project to the system.
+cprj    Close a project temporarily, preserving defect data.
+dprj    Delete a project from this machine, reclaiming the disk space.
+oprj    Reopen a closed project, or a project moved to this system.
+mprj    Modify parameters of a project (e.g., mail notification lists).
+renm    Rename a project.
+bprj    Rebroadcast project information to the ClearDDTS network.
+sprj    Save a project for transfer to another machine.
+rprj    Restore a previously saved project on a new machine.
+</pre> 	
+<b><center>PROJECT SUBSCRIPTION</b></center>
+<pre>                    
+asub    Subscribe to a project.
+dsub    Delete a subscription to a project.
+msub    Modify subscription parameters.
+</pre> 	
+<b><center>MAINTENANCE</b></center>
+<pre>
+smnt    Start maintenance mode.  Safely shuts system down for maintenance.
+emnt    End maintenance mode.  Brings system back up.
+</pre> 	
+<b><center>LIST CONFIGURATION INFO</b></center>
+<pre>
+lprj    List all project parameters for specified project.
+dsub    Delete a subscription to a project.
+msub    Modify subscription parameters.
+</pre> 	
+<b><center>LIST CONFIGURATION INFO</b></center>
+<pre>
+lprj    List all project parameters for specified project.
+lsit    List other hubs connected to this hub (via conn command).
+ladm    List the ClearDDTS administrators on this machine.
+lbug    List the projects that defects may be logged against.
+lown    List the projects owned on this machine.
+lsub    List the projects being subscribed to on this machine.
+</pre> 	
+<b><center>MISCELLANEOUS</b></center>
+<pre>
+alic    Add an evaluation license.
+quit    Exit this program.
+exit    Exit this program.
+?       Give context sensitive help.
+? cmnd  Give help on the commands above (e.g. ? aprj)
+</pre>
+===================================================================================================<br>
+<center><b>Some live Examples<br></center></b>
+===================================================================================================<br>
+$<b><font color=red> adminbug lsit </font>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	//List other hubs connected to this hub (via conn command).
+</b> <br>
+<pre><font color=blue>
+BDFhw: ddts@sh.bel.alcatel.be
+BDFam: ddts.raleigh@alcatel.com
+ALCkn: ddts.canada@alcatel.com</font>
+</pre>
+<br>
+===================================================================================================<br>
+<b><center>How to subscribe a new project (Eg:FTTU_R4.1.10)<br></center></b>
+===================================================================================================<br>
+$<b><font color=red> adminbug  asub</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Subscribe to a project.</b><br>
+<font color=blue>
+<pre>
+Enter the project name you wish to subscribe to
+<b><font color=red>FTTU_R4.1.10</font></b>
+
+Enter login name of person to inform by mail when the
+subscription to the remote project has been established.
+<b><font color=red>jeevanandhan.murugesan@wipro.com</font></b>
+
+**********
+
+The following questions relate to who to notify when a
+form changes state (for instance, moving a form from
+resolved to verified).		
+
+
+Enter mail addresses of those to notify upon the arrival
+of a new form:
+
+
+Enter mail addresses of those to notify when a new form is
+accepted:
+
+
+Enter mail addresses of those to notify when a form is
+investigated:
+
+
+Enter mail addresses of those to notify when a form is
+assigned to an engineer:
+
+
+Enter mail addresses of those to notify when a form is
+opened by the assigned engineer:
+
+
+Enter mail addresses of those to notify when the solution
+to a form has been delivered:
+
+
+Enter mail addresses of those to notify when a form fix
+has been resolved:
+
+
+Enter mail addresses of those to notify when a form fix
+has been verified:
+
+
+Enter mail addresses of those to notify when a form fix
+has been closed:
+
+
+Enter mail addresses of those to notify when a form has
+been declared to be a duplicate of another form:
+
+
+Enter mail addresses of those to notify when a form fix has
+been postponed:
+
+
+Enter mail addresses of those to notify when a form fix has
+been rejected:
+
+
+Enter mail addresses of those to notify when a form fix is
+not planned:
+
+
+Enter mail addresses of those to notify when a form
+has been accepted:
+
+
+Enter mail addresses of those to notify when a form fix has
+been made external:
+
+
+Please wait...
+
+
+List LOGIN names of those that have project management
+responsibility:
+
+<font color=red><b>jeevanm</b></font>
+
+
+Are others allowed to subscribe to this project? (y/n): N
+
+What Configuration Management System does this project use?
+
+
+
+
+*********
+
+
+
+The following relates to WRITE ACCESS CONTROL.
+
+The following questions relate to who may and may not
+modify a form's state [e.g. resolve forms, assign forms, etc].
+If ANYONE is allowed to make the state change do NOT enter
+a login or group name, just hit RETURN.  If you enter a
+login or group name in answer to the questions below, then
+any other user or any other group NOT listed will be denied
+the ability to make that state change.
+
+
+
+List LOGIN names of users allowed to ACCEPT (X state) a
+form.  Just hit return if anyone is allowed to ACCEPT forms.
+
+List GROUP names of groups allowed to ACCEPT (X state) a
+form.  Just hit return if any group is allowed to ACCEPT forms.
+
+List LOGIN names of users allowed to INVESTIGATE (I state) a
+form.  Just hit return if anyone is allowed to ASSIGN forms.
+
+List GROUP names of groups allowed to INVESTIGATE (I state) a
+form.  Just hit return if any group is allowed to INVESTIGATE forms.
+
+List LOGIN names of users allowed to ASSIGN (A state) a
+form.  Just hit return if anyone is allowed to ASSIGN forms.
+
+List GROUP names of groups allowed to ASSIGN (A state) a
+form.  Just hit return if any group is allowed to ASSIGN forms.
+
+List LOGIN names of users allowed to OPEN (O state) a
+form.  Just hit return if anyone is allowed to OPEN forms.
+
+List GROUP names of groups allowed to OPEN (O state) a
+form.  Just hit return if any group is allowed to OPEN forms.
+
+List LOGIN names of users allowed to DELIVER (L state) a
+form.  Just hit return if anyone is allowed to DELIVER forms.
+
+List GROUP names of groups allowed to DELIVER (L state) a
+form.  Just hit return if any group is allowed to DELIVER forms.
+
+List LOGIN names of users allowed to RESOLVE (R state) a
+form.  Just hit return if anyone is allowed to RESOLVE forms.
+
+List GROUP names of groups allowed to RESOLVE (R state) a
+form.  Just hit return if any group is allowed to RESOLVE forms.
+
+List LOGIN names of users allowed to VERIFY (V state) a
+form.  Just hit return if anyone is allowed to VERIFY forms.
+
+List GROUP names of groups allowed to VERIFY (V state) a
+form.  Just hit return if any group is allowed to Verify forms.
+
+List LOGIN names of users allowed to CLOSE (C state)
+a form.  Just hit return if anyone is allowed to
+CLOSE forms.
+
+List GROUP names of groups allowed to (C state)
+ a form.  Just hit return if any group is allowed
+to CLOSE forms.
+
+List LOGIN names of users allowed to declare a form to
+be a DUPLICATE (D state).
+Just hit return if anyone is allowed to declare a form to
+be an DUPLICATE.
+
+List GROUP names of groups allowed to declare a form to
+be a DUPLICATE (D state).
+Just hit return if any group is allowed to declare a form to
+be a DUPLICATE.
+
+List LOGIN names of users allowed to POSTPONE (P state)
+fixing a form.  Just hit return if anyone is allowed to
+POSTPONE fixing forms.
+
+List GROUP names of groups allowed to POSTPONE (P state)
+fixing a form.  Just hit return if any group is allowed
+to POSTPONE fixing forms.
+
+List LOGIN names of users allowed to REJECT (J state)
+a form.  Just hit return if anyone is allowed to
+KILL forms.
+
+List GROUP names of groups allowed REJECT to (J state)
+ a form.  Just hit return if any group is allowed
+to KILL forms.
+
+List LOGIN names of users allowed to not plan (U state)
+fixing a form.  Just hit return if anyone is allowed to
+NOT PLAN fixing forms.
+
+List GROUP names of groups allowed to not plan (U state)
+fixing a form.  Just hit return if any group is allowed
+to NOT PLAN fixing forms.
+
+List LOGIN names of users allowed to APPROVE (K state)
+a form (only for documents).  Just hit return if anyone is allowed to
+APPROVE forms.
+
+List GROUP names of groups allowed to APPROVE (K state)
+ a form (only for documents).  Just hit return if any group is allowed
+to APPROVE forms.
+
+List LOGIN names of users allowed to make (E state)
+a form EXTERNAL.  Just hit return if anyone is allowed to
+make forms EXTERNAL.
+
+List GROUP names of groups allowed to (E state)
+ a form.  Just hit return if any group is allowed
+to make forms EXTERNAL.
+
+List LOGIN names of users allowed to FORWARD (F state)
+a form.  Just hit return if anyone is allowed to
+FORWARD forms.
+
+List GROUP names of groups allowed to (F state)
+ a form.  Just hit return if any group is allowed
+to FORWARD forms.
+
+
+The following relates to READ ACCESS CONTROL.
+
+
+List LOGIN names of users allowed to view a
+form.  Just hit return if anyone is allowed to view forms.
+
+List GROUP names of groups allowed to view a
+form.  Just hit return if any group is allowed to view forms.
+
+
+Building project this will take a while...
+</pre>$
+</font><br>
+===================================================================================================<br>
+<center><b>How to list the subscribed project <br></center></b>
+===================================================================================================<br>
+<br>
+$ <b><font color=red> adminbug lsub</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//List the projects being subscribed to on this machine.</b>
+<font color=blue><pre>
+ADSL_CI            ADSL_CI
+ADSL_DeNo          ADSL Delivery Note Project
+ADSL_FD-REDUN      ADSL_FD-REDUN
+ADSL_Maint         ADSL Maintenance
+ADSL_R4.2.20       ADSL_R4.2.20
+ADSL_R4.2.21       ADSL_R4.2.21
+ADSL_R4.2.22       ADSL_R4.2.22
+ADSL_R4.2.50       ADSL_R4.2.50
+ADSL_R4.2Mt        ADSL_R4.2Mt
+ADSL_R4.3          ADSL_R4.3
+ADSL_R4.3.10       ADSL_R4.3.10
+ADSL_R4.3.20       ADSL_R4.3.20
+ADSL_R4.3.21       ADSL_R4.3.21
+ADSL_R4.3.30       A FENT improvement project
+ADSL_R4.3.V        ADSL_R4.3.V
+ADSL_R4.3Mt        ADSL_R4.3Mt
+ADSL_R4.4          ADSL_R4.4
+ADSL_R4.4.01       ADSL_R4.4.01
+ADSL_R4.4.10       ADSL_R4.4.10
+ADSL_R4.4.11       ADSL_R4.4.11
+ADSL_R4.4Mt        ADSL_R4.4Mt
+ADSL_R4.5          ADSL_R4.5
+ADSL_R4.5.0.1      ADSL R4.5.0.1
+ADSL_R4.5.10       ADSL_R4.5.10
+ADSL_R4.5.10Mt     ADSL_R4.5.10Mt
+ADSL_R4.5Mt        ADSL_R4.5 DR4-DR5 Maintenance
+ADSL_R4.6          ADSL_R4.6
+ADSL_R4.6.10       ADSL_R4.6.10
+ADSL_R4.6.20       ADSL_R4.6.20
+ADSL_R4.6Mt        ADSL_R4.6Mt
+ADSL_R4.7          ADSL_R4.7
+ADSL_R4.7H         Access BU project Renaissance ISAMIPTV - ASAM Development
+ADSL_R5.0          ADSL_R5.0
+ADSL_R5.0.10       ADSL_R5.0.10
+ADSL_R5.0.10Mt     ADSL_R5.0.10Mt
+ADSL_R5.0.11       ADSL_R5.0.11
+ADSL_R5.0.20       ADSL_R5.0.20
+ADSL_R5.0Mt        ADSL_R5.0Mt
+ADSL_R5.1          ADSL_R5.1
+ADSL_R5.1.10       ADSL_R5.1.10
+ADSL_R5.1.20       ADSL_R5.1.20
+ADSL_R5_Maint      ADSL_R5_Maint
+ADSL_Ref_CPE       ADSL_Ref_CPE
+ASR4622            ADSL_R4.6.22
+ASR4623            ADSL_R4.6.23
+ASR4710            ADSL_R4.7.10
+ASR4720            ASR4720
+ASR4730            ASR4730
+ASR47CI            ASR47CI
+ASR5140            ADSL_R5.1.40
+AUTO_PL_ASAM       Description: ASAM-specific platform
+AUTO_PL_GEN        ARIES general-purpose platform
+AUTO_R5.0          Test Automation
+AUTO_TC_ASAM       ASAM-specific Test Cases
+AUTO_TC_MODEM      MODEM-specific Test Cases
+BADSL_R5.0         pre sit for adsl r5.0
+BADSL_R5.0.10      pre sit for adsl r5.0.10
+BADSL_R5.0.11      BADSL_R5.0.11
+BADSL_R5.0.20      BADSL_R5.0.20
+BFTTU_R2.5         BFTTU_R2.5
+BFTTU_R2.6         pre-FTTU_R2.6
+BFTTU_R4.0         pre SystemTest FTTU_R4.0
+BONT_R2.6          BONT_R2.6
+BSIP_R1.0.0        BSIP_R1.0.0
+DSL_EF             DSL_EmergencyFix
+DSL_Scripts        DSL_Scripts
+FD-Spirent         FD-Spirent
+FD_FENT3           FD_FENT3
+FD_FENT4           FD_FENT4
+FGUE_R2.2.2        FGUE_R2.2.2
+FGUE_R2.2.4        FTTU_ETSI_R2.2.4
+FTTU_AMS_Maint     FTTU_AMS_Maint
+FTTU_ETSI_Mt       FTTU_ETSI_Mt
+FTTU_ETSI_R2.1     FTTU_ETSI_R2.1
+FTTU_FGM1.0        M-Series ONT (GMDU)
+FTTU_IONT3G        FTTU_IONT3G   HONT-D (Indoor ONT)
+FTTU_Maint         Maintenance cabinet for FTTU
+FTTU_Migration     FTTU_Migration
+FTTU_ONT2GEN       2nd generation FTTU
+FTTU_ONT3GEN       FTTU_ONT3GEN   HONT-C (3rd Generation)
+FTTU_R1.0.6        FTTU_R1.0.6
+FTTU_R1.1          FTTU release R1.1
+FTTU_R1.1.1        FTTU_R1.1.1
+FTTU_R1.1.2        FTTU_R1.1.2
+FTTU_R1.2          FTTU_R1.2
+FTTU_R2.0          Fiber to the User  2.0 release SVT
+FTTU_R2.1          FTTU_R2.1
+FTTU_R2.1.1        FTTU_R2.1.1
+FTTU_R2.1.3        FTTU_R2.1.3
+FTTU_R2.5          FTTU_R2.5
+FTTU_R2.5.2        FTTU_R2.5.2
+FTTU_R2.6          FTTU_R2.6
+FTTU_R2.6.1        FTTU_R2.6.1
+FTTU_R2.6.1c       FTTU_R2.6.1c
+FTTU_R2.6.2        FTTU_R2.6.2
+FTTU_R4.0          FTTU_R4.0
+FTTU_R4.0.10       FTTU_R4.0.1
+FTTU_R4.1          FTTU_R4.1
+FTTU_R5.0          FTTU_R5.0
+FTTU_TEC           FTTU_TEC
+GB_711             GenBand_R7.1.1
+GW_CLI             Gateway Client
+MDU_Alcatel        MDU_Alcatel
+VINCI_FGU2.1       Interopt issues with VINCI ONT
+VINCI_FGU2.5       VINCI_FGU2.5
+WAM_R3.0.5         WAM_R3.0.5
+WAM_R3.1.0         WAM_R3.1.0
+WAM_R4.0           WAM_R4.0
+WAM_R4.1           WAM_R4.1
+WAM_R4.2           WAM_R4.2
+WAM_R4.5           WAM_R4.5
+WAM_R4.5.1         WAM_R4.5.1
+WAM_R4.6           WAM_R4.6
+WAM_R5.0           WAM_R5.0
+WAM_R5.1           WAM_R5.1
+WAM_R6.0           WAM_R6.0
+WebDSL_R3.0        WebDSL_R3.0
+XANA_LEGACY        XANA Legacy
+XANA_R3.1          XANA R3.1
+XANA_R3.3          XANA R3.3
+XANA_R3.4          XANA R3.4
+XANA_R4.0          XANA R4.0
+XANA_R4.2          XANA R4.2
+XANA_R5.0          XANA R5.0
+XANA_scal          XANA_scal
+XANA_stab          XANA_stab
+asamap1:/home2/ddts
+$</pre></font>
+===================================================================================================<br>
+<center><b>How to list the projects which are subscribed to  particular site (Eg: BDFhw)<br></center></b>
+===================================================================================================<br>
+<font color=blue>
+$ <font color=red><b>cd projects</b> </font>
+<pre>asamap1:/home2/ddts/projects</pre>
+$<font color=red> <b>grep -r "Path-to-owner: BDFhw ddts@btm35a" *</b></font>
+<pre>
+ADSL_CI/ADSL_CI:Path-to-owner: BDFhw ddts@btm35a
+ADSL_DeNo/ADSL_DeNo:Path-to-owner: BDFhw ddts@btm35a
+ADSL_FD-REDUN/ADSL_FD-REDUN:Path-to-owner: BDFhw ddts@btm35a
+ADSL_Maint/ADSL_Maint:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.2.20/ADSL_R4.2.20:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.2.21/ADSL_R4.2.21:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.2.22/ADSL_R4.2.22:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.2.50/ADSL_R4.2.50:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.2Mt/ADSL_R4.2Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.10/ADSL_R4.3.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.11/ADSL_R4.3.11:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.20/ADSL_R4.3.20:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.21/ADSL_R4.3.21:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.30/ADSL_R4.3.30:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.DT/ADSL_R4.3.DT:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3.V/ADSL_R4.3.V:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3/ADSL_R4.3:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.3Mt/ADSL_R4.3Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.4.01/ADSL_R4.4.01:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.4.10/ADSL_R4.4.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.4.11/ADSL_R4.4.11:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.4/ADSL_R4.4:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.4Mt/ADSL_R4.4Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.5.10/ADSL_R4.5.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.5.10Mt/ADSL_R4.5.10Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.6.10/ADSL_R4.6.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.6.20/ADSL_R4.6.20:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.6/ADSL_R4.6:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.6Mt/ADSL_R4.6Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R4.7/ADSL_R4.7:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.0.10/ADSL_R5.0.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.0.11/ADSL_R5.0.11:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.0.20/ADSL_R5.0.20:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.0/ADSL_R5.0:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.0Mt/ADSL_R5.0Mt:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.1.10/ADSL_R5.1.10:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.1.20/ADSL_R5.1.20:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5.1/ADSL_R5.1:Path-to-owner: BDFhw ddts@btm35a
+ADSL_R5_Maint/ADSL_R5_Maint:Path-to-owner: BDFhw ddts@btm35a
+ADSL_Ref_CPE/ADSL_Ref_CPE:Path-to-owner: BDFhw ddts@btm35a
+ASR4622/ASR4622:Path-to-owner: BDFhw ddts@btm35a
+ASR4623/ASR4623:Path-to-owner: BDFhw ddts@btm35a
+ASR4710/ASR4710:Path-to-owner: BDFhw ddts@btm35a
+ASR4720/ASR4720:Path-to-owner: BDFhw ddts@btm35a
+ASR4730/ASR4730:Path-to-owner: BDFhw ddts@btm35a
+ASR47CI/ASR47CI:Path-to-owner: BDFhw ddts@btm35a
+ASR5140/ASR5140:Path-to-owner: BDFhw ddts@btm35a
+AUTO_PL_ASAM/AUTO_PL_ASAM:Path-to-owner: BDFhw ddts@btm35a
+AUTO_PL_GEN/AUTO_PL_GEN:Path-to-owner: BDFhw ddts@btm35a
+AUTO_R5.0/AUTO_R5.0:Path-to-owner: BDFhw ddts@btm35a
+AUTO_TC_ASAM/AUTO_TC_ASAM:Path-to-owner: BDFhw ddts@btm35a
+AUTO_TC_MODEM/AUTO_TC_MODEM:Path-to-owner: BDFhw ddts@btm35a
+BADSL_R5.0.10/BADSL_R5.0.10:Path-to-owner: BDFhw ddts@btm35a
+BADSL_R5.0.11/BADSL_R5.0.11:Path-to-owner: BDFhw ddts@btm35a
+BADSL_R5.0.20/BADSL_R5.0.20:Path-to-owner: BDFhw ddts@btm35a
+BADSL_R5.0/BADSL_R5.0:Path-to-owner: BDFhw ddts@btm35a
+DSL_EF/DSL_EF:Path-to-owner: BDFhw ddts@btm35a
+DSL_Scripts/DSL_Scripts:Path-to-owner: BDFhw ddts@btm35a
+FD-Spirent/FD-Spirent:Path-to-owner: BDFhw ddts@btm35a
+FD_FENT3/FD_FENT3:Path-to-owner: BDFhw ddts@btm35a
+FD_FENT4/FD_FENT4:Path-to-owner: BDFhw ddts@btm35a
+RCB/RCB:Path-to-owner: BDFhw ddts@btm35a
+XANA_LEGACY/XANA_LEGACY:Path-to-owner: BDFhw ddts@btm35a
+XANA_R3.1/XANA_R3.1:Path-to-owner: BDFhw ddts@btm35a
+XANA_R3.3/XANA_R3.3:Path-to-owner: BDFhw ddts@btm35a
+XANA_R3.4/XANA_R3.4:Path-to-owner: BDFhw ddts@btm35a
+XANA_R4.0/XANA_R4.0:Path-to-owner: BDFhw ddts@btm35a
+XANA_R4.2/XANA_R4.2:Path-to-owner: BDFhw ddts@btm35a
+XANA_R5.0/XANA_R5.0:Path-to-owner: BDFhw ddts@btm35a
+XANA_scal/XANA_scal:Path-to-owner: BDFhw ddts@btm35a
+XANA_stab/XANA_stab:Path-to-owner: BDFhw ddts@btm35a
+asamap1:/home2/ddts/projects
+</pre></font>
+===================================== THE END ==============================================
+</body>
+</html>

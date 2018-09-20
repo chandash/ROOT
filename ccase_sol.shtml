@@ -1,0 +1,943 @@
+<HTML>
+<body bgcolor=#e8e8e8>
+<p><i><b><u><font face="Verdana" size="5">Clearcase client 6 installation on 
+Solaris Client 8</font></u><font face="Verdana" size="5"> (Eg:</font><font face="Verdana" size="4">alcatelbld1</font><font face="Verdana" size="5">)</font></b></i></p>
+<p><font face="Verdana" size="2"><font color="#0000FF">bash-2.03#</font><b> hostname</b> <br>
+alcatelbld1<br>
+<font color="#0000FF">bash-2.03#</font> <b>pwd</b><br>
+/net/asamvob1/opt/ccase_rls/2003.06.00/sun5/clearcase/install<br>
+<font color="#0000FF">bash-2.03# </font><b>./install_release </b> <br>
+<br>
+Copyright Rational Software Corporation. All Rights Reserved. This<br>
+software contains proprietary and confidential information of Rational<br>
+and its suppliers. Use, disclosure or reproduction is prohibited<br>
+without the prior express written consent of Rational. Subject to<br>
+RESTRICTED RIGHTS for US Government users. <br>
+<br>
+This software is protected by the following registered<br>
+United States patents: 5574898, 5649200, 5675802. <br>
+<br>
+Copyright 1992, 2001, Rational Software Corporation, All Rights Reserved.<br>
+Copyright 1989, 1991, The Regents of the University of California.<br>
+Copyright 1984-1991 by Raima Corporation.<br>
+Copyright 1994 Visix Software Inc. (Galaxy Run Time Components only.)<br>
+This release area contains the following Rational product(s):<br>
+<br>
+ClearCase ClearQuest Integration<br>
+ClearCase<br>
+ClearCase ClearDDTS Integration<br>
+MultiSite<br>
+ClearCase Web Interface Server<br>
+<br>
+A transcript of this installation will be initially written <br>
+to /tmp/Rational_install.070830.10:09.<br>
+After a successful installation, the transcript will be located<br>
+at /var/adm/rational/clearcase/log/Rational_install.070830.10:09.<br>
+<br>
+<br>
+The following installation methods are available:<br>
+<br>
+1. Local Install: Install occurs on the local host.<br>
+2. Remote Install: Install occurs on a single remote host.<br>
+3. Multiple Remote Installs: Install occurs on a set of remote hosts.<br>
+4. Local Deinstall: Deinstall occurs on the local host.<br>
+<br>
+Type &quot;Help&quot; or &quot;h&quot; for expanded descriptions<br>
+<br>
+Type &quot;Quit&quot; or &quot;q&quot; to exit the installation<br>
+<br>
+Please select the installation method by number.<br>
+<br>
+Method of installation&gt;&gt; <b>1</b><br>
+<br>
+******************************************************************************<br>
+------------------------------------------------------------------------------<br>
+<br>
+<br>
+Displaying IBM License Agreement<br>
+<br>
+Press the space bar to display the next page.<br>
+Press 'x' or 'q' to skip displaying the license agreement.<br>
+<br>
+<br>
+<br>
+------------------------------------------------------------------------------<br>
+******************************************************************************<br>
+<br>
+International Program License Agreement<br>
+<br>
+Part 1 - General Terms<br>
+<br>
+BY DOWNLOADING, INSTALLING, COPYING, ACCESSING, OR USING THE PROGRAM YOU AGREE 
+TO THE TERMS OF THIS AGREEMENT. IF YOU ARE ACCEPTING THESE TE<br>
+RMS ON BEHALF OF ANOTHER PERSON OR A COMPANY OR OTHER LEGAL ENTITY, YOU 
+REPRESENT AND WARRANT THAT YOU HAVE FULL AUTHORITY TO BIND THAT PERS<br>
+ON, COMPANY, OR LEGAL ENTITY TO THESE TERMS. IF YOU DO NOT AGREE TO THESE TERMS,
+<br>
+<br>
+- DO NOT DOWNLOAD, INSTALL, COPY, ACCESS, OR USE THE PROGRAM; AND<br>
+<br>
+- PROMPTLY RETURN THE PROGRAM AND PROOF OF ENTITLEMENT TO THE PARTY FROM WHOM 
+YOU ACQUIRED IT TO OBTAIN A REFUND OF THE AMOUNT YOU PAID. IF <br>
+YOU DOWNLOADED THE PROGRAM, CONTACT THE PARTY FROM WHOM YOU ACQUIRED IT.<br>
+<br>
+&quot;IBM&quot; is International Business Machines Corporation or one of its subsidiaries.<br>
+<br>
+&quot;License Information&quot; (&quot;LI&quot;) is a document that provides information specific to 
+a Program. The Program's LI is available at http://www.ibm.<br>
+com/software/sla/ . The LI may also be found in a file in the Program's 
+directory, by the use of a system command, or as a booklet which acc<br>
+ompanies the Program.<br>
+<br>
+&quot;Program&quot; is the following, including the original and all whole or partial 
+copies: 1) machine-readable instructions and data, 2) components<br>
+, 3) audio-visual content (such as images, text, recordings, or pictures), 4) 
+related licensed materials, and 5) license use documents or ke<br>
+ys, and documentation.<br>
+<br>
+A &quot;Proof of Entitlement&quot; (&quot;PoE&quot;) is evidence of Your authorization to use a 
+Program at a specified level. That level may be measured, for ex<br>
+Do you accept the terms of this license agreement? (y/n):<b> y</b><br>
+<br>
+******************************************************************************<br>
+------------------------------------------------------------------------------<br>
+<br>
+<br>
+Displaying Intellectual Property Notices and other Licensing Requirements<br>
+<br>
+Press the space bar to display the next page.<br>
+Press 'x' or 'q' to skip displaying the license agreement.<br>
+<br>
+<br>
+<br>
+------------------------------------------------------------------------------<br>
+******************************************************************************<br>
+<br>
+Intellectual Property Notices and Other Licensing Requirements<br>
+Version 2003.06.15, March 2005<br>
+This file last updated: <br>
+Copyright<br>
+Copyright (c) 1987-2004, IBM Corp. All rights reserved.<br>
+Portions Copyright (c) 1992-2001, Summit Software Company. All rights reserved.<br>
+Portions Copyright (c) 2000-2001, Compaq Computer Corporation. All rights 
+reserved.<br>
+Portions Copyright (c) eHelp Corporation. All rights reserved.<br>
+Portions based on Design Patterns: Elements of Reusable Object-Oriented 
+Software, by Erich Gamma, Richard Helm, Ralph Johnson and John Vliss<br>
+ides. Copyright (c) 1995 by Addison-Wesley Publishing Company, Inc. All rights 
+reserved.<br>
+Portions Copyright (c) 1997 OpenLink Software, Inc. All rights reserved.<br>
+Portions of this product were created using LEADTOOLS (c)1991-1999, LEAD 
+Technologies, Inc. ALL RIGHTS RESERVED.<br>
+Portions Copyright (c) 1991-2002 ComponentOne LLC . All Rights Reserved. <br>
+Portions Copyright (c) Coast Software Inc. All Rights Reserved.<br>
+Portions Copyright (c) 1997-2000 Barry Allyn. All Rights Reserved.<br>
+For Adobe software portions: Unpublished-rights reserved under the copyright 
+laws of the United States. Adobe Systems Incorporated, 345 Park<br>
+Avenue, San Jose, CA 955110<br>
+Portions Copyright (c) 1991-2002 Compuware Corporation.<br>
+Portions Copyright (c) Microsoft Corporation. All rights reserved. <br>
+Portions Copyright (c) 1996, 1997-1999 Netscape Communications Corp. All rights 
+reserved.<br>
+Portions Copyright (c) 2002 Sun Microsystems Inc. All rights reserved.<br>
+Portions Copyright (c) 1994-1996 Bennet-Tec Information Systems.<br>
+<br>
+Trademarks<br>
+Do you accept the terms of this license agreement? (y/n): <b>y</b></font></p>
+<p><font face="Verdana" size="2">User specified:Install method:local<br>
+<br>
+<br>
+<br>
+The following installation operations or models are available:<br>
+<br>
+1. Standard: Regular installation, allowing links to this release area.<br>
+2. Full-copy: Regular installation, with no links to this release area.<br>
+3. Mounted: Host install via mounted or pre-populated /opt/rational/clearcase or 
+CLEARCASEHOME.<br>
+4. Link-only: Host install via a symbolic link to this release-area.<br>
+5. Deinstall: Deinstall software from the local installed host.<br>
+<br>
+Type &quot;Help&quot; or &quot;h&quot; for expanded descriptions<br>
+<br>
+Type &quot;Quit&quot; or &quot;q&quot; to exit<br>
+<br>
+Please select the installation type by number.<br>
+<br>
+<br>
+Model of installation&gt;&gt; <b>2</b><br>
+User specified:Install model:full<br>
+<br>
+<br>
+Specify directory in which Rational products are to be installed <br>
+(ClearCase and ClearQuest|ClearQuest Web will be <br>
+installed in the subdirectories of the specified directory. <br>
+The subdirectories are named 'clearcase' and 'clearquest', <br>
+respectively.)<br>
+[<b>/opt/rational</b>]:<br>
+<br>
+User specified:Install into: /opt/rational<br>
+<br>
+<br>
+Pathname to the network-wide release directory<br>
+(used as target of symbolic links)<br>
+[<b>/net/asamvob1/opt/ccase_rls/2003.06.00/sun5</b>]:<br>
+<br>
+User specified:Release area pathname:/net/asamvob1/opt/ccase_rls/2003.06.00/sun5<br>
+<br>
+NOTE: All currently installed Product Family software is<br>
+preselected in the following menu. This is to ensure that all products <br>
+will be at the same release level subsequent to this installation. <br>
+Deselecting any product or component can result in an unsupported <br>
+configuration.<br>
+<br>
+Please select for installation from the following components:<br>
+<br>
+Components preceeded with a '*' are selected for installation.<br>
+<br>
+1 : ClearCase Minimal Developer Installation<br>
+2 : ClearCase Server-only Installation<br>
+3 : ClearCase MultiSite Full Function Installation<br>
+4 : ClearCase Web Interface Server<br>
+5 : ClearQuest Integration with ClearCase<br>
+6 : ClearDDTS Integration with ClearCase<br>
+7 : ClearCase Mainframe Connectors<br>
+8 : ClearCase MultiSite Shipping Server-only Installation<br>
+9 : ClearCase Full Function Installation<br>
+a : Select all<br>
+f : Finish selection<br>
+x : Toggle expanded descriptions<br>
+r : Reset selections<br>
+q : Quit<br>
+<br>
+Selection number(s)&gt;&gt; <b>9 f</b><br>
+The following list of selected components is out-of-date relative<br>
+to the installed software and will be replaced:<br>
+<br>
+Atria Database Server Basics<br>
+Atria Required Basics<br>
+Atria required C++ library support <br>
+Atria required C++ support <br>
+Atria required GUI support <br>
+Atria required X11 support <br>
+ClearCase Client Audited Build Support<br>
+ClearCase Client Basics &amp; MVFS<br>
+ClearCase Client GUI<br>
+ClearCase Client Integrations with ToolTalk and/or SoftBench<br>
+ClearCase Documentation, Tutorial and Examples<br>
+ClearCase Full Function Installation<br>
+ClearCase Import and Exporters<br>
+ClearCase Minimal Developer Installation<br>
+ClearCase Product Family installation mechanism<br>
+ClearCase Required Basics<br>
+ClearCase Required Basics (No registry)<br>
+ClearCase Required Perl and Perl Modules<br>
+ClearCase Server-only Installation<br>
+ClearCase VOB Server<br>
+ClearCase View Server<br>
+ClearCase and ClearQuest Required Perl and Perl Modules<br>
+<br>
+<br>
+***************************************************************************<br>
+&gt;&gt; Beginning component specific queries.<br>
+***************************************************************************<br>
+Reading component installation scripts.<br>
+<br>
+ClearCase License Server Host[<b>asamap1</b>]:<br>
+User specified:License host is asamap1<br>
+<br>
+<br>
+ClearCase Registry Server Host[<b>asamvob1</b>]:<br>
+User specified:Registry host is asamvob1<br>
+<br>
+<br>
+ClearCase Registry Backup Host(s)[Unknown]:<br>
+User specified:Registry backup host(s): Unknown<br>
+<br>
+<br>
+ClearCase Registry Region[<b>asamvob1</b>]:<br>
+User specified:Registry region: asamvob1<br>
+<br>
+<br>
+Choose whether to install extended VOB support.<br>
+<br>
+* Extended VOB support files in the VOB database to grow 
+beyond 2 Gigabytes.<br>
+<br>
+* Extended VOB support is required only for very large VOB 
+databases.<br>
+<br>
+* Installing extended VOB support requires a reformat of existing 
+VOBs on this machine.<br>
+<br>
+Install this feature? (yes, no, quit)[no]:<b>yes</b><br>
+User specified:extended VOB support selected: TRUE<br>
+<br>
+***************************************************************************<br>
+&gt;&gt; Summary of installation selections<br>
+***************************************************************************<br>
+Install into: /opt/rational<br>
+Install method:local<br>
+Install model:full<br>
+License host is asamap1<br>
+Registry backup host(s): Unknown<br>
+Registry host is asamvob1<br>
+Registry region: asamvob1<br>
+Release area pathname:/net/asamvob1/opt/ccase_rls/2003.06.00/sun5<br>
+extended VOB support selected: TRUE<br>
+<br>
+The interactive portion of the installation is complete.<br>
+If you choose to continue, the previously listed components<br>
+will be installed/updated.<br>
+<br>
+Upon completion, the installation status will indicate whether<br>
+there were problems, and provide reminders of post-installation<br>
+steps.<br>
+<br>
+This WILL include stopping all currently running ClearCase Product Family<br>
+software.<br>
+This WILL NOT require a reboot of the system.<br>
+<br>
+**** Enter 'quit' or 'no' to abort the installation ****<br>
+**** Enter 'yes' or press &lt;RETURN&gt; to continue ****<br>
+<br>
+Continue installation?(yes, no, quit)[<b>yes</b>]:<br>
+***************************************************************************<br>
+&gt;&gt; Begin installing files into /opt/rational<br>
+***************************************************************************<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for ratl_perl into 
+/opt/rational/common<br>
+Updated: /opt/rational/common/bin<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/AnyDBM_File.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/AutoLoader.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/AutoSplit.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/B/assemble<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/B/cc_harness<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/B/disassemble<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/B/makeliblinks<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Benchmark.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Apache.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Carp.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Cookie.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Fast.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Pretty.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Push.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Switch.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CGI/Util.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CPAN.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CPAN/FirstTime.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/CPAN/Nox.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Carp.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Carp/Heavy.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Class/Struct.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Cwd.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/DB.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Devel/SelfStubber.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/DirHandle.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Dumpvalue.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/English.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Env.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Exporter.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/Exporter/Heavy.pm<br>
+Updated: /opt/rational/common/lib/perl5/5.6.1/ExtUtils/Command.pm<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/ruler.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/sayings.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/search.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/showVars.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/states.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/style.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/texts.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/transtile.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/twind.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widget_lib/vscale.pl<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/Gedi.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/HList.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/HList2.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/TEMPLATE.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/Tiler.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/balloon.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/browseentry.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/browseentry2.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/dirtree.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/form_mgr.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/labframe.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/lib/npuz/Xcamel.npuz<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/notebook.pl<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/npuz.pl<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/plop.pl<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/demos/widtrib/progress.pl<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/event.pod<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/exit.pod<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/file.xbm<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/file.xpm<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/fileevent.pod<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/focus.pod<br>
+Updated: /opt/rational/common/lib/perl5/site_perl/5.6.1/Tk/folder.xbm<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/Tk/anim.gif<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/Tk/balArrow.xbm<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/Tk/bind.pod<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/Tk/bindtags.pod<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/auto/Tk/updateWidgets.al<br>
+Updated: 
+/opt/rational/common/lib/perl5/site_perl/5.6.1/sun4-solaris-multi/fix_4_os2.pl<br>
+Updated: /opt/rational/common/sun5/bin/ratlperl<br>
+Updated: /opt/rational/common/sun5/bin/ratlperl5.6.1<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_perl into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/bin/Perl5.002<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/AutoLoader.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/CGI.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Carp.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Config.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Cwd.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Date/Format.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Date/Parse.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/DynaLoader.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/English.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Exporter.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Fcntl.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/File/Basename.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/FileHandle.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Getopt/Long.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/IPC/Open2.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Mail/Mailer.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Mail/Send.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/SelectSaver.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Socket.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Symbol.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Text/ParseWords.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Time/Local.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/Time/Zone.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/auto/Fcntl/Fcntl.so<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/auto/Fcntl/autosplit.ix<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/auto/FileHandle/FileHandle.so<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/auto/Socket/Socket.so<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/auto/Socket/autosplit.ix<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/open2.pl<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/open3.pl<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/perl5db.pl<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/shellwords.pl<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/strict.pm<br>
+Updated: /opt/rational/clearcase/sun5/lib/perl5/vars.pm<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_install into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/install/AIS.pl<br>
+Updated: /opt/rational/clearcase/install/Component.pl<br>
+Updated: /opt/rational/clearcase/install/Ifile.pl<br>
+Updated: /opt/rational/clearcase/install/Rational_lic.txt<br>
+Updated: /opt/rational/clearcase/install/Third_Party_lic.txt<br>
+Updated: /opt/rational/clearcase/install/display_lic.sh<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_basement into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/bin<br>
+Updated: /opt/rational/clearcase/config/scheduler/initial_schedule<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/README<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/ccase_day.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/ccase_wk.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/cleanlogs.sh<br>
+Updated: 
+/opt/rational/clearcase/config/scheduler/tasks/templates/ccase_local_day.sh<br>
+Updated: 
+/opt/rational/clearcase/config/scheduler/tasks/templates/ccase_local_wk.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/templates/task_registry<br>
+Updated: /opt/rational/clearcase/config/services/admin.conf.template<br>
+Updated: /opt/rational/clearcase/config/services/albd.conf<br>
+Updated: /opt/rational/clearcase/config/services/albd.conf.template<br>
+Updated: /opt/rational/clearcase/config/services/log_classes.db<br>
+Updated: /opt/rational/clearcase/config/services/product_info.db<br>
+Updated: /opt/rational/clearcase/etc<br>
+Updated: /opt/rational/clearcase/lib<br>
+Updated: /opt/rational/clearcase/shlib<br>
+Updated: /opt/rational/clearcase/sun5/../config/services/admin.conf<br>
+Updated: /opt/rational/clearcase/sun5/bin/Perl<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearlicense<br>
+Updated: /opt/rational/clearcase/sun5/bin/notify<br>
+Updated: /opt/rational/clearcase/sun5/etc/admin_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/albd_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/atria_persist<br>
+Updated: /opt/rational/clearcase/sun5/etc/atria_start<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearcase_persist<br>
+Updated: /opt/rational/clearcase/sun5/etc/credmap_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/delayed_export<br>
+Updated: /opt/rational/clearcase/sun5/etc/display_url.sh<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/albd_list<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/credmap<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaadm.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriacredmap.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriai18n.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicudata.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicudata.so.21<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicudata.so.21.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicui18n.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicui18n.so.21<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicui18n.so.21.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicutoolutil.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicutoolutil.so.21<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicutoolutil.so.21.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicuuc.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicuuc.so.21<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaicuuc.so.21.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaks.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriamsinfobase.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriamvfs.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriastats_svr.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriatbs.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaxdr.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libezrpc.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_cplus_shlib into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libC.so.5<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_base into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/rgy_backup.sh<br>
+Updated: /opt/rational/clearcase/sun5/etc/imsglog<br>
+Updated: /opt/rational/clearcase/sun5/etc/rgy_backup<br>
+Updated: /opt/rational/clearcase/sun5/etc/rgy_check<br>
+Updated: /opt/rational/clearcase/sun5/etc/rgy_passwd<br>
+Updated: /opt/rational/clearcase/sun5/etc/rgy_switchover<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_base into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/magic/default.magic<br>
+Updated: /opt/rational/clearcase/config/vob/vob_server.template<br>
+Updated: /opt/rational/clearcase/default_config_spec<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/annotate<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/compare<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/construct_version<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/create_branch<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/create_element<br>
+Updated: /opt/rational/clearcase/lib/mgrs/_rftdef/create_version<br>
+Updated: /opt/rational/clearcase/sun5/lib/mgrs/binary_delta/merge<br>
+Updated: /opt/rational/clearcase/sun5/lib/mgrs/binary_delta/xcompare<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriatirpc.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriatool.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaview.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriavob.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriavobxdr.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriazmgr.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libccsumcqint.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_X11_base into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/ui/lib/X11/XErrorDB<br>
+Updated: /opt/rational/clearcase/config/ui/lib/X11/XKeysymDB<br>
+Updated: /opt/rational/clearcase/config/ui/lib/X11/locale/C/XLC_LOCALE<br>
+Updated: 
+/opt/rational/clearcase/config/ui/lib/X11/locale/common/conv_tables/BIG5-1.GLGR<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libICE.so.6.3<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libSM.so.6.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libX11.so.6.2<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libXaw.so.6.1<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libXext.so.6.3<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libXmu.so.6.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libXp.so.6.2<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libXt.so.6.0<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriamotif.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/liboldX.so.6.0<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_client into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/etc/utils/change_suid_mounts<br>
+Updated: /opt/rational/clearcase/sun5/bin/mvfsversion<br>
+Updated: /opt/rational/clearcase/sun5/etc/convert_exports.sh<br>
+Updated: /opt/rational/clearcase/sun5/etc/export_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/etc/exports.mvfs<br>
+Updated: /opt/rational/clearcase/sun5/etc/mntrpc_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfs_umountall<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfscache<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfslog<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfsstat<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfsstorage<br>
+Updated: /opt/rational/clearcase/sun5/etc/mvfstime<br>
+Updated: /opt/rational/clearcase/sun5/etc/umount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.10/mount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.10/sparcv9/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.10/sparcv9/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.6/mount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.6/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.6/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.6/show_mvfs_exports<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/mount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/show_mvfs_exports<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/sparcv9/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.7/sparcv9/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/mount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/show_mvfs_exports<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/sparcv9/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.8/sparcv9/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/mount_mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/mvfs_param.c<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/show_mvfs_exports<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/sparcv9/mvfs<br>
+Updated: /opt/rational/clearcase/sun5/kvm/5.9/sparcv9/mvfs_param.c<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_server into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/etc/lockmgr<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/cclt2cc<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/countdb<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/datdump<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/db_query<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/db_query.dbd<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/dbcheck<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/dbedit<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/fix_prot<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/ida<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/keybuild<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/keydump<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/string_report<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/countdb<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/db_query<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/db_query.dbd<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/dbcheck<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/dbedit<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/ida<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/keybuild<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/keydump<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/string_report<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_cplus_base into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/lib/libgwl.vr<br>
+Updated: /opt/rational/clearcase/sun5/lib/vgalaxy2.vr<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libvgalaxy++.so.4<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libvgalaxy++.so.4.0<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for atria_gui into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearprompt<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriabooch.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaccl.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriagcl.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriagu.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriagutl.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriagwl.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaui.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_doc into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/doc/books/cc_admin.pdf<br>
+Updated: /opt/rational/clearcase/doc/books/cc_build.pdf<br>
+Updated: /opt/rational/clearcase/doc/books/cc_dev.pdf<br>
+Updated: /opt/rational/clearcase/doc/books/cc_intro.pdf<br>
+Updated: /opt/rational/clearcase/doc/books/cc_mf_conn.pdf<br>
+Updated: /opt/rational/clearcase/install/cc_issues.htm<br>
+Updated: /opt/rational/clearcase/install/cpf_relnotes.htm<br>
+Updated: /opt/rational/clearcase/install/cpf_relnotes_patch.htm<br>
+Updated: /opt/rational/clearcase/install/ibmidwb.css<br>
+Updated: /opt/rational/clearcase/install/ms-issues-1.gif<br>
+Updated: /opt/rational/clearcase/install/ms-issues-2.gif<br>
+Updated: /opt/rational/clearcase/install/ms-issues-3.gif<br>
+Updated: /opt/rational/clearcase/install/ms-issues-4.gif<br>
+Updated: /opt/rational/clearcase/install/ms_issues.htm<br>
+Updated: /opt/rational/clearcase/install/rational_ctg_idd.css<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearapropos<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearapropos.pl<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_bld_client into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_append_str<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_check_ts<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_clean_ptrep<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_cxx<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_cxxc<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_cxxl<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_find_objs<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_list_obj<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_make_ptrep<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_make_ts_cache<br>
+Updated: /opt/rational/clearcase/config/clearmake/atria_prepend_str<br>
+Updated: /opt/rational/clearcase/config/clearmake/cfront_simple.mk<br>
+Updated: /opt/rational/clearcase/config/clearmake/cmsafe_cxx.mk<br>
+Updated: /opt/rational/clearcase/config/clearmake/comp_cxx.mk<br>
+Updated: /opt/rational/clearcase/config/clearmake/inc_cxx.mk<br>
+Updated: /opt/rational/clearcase/config/clearmake/sunpro_4_0_simple.mk<br>
+Updated: /opt/rational/clearcase/sun5/bin/Gmake<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearaudit<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearmake<br>
+Updated: /opt/rational/clearcase/sun5/etc/abe<br>
+Updated: /opt/rational/clearcase/sun5/etc/abe_starter<br>
+Updated: /opt/rational/clearcase/sun5/etc/builtin.mk<br>
+Updated: /opt/rational/clearcase/sun5/etc/gnubuiltin.mk<br>
+Updated: /opt/rational/clearcase/sun5/etc/gnubuiltinvars.mk<br>
+Updated: /opt/rational/clearcase/sun5/etc/rsh<br>
+Updated: /opt/rational/clearcase/sun5/etc/sunbuiltin.mk<br>
+Updated: /opt/rational/clearcase/sun5/etc/sunvars.mk<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriabuild.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_vob_svr into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/scrubber.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/vob_do_space.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/vob_scrubber.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/vob_snapshot.sh<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/vob_space.sh<br>
+Updated: /opt/rational/clearcase/config/vob/vob_scrubber_params<br>
+Updated: /opt/rational/clearcase/config/vob/vob_scrubber_params.template<br>
+Updated: /opt/rational/clearcase/sun5/etc/ccfs_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/chown_container<br>
+Updated: /opt/rational/clearcase/sun5/etc/chown_pool<br>
+Updated: /opt/rational/clearcase/sun5/etc/db_loader<br>
+Updated: /opt/rational/clearcase/sun5/etc/db_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/dumpers/db_dumper.53<br>
+Updated: /opt/rational/clearcase/sun5/etc/dumpers/db_dumper.54<br>
+Updated: /opt/rational/clearcase/sun5/etc/scrubber<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/cr_fix<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/msdostext_mode<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/vob_siddump<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/vob_sidwalk<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_db.dbd<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_db_schema_version<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_restore<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_restore.pl<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_scrubber<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_snap_machdep.pl<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_snapshot<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_snapshot.pl<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_snapshot_setup<br>
+Updated: /opt/rational/clearcase/sun5/etc/vob_snapshot_setup.pl<br>
+Updated: /opt/rational/clearcase/sun5/etc/vobrpc_server<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/db_dumper<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/db_loader<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/db_server<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/utils/vob_sidwalk<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/vob_db.dbd<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/vob_db_schema_version<br>
+Updated: /opt/rational/clearcase/sun5/ldb/etc/vobrpc_server<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_view_svr into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/scheduler/tasks/view_space.sh<br>
+Updated: /opt/rational/clearcase/sun5/etc/promote_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/utils/view_sr<br>
+Updated: /opt/rational/clearcase/sun5/etc/view_db.dbd<br>
+Updated: /opt/rational/clearcase/sun5/etc/view_db_schema_version<br>
+Updated: /opt/rational/clearcase/sun5/etc/view_dumper_10<br>
+Updated: /opt/rational/clearcase/sun5/etc/view_dumper_9<br>
+Updated: /opt/rational/clearcase/sun5/etc/view_server<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_int_client into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/config/ccfdev/ccfdev.pwi<br>
+Updated: /opt/rational/clearcase/config/ccfdev/ccfdev.xpm<br>
+Updated: /opt/rational/clearcase/config/softbench/Softdm_menu_C<br>
+Updated: /opt/rational/clearcase/config/softbench/Softdm_menu_MDF.m<br>
+Updated: /opt/rational/clearcase/config/tooltalk/tt_all.types<br>
+Updated: /opt/rational/clearcase/config/tooltalk/tt_build.types<br>
+Updated: /opt/rational/clearcase/config/tooltalk/tt_build_opnums.h<br>
+Updated: /opt/rational/clearcase/config/tooltalk/tt_cm.types<br>
+Updated: /opt/rational/clearcase/config/tooltalk/tt_cm_opnums.h<br>
+Updated: /opt/rational/clearcase/install/ccjbinstall<br>
+Updated: /opt/rational/clearcase/java/lib/ccjbaddin.jar<br>
+Updated: /opt/rational/clearcase/java/lib/ccjbconfig.jar<br>
+Updated: /opt/rational/clearcase/sun5/bin/CCDeveloper<br>
+Updated: /opt/rational/clearcase/sun5/bin/ccf4j<br>
+Updated: /opt/rational/clearcase/sun5/bin/ccfdevinstall<br>
+Updated: /opt/rational/clearcase/sun5/bin/ccintf4j.jar<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearencap_sb<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearencap_sb_curr<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearencap_sb_prev<br>
+Updated: /opt/rational/clearcase/sun5/etc/clearencap_tt<br>
+Updated: /opt/rational/clearcase/sun5/etc/sb_nf_server<br>
+Updated: /opt/rational/clearcase/sun5/etc/sb_nf_server_curr<br>
+Updated: /opt/rational/clearcase/sun5/etc/sb_nf_server_prev<br>
+Updated: /opt/rational/clearcase/sun5/etc/tt_nf_server<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libccf4j.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_gui_client into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/bin/cleardescribe2<br>
+Updated: /opt/rational/clearcase/config/ui/Schemes/Base/Base<br>
+Updated: /opt/rational/clearcase/config/ui/Schemes/Base/ClearCase<br>
+Updated: /opt/rational/clearcase/config/ui/Schemes/Base/ClearCasePalette<br>
+Updated: /opt/rational/clearcase/config/ui/Schemes/Base/palette<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaXpm.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriaabl.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriajoinproj.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriasumcmn.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriasumdlg.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriasumitg.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriasumprp.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriasumwzd.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriavk.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriavkext.so<br>
+Updated: /opt/rational/clearcase/sun5/shlib/libatriavkw.so<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_cnv_client into 
+/opt/rational/clearcase<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearexport_ccase<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearexport_cvs<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearexport_pvcs<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearexport_rcs<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearexport_sccs<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearfsimport<br>
+Updated: /opt/rational/clearcase/sun5/bin/clearimport<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_MIN_STD into 
+/opt/rational/clearcase<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_ONLY_SERVER into 
+/opt/rational/clearcase<br>
+*****************************************************************<br>
+&gt;&gt; Beginning installation of component files for CC_FULL into 
+/opt/rational/clearcase<br>
+***************************************************************************<br>
+&gt;&gt; Begin component main customizations<br>
+***************************************************************************<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component ratl_perl<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_perl<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_install<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_basement<br>
+*****************************************************************<br>
+&gt;&gt; Setup the ClearCase Product Family administrative and log directory.<br>
+License host: asamap1 recorded in 
+/var/adm/rational/clearcase/config/license_host<br>
+Updated: /var/adm/rational/clearcase/config/admin.conf<br>
+Updated: /var/adm/rational/clearcase/config/albd.conf<br>
+Updated: /etc/init.d/clearcase<br>
+Updated: /etc/rc0.d/K35clearcase<br>
+Updated: /etc/rc2.d/S77clearcase<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_cplus_shlib<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_base<br>
+Registry host: asamvob1 recorded in 
+/var/adm/rational/clearcase/rgy/rgy_hosts.conf<br>
+Registry region: asamvob1 recorded in 
+/var/adm/rational/clearcase/rgy/rgy_region.conf<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_base<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_X11_base<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_client<br>
+Updated: /usr/lib/fs/mvfs/mount<br>
+Updated: /etc/exports.mvfs<br>
+MVFS viewroot handling<br>
+Creating the 'viewroot' directory /view.<br>
+Checking super-user's crontab to prune find(1) over MVFS mount points.<br>
+Crontab entries for super-user unchanged.<br>
+NOTE: Setuid and setgid execution is being disabled!<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_server<br>
+Extended vob support selected: Setting up files<br>
+File setup for alternate vob format complete.<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_cplus_base<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component atria_gui<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_doc<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_bld_client<br>
+Enabling rstatd startup<br>
+Rstatd is already correctly enabled for startup.<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_vob_svr<br>
+Recording settings for VOB snap-shots<br>
+Updated: /var/adm/rational/clearcase/config/vob_scrubber_params<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_view_svr<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_int_client<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_gui_client<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_cnv_client<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_MIN_STD<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_ONLY_SERVER<br>
+*****************************************************************<br>
+&gt;&gt; Executing main customizations for component CC_FULL<br>
+***************************************************************************<br>
+&gt;&gt; Recording clean installation of components<br>
+***************************************************************************<br>
+Updated: /var/adm/rational/cdf/ratl_perl.cdf<br>
+Updated: /var/adm/rational/cdf/atria_perl.cdf<br>
+Updated: /var/adm/rational/cdf/atria_install.cdf<br>
+Updated: /var/adm/rational/cdf/atria_basement.cdf<br>
+Updated: /var/adm/rational/cdf/atria_cplus_shlib.cdf<br>
+Updated: /var/adm/rational/cdf/atria_base.cdf<br>
+Updated: /var/adm/rational/cdf/CC_base.cdf<br>
+Updated: /opt/rational/clearcase/install/version<br>
+Updated: /var/adm/rational/cdf/atria_X11_base.cdf<br>
+Updated: /var/adm/rational/cdf/CC_client.cdf<br>
+Updated: /var/adm/rational/cdf/atria_server.cdf<br>
+Updated: /var/adm/rational/cdf/atria_cplus_base.cdf<br>
+Updated: /var/adm/rational/cdf/atria_gui.cdf<br>
+Updated: /var/adm/rational/cdf/CC_doc.cdf<br>
+Updated: /var/adm/rational/cdf/CC_bld_client.cdf<br>
+Updated: /var/adm/rational/cdf/CC_vob_svr.cdf<br>
+Updated: /var/adm/rational/cdf/CC_view_svr.cdf<br>
+Updated: /var/adm/rational/cdf/CC_int_client.cdf<br>
+Updated: /var/adm/rational/cdf/CC_gui_client.cdf<br>
+Updated: /var/adm/rational/cdf/CC_cnv_client.cdf<br>
+Updated: /var/adm/rational/cdf/CC_MIN_STD.cdf<br>
+Updated: /var/adm/rational/cdf/CC_ONLY_SERVER.cdf<br>
+Updated: /var/adm/rational/cdf/CC_FULL.cdf<br>
+Updated: /var/adm/atria<br>
+***************************************************************************<br>
+&gt;&gt; Begin component pre-startup customizations<br>
+***************************************************************************<br>
+***************************************************************************<br>
+&gt;&gt; Starting ClearCase Product Family software<br>
+***************************************************************************<br>
+***************************************************************************<br>
+&gt;&gt; Begin component final customizations<br>
+***************************************************************************<br>
+<br>
+FINAL: alcatelbld1 Errors:0 Warnings:0<br>
+<br>
+<font color="#0000FF">bash-2.03#<br>
+<br>
+<b>========================== Thus Clearcase is installed 
+============================</b></font></font></p>
+</body>
+</HTML>
+

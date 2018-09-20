@@ -1,0 +1,390 @@
+<HTML>
+
+<head>
+<style>
+<!--
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman"}
+span.klink
+	{}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body bgcolor = linen>
+<p><font size="2" face="Verdana">netstat -x&nbsp;&nbsp;&nbsp;&nbsp; //To get 
+help commands about netstat<br>
+netstat -s<br>
+netstat -in<br>
+netstat -s | more<br>
+ndd /dev/tcp ?<br>
+ndd -get /dev/tcp tcp_mss_max_ipv4<br>
+ndd -get /dev/tcp tcp_ignore_path_mtu</font></p>
+<p><font size="2" face="Verdana">route -n get 172.26.252.183</font></p><hr>
+<p><i><b><font face="Verdana" size="2">How to mount ISO image on Solaris?</font></b></i></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size:10.0pt;
+font-family:Verdana">To mount /root/sparc.iso file under /mnt directory. <br>
+issue the following commands. <br>
+<br>
+# <b>lofiadm -a /root/sparc.iso /dev/lofi/1 </b><br>
+# <b>mount -F hsfs -o ro /dev/lofi/1 /mnt</b> <br>
+<br>
+to unmount <br>
+<br>
+# <b>umount /mnt <br>
+</b># <b>lofiadm -d /dev/lofi/1 <br>
+</b><br>
+Note: lofi = loopback file driver</span></font></p>
+<div class="Section1">
+<hr>
+</div>
+<p style="MARGIN-LEFT: 18.75pt"><font face="Verdana" size="2">
+<span style="font-size: 10pt; font-family: Verdana"><i><u><b>Solaris 10 Telnet 
+issue:</b></u></i></span></font></p>
+<p style="MARGIN-LEFT: 18.75pt"><font face="Verdana" size="2">
+<span style="font-size: 10pt; font-family: Verdana">Add the below two lines in 
+/etc/system and reboot the server to resolve telnet issue.</span></font></p>
+<p style="MARGIN-LEFT: 18.75pt"><font face="Verdana" size="2">
+<span style="font-size: 10pt; font-family: Verdana">set pcie:pcie_aer_ce_mask=0x1<br>
+set segkmem_lpsize=0x400000</span></font></p>
+<hr>
+<p class="MsoNormal"><font size="2">
+<span style="font-family: Verdana; font-weight: 700; text-decoration: underline">
+SCADM Command help</span></font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">bash-3.00# pwd<br>
+<b>/usr/platform/SUNW,Sun-Fire-V245/sbin</b><br>
+bash-3.00# <b>./scadm help</b><br>
+<br>
+USAGE: scadm &lt;command&gt; [options]<br>
+For a list of commands, type &quot;scadm help&quot;<br>
+<br>
+scadm - COMMANDS SUPPORTED<br>
+help, date, set, show, resetrsc, download, send_event, modem_setup,<br>
+useradd, userdel, usershow, userpassword, userperm, shownetwork,<br>
+consolehistory, fruhistory, loghistory, version<br>
+<br>
+scadm - COMMAND DETAILS<br>
+scadm help =&gt; this message<br>
+scadm date [-s] | [[mmdd]HHMM | mmddHHMM[cc]yy][.SS] =&gt; print or set date<br>
+scadm set &lt;variable&gt; &lt;value&gt; =&gt; set variable to value<br>
+scadm show [variable] =&gt; show variable(s)<br>
+scadm resetrsc [-s] =&gt; reset SC (-s soft reset)<br>
+scadm download [boot] &lt;file&gt; =&gt; program firmware or [boot] monitor<br>
+scadm send_event [-c] &quot;message&quot; =&gt; send message as event (-c CRITICAL)<br>
+scadm modem_setup =&gt; connect to modem port<br>
+scadm useradd &lt;username&gt; =&gt; add SC user account<br>
+scadm userdel &lt;username&gt; =&gt; delete SC user account<br>
+scadm usershow [username] =&gt; show user details<br>
+scadm userpassword &lt;username&gt; =&gt; set user password<br>
+scadm userperm &lt;username&gt; [cuar] =&gt; set user permissions<br>
+scadm shownetwork =&gt; show network configuration<br>
+scadm consolehistory [-a] =&gt; show SC console log<br>
+scadm fruhistory [-a] =&gt; show SC FRU log<br>
+scadm loghistory [-a] =&gt; show SC event log<br>
+scadm version [-v] =&gt; show SC version (-v verbose)<br>
+<br>
+bash-3.00#</font></p>
+<hr>
+
+<h2><b><font color="#494949" face="Verdana" size="2">
+<span lang="EN" style="color: #494949">SC Alert: DHCP negotiation&nbsp;failed</span></font></b></h2>
+<p><code style="font-family: Courier New">
+<font size="2" color="#494949" face="Verdana">
+<span lang="EN" style="font-size: 10.0pt; color: #494949">Hit </span></font>
+</code><strong><b><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Verdana; color: #494949">
+#.</span></font></b></strong><code style="font-family: Courier New"><font size="2" color="#494949" face="Verdana"><span lang="EN" style="font-size: 10.0pt; color: #494949"> 
+(pound-period)</span></font></code></p>
+<p><font size="2" color="#494949" face="Verdana">
+<span lang="EN" style="color: #494949">Then you need to change some settings to 
+turn off the the network portion of the SC. The following settings are the 
+defaults for the other servers that ship ALOM:</span></font></p>
+<p><code style="font-family: Courier New">
+<font size="2" color="#494949" face="Verdana">
+<span lang="EN" style="font-size: 10.0pt; color: #494949">Please login: </span>
+</font></code><strong><b><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Verdana; color: #494949">
+admin</span></font></b></strong><font size="2" color="#494949" face="Verdana"><span lang="EN" style="font-size: 10.0pt; color: #494949"><br>
+</span></font><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Courier New; color: #494949">
+<code style="font-family: Courier New"><font face="Verdana">Please Enter 
+password: </font></code><strong><b><font face="Courier New">
+<span style="font-family: Verdana">*****</span></font></b></strong></span></font></p>
+<p><code style="font-family: Courier New">
+<font size="2" color="#494949" face="Verdana">
+<span lang="EN" style="font-size: 10.0pt; color: #494949">sc&gt; </span></font>
+</code><strong><b><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Verdana; color: #494949">
+setsc if_network false</span></font></b></strong><font size="2" color="#494949" face="Verdana"><span lang="EN" style="font-size: 10.0pt; color: #494949"><br>
+</span></font><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Courier New; color: #494949">
+<code style="font-family: Courier New"><font face="Verdana">Change will not 
+become active until the SC is reset.</font></code></span></font><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span>
+<span lang="EN" style="font-size: 10.0pt; font-family: Courier New; color: #494949">
+<font size="2" color="#494949" face="Courier New">
+<code style="font-family: Courier New"><font face="Verdana">sc&gt; </font></code>
+<strong><b><font face="Courier New"><span style="font-family: Verdana">setsc 
+if_connection none</span></font></b></strong><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span><code style="font-family: Courier New"><font face="Verdana">Change 
+will not become active until the SC is reset.</font></code><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span><code style="font-family: Courier New"><font face="Verdana">sc&gt;
+</font></code><strong><b><font face="Courier New">
+<span style="font-family: Verdana">setsc netsc_dhcp false</span></font></b></strong><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span><code style="font-family: Courier New"><font face="Verdana">Change 
+will not become active until the SC is reset.</font></code><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span><code style="font-family: Courier New"><font face="Verdana">sc&gt;
+</font></code><strong><b><font face="Courier New">
+<span style="font-family: Verdana">resetsc -y</span></font></b></strong><span lang="EN" style="font-size: 10.0pt; color: #494949"><font size="2" color="#494949" face="Verdana"><br>
+</font></span><code style="font-family: Courier New"><font face="Verdana">User 
+Requested SC Shutdown</font></code></font></span></p>
+<p><code style="font-family: Courier New">
+<font size="2" color="#494949" face="Verdana">
+<span lang="EN" style="font-size: 10.0pt; color: #494949">sc&gt; </span></font>
+</code><strong><b><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Verdana; color: #494949">
+console</span></font></b></strong><font size="2" color="#494949" face="Verdana"><span lang="EN" style="font-size: 10.0pt; color: #494949"><br>
+</span></font><font size="2" color="#494949" face="Courier New">
+<span lang="EN" style="font-size: 10.0pt; font-family: Courier New; color: #494949">
+<code style="font-family: Courier New"><font face="Verdana">Enter #. to return 
+to ALOM.</font></code></span></font></p>
+<hr>
+
+<p><font face="Verdana" size="2"><i><u><b>Linux:<br>
+</b></u></i>ifconfig eth0 mtu 1500</font></p>
+<hr>
+
+<p><font size="2" face="Verdana">To set banners for critical servers, create a 
+file <b>/etc/issue</b> and copy below warning message</font></p>
+<p class="MsoNormal"><font size="2" face="Verdana">
+<span style="font-size: 10.0pt; font-family: Verdana">
+***************************************************<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !!!!! WARNING BANNER !!!!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+***************************************************<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* This System is for the use of authorized personnel only.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* It is being monitored and events recorded as logs continuously.&nbsp;&nbsp; *<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* If during the course of monitoring or otherwise,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* it is found that the system is being used by personnel in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* Violation of the provision of authority it will be deemed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* Unlawful under the court of law of the Government Of India.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* In such an event, he/she may be subjected to legal proceedings&nbsp;&nbsp; *<br>
+* Unilaterally decided by Wipro Ltd in the Indian Court Of Law.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* The logs generated in such cases, but not limited to,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+* will be used as evidence in the court of law.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+*<br>
+****************************************************</span></font></p>
+<hr>
+
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana; font-weight: 700; text-decoration: underline; font-style: italic">Booting the 32-bit Kernel</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana">Logged in as root, open a terminal window and type in the following:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt">&nbsp;</pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"># su -</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"># cd /</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"># halt -y</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana">The machine will result in something similar to this:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt">&nbsp;</pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> syncing file systems</span></font><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana">... done</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> Program terminated</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> {2} ok</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> At this &quot;ok&quot; prompt type in the following:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> {2} ok <b>boot kadb -D kernel/unix</b></span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> The machine will reboot at this point. Login as root</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> after the reboot. Open up a terminal window and type</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> in the following:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # su -</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # cd /</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> # <b>eeprom boot-file=kernel/unix</b></span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> # reboot</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> Now at this point, the Solaris 8 machine will be booting the 32 bit kernel by default.</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> <i><u><b>Booting the 64-bit Kernel</b></u></i></span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> To change back to the 64 bit kernel, perform the following operations.</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # su -</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # cd /</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # halt -y</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> The machine will result in something similar to this:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> syncing file systems... done</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> Program terminated</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> {2} ok</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> At this &quot;ok&quot; prompt type in the following:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> {2} ok <b>boot kadb -D kernel/sparcv9/unix</b></span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> The machine will reboot at this point. Login as root</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> after the reboot. Open up a terminal window and type</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> in the following:</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # su -</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # cd /</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span lang="NL" style="font-size: 10.0pt; font-family: Verdana"> # <b>eeprom boot-file=kernel/sparcv9/unix</b></span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> # reboot</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> </span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> Now at this point, the Solaris 8 machine will be</span></font></pre>
+<pre style="font-size: 10.0pt; font-family: Courier New; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size="2" face="Verdana"><span style="font-size: 10.0pt; font-family: Verdana"> booting the 64 bit kernel by default.</span></font></pre>
+<hr>
+
+<p><font size="2" color="black" face="Verdana">Permission on / were 754 instead 
+of 755. I have no idea why. Fixing the permissions instantly made &quot;su&quot; work OK.
+</font></p>
+<p><font size="2" color="black" face="Verdana">Other suggestions included:
+</font></p>
+<p><font size="2" color="black" face="Verdana">&nbsp;&nbsp;check the permissions on: /bin, 
+/usr/bin, /etc, ... </font></p>
+<p><font size="2" color="black" face="Verdana">&nbsp;&nbsp;run /usr/sbin/pwck to check the 
+format of the passwd file </font></p>
+<p><font size="2" color="black" face="Verdana">&nbsp;&nbsp;try pkgchk on the file </font>
+</p>
+<p><font size="2" color="black" face="Verdana">&nbsp;&nbsp;&quot;<b>cat -v -t -e /etc/passwd</b>&quot; 
+to check for spaces after the shell name in /etc/passwd </font></p>
+<hr>
+
+<p><font face="Verdana"><font class="randombold"><font size="2">/proc/meminfo - 
+to see memory information in Linux</font></font><font size="2"><br>
+</font><font class="random"><font size="2">Example:<b> cat /proc/meminfo</b></font><b></b></font></font></p>
+<hr>
+
+<p><font size="2" face="Verdana">To find how much disk space is used by users in 
+kilobytes in Solaris:<br>
+<br>
+# <b>quot -af</b><br>
+<br>
+where:<br>
+<br>
+-a : generate a report for all mounted file systems.<br>
+<br>
+-f: display three columns giving, for each user, the number of blocks owned, the 
+count of number of files, and the user name.</font></p>
+<hr>
+
+<p><u><i><b><a name="4525"><font size="2" face="Verdana">Summary of the exec 
+syntax for I/O redirection.</font></a></b></i></u></p>
+<table border="3" id="table1">
+	<tr>
+		<td><a name="4529"><font size="2" face="Verdana">-keepnewline </font>
+		</a></td>
+		<td><a name="4531"><font size="2" face="Verdana">(First argument.) Do 
+		not discard trailing newline from the result. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4533"><font size="2" face="Verdana">| </font></a></td>
+		<td><a name="4535"><font size="2" face="Verdana">Pipe standard output 
+		from one process into another. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4537"><font size="2" face="Verdana">|&amp; </font></a></td>
+		<td><a name="4539"><font size="2" face="Verdana">Pipe both standard 
+		output and standard error output. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4541"><font size="2" face="Verdana">&lt;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4543"><font size="2" face="Verdana">Take input from the 
+		named file. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4545"><font size="2" face="Verdana">&lt;@
+		<em style="font-style: normal">fileId</em> </font></a></td>
+		<td><a name="4547"><font size="2" face="Verdana">Take input from the I/O 
+		channel identified by fileId. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4549"><font size="2" face="Verdana">&lt;&lt;
+		<em style="font-style: normal">value</em> </font></a></td>
+		<td><a name="4551"><font size="2" face="Verdana">Take input from the 
+		given value. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4553"><font size="2" face="Verdana">&gt;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4555"><font size="2" face="Verdana">Overwrite fileName with 
+		standard output. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4557"><font size="2" face="Verdana">2&gt;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4559"><font size="2" face="Verdana">Overwrite fileName with 
+		standard error output. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4561"><font size="2" face="Verdana">&gt;&amp;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4563"><font size="2" face="Verdana">Overwrite fileName with 
+		both standard error and standard out. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4565"><font size="2" face="Verdana">&gt;&gt;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4567"><font size="2" face="Verdana">Append standard output 
+		to the named file. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4569"><font size="2" face="Verdana">2&gt;&gt;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4571"><font size="2" face="Verdana">Append standard error 
+		to the named file. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4573"><font size="2" face="Verdana">&gt;&gt;&amp;
+		<em style="font-style: normal">fileName</em> </font></a></td>
+		<td><a name="4575"><font size="2" face="Verdana">Append both standard 
+		error and standard output to the named file. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4577"><font size="2" face="Verdana">&gt;@
+		<em style="font-style: normal">fileId</em> </font></a></td>
+		<td><a name="4579"><font size="2" face="Verdana">Direct standard output 
+		to the I/O channel identified by fileId. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4581"><font size="2" face="Verdana">2&gt;@
+		<em style="font-style: normal">fileId</em> </font></a></td>
+		<td><a name="4583"><font size="2" face="Verdana">Direct standard error 
+		to the I/O channel identified by fileId. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4585"><font size="2" face="Verdana">&gt;&amp;@
+		<em style="font-style: normal">fileId</em> </font></a></td>
+		<td><a name="4587"><font size="2" face="Verdana">Direct both standard 
+		error and standard output to the I/O channel. </font></a></td>
+	</tr>
+	<tr>
+		<td><a name="4589"><font size="2" face="Verdana">&amp; </font></a></td>
+		<td><a name="4592"><font size="2" face="Verdana">As the last argument, 
+		indicates pipeline should run in background.<u> </u></font></a></td>
+	</tr>
+</table>
+
+</body>
+</HTML>
+

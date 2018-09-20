@@ -1,0 +1,43 @@
+<html>
+<pre>
+Clearcase 5.0 in Redhat 9
+
+      install clearcase in linux by selecting almost all of the default settings from the release area
+
+cd /usr/src 
+ln s linux < version of linux> linux 
+cd /usr/src/linux/configs 
+cp kernel-2.4.20-i686.config /usr/src/linux/.config 
+cd /var/adm/atria/mvfs/ 
+make 
+cd vnod_src 
+make 
+mount all the vobs in the /net/<vobserver>/ 
+stop and start clearcase 
+
+Clearcase 4.2 in Redhat 7.x
+
+Same as above except step 7 & 8
+<hr>
+clearcase for RHEL 4 ES
+"	cd /var/adm/rational/clearcase/mvfs/vnode_src 
+"	Clean/purge old files: 
+make cleano 
+"	Create kernel config parameter file: 
+make vnode_param.mk.config 
+This creates file: vnode_param.mk.config 
+RATL_EXTRAFLAGS := -DSLES8
+LINUX_KERNEL_DIR=/lib/modules/2.6.8-24-default/build
+CONFIG_MVFS=y
+CONFIG_MVFS_VNODE=m
+"	make 
+"	make install 
+"	View/verify that kernel modules were created: 
+o	RHEL4 Kernel 2.6: ls -l /lib/modules/2.6.8-24-default/kernel/fs/mvfs/ 
+Result: mvfs.ko vnode.ko 
+o	RHEL3 Kernel 2.4: ls -l /lib/modules/fs 
+Result: mvfs.o vnode.o 
+
+
+</pre>
+</html>

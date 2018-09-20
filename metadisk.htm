@@ -1,0 +1,258 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>format select disk 0 create part</title>
+</head>
+
+<body>
+
+<p align="center"><u><i><b><font face="Verdana" size="4">Solaris METADISK help 
+(Root mirroring)</font></b></i></u></p>
+<p><u><i><b><font face="Verdana">Note:</font></b></i></u><font face="Verdana" size="2"><br>
+Assume there are 2 harddisks c1t0d0 and c1t2d0</font></p>
+<p><font size="2" face="Verdana"><b>bash-2.03#</b>format<br>
+select disk 0<br>
+create partition in slice 7 with 500mb..<br>
+<br>
+<b>bash-2.03#</b>prtvtoc /dev/rdsk/c1t0d0s2 &gt; /tmp/table<br>
+<b>bash-2.03#</b>fmthard -s /tmp/table /dev/rdsk/c1t1d0s2<br>
+<b>bash-2.03#</b>cd /cdrom/sol_8_204_sparc_2/Solaris_8/EA/products/DiskSuite_4.2.1/sparc/Packages<br>
+<b>bash-2.03#</b>pkgadd -d .<br>
+<b>bash-2.03#</b>sync<br>
+<b>bash-2.03#</b>sync<br>
+<b>bash-2.03#</b>reboot<br>
+&nbsp;</font></p>
+<p><font size="2" face="Verdana"><b>bash-2.03# </b>metadb<br>
+metadb: asamvob3: there are no existing databases<br>
+<br>
+<b>bash-2.03#</b> metadb -a -f -c3 /dev/dsk/c1t0d0s7 /dev/dsk/c1t1d0s7<br>
+<b>bash-2.03#</b> metadb<br>
+<font color="#0000FF">flags first blk block count<br>
+a u 16 1034 /dev/dsk/c1t0d0s7<br>
+a u 1050 1034 /dev/dsk/c1t0d0s7<br>
+a u 2084 1034 /dev/dsk/c1t0d0s7<br>
+a u 16 1034 /dev/dsk/c1t1d0s7<br>
+a u 1050 1034 /dev/dsk/c1t1d0s7<br>
+a u 2084 1034 /dev/dsk/c1t1d0s7</font><br>
+<br>
+<b>bash-2.03#</b> metainit -f d11 1 1 c1t0d0s0<br>
+d11: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d12 1 1 c1t1d0s0<br>
+d12: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d1 -m d11<br>
+d1: Mirror is setup<br>
+<br>
+<b>bash-2.03#</b> metastat<br>
+<font color="#0000FF">d1: Mirror<br>
+Submirror 0: d11<br>
+State: Okay<br>
+Pass: 1<br>
+Read option: roundrobin (default)<br>
+Write option: parallel (default)<br>
+Size: 20494464 blocks<br>
+<br>
+d11: Submirror of d1<br>
+State: Okay<br>
+Size: 20494464 blocks<br>
+Stripe 0:<br>
+Device Start Block Dbase State Hot Spare<br>
+c1t0d0s0 0 No Okay<br>
+<br>
+<br>
+d12: Concat/Stripe<br>
+Size: 20494464 blocks<br>
+Stripe 0:<br>
+Device Start Block Dbase<br>
+c1t1d0s0 0 No</font><br>
+<br>
+<b>bash-2.03#</b> cp /etc/system /etc/system.org<br>
+<br>
+<b>bash-2.03# </b>cp /etc/vfstab /etc/vfstab.org<br>
+<br>
+<b>bash-2.03#</b> cat /etc/vfstab<br>
+<font color="#0000FF">#device device mount FS fsck mount mount<br>
+#to mount to fsck point type pass at boot options<br>
+#<br>
+#/dev/dsk/c1d0s2 /dev/rdsk/c1d0s2 /usr ufs 1 yes -<br>
+fd - /dev/fd fd - no -<br>
+/proc - /proc proc - no -<br>
+/dev/dsk/c1t0d0s1 - - swap - no -<br>
+/dev/dsk/c1t0d0s0 /dev/rdsk/c1t0d0s0 / ufs 1 no<br>
+-<br>
+/dev/dsk/c1t0d0s3 /dev/rdsk/c1t0d0s3 /usr ufs 1 no<br>
+-<br>
+/dev/dsk/c1t0d0s4 /dev/rdsk/c1t0d0s4 /var ufs 1 no<br>
+-<br>
+/dev/dsk/c1t0d0s5 /dev/rdsk/c1t0d0s5 /opt ufs 2 yes<br>
+-<br>
+swap - /tmp tmpfs - yes -</font><br>
+<b>bash-2.03#</b> tail -10 /etc/system<br>
+<font color="#0000FF">* set maxusers=40<br>
+*<br>
+* To set a variable named 'debug' in the module named 'test_module'<br>
+*<br>
+* set test_module:debug = 0x13<br>
+<br>
+* Begin MDD database info (do not edit)<br>
+set md:mddb_bootlist1=&quot;ssd:15:16 ssd:15:1050 ssd:15:2084 ssd:7:16 ssd:7:1050&quot;<br>
+set md:mddb_bootlist2=&quot;ssd:7:2084&quot;<br>
+* End MDD database info (do not edit)<br>
+</font>bash-2.03#</font></p>
+<p><font size="2" face="Verdana"><b>bash-2.03#</b> metaroot d1<br>
+<b>bash-2.03#</b> cat /etc/vfstab<br>
+<font color="#0000FF">#device device mount FS fsck mount mount<br>
+#to mount to fsck point type pass at boot options<br>
+#<br>
+#/dev/dsk/c1d0s2 /dev/rdsk/c1d0s2 /usr ufs 1 yes -<br>
+fd - /dev/fd fd - no -<br>
+/proc - /proc proc - no -<br>
+/dev/dsk/c1t0d0s1 - - swap - no -<br>
+/dev/md/dsk/d1 /dev/md/rdsk/d1 / ufs 1 no -<br>
+/dev/dsk/c1t0d0s3 /dev/rdsk/c1t0d0s3 /usr ufs 1 no<br>
+-<br>
+/dev/dsk/c1t0d0s4 /dev/rdsk/c1t0d0s4 /var ufs 1 no<br>
+-<br>
+/dev/dsk/c1t0d0s5 /dev/rdsk/c1t0d0s5 /opt ufs 2 yes<br>
+-<br>
+swap - /tmp tmpfs - yes -<br>
+</font>
+<br>
+<b>bash-2.03#</b>cat /etc/system<br>
+<br>
+<font color="#0000FF">* set test_module:debug = 0x13<br>
+<br>
+* Begin MDD root info (do not edit)<br>
+forceload: misc/md_trans<br>
+forceload: misc/md_raid<br>
+forceload: misc/md_hotspares<br>
+forceload: misc/md_sp<br>
+forceload: misc/md_stripe<br>
+forceload: misc/md_mirror<br>
+forceload: drv/pcisch<br>
+forceload: drv/qlc<br>
+forceload: drv/fp<br>
+forceload: drv/ssd<br>
+rootdev:/pseudo/md@0:0,1,blk<br>
+* End MDD root info (do not edit)<br>
+* Begin MDD database info (do not edit)<br>
+set md:mddb_bootlist1=&quot;ssd:15:16 ssd:15:1050 ssd:15:2084 ssd:7:16 ssd:7:1050&quot;<br>
+set md:mddb_bootlist2=&quot;ssd:7:2084&quot;<br>
+* End MDD database info (do not edit)</font><br>
+<br>
+<b>bash-2.03#</b> lockfs -fa <br>
+<b>bash-2.03#</b> sync<br>
+<b>bash-2.03#</b>reboot</font></p>
+<p><font size="2" face="Verdana"><br>
+<b>bash-2.03#</b> metattach d1 d12<br>
+d1: submirror d12 is attached<br>
+<br>
+<b>bash-2.03#</b> metainit -f d21 1 1 c1t0d0s1<br>
+d21: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d22 1 1 c1t1d0s1<br>
+d22: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d2 -m d21<br>
+d2: Mirror is setup<br>
+<br>
+<b>bash-2.03#</b> metainit -f d31 1 1 c1t0d0s3<br>
+d41: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d32 1 1 c1t1d0s3<br>
+d32: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03# </b>metainit d3 -m d31<br>
+d3: Mirror is setup<br>
+<br>
+<b>bash-2.03#</b> metainit -f d41 1 1 c1t0d0s4<br>
+d41: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03# </b>metainit d42 1 1 c1t1d0s4<br>
+d42: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03# </b>metainit d4 -m d41<br>
+d4: Mirror is setup<br>
+<br>
+<b>bash-2.03#</b> metainit -f d51 1 1 c1t0d0s5<br>
+d51: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03# </b>metainit d52 1 1 c1t1d0s5<br>
+d52: Concat/Stripe is setup<br>
+<br>
+<b>bash-2.03#</b> metainit d5 -m d51<br>
+d5: Mirror is setup<br>
+<br>
+</font><i><font size="4" face="Verdana"><u><b>Note:<br>
+</b></u></font></i><font size="2" face="Verdana">change the entries in /etc/vfstab..<br>
+check that root file sync is completed or not?<br>
+<br>
+<b>bash-2.03# </b>sync<br>
+<b>bash-2.03# </b>sync<br>
+<b>bash-2.03# </b>reboot<br>
+<br>
+<br>
+<b>bash-2.03#</b> metattach d2 d22<br>
+d2: submirror d22 is attached<br>
+<b>bash-2.03#</b> metattach d3 d32<br>
+d3: submirror d32 is attached<br>
+<b>bash-2.03# </b>metattach d4 d42<br>
+d4: submirror d42 is attached<br>
+<b>bash-2.03#</b> metattach d5 d52<br>
+d5: submirror d52 is attached<br>
+&nbsp;</font></p>
+<pre>&nbsp;</pre>
+<pre><font size="2" face="Verdana"><b>bash-2.03#</b></font><font face="Verdana">ls -l /dev/dsk/c0t1d0s0
+</font><font size="2" face="Verdana">This should return something similar to the following: </font><font face="Verdana">
+<a href="mailto:/sbus@3,0/SUNW,fas@3,8800000/sd@1,0:a">/sbus@3,0/SUNW,fas@3,8800000/sd@1,0:a</a>
+</font><font size="2"><font face="Verdana">
+Using this information, create a device alias using an easy to remember name 
+such as </font><code><font face="Verdana">altboot</font></code><font face="Verdana">. To create this alias, do the following in the Open 
+Boot PROM: </font></font></pre> 
+<pre><font face="Verdana">ok <b>nvalias altboot <a href="mailto:/sbus@3,0/SUNW,fas@3,8800000/sd@1,0:a">/sbus@3,0/SUNW,fas@3,8800000/sd@1,0:a</a></b>
+</font></pre>
+<pre><i><u><b><font face="Verdana">Ref:</font></b></u></i></pre>
+<p><font face="Verdana" size="2">
+<a href="http://slacksite.com/solaris/disksuite/disksuite.html">
+http://slacksite.com/solaris/disksuite/disksuite.html</a></font></p>
+<p><font face="Verdana" size="2">=================================================</font></p>
+<p><i><u><font face="Verdana"><b>Additional help commands:</b></font></u></i><font face="Verdana" size="2"> 
+(history command output)</font></p>
+<p><font face="Verdana" size="2">metainit d61 1 1 c2t201800A0B811C7C6d0s0<br>
+metainit d6 -m d61<br>
+metastat -p<br>
+metaclear -f d6<br>
+metastat -p<br>
+metaclear -f d61<br>
+metastat -p<br>
+format<br>
+metastat -p<br>
+metainit d61 1 1 c2t201800A0B811C7C6d0s0<br>
+metainit d6 -m d61<br>
+metastat -p<br>
+newfs c2t201800A0B811C7C6d0s0<br>
+mount /VOBDISK<br>
+df -kFufs<br>
+umount /VOBDISK/<br>
+mount /dev/md/dsk/d6 /VOBDISK<br>
+df -kFufs<br>
+metattach d61 c2t201800A0B811C7C6d0s1<br>
+metastat <br>
+df -kFufs<br>
+growfs -M /VOBDISK d6<br>
+growfs -M /VOBDISK c2t201800A0B811C7C6d0s1<br>
+man growfs<br>
+man growfs<br>
+growfs -M /VOBDISK /dev/md/rdsk/d6<br>
+df -kFufs<br>
+history <br>
+=================================================</font></p>
+<p><font face="Verdana" size="2">
+<br>
+&nbsp;</font></p>
+
+</body>
+
+</html>

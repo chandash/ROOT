@@ -1,0 +1,10 @@
+Lines  Blank  Cmnts   NCSL     AESL     
+=====  =====  =====  =====  ==========  =======================================
+    2      0      2      2        12.0  new//inc/GponXdslOperDataMib.h DELETED  (C++)
+   14      3      5     11        66.0  new//inc/GponXdslOperDataMib.h INSERTED  (C++)
+    2      0      0      2        12.0  new//swdb/opstat_swdb_cmds.cc DELETED  (C++)
+    2      0      0      2        12.0  new//swdb/opstat_swdb_cmds.cc INSERTED  (C++)
+   34      2      0     32       192.0  new//xdsl/rept_opstat_operdata_cmds.cc DELETED  (C++)
+  134      8      6    120       720.0  new//xdsl/rept_opstat_operdata_cmds.cc INSERTED  (C++)
+   38      2      2     36       216.0  ----- C++ DELETED -----  (3 files)
+  150     11     11    133       798.0  ----- C++ INSERTED -----  (3 files)

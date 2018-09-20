@@ -1,0 +1,12 @@
+Lines  Blank  Cmnts   NCSL     AESL     
+=====  =====  =====  =====  ==========  =======================================
+   41      3      5     33       198.0  gponCmSnmp.cc DELETED  (C++)
+   45      5     17     25       150.0  gponCmSnmp.cc INSERTED  (C++)
+    7      2      1      4        24.0  gponFttbSnmp.cc DELETED  (C++)
+    3      0      2      1         6.0  gponFttbSnmp.cc INSERTED  (C++)
+   16      1      0     15        90.0  gponPmSnmp.cc DELETED  (C++)
+    3      1      0      2        12.0  gponPmSnmp.cc INSERTED  (C++)
+    0      0      0      0         0.0  gponXdslCm.cc DELETED  (C++)
+    4      2      1      1         6.0  gponXdslCm.cc INSERTED  (C++)
+   64      6      6     52       312.0  ----- C++ DELETED -----  (4 files)
+   55      8     20     29       174.0  ----- C++ INSERTED -----  (4 files)
